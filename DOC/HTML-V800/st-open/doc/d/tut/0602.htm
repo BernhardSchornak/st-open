@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Men&uuml;s und Dialoge" />
+ <meta name="Description" content="ST-Open Tutorial: Men&uuml;s und Dialoge" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Men&uuml;s und Dialoge</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0601.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0603.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Men&uuml;s und Dialoge</h1>
+Es gibt zwei Werkzeuge zur Eingabe und &Uuml;bersetzung von Men&uuml;- und Dialogtexten: Eines
+ f&uuml;r Programme, das andere f&uuml;r Systemdialoge der ST-Open Bibliotheken. Das Systemfeld
+ sollte von Anwendungsprogrammierern nicht ver&auml;ndert werden, da die Systemdialoge auch in
+ anderen Programmen funktionieren sollten. &Uuml;bersetzungen sind selbstverst&auml;ndlich von
+ dieser Regel ausgenommen und grunds&auml;tzlich erw&uuml;nscht.
+<div class="crlf1"></div>
+Die Verwendung automatisierter Dialogtexte erfordert ein wenig Planung, da alle Eintr&auml;ge
+ die Resource-ID des zugeordneten Fensters ben&ouml;tigen.  Eine vorausschauende Planung und
+ sorgf&auml;ltiges Notieren aller Resource-IDs ist angebracht, wenn Sie vorhaben, ihr Programm
+ zu pflegen oder sp&auml;ter einmal zu erweitern. Es ist immer hilfreich, wenn man zu einem
+ sp&auml;teren Zeitpunkt nur in einer Datei nachschauen braucht, welcher Text welchem Fenster
+ zugeordnet ist, statt sich quer durch mehrere Dateien zu arbeiten, um diese Information aus
+ Quelltexten, Dialogen und Kopfdateien zu extrahieren.
+<div class="crlf1"></div>
+<h2>Feld FFFFFF12</h2>
+F&uuml;r die Funktionen zum &Auml;ndern der Men&uuml;- und Fenstertexte ben&ouml;tigen Sie ein
+ Feld mit der Nummer FFFFFF12, das im DATA-Ordner der Applikation abgelegt werden muss. Sollten
+ Sie das V700 Programmskelett verwenden (empfohlen), dann ist dieses Feld bereits vorhanden.
+ Wollen Sie ein solches Feld selbst erstellen, starten Sie die DatTools und legen ein Feld mit
+ der Nummer FFFFFF12 an. Das Feld muss 16 mal den Datentyp $40 f&uuml;r die Texte und ein DD
+ f&uuml;r die Resource-ID enthalten. Die <i>Anz. Eintr&auml;ge</i> legen Sie entsprechend den
+ Bed&uuml;rftnissen des Programms fest. Die <i>max. L&auml;nge</i> ist in den DatTools auf 64
+ Zeichen begrenzt. Sie sollten diesen Wert akzeptieren - selbst wenn Sie ihn auf 65.536 setzen,
+ schneiden die DatTools die Zeichenkette nach dem dreiundsechzigsten Zeichen rigoros ab. Nach
+ der Erstellung des Feldes k&ouml;nnen Sie die DatTools gleich ge&ouml;ffnet lassen, um mit dem
+ n&auml;chten Schritt fortzufahren.
+<div class="crlf1"></div>
+<h2>Texteingabe</h2>
+<div class="box100"><img src="../../../st7/md5/d/pics/mwt.png" alt="Tool: Men&uuml;- und Fenstertexte" width="612" height="732" border="0" /></div>
+<div class="crlf1"></div>
+Das Werkzeug selbst ist recht simpel zu bedienen. Geben Sie zuerst die Resource-ID (die Nummer,
+ die sie einem Men&uuml;eintrag oder Dialogelement in einer Kopfdatei mit Resourcedefinitionen
+ zugewiesen haben) in das Eingabefeld neben dem Drehknopf ein. Das Eingabefeld akzeptiert nur
+ <b>hexadezimale</b> Zahlen. Wundern Sie sich also nicht, wenn Ihr Programm nach der Eingabe
+ dezimaler Zahlen keinen einzigen Text anzeigt! Nach der Eingabe der Resource-ID geben Sie den
+ Text f&uuml;r das Men&uuml; oder Fenster im entsprechenden Eingabefeld ein. Die erste Sprache
+ ist Englisch, die zweite Deutsch. Alle anderen Sprachen sind momentan noch nicht festgelegt,
+ sie sollten sich aber nach den vorhandenen &Uuml;bersetzungen richten. Wenn die Eingabe Ihres
+ Textes beendet ist, wechseln Sie zum n&auml;chsten Eintrag, bis alle IDs und Texte eingegeben
+ sind. Ein Klick auf <i>Beenden</i> speichert das ge&auml;nderte Feld im DATA-Ordner Ihrer
+ Applikation, das Sprachfeld steht ab sofort zur Verf&uuml;gung. Der letzte Schritt zu einem
+ mehrsprachigen Programm ist das Einbinden der Funktionen MNUtxt(), respektive DLGtxt() in den
+ Quelltext des Programms.
+<div class="crlf1"></div>
+<h2>Men&uuml;s</h2>
+Um bei sp&auml;teren &Auml;nderungen nicht die gesamten Quelltexte durchsuchen zu m&uuml;ssen,
+ empfiehlt es sich, die Nummern des Anfangs- und Endeintrags in einer Kopfdatei zu definieren:
+<pre>
+# define MENU_ANFANG   0x0000     /* erster  Eintrag */
+# define MENU_ENDE     0x0022     /* letzter Eintrag */
+</pre>
+Zum Setzen der Men&uuml;texte rufen Sie
+<pre>
+MNUtxt(hwnd, MENU_ANFANG, MENU_ENDE);
+</pre>
+auf. Optional kann dem Aufruf der Wechsel auf eine andere Sprache vorausgehen:
+<pre>
+*STV_USR_LANGUAGE = 0;
+MNUtxt(hwnd, MENU_ANFANG, MENU_ENDE);
+</pre>
+Der Fensterhenkel <i>hwnd</i> ist der Henkel des <b>Ausgabefensters</b> - bitte &uuml;bergeben
+ Sie hier weder den Henkel des Rahmens noch einen anderen Fensterhenkel!
+<div class="crlf1"></div>
+Die Eintr&auml;ge MENU_ANFANG bis einschliesslich MENU_ENDE werden aus dem Unterfeld mit der in
+ <b>STV_USR_LANGUAGE</b> festgelegten Nummer gelesen und in jene Men&uuml;elemente geschrieben,
+ die die jeweils aus Unterfeld 17 gelesene Resource-ID haben. Wollen Sie einige Eintr&auml;ge
+ reservieren, muss man nur die Resource-IDs der entsprechenden Eintr&auml;ge auf Null setzen
+ (IDs mit dem Wert Null werden im ST-System als ung&uuml;ltig behandelt). Definieren Sie bitte
+ nur IDs ab 0x1000, da der Bereich darunter zum Teil von Systemdialogen verwendet wird!
+<div class="crlf1"></div>
+<h2>Fenster und Dialoge</h2>
+Die Einbindung der Sprachunterst&uuml;tzung f&uuml;r Fenster erfolgt &uuml;ber den Aufruf
+<pre>
+DLGtxt(hwnd, titel, titel, titel);
+</pre>
+oder
+<pre>
+DLGtxt(hwnd, titel, 0, 0);
+</pre>
+wobei <i>hwnd</i> der Henkel des Fensters oder Dialogs und <i>title</i> die Nummer des Eintrags
+ mit dem entsprechenden Text ist. Die aktuelle Sprache wird durch Setzen der globalen Variablen
+ <b>STV_USR_LANGUAGE</b> festgelegt. Dieser Aufruf sollte dann verwendet werden, wenn nur der
+ Fenstertitel neu gesetzt werden soll. F&uuml;r Fenstertitel wird &uuml;brigens deswegen keine
+ Resource-ID ben&ouml;tigt, da das Fenster selbst immer &uuml;ber <i>hwnd</i> angesprochen wird.
+ WnSTx() w&auml;re in diesem Fall zwar eine Alternative, da DLGtxt() bei jedem Aufruf das Feld
+ FFFFFF12 laden und wieder freigeben muss. Eine flexible, mehrsprachige L&ouml;sung erfordert
+ aber so viel zus&auml;tzlichen Code, dass die Verwendung von DLGtxt() sicher einfacher ist.
+<div class="crlf1"></div>
+<h2>Dialogelemente</h2>
+Um alle Texte in einem Dialog (einschliesslich des Fenstertitels) zu setzen rufen Sie
+<pre>
+DLGtxt(hwnd, titel, anfang, ende);
+</pre>
+auf. Mit diesen Parametern wird der Fenstertitel auf den im Eintrag <i>titel</i> stehenden Text
+ gesetzt. Anschliessend werden die Eintr&auml;ge <i>anfang</i> bis einschliesslich <i>ende</i>
+ gelesen, und die duch ihre Resource-ID eindeutig festgelegten Dialogelemente mit neuem Inhalt
+ gef&uuml;llt. Das Fenster selbst wird &uuml;ber <i>hwnd</i> angesprochen, die Resource-ID des
+ Eintrags <i>titel</i> wird von DLGtxt() ignoriert.
+<div class="crlf1"></div>
+<h2>Feld FFFFFF13</h2>
+Dieses Feld enth&auml;lt die Texte aller Systemdialoge. Der Eingabe- und &Uuml;bersetzungsdialog
+ entspricht dem zuvor besprochenen.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0601.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0603.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0602.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

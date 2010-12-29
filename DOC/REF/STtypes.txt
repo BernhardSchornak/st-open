@@ -1,0 +1,32 @@
+
+
+     ST-Open Database Engine
+     อออออออออออออออออออออออ
+
+     This file contains all types defined for the ST-System. FDacc() doesn't recognise
+     other types because it does not know anything about them.
+
+     Please *NEVER* define data types on you own. If you think a data type is missing,
+     drop me a note. I might consider to expand the DBE if you can convince me why the
+     data type you need is *that* important.
+
+
+     DATA TYPES (8.0.0.)
+     ฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤ
+
+     00   none              undefined (no type assigned)
+     01   DB       8 bit    byte
+     02   DW      16 bit    word
+     03   DD      32 bit    doubleword
+     04   DQ      64 bit    quadword
+     05   DO     128 bit    octoword
+     06   FIX    static     block with octowords (32, 64, 128, 256, 256 * n)
+     07   $32    dynamic    32 bit offset table
+     08   ---
+     09   ---
+     0A   ---
+     0B   ---
+     0C   ---
+     0D   ---
+     0E   ---
+     0F   ---

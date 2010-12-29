@@ -1,0 +1,93 @@
+
+
+          Changes to simplify ACF.S
+          =========================
+
+          All three functions - FDacc(), SftDn() and SftUp() - share a common distributor, now.
+          This distributor performs all parameter checks and sets the following registers:
+
+          RCX   MemHandle
+          ----------------------------------------------------------------------------------
+          RDX   entry number   start    FDA_SEARCH, SftUp(), SftDn()
+                               source   FDA_READ
+                               target   all other FDA_* functions
+          ----------------------------------------------------------------------------------
+          R08   subfield
+          ----------------------------------------------------------------------------------
+          R09   command                 FDacc(), only
+          ----------------------------------------------------------------------------------
+          P_5   address       source    FDA_WRITE
+                              pattern   FDA_SEARCH, FDA_COMPARE
+                              target    FDA_READ
+          ----------------------------------------------------------------------------------
+          P_6   numeric       number    FDA_WRITE, FDA_SEARCH, FDA_COMPARE, FDA_ADD, FDA_SUB
+                              source    FDA_COPY, FDA_MOVE, FDA_EXCHANGE
+          ----------------------------------------------------------------------------------
+          RDI   field address
+          ----------------------------------------------------------------------------------
+          RSI   BNR
+          ----------------------------------------------------------------------------------
+          R11   maximum entry size
+          ----------------------------------------------------------------------------------
+          R12   type
+          ----------------------------------------------------------------------------------
+          R13   address subfield
+          ----------------------------------------------------------------------------------
+          R14   Loader flags (MemHandle)
+          ----------------------------------------------------------------------------------
+          R15   address buffer (BBF)
+          ----------------------------------------------------------------------------------
+
+
+
+          FDacc()
+          =======
+
+          Permission checks were simplified. After the jump table, switching between reading or
+          writing functions, conditional jumps were reduced to two checks. The first determines
+          if loader flags grant read or write permission for this field, the second compares if
+          USR_RW or USR_WR match the required SecSys read or write permission. If a field isn't
+          controlled by SecSys, both permission words in the field header should be set to FFFF
+          to let all requests pass this test. As long as SecSys is not used at all, these words
+          could be left untouched. However, this might cause problems if SecSys controlled data
+          fields are added later on (DatTools set both words to FFFF).
+
+          Both conditional jumps only are taken if the requirements are not fulfilled. Most re-
+          quests will pass both checks without triggering penalty cycles.
+
+          With eight additional registers, all important parameters are preloaded and available
+          when required. Multiple reads were paired to speed up the preparation process as much
+          as possible.
+
+
+          ERR0
+          ----
+
+          Error Handling was greatly simplified and uses one single exit for faulty parameters,
+          impossible operations and data processing errors.
+
+
+          XIZ
+          ---
+
+          Functions returning zero by default should jump to this label on exit. RAX is cleared
+          and all preserved registers are restored.
+
+
+          XIT
+          ---
+
+          Functions returning numeric data should jump to this label on exit. RAX is left as is
+          and all preserved registers are restored.
+
+
+          UNL
+          ---
+
+          Before writing to a datafield, the busy flag is set to prevent multiple manipulations
+          of the datafield's offset table and data area. As long as a write process is running,
+          the datafield is marked as 'dirty' and no second write access is allowed, because the
+          entire structure of the offset table(s) and the content of the data area are not con-
+          sistent while data is shuffled up or down, offsets must be corrected, and so on. When
+          a write is done, the write module finally jumps to UNL. Here, the busy flag is reset,
+          RAX is cleared and all preserved registers are restored.

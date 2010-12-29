@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>FA-Struktur</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0103.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0200.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>FA</h1>
+<div class="inner">
+<pre>
+   typedef struct _FA{
+                      DD    MMoff;   /* 00   MemHandle             */
+                      DD    Field;   /* 04   ignored!              */
+                      DD    SubFd;   /* 08   sub field number      */
+                      DD    Entry;   /* 0C   entry number          */
+                      VOID *StrEA;   /* 10   string adress to pass */
+                      DD    Value;   /* 14   value to pass         */
+                     } FA;
+   typedef FA *PFA;
+</pre>
+</div><div class="outer">Definition</div><div class="crlf1"></div>
+<div class="inner">
+MemHandle
+</div><div class="outer">MMoff</div><div class="crlf0"></div>
+<div class="inner">
+parameter ignored - please pass a MemHandle in FA.MMoff!
+</div><div class="outer">Field</div><div class="crlf0"></div>
+<div class="inner">
+number of the sub-field
+</div><div class="outer">SubFd</div><div class="crlf0"></div>
+<div class="inner">
+entry number
+</div><div class="outer">Entry</div><div class="crlf0"></div>
+<div class="inner">
+optional: address of a string
+</div><div class="outer">StrEA</div><div class="crlf0"></div>
+<div class="inner">
+optional: numeric value
+</div><div class="outer">Value</div><div class="crlf0"></div>
+<div class="inner">
+The FA structure is used by a few PM functions. Please refer to those functions. This structure
+ is obsolete and disappears sooner or later. Please replace code using it with direct calls to
+ the appropriate API functions.
+</div><div class="outer">Description</div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0103.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0200.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

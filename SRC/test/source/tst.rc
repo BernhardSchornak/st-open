@@ -1,0 +1,226 @@
+  /*================================================================================
+        THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE
+  ----------------------------------------------------------------------------------
+  You may copy and distribute this file as often as you want, but recipients are not
+  allowed to pay anything for any copy of this file or its content. It isn't allowed
+  to abuse its copyrighted content or introduced techniques for commercial purposes.
+  Whatever is derived from this file or its content must be freely available without
+  charge.
+
+  You are free to modify the content of this file if you want to. However, derivates
+  of the content of this file or parts of it *still* are subject to the terms of the
+  FT4FP license. Recipients neither are allowed to pay anything for the original nor
+  for altered or derived replica.
+  ----------------------------------------------------------------------------------
+        FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!
+  ================================================================================*/
+  #include <windows.h>
+  #include <commctrl.h>
+  /*================================================================================
+                                     RESOURCES
+  ================================================================================*/
+  0x1005 ICON   "..\\auxi\\tst.ico"
+  /*================================================================================
+                                     MAIN MENU
+  ================================================================================*/
+  STmenu MENU PRELOAD DISCARDABLE
+  BEGIN
+   POPUP "Program"
+    BEGIN
+     MENUITEM "Exit",       0x1010
+    END
+   POPUP "Tests"
+    BEGIN
+     MENUITEM "Test Runs",  0x1011
+     MENUITEM "Statistics", 0x1012
+     MENUITEM "Evaluation", 0x1013
+    END
+   POPUP "Tools"
+    BEGIN
+     MENUITEM "00",         0x1014
+     MENUITEM "01",         0x1015
+     MENUITEM "02",         0x1016
+    END
+   POPUP "Help"
+    BEGIN
+     MENUITEM "About",      0x1017
+    END
+  END
+  /*================================================================================
+                                     ABOUT BOX
+  ================================================================================*/
+  STabox DIALOG PRELOAD DISCARDABLE                                 0,   0, 200, 100
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION "About..."
+  FONT 10, "Arial"
+  BEGIN
+   ICON            0x1005,                                0xFFFF,  90,  10,  32,  32
+   CTEXT           "Test program for user functions.",    0x1202,   5,  48, 190,  10
+   CTEXT           "Copyright: Bernhard Schornak (2010)", 0x1203,   5,  60, 190,  10
+   PUSHBUTTON      "Dismiss",                             0x1210,  70,  82,  60,  14
+  END
+  /*================================================================================
+                                      TESTRUN
+  ================================================================================*/
+  STtest DIALOG PRELOAD DISCARDABLE        0,   0, 585, 320
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION "Test Runs"
+  FONT 8, "MS Shell Dlg"
+  BEGIN
+   PUSHBUTTON      "Dismiss",    0x1100,  60, 292, 100,  20
+   PUSHBUTTON      "Run",        0x1101, 340, 294,  95,  17
+   RTEXT           "        16", 0x1110,   5,  34,  50,   8
+   RTEXT           "        32", 0x1111,   5,  49,  50,   8
+   RTEXT           "        64", 0x1112,   5,  64,  50,   8
+   RTEXT           "       128", 0x1113,   5,  79,  50,   8
+   RTEXT           "       256", 0x1114,   5,  94,  50,   8
+   RTEXT           "       512", 0x1115,   5, 109,  50,   8
+   RTEXT           "     1 024", 0x1116,   5, 124,  50,   8
+   RTEXT           "     2 048", 0x1117,   5, 139,  50,   8
+   RTEXT           "     4 096", 0x1118,   5, 154,  50,   8
+   RTEXT           "     8 192", 0x1119,   5, 169,  50,   8
+   RTEXT           "    16 384", 0x111A,   5, 184,  50,   8
+   RTEXT           "    32 768", 0x111B,   5, 199,  50,   8
+   RTEXT           "    65 536", 0x111C,   5, 214,  50,   8
+   RTEXT           "   131 072", 0x011D,   5, 229,  50,   8
+   RTEXT           "   262 144", 0x011E,   5, 244,  50,   8
+   RTEXT           "   524 288", 0x011F,   5, 259,  50,   8
+   LTEXT           "Uncached",   0x1102,  60,   6,  60,   8
+   LTEXT           "Testee 00",  0x1103,  60,  19,  60,   8
+   EDITTEXT                      0x1120,  60,  32,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1121,  60,  47,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1122,  60,  62,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1123,  60,  77,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1124,  60,  92,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1125,  60, 107,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1126,  60, 122,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1127,  60, 137,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1128,  60, 152,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1129,  60, 167,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x112A,  60, 182,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x112B,  60, 197,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x112C,  60, 212,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x112D,  60, 227,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x112E,  60, 242,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x112F,  60, 257,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "Testee 01",  0x1104, 125,  19,  60,   8
+   EDITTEXT                      0x1130, 125,  32,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1131, 125,  47,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1132, 125,  62,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1133, 125,  77,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1134, 125,  92,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1135, 125, 107,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1136, 125, 122,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1137, 125, 137,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1138, 125, 152,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1139, 125, 167,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x113A, 125, 182,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x113B, 125, 197,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x113C, 125, 212,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x113D, 125, 227,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x113E, 125, 242,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x113F, 125, 257,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "Testee 02",  0x1105, 190,  19,  60,   8
+   EDITTEXT                      0x1140, 190,  32,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1141, 190,  47,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1142, 190,  62,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1143, 190,  77,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1144, 190,  92,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1145, 190, 107,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1146, 190, 122,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1147, 190, 137,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1148, 190, 152,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1149, 190, 167,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x114A, 190, 182,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x114B, 190, 197,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x114C, 190, 212,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x114D, 190, 227,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x114E, 190, 242,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x114F, 190, 257,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "Testee 03",  0x1106, 255,  19,  60,   8
+   EDITTEXT                      0x1150, 255,  32,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1151, 255,  47,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1152, 255,  62,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1153, 255,  77,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1154, 255,  92,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1155, 255, 107,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1156, 255, 122,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1157, 255, 137,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1158, 255, 152,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1159, 255, 167,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x115A, 255, 182,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x115B, 255, 197,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x115C, 255, 212,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x115D, 255, 227,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x115E, 255, 242,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x115F, 255, 257,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "Cached",     0x1107, 325,   6,  60,   8
+   LTEXT           "Testee 00",  0x1108, 325,  19,  60,   8
+   EDITTEXT                      0x1160, 325,  32,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1161, 325,  47,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1162, 325,  62,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1163, 325,  77,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1164, 325,  92,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1165, 325, 107,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1166, 325, 122,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1167, 325, 137,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1168, 325, 152,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1169, 325, 167,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x116A, 325, 182,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x116B, 325, 197,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x116C, 325, 212,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x116D, 325, 227,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x116E, 325, 242,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x116F, 325, 257,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "Testee 01",  0x1109, 390,  19,  60,   8
+   EDITTEXT                      0x1170, 390,  32,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1171, 390,  47,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1172, 390,  62,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1173, 390,  77,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1174, 390,  92,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1175, 390, 107,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1176, 390, 122,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1177, 390, 137,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1178, 390, 152,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1179, 390, 167,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x117A, 390, 182,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x117B, 390, 197,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x117C, 390, 212,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x117D, 390, 227,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x117E, 390, 242,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x117F, 390, 257,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "Testee 02",  0x110A, 455,  19,  60,   8
+   EDITTEXT                      0x1180, 455,  32,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1181, 455,  47,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1182, 455,  62,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1183, 455,  77,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1184, 455,  92,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1185, 455, 107,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1186, 455, 122,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1187, 455, 137,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1188, 455, 152,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1189, 455, 167,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x118A, 455, 182,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x118B, 455, 197,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x118C, 455, 212,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x118D, 455, 227,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x118E, 455, 242,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x118F, 455, 257,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "Testee 03",  0x110B, 520,  19,  60,   8
+   EDITTEXT                      0x1190, 520,  32,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1191, 520,  47,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1192, 520,  62,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1193, 520,  77,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1194, 520,  92,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1195, 520, 107,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1196, 520, 122,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1197, 520, 137,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1198, 520, 152,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x1199, 520, 167,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x119A, 520, 182,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x119B, 520, 197,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x119C, 520, 212,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x119D, 520, 227,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x119E, 520, 242,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                      0x119F, 520, 257,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+  END

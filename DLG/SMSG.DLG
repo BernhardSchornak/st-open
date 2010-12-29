@@ -1,0 +1,26 @@
+
+100 DIALOG PRELOAD 90, 57, 290, 275
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "System Message"
+FONT 10, "Consolas"
+BEGIN
+    LTEXT           "Text", 0x0065, 5, 7, 280, 10
+    EDITTEXT        0x0066, 5, 27, 280, 160, ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_OEMCONVERT | ES_READONLY | WS_HSCROLL
+    LTEXT           "Parameter 1:", 0x0067, 5, 194, 60, 8
+    LTEXT           "Parameter 2:", 0x0068, 5, 208, 60, 8
+    LTEXT           "Parameter 3:", 0x0069, 5, 222, 60, 8
+    LTEXT           "Parameter 4:", 0x006a, 5, 236, 60, 8
+    RTEXT           "0000 0000 0000 0000", 0x006b, 70, 194, 80, 8
+    RTEXT           "18 999 999 999 999 999 999", 0x006c, 155, 194, 130, 8
+    RTEXT           "0000 0000 0000 0000", 0x006d, 70, 208, 80, 8
+    RTEXT           "18 999 999 999 999 999 999", 0x006e, 155, 208, 130, 8
+    RTEXT           "0000 0000 0000 0000", 0x006f, 70, 222, 80, 8
+    RTEXT           "0000 0000 0000 0000", 0x0071, 70, 236, 80, 8
+    RTEXT           "18 999 999 999 999 999 999", 0x0072, 155, 236, 130, 8
+    PUSHBUTTON      "choice 1", 0x0073, 5, 254, 90, 16
+    PUSHBUTTON      "choice 2", 0x0074, 100, 254, 90, 16
+    PUSHBUTTON      "choice 3", 0x0075, 195, 254, 90, 16
+    RTEXT           "18 999 999 999 999 999 999", 0x0070, 155, 222, 130, 8
+END

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="WnCreate()" />
+ <meta name="Description" content="ST-Open Libraries: WnCreate()" />
+ <meta name="Keywords" content="ST-Open, open, source, ST-Open, library, libraries, free, software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>WnCreate()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="cap04.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="cap06.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100"><div class="inner">..\st7\lib\sources\core\cap.S
+</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>WnCreate</b></div><div class="outer">Function</div></div><div class="crlf0"></div>
+<div class="text100">
+<div class="inner">rc = WnCreate(class, title, style, x, y, w, h, hpar, hmenu, hinst, crea);
+<div class="crlf1"></div>
+Please use <i>WnCreatX()</i>, not <i>WnCreate()</i>! The GCC header
+ maps <i>CreateWindowA()</i> to <i>CreateWindowExA()</i> - all
+ <i>WnCreate()</i> parameters have to be placed at misaligned
+ locations to match the requirements for the <i>WnCreatX()</i> call.
+ To avoid some extra cycles you should prefer <i>WnCreatX()</i>
+ over <i>WnCreate()</i>.
+</div>
+<div class="outer">Call</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div>
+<div class="inners">class</div>
+<div class="innerl">address class name</div>
+<div class="crlf0"></div>
+<div class="inners">RDX</div>
+<div class="inners">title</div>
+<div class="innerl">address window title</div>
+<div class="crlf0"></div>
+<div class="inners">R08</div>
+<div class="inners">style</div>
+<div class="innerl">style flags</div>
+<div class="crlf0"></div>
+<div class="inners">R09</div>
+<div class="inners">x</div>
+<div class="innerl">x-position (left edge)</div>
+<div class="crlf0"></div>
+<div class="inners">20[RSP]</div>
+<div class="inners">y</div>
+<div class="innerl">y-position (bottom edge)</div>
+<div class="crlf0"></div>
+<div class="inners">28[RSP]</div>
+<div class="inners">w</div>
+<div class="innerl">width</div>
+<div class="crlf0"></div>
+<div class="inners">30[RSP]</div>
+<div class="inners">h</div>
+<div class="innerl">height</div>
+<div class="crlf0"></div>
+<div class="inners">38[RSP]</div>
+<div class="inners">hpar</div>
+<div class="innerl">HWND parent</div>
+<div class="crlf0"></div>
+<div class="inners">40[RSP]</div>
+<div class="inners">hmenu</div>
+<div class="innerl">menu handle</div>
+<div class="crlf0"></div>
+<div class="inners">48[RSP]</div>
+<div class="inners">hinst</div>
+<div class="innerl">instance handle</div>
+<div class="crlf0"></div>
+<div class="inners">50[RSP]</div>
+<div class="inners">crea</div>
+<div class="innerl">creation qword</div></div>
+<div class="outer">Input</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RAX</div>
+<div class="inners">hicon</div>
+<div class="innerl">HICON (0 = error)</div>
+</div><div class="outer">Output</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+LdCursor() calls LoadCursorA(), then restores the destroyed content
+ of ECX, EDX, R08, R09, R10 and R11.
+<div class="crlf1"></div>
+Please do not call sandboxes from C code. It is a waste of precious time
+ to restore registers which are refilled with random garbage soon after.
+</div><div class="outer">Description</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+ ...
+ movl  $0x80000000, %edi        # RDI = CW_USEDEFAULT
+ xorl  %eax, %eax               # RAX = NULL
+ leaq  LC01(%rip), %rcx         # RCX = EA class name
+ leaq  LC02(%rip), %rdx         # RDX = EA title
+ movl  $0x00CF0000, %r8d        # R08 = style
+ movq  %rdi, %r9                # R09 = x
+ movq  %rdi, 0x20(%rsp)         # y
+ movq  %rdi, 0x28(%rsp)         # w
+ movq  %rdi, 0x30(%rsp)         # h
+ movq  %rax, 0x38(%rsp)         # HWND parent
+ movq  %rax, 0x40(%rsp)         # Hmenu
+ movq  %rsi, 0x48(%rsp)         # Hinstance
+ movq  %rax, 0x50(%rsp)         # no creation qword
+ call  _WnCreate
+ movq  %rax, _Hmain(%rip)       # store HWND
+ testq %rax, %rax               # error?
+ je    err
+ ...
+</pre>
+Creates a new window. Its handle <b>HWND</b> is returned in RAX. If RAX is zero,
+ creation of the new window failed.
+</div><div class="outer">Example</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="cap04.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="cap06.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

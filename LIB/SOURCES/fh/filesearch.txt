@@ -1,0 +1,44 @@
+
+
+          WIN32_FIND_DATAA   - align to xxx4[RSP]!
+
+          0000   dwFileAttributes     DD
+          0004   ftCreationTime       FILETIME
+          000C   ftLastAccessTime     FILETIME
+          0014   ftLastWriteTime      FILETIME
+          001C   nFileSizeHigh        DD
+          0020   nFileSizeLow         DD
+          0024   dwReserved0          DD
+          0028   dwReserved1          DD
+          002C   cFileName            DB [260]
+          0130   cAlternateFileName   DB [14]
+
+          013E   SIZE
+
+          dwFileAttributes:
+
+          0001   FILE_ATTRIBUTE_READONLY
+          0002   FILE_ATTRIBUTE_HIDDEN
+          0004   FILE_ATTRIBUTE_SYSTEM
+          0010   FILE_ATTRIBUTE_DIRECTORY
+          0020   FILE_ATTRIBUTE_ARCHIVE
+          0080   FILE_ATTRIBUTE_NORMAL
+          0100   FILE_ATTRIBUTE_TEMPORARY
+          0800   FILE_ATTRIBUTE_COMPRESSED
+
+          This is all we have for comparison...
+
+          flags in R13:
+
+          01     dir only
+          02     store
+          04     append path
+
+          stack:
+
+          0020   P_5
+          0040   pattern
+          0184   struc
+          01B0   name
+          02C2   struc end
+

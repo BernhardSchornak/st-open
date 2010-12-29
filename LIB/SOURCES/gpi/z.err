@@ -1,0 +1,53 @@
+In file included from bmp.c:16:
+..\..\..\SRC\AVDL\source\hmsg.h:35: warning: `ERR_FILE_OPEN' redefined
+f:/st6/include/yerr.h:20: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hmsg.h:36: warning: `ERR_FILE_READ' redefined
+f:/st6/include/yerr.h:21: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hmsg.h:37: warning: `ERR_FILE_WRITE' redefined
+f:/st6/include/yerr.h:22: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hmsg.h:39: warning: `ERR_FILE_CLOSE' redefined
+f:/st6/include/yerr.h:24: warning: this is the location of the previous definition
+In file included from bmp.c:18:
+..\..\..\SRC\AVDL\source\hvar.h:406: warning: `STR_LANG0' redefined
+f:/st6/include/yvar.h:338: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:407: warning: `STR_LANG1' redefined
+f:/st6/include/yvar.h:339: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:408: warning: `STR_LANG2' redefined
+f:/st6/include/yvar.h:340: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:409: warning: `STR_LANG3' redefined
+f:/st6/include/yvar.h:341: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:410: warning: `STR_LANG4' redefined
+f:/st6/include/yvar.h:342: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:411: warning: `STR_LANG5' redefined
+f:/st6/include/yvar.h:343: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:412: warning: `STR_LANG6' redefined
+f:/st6/include/yvar.h:344: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:413: warning: `STR_LANG7' redefined
+f:/st6/include/yvar.h:345: warning: this is the location of the previous definition
+In file included from gpi.c:97:
+..\..\..\SRC\AVDL\source\hmsg.h:35: warning: `ERR_FILE_OPEN' redefined
+f:/st6/include/yerr.h:20: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hmsg.h:36: warning: `ERR_FILE_READ' redefined
+f:/st6/include/yerr.h:21: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hmsg.h:37: warning: `ERR_FILE_WRITE' redefined
+f:/st6/include/yerr.h:22: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hmsg.h:39: warning: `ERR_FILE_CLOSE' redefined
+f:/st6/include/yerr.h:24: warning: this is the location of the previous definition
+In file included from gpi.c:99:
+..\..\..\SRC\AVDL\source\hvar.h:406: warning: `STR_LANG0' redefined
+f:/st6/include/yvar.h:338: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:407: warning: `STR_LANG1' redefined
+f:/st6/include/yvar.h:339: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:408: warning: `STR_LANG2' redefined
+f:/st6/include/yvar.h:340: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:409: warning: `STR_LANG3' redefined
+f:/st6/include/yvar.h:341: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:410: warning: `STR_LANG4' redefined
+f:/st6/include/yvar.h:342: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:411: warning: `STR_LANG5' redefined
+f:/st6/include/yvar.h:343: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:412: warning: `STR_LANG6' redefined
+f:/st6/include/yvar.h:344: warning: this is the location of the previous definition
+..\..\..\SRC\AVDL\source\hvar.h:413: warning: `STR_LANG7' redefined
+f:/st6/include/yvar.h:345: warning: this is the location of the previous definition
+make: *** No way to make target `-o'.  Stop.

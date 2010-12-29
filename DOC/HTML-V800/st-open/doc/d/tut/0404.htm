@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Dateien laden" />
+ <meta name="Description" content="ST-Open Tutorial: Dateien laden" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Dateien laden</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0403.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0405.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Dateien laden</h1>
+Ab Version 7.0.0. k&ouml;nnen Dateien vor der Freigabe eines Speicherblocks automatisch gesichert
+ werden. Um diese Option einzuschalten, muss das Laderkontrollf&auml;hnchen <b>LDR_AUTOSAVE</b>
+ gesetzt werden. <b>LDR_AUTOSAVE</b> fasst folgende Laderkontrollf&auml;hnchen zusammen: LDR_READ
+ | LDR_WRITE | LDR_NO_FIELD | LDR_STATIC | LDR_LFLIST.
+<div class="crlf1"></div>
+Das automatische Sichern erfolgt nur dann, wenn die Option USE_LDF eingeschaltet ist!
+<div class="crlf1"></div>
+Da der Lader anwenderspezifische Dateien zwar l&auml;dt und gegebenenfalls auch sichert, sie aber
+ nicht verwaltet, m&uuml;ssen Anwendungsprogrammierer vor der Freigabe eines Speicherblocks die
+ Funktion LDstc() aufrufen, um dem Lader mitzuteilen, dass diese Datei ver&auml;ndert wurde. Hat
+ sich auch die Dateigr&ouml;sse ge&auml;ndert, dann wird statt LDstc() die Funktion LDsts() mit
+ der neuen Gr&ouml;sse aufgerufen. Beide Funktionen setzen das "ge&auml;ndert"-F&auml;hnchen in
+ der Ladertabelle, LDsts() aktualisiert zus&auml;tzlich die tats&auml;chliche Gr&ouml;sse. Der
+ Mehraufwand f&uuml;r den Programmierer beschr&auml;nkt sich so auf den Aufruf einer der beiden
+ Funktionen. Wird keine davon aufgerufen, dann verbleibt auch das "ge&auml;ndert"-F&auml;hnchen
+ in zur&uuml;ckgesetztem Zustand, und der Lader gibt den Speicherblock ohne Sicherung frei.
+<div class="crlf1"></div>
+Wenn Sie das "ge&auml;ndert"-F&auml;hnchen bereits gesetzt haben, die Datei dann aber doch nicht
+ gesichert werden soll, gen&uuml;gt ein Aufruf der Funktion LDunc(), um das F&auml;hnchen wieder
+ zur&uuml;ckzusetzen. LDunc() kann selbstverst&auml;ndlich auch f&uuml;r Felder verwendet werden,
+ wenn deren ge&auml;nderter Inhalt nicht gespeichert werden soll.
+<div class="crlf1"></div>
+Der erste Parameter zur Anforderung von Dateien sind die Laderkontrollf&auml;hnchen:
+<div class="box100q"><pre>
+DD Test(VOID)
+{
+ LD ld;
+ DD rc;
+ Mcl(&amp;ld, 40);
+ ld.LdCtl = LDR_FILE;    /* optional: LDR_AUTOSAVE */
+</pre></div>
+Wie man sieht, reicht die F&auml;hnchensammlung <b>LDR_FILE</b> hier aus, um alle ben&ouml;tigten
+ Schritte einzuleiten. LDR_FILE fasst die folgenden F&auml;hnchen zusammen: LDR_READ | LDR_WRITE
+ | LDR_NO_FIELD | LDR_STATIC. Optional k&ouml;nnten Sie die automatische Sicherung aktivieren,
+ indem Sie ld.LdCtl auf <b>LDR_AUTOSAVE</b> statt <b>LDR_FILE</b> setzen. Der zweite Parameter
+ ist der Dateiname mit vollem Pfad:
+<div class="box100q"><pre>
+ ld.FileN = "MeinLaufwerk:\MeinVerzeichnis\MeineDatei.ego";
+</pre></div>
+Nun k&ouml;nnen wir den Lader aufrufen:
+<div class="box100q"><pre>
+ rc = LDreq(&amp;ld);
+ if(rc)
+ {
+  return(rc);
+ }
+</pre></div>
+Ab hier steht Ihnen die geladene Datei zur Verf&uuml;gung. Die Adresse des Speicherblocks ist im
+ Parameter <b>ld.MemEA</b> abgelegt. Bitte verwenden Sie <b><i>niemals</i></b> den Speicherhenkel
+ <b>ld.MMoff</b> f&uuml;r Zugriffe auf den Speicherblock! Nach getaner Arbeit sollte man das Feld
+ wieder freigeben:
+<div class="box100q"><pre>
+ LDfre(ld.MMoff);
+</pre></div>
+Ist das automatische Sichern eingeschaltet, so ben&ouml;tigt der Lader noch zwei zus&auml;tzliche
+ Informationen. Wenn sich der Inhalt der Datei ge&auml;ndert hat, m&uuml;ssen Sie erst einmal das
+ entsprechende Statusf&auml;hnchen im Speicherhenkel setzen. Hierf&uuml;r rufen Sie die Funktion
+ LDstc(SpeiHenk) mit dem Speicherhenkel der Datei auf:
+<div class="box100q"><pre>
+ OPTIONAL (1)
+
+ LDstc(ld.MMoff);
+ LDfre(ld.MMoff);
+</pre></div>
+Hat sich auch die Gr&ouml;sse der Datei ver&auml;ndert, muss die tats&auml;chliche Gr&ouml;sse in
+ der Ladertabelle aktualisiert werden. Hierf&uuml;r ist die Funktion LDsts(SpeiHenk, Gr&ouml;sse)
+ mit dem Speicherhenkel und der neuen Gr&ouml;sse der Datei aufzurufen:
+<div class="box100q"><pre>
+ OPTIONAL (2)
+
+ LDsts(ld.MMoff, groesse);
+ LDfre(ld.MMoff);
+</pre></div>
+LDsts() setzt automatisch das "ge&auml;ndert"-F&auml;hnchen, Sie m&uuml;ssen also keine weiteren
+ Funktionen mehr aufrufen. Und auch hier das Ganze noch einmal am St&uuml;ck:
+<div class="box100q"><pre>
+DD Test(VOID)
+{
+ LD ld;
+ DD rc;
+ Mcl(&amp;ld, 40);
+ ld.LdCtl = LDR_FILE;    /* optional: LDR_AUTOSAVE */
+ ld.FileN = "MeinLaufwerk:\MeinVerzeichnis\MeineDatei.ego";
+ rc = LDreq(&amp;ld);
+ if(rc)
+ {
+  return(rc);
+ }
+ /*
+   CODE DER FUNKTION
+ */
+ /* OPTIONAL (1):
+ LDstc(ld.MMoff);
+ */
+ /* OPTIONAL (2):
+ LDsts(ld.MMoff, groesse);
+ */
+ rc = LDfre(ld.MMoff);
+ return(rc);
+}
+</pre></div>
+<div class="crlf1"></div>
+Auf der n&auml;chsten Seite geht es weiter mit dem &Auml;ndern der Gr&ouml;sse des allozierten
+ Speicherblocks.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0403.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0405.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0404.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: SecSys" />
+ <meta name="Description" content="ST-Open Tutorial: SecSys" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>SecSys</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/secsys.png" alt="SecSys Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0801.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0803.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>SecSy()</h1>
+SecSys wird mit einem einzigen Funktionsaufruf gesteuert:
+<div class="crlf1"></div>
+<div class="box100q"><pre>SecSy(Befehl, Adresse, Wert);</pre></div>
+<div class="crlf1"></div>
+<div class="inner">Einer der unten aufgef&uuml;hrten Befehle.</div><div class="outer"><b>Befehl</b></div><div class="crlf0"></div>
+<div class="inner">optional: Adresse einer Zeichenkette.</div><div class="outer"><b>Adresse</b></div><div class="crlf0"></div>
+<div class="inner">optional: 32 Bit breiter numerischer Wert.</div><div class="outer"><b>Wert</b></div><div class="crlf0"></div>
+<div class="crlf1"></div>
+<h2>Befehle</h2>
+Befehle in Klammmern sind nicht implementiert oder setzen mit Null initialisierte Variablen auf Null zur&uuml;ck. Alle
+ nicht definierten Befehle werden intern auf den Wert SS_ERR gesetzt, bevor der Funktionsverteiler angesprungen wird.
+<div class="crlf1"></div>
+<div class="inner">SecSys vorbereiten.</div><div class="outer"><a href="0803.htm">SS_PRP</a></div><div class="crlf0"></div>
+<div class="inner">Meister Einloggen.</div><div class="outer"><a href="0803.htm">SS_CKM</a></div><div class="crlf0"></div>
+<div class="inner">(In Normalzustand zur&uuml;ckversetzen.)</div><div class="outer">(SS_DEF)</div><div class="crlf0"></div>
+<div class="inner">SecSys starten.</div><div class="outer"><a href="0803.htm">SS_RUN</a></div><div class="crlf0"></div>
+<div class="inner">Benutzer Einloggen.</div><div class="outer"><a href="0804.htm">SS_LGI</a></div><div class="crlf0"></div>
+<div class="inner">Benutzer Ausloggen.</div><div class="outer"><a href="0804.htm">SS_LGO</a></div><div class="crlf0"></div>
+<div class="inner">Daten verschl&uuml;sseln.</div><div class="outer"><a href="0805.htm">SS_ENC</a></div><div class="crlf0"></div>
+<div class="inner">Daten entschl&uuml;sseln.</div><div class="outer"><a href="0805.htm">SS_DEC</a></div><div class="crlf0"></div>
+<div class="inner">(In Servierermodus schalten.)</div><div class="outer">(SS_SRV)</div><div class="crlf0"></div>
+<div class="inner">(Selbsttest starten.)</div><div class="outer">(SS_CKS)</div><div class="crlf0"></div>
+<div class="inner">(In Aufsehermodus schalten.)</div><div class="outer">(SS_SSV)</div><div class="crlf0"></div>
+<div class="inner">(Alle Aktivit&auml;ten mitloggen.)</div><div class="outer">(SS_DMP)</div><div class="crlf0"></div>
+<div class="inner">(reserviert.)</div><div class="outer">(SS_R00)</div><div class="crlf0"></div>
+<div class="inner">(reserviert.)</div><div class="outer">(SS_R01)</div><div class="crlf0"></div>
+<div class="inner">(reserviert.)</div><div class="outer">(SS_R02)</div><div class="crlf0"></div>
+<div class="inner">SecSys beenden ("herunterfahren").</div><div class="outer"><a href="0806.htm">SS_SDN</a></div><div class="crlf0"></div>
+<div class="inner">Fehlermeldung erzwingen.</div><div class="outer">SS_ERR</div><div class="crlf0"></div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0801.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0803.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>
+

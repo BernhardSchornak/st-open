@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="FLSdlg()" />
+ <meta name="Description" content="ST-Open Bibliotheken: FLSdlg()" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>FLSdlg()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">ST-Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="fls00.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="fls02.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st7\lib\sources\fls\fls.S</div><div class="outer"><big>fls.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>FLSdlg</b></div><div class="outer">Funktion</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = FLSdlg(FensHenk, msg, mp1, mp2);</div><div class="outer">Aufruf</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">HWND</div>
+<div class="inners">FensHenk</div>
+<div class="innerl">Fensterhenkel des Dialogs</div>
+<div class="crlf0"></div>
+<div class="inners">DD</div>
+<div class="inners">msg</div>
+<div class="innerl">Nachricht</div>
+<div class="crlf0"></div>
+<div class="inners">MPARAM</div>
+<div class="inners">mp1</div>
+<div class="innerl">Nachrichtenparameter 1</div>
+<div class="crlf0"></div>
+<div class="inners">MPARAM</div>
+<div class="inners">mp2</div>
+<div class="innerl">Nachrichtenparameter 2</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">MRESULT</div>
+<div class="inners">rc</div>
+<div class="innerl">Ausgabe</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+FLSdlg() ist die Dialogprozedur der Dateiliste. Der Dialog selbst muss mit <a href="../sys/pmf00.htm">DBox()</a> oder <a href="../sys/pmf01.htm">dbox()</a> ge&ouml;ffnet
+ werden. Sie sollten dbox() nur in Ausnahmef&auml;llen verwenden, da OS/2 die Resourcen von Dialogen mit dem Elternhenkel des Schreibtisches nicht mehr freigibt - bei
+ jedem Aufruf "verschwindet" ein Teil des verf&uuml;gbaren Speichers...
+<div class="crlf1"></div>
+Ist die Systemvariable STV_FLS_ADD ungleich Null, so wird der Dateiname an die Spitze der Dateiliste geschrieben. Alle anderen Eintr&auml;ge der Dateiliste werden hierbei
+ nach unten verschoben.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+DD MeineFunktion(HWND h)
+<pre>
+{
+ ...
+ DBox(h, (PFNWP)FLSdlg, ID_FLST);
+ if(FDacc(FLD_STR, STR_FLS_SELECT, 0, FDA_OFFSET, 0, 0))
+ {
+  /* Datei-Auswahl verarbeiten...  */
+ }
+ else
+ {
+  /* "ABBRUCH" wurde gedr&uuml;ckt */
+ }
+ ...
+}
+</pre>
+DBox() &ouml;ffnet den Dialog FLSdlg() mit der Resource-ID <b>ID_FLST</b>. Der Dialog verwaltet alle m&ouml;glichen Aktionen der Dateiliste. Wird eine Datei mittels
+ <i>&Ouml;ffnen</i> oder per Doppelklick ausgew&auml;hlt, dann wird der selektierte Dateiname in die Systemzeichenkette STR_FLS_SELECT kopiert. Wird <i>Abbrechen</i>
+ gew&auml;hlt, dann wird eine leere Zeichenkette zur&uuml;ckgeliefert. Der Dialog wird in beiden F&auml;llen automatisch geschlossen.
+</div><div class="outer">Example</div></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="fls00.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="fls02.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fmsc%2Ffls01.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

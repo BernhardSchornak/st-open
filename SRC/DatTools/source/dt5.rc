@@ -1,0 +1,156 @@
+  /*
+  ЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ
+  К                      R E S O U R C E   D E F I N I T I O N S                       Кл
+  КФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФКл
+  К                          *** (C) ST-Open 1979 - 2011 ***                           Кл
+  ШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМл
+    ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+  ЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ
+  К       THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE        Кл
+  КФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФКл
+  К You may copy and distribute this file as often as you want, but recipients are not Кл
+  К allowed to pay anything for any copy of this file or its content. It isn't allowed Кл
+  К to abuse its copyrighted content or introduced techniques for commercial purposes. Кл
+  К Whatever is derived from this file or its content must be freely available without Кл
+  К charge.                                                                            Кл
+  К                                                                                    Кл
+  К You are free to modify the content of this file if you want to. However, derivates Кл
+  К of the content of this file or parts of it *still* are subject to the terms of the Кл
+  К FT4FP license. Recipients neither are allowed to pay anything for the original nor Кл
+  К for altered or derived replica.                                                    Кл
+  КФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФКл
+  К       FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!        Кл
+  ШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМл
+    ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+  */
+  #include <windows.h>
+  #include <commctrl.h>
+  #include "dt5.dlg"
+  #include "..\\..\\..\\DLG\\fls.dlg"
+  #include "..\\..\\..\\DLG\\msg.dlg"
+  #include "..\\..\\..\\DLG\\olh.dlg"
+  /*
+  кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
+  Г                                     RESOURCES                                      Гл
+  РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
+    ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+  */
+  0x1000 ICON   "..\\auxi\\dtool.ico"
+  /*
+  кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
+  Г                                     MAIN MENU                                      Гл
+  РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
+    ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+   POPUP      "Language"
+    BEGIN
+     MENUITEM "English",    0x102B
+     MENUITEM "Deutsch",    0x102C
+     MENUITEM "",           0x102D
+     MENUITEM "",           0x102E
+     MENUITEM "",           0x102F
+     MENUITEM "",           0x1030
+     MENUITEM "",           0x1031
+     MENUITEM "",           0x1032
+     MENUITEM "",           0x1033
+     MENUITEM "",           0x1034
+     MENUITEM "",           0x1035
+     MENUITEM "",           0x1036
+     MENUITEM "",           0x1037
+     MENUITEM "",           0x1038
+     MENUITEM "",           0x1039
+     MENUITEM "",           0x103A
+     END
+  */
+  STmenu MENU PRELOAD DISCARDABLE
+  BEGIN
+   POPUP      "Program"
+   BEGIN
+    MENUITEM "Language",    0x102B
+    MENUITEM SEPARATOR
+    MENUITEM  "Sec LogIn",  0x1010
+    MENUITEM SEPARATOR
+    MENUITEM  "Exit\tF3",   0x1011               /* ID 0x1012 is used as "WM_START"... */
+   END
+   POPUP      "Select"
+   BEGIN
+    MENUITEM  "Folder",     0x1013
+    MENUITEM  "Field",      0x1014
+    MENUITEM  "Drives",     0x1015
+    END
+   POPUP      "MakeDat"
+   BEGIN
+    MENUITEM  "New File",   0x1016
+    MENUITEM  "New Field",  0x1017
+    MENUITEM SEPARATOR
+    MENUITEM  "View Field", 0x101A
+    MENUITEM SEPARATOR
+    MENUITEM  "Move Entr.", 0x1018
+    MENUITEM  "Copy Field", 0x1019
+   END
+   POPUP      "Tools"
+   BEGIN
+    MENUITEM  "language",   0x1021
+    MENUITEM SEPARATOR
+    MENUITEM  "OLH",        0x101B
+    MENUITEM  "topics",     0x101C
+    MENUITEM SEPARATOR
+    MENUITEM  "mnu + dlg",  0x101D
+    MENUITEM  "messages",   0x101E
+    MENUITEM SEPARATOR
+    MENUITEM  "sys dlgs",   0x101F
+    MENUITEM  "ErrorMgr",   0x1020
+   END
+   POPUP      "Standard"
+   BEGIN
+    MENUITEM  "create all", 0x1022
+    MENUITEM  "spinbtn",    0x1023
+    MENUITEM  "bitmaps",    0x1024
+    MENUITEM  "notebooks",  0x1025
+    MENUITEM  "?",          0x1026
+    MENUITEM  "?",          0x1027
+   END
+   POPUP      "Help"
+   BEGIN
+    MENUITEM  "OnLineHelp", 0x1028
+    MENUITEM  "DatTools",   0x1029
+    MENUITEM SEPARATOR
+    MENUITEM  "About...",   0x102A
+   END
+  END
+  /*
+  кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
+  Г                                 ACCELERATOR TABLE                                  Гл
+  РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
+    ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+  */
+  STaccl   ACCELERATORS
+  BEGIN
+   "a",    0x1016
+   "d",    0x1019
+   "e",    0x1017
+   "f",    0x1014
+   "h",    0x1006
+   "i",    0x1018
+   "l",    0x1002
+   "m",    0x1003
+   "n",    0x1021
+   "o",    0x1004
+   "p",    0x1000
+   "r",    0x1015
+   "s",    0x1005
+   "t",    0x101A
+   "u",    0x1013
+   VK_F1,  0x1028,    VIRTKEY
+   VK_F2,  0x1029,    VIRTKEY
+   VK_F3,  0x1011,    VIRTKEY
+   VK_F4,  0x101B,    VIRTKEY
+   VK_F5,  0x101C,    VIRTKEY
+   VK_F6,  0x101D,    VIRTKEY
+   VK_F7,  0x101E,    VIRTKEY
+   VK_F12, 0x102A,    VIRTKEY
+  END
+  /*
+  кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
+  РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
+    ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+  */

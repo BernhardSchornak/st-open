@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Datentypen" />
+ <meta name="Description" content="ST-Open Tutorial: Datentypen" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Datentypen</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0500.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0502.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Datentypen</h1>
+Da jeder Datentyp eine eigene Behandlungsroutine f&uuml;r jede der Datenbankfunktionen
+ ben&ouml;tigt, ist die Menge auf wirklich ben&ouml;tigte Gr&ouml;ssen beschr&auml;nkt.
+ ST-Open's Datenbankmaschine behandelt Daten ausschliesslich nach ihrer Bitbreite und
+ ignoriert die unz&auml;hligen malerischen Namen, die ein und dem selben n-bittigen
+ Datum von den vielen verbreiteten Hochsprachen und all ihren mannigfaltigen Dialekten
+ verliehen werden. Definiert sind Bytes (8 Bit), Worte (16 Bit), Doppelworte (32 Bit),
+ Vierfachworte (64 Bit), Achtfachworte (128 Bit), Festl&auml;ngenbl&ouml;cke sowie
+ dynamische Zeichenketten mit 32 Bit breiten Abstandstabellen. Die letzten beiden sind
+ auf Gr&ouml;ssen beschr&auml;nkt, die ganzzahligen Vielfachen von 128 Bit (16 Byte)
+ entsprechen, um eine durchgehende Verwendung von XMM-Registern zu erm&ouml;glichen.
+<div class="crlf1"></div>
+Die eingebauten Rechenfunktionen FDA_INC, FDA_DEC, FDA_ADD und FDA_SUB sollten nur mit
+ &auml;usserster Vorsicht auf jene Datentypen angewendet werden, die Sie eventuell mit
+ einem Vorzeichen behaftet haben - alle Ergebnisse sind beim Kippen des Vorzeichenbits
+ selbstverst&auml;ndlich ung&uuml;ltig. Das passiert zum Beispiel bei unz&auml;hligen
+ Additionen und Subtraktionen, beim Inkrementieren von 0x7FFFFFFF oder Dekrementieren
+ von 0x80000000. Die Datenbank erkennt keine Bits, an denen ein Vorzeichen haftet, da
+ alle Bits nun einmal gleich aussehen. Auch wenn manch ein Programmier glaubt, einige
+ Bits w&auml;ren etwas gleicher als andere Bits, einige Bits w&auml;ren mit Parasiten
+ behaftet und einige tr&uuml;gen einen lilablassblauen Sepplhut - dem ist nicht so.
+ All die vielen Bits sehen in Wirklichkeit wie eineiige Zilliardlinge aus und man kann
+ eins nicht vom anderen unterscheiden. Auch die vermeintlich angehefteten Vorzeichen
+ gehen beim Rutschen durch die Ausf&uuml;hrungsr&ouml;hren des Prozessors sehr schnell
+ verloren. Kurzum: Kein Vorzeichen, wenn Sie Rechenfunktionen der DBE verwenden. Tun
+ Sie es trotzdem, dann auf eigene Gefahr!
+<div class="crlf1"></div>
+<h2>Achtung</h2>
+<i>Puffer f&uuml;r Zeichenketten und Bl&ouml;cke fester L&auml;ge <b>m&uuml;ssen</b>
+ dem als <b>Gr&ouml;sse</b> definierten Wert entsprechen!</i>
+<div class="crlf1"></div>
+Da zum Kopieren der Datentypen 06 und 07 ausschliesslich XMM-Register mit einer Breite
+ von 128 Bit verwendet werden, <i>muss</i> die Puffergr&ouml;sse immer ein ausreichend
+ bemessenes Vielfaches von 16 sein.
+<div class="crlf1"></div>
+<h3>Anmerkungen</h3>
+Die Datentypendefinition der Version 7.0.0. ist nicht abw&auml;rtskompatibel zu den
+ Vorg&auml;ngerversionen der Datenbankmaschine!
+<div class="crlf1"></div>
+Der neu eingef&uuml;hrte Typ 05 erg&auml;nzt die Liste der verf&uuml;gbaren Datentypen
+ um das mit SSE/3Dnow! eingef&uuml;hrte Achtfachwort (128 Bit).
+<div class="crlf1"></div>
+Die Datentypen 30 und 32 wurden wegen der Verwendung von Sprungtabellen zu den Typen
+ 06 und 07.
+<div class="crlf1"></div>
+Dynamische Zeichenketten mit 16 Bit Abstandstabellen existieren nicht mehr. Vergleiche
+ und Verzweigungen zwischen zwei verschiedenen Datentypen sind extrem zeitintensiv und
+ machen zudem zweimal nahezu identischen Code - einmal f&uuml;r Wort-, einmal f&uuml;r
+ Doppelwortzugriffe - erforderlich. Da Speicherverbrauch inzwischen nicht mehr als ein
+ entscheidendes Kriterium betrachtet werden muss, wurde hier bewusst die Verschwendung
+ in Kauf genommen, um einen Flaschenhals zu beseitigen. Doppelt so schnell und doppelt
+ soviel Tabelle ist besser als halb so schnell und 1 KB f&uuml;r die Tabelle gespart.
+<div class="crlf1"></div>
+Durch die neue Definition eines einheitlichen Feldkopfes f&uuml;r alle Felder wird der
+ bisher zur Markierung multipler Datentypen verwendete Pseudo-Datentyp 2C obsolet und
+ existiert nur noch in den Datenfeldern alter Versionen.
+<div class="crlf1"></div>
+<h2>Definitionen</h2>
+<div class="inner">ung&uuml;ltig, kein Datentyp</div><div class="outer"><b>00</b></div><div class="crlf0"></div>
+<div class="inner">Byte (8 Bit)</div><div class="outer"><b>01 - DB </b></div><div class="crlf0"></div>
+<div class="inner">Wort (16 Bit)</div><div class="outer"><b>02 - DW</b></div><div class="crlf0"></div>
+<div class="inner">Doppelwort (32 Bit)</div><div class="outer"><b>03 - DD</b></div><div class="crlf0"></div>
+<div class="inner">Vierfachwort (64 Bit)</div><div class="outer"><b>04 - DQ</b></div><div class="crlf0"></div>
+<div class="inner">Achtfachwort (128 Bit)</div><div class="outer"><b>05 - DO</b></div><div class="crlf0"></div>
+<div class="inner">Festl&auml;ngenblock (n * 128 Bit)</div><div class="outer"><b>06 - FIX</b></div><div class="crlf0"></div>
+<div class="inner">Zeichenkette mit 32 Bit Abstandstabelle (Feldgr&ouml;sse bis 4 GB)</div><div class="outer"><b>07 - $32</b></div><div class="crlf0"></div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0500.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0502.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0501.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

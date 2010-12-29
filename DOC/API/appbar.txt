@@ -1,0 +1,41 @@
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   control messages      (sent or posted)
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ABM_ACTIVATE
+   ABM_GETAUTOHIDEBAR
+   ABM_GETSTATE
+   ABM_GETTASKBARPOS
+   ABM_NEW
+   ABM_QUERYPOS
+   ABM_REMOVE
+   ABM_SETAUTOHIDEBAR
+   ABM_SETPOS
+   ABM_WINDOWPOSCHANGED
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   notification messages (received)
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ABN_FULLSCREENAPP
+   ABN_POSCHANGED
+   ABN_STATECHANGE
+   ABN_WINDOWARRANGE
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   application bar styles
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ABE_BOTTOM
+   ABE_LEFT
+   ABE_RIGHT
+   ABE_TOP
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   application bar control structure
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   _AppBarData
+   {
+    DWORD  cbSize;
+    HWND   hWnd;
+    UINT   uCallbackMessage;
+    UINT   uEdge;
+    RECT   rc;
+    LPARAM lParam;
+   }
+   APPBARDATA, *PAPPBARDATA;
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="FDacc()" />
+ <meta name="Description" content="ST-Open Bibliotheken: FDacc()" />
+ <meta name="Keywords" content="ST-Open, Weichwaren, Open, offen, Quelle, ST-Open, Bibliothek, frei, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>FDacc()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../msc/sec04.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="acf000.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st8\lib\sources\base\acf.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>FDacc</b></div><div class="outer">Funktion</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = FDacc(SpeiHenk, Eintrag, UntFeld, FDA_*, Adresse, Zahl);</div><div class="outer">Aufruf</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div>
+<div class="inners">SpeiHenk</div>
+<div class="innerl">Speicherhenkel des geladenen Feldes</div>
+<div class="crlf0"></div>
+<div class="inners">RDX</div>
+<div class="inners">Eintrag</div>
+<div class="innerl">Nummer des Eintrags</div>
+<div class="crlf0"></div>
+<div class="inners">R08</div>
+<div class="inners">UntFeld</div>
+<div class="innerl">Nummer des UnterfeldesR08 </div>
+<div class="crlf0"></div>
+<div class="inners">R09</div>
+<div class="inners">FDA_*</div>
+<div class="innerl">Auszuf&uuml;hrende <a href="acf000.htm">Funktion</a></div>
+<div class="crlf0"></div>
+<div class="inners">20[RSP]</div>
+<div class="inners">Adresse</div>
+<div class="innerl">Adresse f&uuml;r Ein- oder Ausgabe</div>
+<div class="crlf0"></div>
+<div class="inners">28[RSP]</div>
+<div class="inners">Zahl</div>
+<div class="innerl">Numerischer Wert f&uuml;r Eingabe</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RAX</div>
+<div class="inners">rc</div>
+<div class="innerl">Abh&auml;ngig von der <a href="acf000.htm">Funktion</a></div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+FDacc() ist der Funktionsverteiler von ST-Open's Datenbankmaschine. Mit der <a href="acf000.htm">Funktion</a>
+ w&auml;hlen sie aus, welche Operation die Datenbank durchf&uuml;hren soll. Bitte lesen Sie das Tutorial
+ <a href="../tut/0500.htm">&Uuml;ber Felder - der DataManager (DM)</a>, um einen &Uuml;berblick &uuml;ber die
+ Verwendung der DBE zu erhalten.
+<div class="crlf1"></div>
+Fehler werden prinzipiell in der globalen Variablen <b>FIA_ERROR</b> (0x1FCC[BNR]) &uuml;bergeben. Der
+ R&uuml;ckgabewert <b>rc</b> wird auf Null gesetzt, wenn ein Fehler aufgetreten ist. Die einzige Ausnahme ist
+ FDA_ADDRESS, das aus naheliegenden Gr&uuml;nden die Adresse des Feldes zur&uuml;ckgibt. Das erste Doppelwort
+ im Feld ist Null, was f&uuml;r Bytes, Worte, Doppelworte und Zeichenketten innerhalb des zul&auml;ssigen
+ Bereichs liegt. Bei Datentypen mit einer Breite von mehr als 32 Bit ist der Feldname Bestandteil des Vier-
+ oder Achtfachwortes, respektive des Blocks, die Adresse weist also auf ung&uuml;ltige Daten. FIA_ERROR ist
+ bei diesen Datentypen auf Null zu pr&uuml;fen, um die G&uuml;ltigkeit der Adresse sicherzustellen.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ DD rc;
+ rc = FDacc(*MEIN_FELD, 0, 0, FDA_READ, 0, 0);
+ FDacc(*MEIN_FELD, 1, 0, FDA_WRITE, 0, rc);
+ FDacc(*MEIN_FELD, 2, 0, FDA_INC, 0, 0);
+}
+</pre>
+Der erste Zugriff liest den Wert des ersten Eintrags (Eintrag Nummer Null!) im Feld mh, die Unterfeldnummer ist Null. Der zweite Aufruf von FDacc()
+ schreibt diesen Wert in den zweiten Eintrag. Mit dem dritten Zugriff wird der dritte Eintrag inkrementiert.</div>
+<div class="outer">Beispiel</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+Die meisten Funktionen der Datenbankmaschine ben&ouml;tigen Parameter 5 oder 6 nicht. Nicht ben&ouml;tigte Parameter werden von der DBE niemals
+ gelesen und k&ouml;nnen daher problemlos weggelassen werden. Das spart ein oder zwei &uuml;berfl&uuml;ssige <b>mov</b>-Anweisungen ein.
+</div><div class="outer">Intelligent Design</div></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../msc/sec04.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="acf000.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+/*==================================================================================
+        THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE
+  ----------------------------------------------------------------------------------
+  You may copy and distribute this file as often as you want, but recipients are not
+  allowed to pay anything for any copy of this file or its content. It isn't allowed
+  to abuse its copyrighted content or introduced techniques for commercial purposes.
+  Whatever is derived from this file or its content must be freely available without
+  charge.
+
+  You are free to modify the content of this file if you want to. However, derivates
+  of the content of this file or parts of it *still* are subject to the terms of the
+  FT4FP license. Recipients neither are allowed to pay anything for the original nor
+  for altered or derived replica.
+  ----------------------------------------------------------------------------------
+        FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!
+  ================================================================================*/
+#include <windows.h>
+#include <commctrl.h>
+#include "..\\..\\..\\DLG\\fls.dlg"
+#include "..\\..\\..\\DLG\\msg.dlg"
+#include "..\\..\\..\\DLG\\olh.dlg"
+/*==================================================================================
+                                     RESOURCES
+  ================================================================================*/
+0x1005 ICON   "..\\auxi\\PTB.ico"
+/*==================================================================================
+                                     MAIN MENU
+  ================================================================================*/
+  STmenu MENU PRELOAD DISCARDABLE
+  BEGIN
+   POPUP "Program"
+    BEGIN
+     MENUITEM "Exit\tF3",   0x1010
+    END
+   POPUP "Dumps"
+    BEGIN
+     MENUITEM "&Registers", 0x1011
+     MENUITEM "&Memory",    0x1012
+     MENUITEM "&Stack",     0x1013
+    END
+   POPUP "Tools"
+    BEGIN
+     MENUITEM "&Calc",      0x1014
+     MENUITEM "Mul&Div",    0x1015
+     MENUITEM "-",          0x1016
+    END
+   POPUP "Help"
+    BEGIN
+     MENUITEM "&Help Help", 0x1018
+     MENUITEM "Help &PTB",  0x1019
+     MENUITEM SEPARATOR
+     MENUITEM "&About",     0x1017
+    END
+  END
+/*==================================================================================
+                                     ABOUT BOX
+  ================================================================================*/
+STabox DIALOG PRELOAD DISCARDABLE                                    0,   0, 200, 100
+STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+CAPTION "About..."
+FONT 10, "Arial"
+BEGIN
+ ICON            0x1005,                                   0xFFFF,  90,  10,  32,  32
+ CTEXT           "Debugging tools for real programmers.",  0x1202,   5,  48, 190,  10
+ CTEXT           "Copyright: Bernhard Schornak (2010)",    0x1203,   5,  60, 190,  10
+ PUSHBUTTON      "Dismiss",                                0x1210,  70,  82,  60,  14
+END
+/*==================================================================================
+                                   REGISTER DUMP
+  ================================================================================*/
+STrdmp DIALOG PRELOAD DISCARDABLE           0,   0, 400, 300
+STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+CAPTION "Register Dump"
+FONT    9, "Fixedsys"
+BEGIN
+ PUSHBUTTON      "Dismiss",       0x1110,   5, 275,  80,  20, WS_TABSTOP
+ PUSHBUTTON      "<< previous",   0x1111, 100, 280,  60,  15, WS_TABSTOP
+ PUSHBUTTON      "next >>",       0x1112, 180, 280,  60,  15, WS_TABSTOP
+ LTEXT           "RAX",           0x1120,   5,   6,  20,  10 
+ LTEXT           "RBX",           0x1121,   5,  21,  20,  10 
+ LTEXT           "RCX",           0x1122,   5,  36,  20,  10 
+ LTEXT           "RDX",           0x1123,   5,  51,  20,  10 
+ LTEXT           "RDI",           0x1124,   5,  66,  20,  10 
+ LTEXT           "RSI",           0x1125,   5,  81,  20,  10 
+ LTEXT           "RBP",           0x1126,   5,  96,  20,  10 
+ LTEXT           "RSP",           0x1127,   5, 111,  20,  10 
+ LTEXT           "R08",           0x1128,   5, 126,  20,  10 
+ LTEXT           "R09",           0x1129,   5, 141,  20,  10 
+ LTEXT           "R10",           0x112A,   5, 156,  20,  10 
+ LTEXT           "R11",           0x112B,   5, 171,  20,  10 
+ LTEXT           "R12",           0x112C,   5, 186,  20,  10 
+ LTEXT           "R13",           0x112D,   5, 201,  20,  10 
+ LTEXT           "R14",           0x112E,   5, 216,  20,  10 
+ LTEXT           "R15",           0x112F,   5, 231,  20,  10 
+ LTEXT           "XMM00",         0x1130, 170,   6,  20,  10 
+ LTEXT           "XMM01",         0x1131, 170,  21,  20,  10 
+ LTEXT           "XMM02",         0x1132, 170,  36,  20,  10 
+ LTEXT           "XMM03",         0x1133, 170,  51,  20,  10 
+ LTEXT           "XMM04",         0x1134, 170,  66,  20,  10 
+ LTEXT           "XMM05",         0x1135, 170,  81,  20,  10 
+ LTEXT           "XMM06",         0x1136, 170,  96,  20,  10 
+ LTEXT           "XMM07",         0x1137, 170, 111,  20,  10 
+ LTEXT           "XMM08",         0x1138, 170, 126,  20,  10 
+ LTEXT           "XMM09",         0x1139, 170, 141,  20,  10 
+ LTEXT           "XMM10",         0x113A, 170, 156,  20,  10 
+ LTEXT           "XMM11",         0x113B, 170, 171,  20,  10 
+ LTEXT           "XMM12",         0x113C, 170, 186,  20,  10 
+ LTEXT           "XMM13",         0x113D, 170, 201,  20,  10 
+ LTEXT           "XMM14",         0x113E, 170, 216,  20,  10 
+ LTEXT           "XMM15",         0x113F, 170, 231,  20,  10 
+ LTEXT           "",              0x1140,  27,   6, 110,  10
+ LTEXT           "",              0x1141,  27,  21, 110,  10
+ LTEXT           "",              0x1142,  27,  36, 110,  10
+ LTEXT           "",              0x1143,  27,  51, 110,  10
+ LTEXT           "",              0x1144,  27,  66, 110,  10
+ LTEXT           "",              0x1145,  27,  81, 110,  10
+ LTEXT           "",              0x1146,  27,  96, 110,  10
+ LTEXT           "",              0x1147,  27, 111, 110,  10
+ LTEXT           "",              0x1148,  27, 126, 110,  10
+ LTEXT           "",              0x1149,  27, 141, 110,  10
+ LTEXT           "",              0x114A,  27, 156, 110,  10
+ LTEXT           "",              0x114B,  27, 171, 110,  10
+ LTEXT           "",              0x114C,  27, 186, 110,  10
+ LTEXT           "",              0x114D,  27, 201, 110,  10
+ LTEXT           "",              0x114E,  27, 216, 110,  10
+ LTEXT           "",              0x114F,  27, 231, 110,  10
+ LTEXT           "",              0x1150, 200,   6, 195,  10
+ LTEXT           "",              0x1151, 200,  21, 195,  10
+ LTEXT           "",              0x1152, 200,  36, 195,  10
+ LTEXT           "",              0x1153, 200,  51, 195,  10
+ LTEXT           "",              0x1154, 200,  66, 195,  10
+ LTEXT           "",              0x1155, 200,  81, 195,  10
+ LTEXT           "",              0x1156, 200,  96, 195,  10
+ LTEXT           "",              0x1157, 200, 111, 195,  10
+ LTEXT           "",              0x1158, 200, 126, 195,  10
+ LTEXT           "",              0x1159, 200, 141, 195,  10
+ LTEXT           "",              0x115A, 200, 156, 195,  10
+ LTEXT           "",              0x115B, 200, 171, 195,  10
+ LTEXT           "",              0x115C, 200, 186, 195,  10
+ LTEXT           "",              0x115D, 200, 201, 195,  10
+ LTEXT           "",              0x115E, 200, 216, 195,  10
+ LTEXT           "",              0x115F, 200, 231, 195,  10
+ CTEXT           "",              0x1160, 162, 283,  16,  10
+END
+/*==================================================================================
+                                      HEXCALC
+  ================================================================================*/
+STcalc DIALOG PRELOAD DISCARDABLE           0,   0, 390, 215
+STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+CAPTION "Programmer's Calculator"
+FONT 12, "Miriam Fixed"
+BEGIN
+ GROUPBOX        " Operand 1 ",   0x1301,   5,   3, 170, 175
+ COMBOBOX                         0x1320,  35,  14, 120,  70, CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+ LTEXT           "hex",           0x1302,  10,  33,  20,  10
+ EDITTEXT                         0x1321,  35,  32, 120,  12, ES_AUTOHSCROLL | ES_RIGHT | WS_TABSTOP
+ PUSHBUTTON      ">",             0x1322, 157,  32,  13,  12, WS_TABSTOP
+ LTEXT           "RDX",           0x1310,  10,  48,  20,  10
+ EDITTEXT                         0x1358,  35,  46, 120,  12, ES_AUTOHSCROLL | ES_RIGHT | WS_TABSTOP
+ PUSHBUTTON      "st",            0x1361, 157,  46,  13,  12, WS_TABSTOP
+ LTEXT           "neg",           0x1303,  10,  65,  20,  10
+ EDITTEXT                         0x1323,  35,  64, 120,  12, ES_AUTOHSCROLL | ES_RIGHT | WS_TABSTOP
+ PUSHBUTTON      ">",             0x1324, 157,  64,  13,  12, WS_TABSTOP
+ LTEXT           "dec",           0x1304,  10,  81,  20,  10
+ EDITTEXT                         0x1325,  35,  80, 120,  12, ES_AUTOHSCROLL | ES_RIGHT | WS_TABSTOP
+ PUSHBUTTON      ">",             0x1326, 157,  80,  13,  12, WS_TABSTOP
+ AUTORADIOBUTTON "unsigned",      0x132B,  35,  93,  60,  10, WS_GROUP | WS_TABSTOP
+ AUTORADIOBUTTON "signed",        0x132C, 100,  93,  60,  10, WS_TABSTOP
+ PUSHBUTTON      "inc",           0x1327,  35, 110,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "dec",           0x1328,  70, 110,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "neg",           0x1329,  35, 126,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "not",           0x132A,  70, 126,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "reset",         0x1359,  35, 142,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "set",           0x135A,  70, 142,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "store",         0x135B,  35, 158,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "clear",         0x135C,  70, 158,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "<<",            0x132D, 105, 110,  20,  12, WS_TABSTOP
+ PUSHBUTTON      ">>",            0x132E, 150, 110,  20,  12, WS_TABSTOP
+ EDITTEXT                         0x132F, 130, 110,  15,  12, ES_AUTOHSCROLL | ES_CENTER | WS_TABSTOP
+ PUSHBUTTON      "shl",           0x1330, 105, 126,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "shr",           0x1331, 140, 126,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "sal",           0x1332, 105, 142,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "sar",           0x1333, 140, 142,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "rol",           0x1334, 105, 158,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "ror",           0x1335, 140, 158,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "add",           0x1336, 180,   7,  30,  14, WS_TABSTOP
+ PUSHBUTTON      "sub",           0x1337, 180,  23,  30,  14, WS_TABSTOP
+ PUSHBUTTON      "mul",           0x1338, 180,  39,  30,  14, WS_TABSTOP
+ PUSHBUTTON      "div",           0x1339, 180,  55,  30,  14, WS_TABSTOP
+ PUSHBUTTON      "and",           0x133A, 180,  78,  30,  14, WS_TABSTOP
+ PUSHBUTTON      "or",            0x133B, 180,  94,  30,  14, WS_TABSTOP
+ PUSHBUTTON      "xor",           0x133C, 180, 110,  30,  14, WS_TABSTOP
+ PUSHBUTTON      "xchg",          0x133D, 180, 131,  30,  14, WS_TABSTOP
+ PUSHBUTTON      "<=",            0x1356, 180, 147,  30,  14, WS_TABSTOP
+ PUSHBUTTON      "=>",            0x1357, 180, 163,  30,  14, WS_TABSTOP
+ GROUPBOX        " Flags ",       0x1305, 160, 181,  70,  25
+ LTEXT           "O",             0x1306, 167, 192,   7,   8
+ LTEXT           "S",             0x1307, 177, 192,   7,   8
+ LTEXT           "Z",             0x1308, 187, 192,   7,   8
+ LTEXT           "A",             0x1309, 197, 192,   7,   8
+ LTEXT           "P",             0x130A, 207, 192,   7,   8
+ LTEXT           "C",             0x130B, 217, 192,   7,   8
+ GROUPBOX        " Operand 2 ",   0x130C, 215,   3, 170, 175
+ COMBOBOX                         0x133E, 245,  14, 120,  70, CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+ LTEXT           "hex",           0x130D, 220,  33,  20,  10
+ EDITTEXT                         0x133F, 245,  32, 120,  12, ES_AUTOHSCROLL | ES_RIGHT | WS_TABSTOP
+ PUSHBUTTON      ">",             0x1340, 367,  32,  10,  12, WS_TABSTOP
+ LTEXT           "neg",           0x130E, 220,  64,  20,  10
+ EDITTEXT                         0x1341, 245,  63, 120,  12, ES_AUTOHSCROLL | ES_RIGHT | WS_TABSTOP
+ PUSHBUTTON      ">",             0x1342, 367,  63,  10,  12, WS_TABSTOP
+ LTEXT           "dec",           0x130F, 220,  80,  20,  10
+ EDITTEXT                         0x1343, 245,  79, 120,  12, ES_AUTOHSCROLL | ES_RIGHT | WS_TABSTOP
+ PUSHBUTTON      ">",             0x1344, 367,  79,  10,  12, WS_TABSTOP
+ AUTORADIOBUTTON "unsigned",      0x1349, 245,  93,  60,  10, WS_GROUP | WS_TABSTOP | WS_TABSTOP
+ AUTORADIOBUTTON "signed",        0x134A, 310,  93,  60,  10, WS_TABSTOP
+ PUSHBUTTON      "inc",           0x1345, 245, 110,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "dec",           0x1346, 280, 110,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "neg",           0x1347, 245, 126,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "not",           0x1348, 280, 126,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "reset",         0x135D, 245, 142,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "set",           0x135E, 280, 142,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "store",         0x135F, 245, 158,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "clear",         0x1360, 280, 158,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "<<",            0x134B, 315, 110,  20,  12, WS_TABSTOP
+ PUSHBUTTON      ">>",            0x134C, 360, 110,  20,  12, WS_TABSTOP
+ EDITTEXT                         0x134D, 340, 110,  15,  12, ES_AUTOHSCROLL | ES_CENTER | WS_TABSTOP
+ PUSHBUTTON      "shl",           0x134E, 315, 126,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "shr",           0x134F, 350, 126,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "sal",           0x1350, 315, 142,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "sar",           0x1351, 350, 142,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "rol",           0x1352, 315, 158,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "ror",           0x1353, 350, 158,  30,  12, WS_TABSTOP
+ PUSHBUTTON      "Dismiss",       0x1354,   5, 190,  70,  16, WS_TABSTOP
+ PUSHBUTTON      "Help",          0x1355, 315, 190,  70,  16, WS_TABSTOP
+END

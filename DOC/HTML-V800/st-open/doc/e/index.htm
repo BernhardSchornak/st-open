@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="Documentation Index" />
+ <meta name="Description" content="ST-Open Libraries: Documentation Index" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+ <meta name="date" content="2010-07-18T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../pics/favicon.ico" />
+ <title>Documentation Index</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../indexe.htm">Software</a></li>
+ <li><a href="./tut/index.htm">Tutorials</a></li>
+ <li>Documentation</li>
+ <li><a href="alp.htm">alphabetical</a></li>
+ <li><a href="fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2010-07-18]</div>
+<div class="headpc"><img src="../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../../indexe.htm"><img src="../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="alp.htm"><img src="../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="fct.htm"><img src="../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>SourceDoc</h1>
+To get in touch with some important functions in ST-Open's libraries and the philosophy
+ and concepts behind ST-Open's programming system, I suggest to read the
+ <a href="./tut/index.htm" title="Introduction">tutorials</a> with care, before you start
+ to explore the functions listed in <i>SourceDoc</i>. You might save a lot of code, sweat
+ and tears if you use the functions wisely and with care. Because most of these functions
+ were written for real programs, their practical use is much higher than some generalised
+ functions you will find in standard libraries. With ST-Open's database engine, you get a
+ powerful tool with independence from any restrictions of high level languages. ST-Open's
+ core library offers e.g. access to 896 static (stored when the program is teminated) and
+ 1024 runtime variables without one line of extra code. Their management is invisible for
+ the programmer and they can be accessed from everywhere, without passing parameters from
+ one function to the other. Check it yourself. You might be astonished what less than 60
+ kB of assembler code can do...
+<div class="crlf1"></div>
+All ST-Open functions comply to the standard C conventions, except all used registers are
+ preserved on function initalisation and restored on exit. You can use all functions
+ provided by ST-Open's libraries in your C or even C++ programs unhesitating to speed up
+ execution a little bit. Do not expect too much, because all HLL compilers reduce any
+ kind of improvements to peanuts. Caused by the small register set, HLL compilers have no
+ other chance than to reload parameters from memory again and again to perform given
+ tasks. The real performance boost is coming through the backdoor of HLL compilers.
+ First, ST-Open's functions are ways faster than any C(++) equivalent. Second, you can
+ omit redundant extra work by passing parameters in global variables. Many parameters
+ never change. Storing them in global variables, we write them once, then read them on
+ demand. Each global variable saves the following chain: Read parameter, PUSH it onto the
+ stack, reload it again where it is required. Using a global variable saves step one and
+ two. We only have to access the global variable whenever we need that parameter. If a
+ function makes use of global variables instead of passing parameters, it automatically
+ gains some speed.
+<div class="crlf1"></div>
+<h2>Notes</h2>
+<h3>Technical Requirements</h3>
+All functions found in Version 8.0.0. of ST-Open's libraries and all programs compiled
+ against these libraries require a 64 bit processor as well as a 64 bit version of
+ Microsoft's Windows operating system. Both requirements must be met if you want to run
+ this software!
+<div class="crlf1"></div>
+<h3>Copyrights</h3>
+All libraries, programs and documents published by ST-Open (Bernhard Schornak) are
+ protected by international copyrights and are subject to the terms of the
+ <a href="http://ft4fp.blogspot.com/p/ft4fp-license.html">FT4FP Licence</a>.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../../indexe.htm"><img src="../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="alp.htm"><img src="../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="fct.htm"><img src="../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Datentypen und Logik</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0807.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0FF0.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>Datentypen und Logik</h1><br />
+<h2>0. Einleitung</h2>
+Die hier enthaltenen Grundlagen sind der Versuch, Ihnen die allen ST - Programmen zu Grunde liegenden theoretischen &Uuml;berlegungen etwas n&auml;her zu bringen, als das in einer
+ technischen Anleitung m&ouml;glich ist. Im ersten Teil finden Sie alle Begriffe erkl&auml;rt, die in den technischen Dokumentationen als bekannt vorausgesetzt werden. Sie erhalten
+ somit einen Schnellkurs f&uuml;r Anf&auml;nger, die noch nicht viel mit Bits, bytes, etc. anfangen k&ouml;nnen. Der zweite Teil besch&auml;ftigt sich mit logischen Verkn&uuml;pfungen,
+ die zum allt&auml;glichen Leben eines Programmierers geh&ouml;ren.
+<br /><br />
+<h2>1. Grundbegriffe</h2>
+Ohne weiter auf die technische Realisierung einzelner Bausteine in Ihrem PC eingehen zu wollen, nehmen Sie das folgende einfach zur Kenntnis, ohne eine langatmige Erkl&auml;rung der
+ physikalischen Grundgesetze zu erwarten! Wichtiger als eine Description von Transistoren, Widerst&auml;nden und anderen Bauteilen, die in einem "IC" enthalten sind, ist die
+ Reduzierung dieser Baugruppen auf ihre logische function innerhalb des Ganzen. Hier habe ich die Definitionen einfach einmal nach Datensize und logische functionen aufgeteilt.
+<br /><br />
+<h3>1.0. Datensizen</h3>
+Wenn wir im Zusammenhang mit  elektronischen  Bauteilen von Daten sprechen, sollten wir zuerst einmal kl&auml;ren, wie derartige Daten eigentlich beschaffen sind, bzw. woraus sie "bestehen".
+<br /><br />
+Im  einfachsten Fall besteht ein date (die Einnumber von Daten) aus einem kurzen Impuls, entweder durch den kurztimeigen Aufbau oder das kurztimeige Abschalten einer Spannung. Da das
+ date nur zu jenem timepunkt vorliegt, an dem der Impuls auftritt, ist es ist "fl&uuml;chtig". Um dieses date erhalten zu k&ouml;nnen, muss es also irgendwo festgehalten, sprich
+ gespeichert werden.
+<br /><br />
+Das Festhalten von Impulsen wird technisch mit einem Flip-Flop realisiert - einer Einheit, die beim Auftreten des Impulses ihren Zustand kippt, und, je nach Ausf&uuml;hrung, entweder
+ beibeh&auml;lt, oder beim n&auml;chsten Taktzyklus wieder in den Ausgangszustand previouskehrt. Der Takt ist ein Signal, das Synchronisation und function einzelner Baugruppen
+ steuert, Taktzyklus ist die time, die z. B. zwischen den beiden Maxima zweier aufeinanderfolgender steigender Impulsflanken vergeht.
+<br /><br />
+Soweit die n&ouml;tigen Hintergrundinformationen zum Begriff date und Takt. Das ganze war jetzt etwas fern ab der realen Welt. In einem PC sind Millionen Flip-Flops (z.B. RAM-Bausteine)
+ und Logik-Einheiten vorhanden, die durch die entsprechende Verschaltung einen mehr oder weniger gut laufenden Computer bilden.
+<br /><br />
+<h3>1.0.0. Bit</h3>
+Das angesprochene date kann insgesamt nur zwei Zust&auml;nde annehmen - ein und aus (das ist die Idealvorstellung - in Wirklichkeit gibt es keine in Nulltime steigenden oder fallenden
+ Impulse, es wird immer Taktflanken geben, so dass unser ideales Rechtecksignal reell einem Trapez &auml;hnelt, und somit mehr als die Spannungsvaluee f&uuml;r ein und aus existieren.
+ Daher wird z.B. im CMOS-Bereich ein als value sizer / gleich der halben Betriebsspannung als "ein" gevalueet, und alles darunter als "aus").
+<br /><br />
+Jedes date, das nur die zwei Zust&auml;nde ein oder aus einnehmen kann, wird im Computerjargon als BIT bezeichnet. Das schaut vereinfacht so aus: 
+<br /><br />
+<table width="20%">
+<tr><th width="50%">0</th><th width="50%">1</th></tr>
+<tr><td>reset</td><td>set</td></tr>
+</table>
+<br />
+F&uuml;r den Zustand ein sagt man auch gesetzt (set) oder high, statt aus sind auch die Begriffe previousgesetzt (reset) oder low gebr&auml;uchlich. Jedes gesetzte Bit hat den value
+ 1, jedes previousgesetzte den value 0, das ist f&uuml;r die folgenden Definitionen von Wichtigkeit.
+<br /><br />
+<h3>1.0.1. Nibble</h3>
+Da ein einzelnes Bit nicht besonders viel darstellen kann, wurde in der &Auml;ra der vier- und acht-Bit-Microcomputer (&#181;C's - von &#181; = 10<sup>-6</sup> = Micro) das Nibble
+ eingef&uuml;hrt, das aus 4 zusammengeh&ouml;renden Bits aufgebaut ist. Nachdem  jedes Bit zwei Zust&auml;nde haben kann,  k&ouml;nnen in einem Nibble numberen zwischen 0 und 15
+ gespeichert werden. Damit man jede dieser numberen mit einem Zeichen darstellen kann, wurde f&uuml;r die numberen 10 - 15 vereinbart, dass sie von den Buchstaben A - F ersetzt werden,
+ und - voila - da haben wir auch schon die altbekannten hexadezimalen numberen!
+<br /><br />
+Zwecks besserer Vorstellbarkeit hier das Bild eines Nibbles:
+<br /><br />
+<table width="20%">
+<tr><th width="25%">03</th><th width="25%">02</th><th width="25%">01</th><th width="25%">00</th></tr>
+</table>
+<br />
+Die angegebene Reihenfolge entspricht der technischen Definition, nach der die number des Bits die Potenz zu 2 darstellt (2<sup>0</sup> = 1, 2<sup>1</sup> = 2, 2<sup>2</sup> = 4,
+ ...), so w&uuml;rde z.B. die gesetzten Bits 0 und 1 den value 3 ergeben, da 2<sup>0</sup> + 2<sup>1</sup> = 3.
+<br /><br />
+<h3>1.0.2. byte</h3>
+Mit der Existenz der acht-Bit-&#181;P's (Z80, 650x, 8080, etc.) wurde als neue Datensize das byte eingef&uuml;hrt, das aus acht zusammengeh&ouml;renden Bits, oder zwei Nibbles
+ aufgebaut ist. Die f&uuml;r das Nibble geltenden Gesetzm&auml;ssigkeiten gelten analog f&uuml;r das byte:
+<br /><br />
+<table width="40%">
+<tr><th width="12.5%">07</th><th width="12.5%">06</th><th width="12.5%">05</th><th width="12.5%">04</th>
+<th width="12.5%">03</th><th width="12.5%">02</th><th width="12.5%">01</th><th width="12.5%">00</th></tr>
+<tr><td>MSB</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>LSB</td></tr>
+<tr><td colspan="4">High Nibble</td><td colspan="4">Low Nibble</td></tr>
+</table>
+<br />
+Mit High- und Low-Nibble wird die valueigkeit der beiden Nibbles festgelegt, das byte kann valuee zwischen 0 und 255 (00 - FF) annehmen. MSB steht f&uuml;r "most significant bit", LSB
+ f&uuml;r "least significant bit", wobei das MSB als Vorzeichen bei vorzeichenbehafteten numberen definiert ist (das gilt auch in sizeren Datentypen, MSB ist immer das
+ h&ouml;chstvalueige Bit), siehe auch die folgenden Kapitel.
+<br /><br />
+<h3>1.0.3. Words</h3>
+Seit der Einf&uuml;hrung der 16-Bit-&#181;P's (8086, TMS 9900, etc.) besteht dieser neue, 16 Bit breite Datentyp, der als word (WORD) bezeichnet wird. Analog zu byte und Nibble gelten
+ auch hier die selben Gesetzm&auml;ssigkeiten:
+<br /><br />
+<table width="80%">
+<tr><th width="6.25%">0F</th><th width="6.25%">0E</th><th width="6.25%">0D</th><th width="6.25%">0C</th><th width="6.25%">0B</th><th width="6.25%">0A</th>
+<th width="6.25%">09</th><th width="6.25%">08</th><th width="6.25%">07</th><th width="6.25%">06</th><th width="6.25%">05</th><th width="6.25%">04</th>
+<th width="6.25%">03</th><th width="6.25%">02</th><th width="6.25%">01</th><th width="6.25%">00</th></tr>
+<tr><td>MSB</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td>
+<td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>LSB</td></tr>
+<tr><td colspan="8">High byte</td><td colspan="8">Low byte</td></tr>
+</table>
+<br />
+High- und Low-byte geben die valueigkeit an, beide setzen sich wiederum aus je einem High- und Low-Nibble zusammen.
+<br /><br />
+<h3>1.0.4. DWords</h3>
+Mit den 32-Bit-&#181;P's (68000, 80x86, etc.) kam ein neuer Datentyp hinzu, das dword (Doubleword, DWORD). Es setzt sich aus 32 zusammengeh&ouml;renden Bits zusammen:
+<br /><br />
+<table width="30%">
+<tr><th width="25%">03</th><th width="25%">02</th><th width="25%">01</th><th width="25%">00</th></tr>
+<tr><td>1F...18</td><td>17...10</td><td>0F...08</td><td>07...00</td></tr>
+<tr><td>MSB</td><td>*</td><td>*</td><td>LSB</td></tr>
+<tr><td colspan="2">High Word</td><td colspan="2">Low Word</td></tr>
+</table>
+<br />
+High- und Low-Word setzen sich aus je einem High- / Low-byte zusammen,  die wiederum aus jeweils einem High- und einem Low-Nibble bestehen.
+<br /><br />
+<h3>1.0.5. QWords</h3>
+Mit der neuesten Generation der 64-Bit-CPUs (ARM, Athlon, etc.) kommt ein weiterer Datentyp zum Einsatz, das Quadword (QWord). QWords kommen seit der 32-Bit &Auml;ra auch als interne
+ FPU Integer- oder "Long Real"-Fliesskommaformate vor. Das QWord setzt sich aus 64 Bits zusammen:
+<br /><br />
+<table width="40%">
+<tr><th width="12.5%">3F...38</th><th width="12.5%">37...30</th><th width="12.5%">2F...28</th><th width="12.5%">27...20</th>
+<th width="12.5%">1F...18</th><th width="12.5%">17...10</th><th width="12.5%">0F...08</th><th width="12.5%">07...00</th></tr>
+<tr><td>MSB</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>LSB</td></tr>
+<tr><td colspan="4">High DWord</td><td colspan="4">Low DWord</td></tr>
+</table>
+<br />
+Ebenso wie in den anderen Formaten kann auch das QWord in 2 DWords, 4 Words oder acht bytes zerlegt werden, die valueigkeit f&auml;llt von links nach rechts.
+<br /><br />
+<h3>1.0.6. Vorzeichen</h3>
+Dass das Vorzeichen aller Datentypen im MSB festgehalten wird, wurde weiter oben bereits erw&auml;hnt. Negative numberen werden im Computerbereich immer durch das Zweierkomplement der
+ entsprechenden positiven numberen gebildet. Das kann in Assembler recht einfach mit dem NEG-Befehl gebildet werden, die konkrete Ausf&uuml;hrung ist  Negieren (Inhalt jedes Bits
+ umdrehen) und anschliessendes Addieren von 1, also [NOT number] + 1. Jetzt wissen Sie endlich, warum -1 als 0xFFFFFFFF dargestellt wird... 
+<br /><br />
+<h3>1.0.7.  Intel-Format</h3>
+Alle 80x86 CPUs verwenden die von Intel favorisierte Speichermethode, wobei Operanden im Speicher "verkehrt" herum abgelegt werden (little endian):
+<br /><br />
+<table width="80%">
+<tr><th width="6.25%">07</th><th width="6.25%">06</th><th width="6.25%">05</th><th width="6.25%">04</th><th width="6.25%">03</th><th width="6.25%">02</th><th width="6.25%">01</th>
+<th width="6.25%">00</th><th width="6.25%">0F</th><th width="6.25%">0E</th><th width="6.25%">0D</th><th width="6.25%">0C</th><th width="6.25%">0B</th><th width="6.25%">0A</th>
+<th width="6.25%">09</th><th width="6.25%">08</th></tr>
+<tr><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>LSB</td><td>MSB</td><td>*</td><td>*</td><td>*</td>
+<td>*</td><td>*</td><td>*</td><td>*</td></tr>
+<tr><td colspan="8">Low byte</td><td colspan="8">High byte</td></tr>
+</table>
+<br />
+Bei DWords werden zus&auml;tzlich High- und Low-Word ebenfalls verkehrt herum im Speicher abgelegt:
+<br /><br />
+<table width="30%">
+<tr><th width="25%">00</th><th width="25%">01</th><th width="25%">02</th><th width="25%">03</th></tr>
+<tr><td>07...00</td><td>0F...08</td><td>17...10</td><td>1F...18</td></tr>
+<tr><td align="right">LSB</td><td>*</td><td>*</td><td align="left">MSB</td></tr>
+<tr><td colspan="2">Low Word</td><td colspan="2">High Word</td></tr>
+</table>
+<br />
+Das aufwendige Umtauschen der bytes, um die korrekte Reihenfolge zu erhalten, wurde bereits mit dem 80 486 auf einen Befehl reduziert, der nur noch einen unn&ouml;tigen Taktzyklus ben&ouml;tigt.
+<br /><br />
+<h3>1.1. Logische Verkn&uuml;pfungen</h3>
+Nach diesem kurzen &uuml;berblick &uuml;ber die verschiedenen Datentypen will ich nun ein paar worde zu den logischen Verkn&uuml;pfungen los werden. Als logische Verkn&uuml;pfung sollen
+ alle Operationen mit Daten verstanden werden, die mit einem Computer ausgef&uuml;hrt werde k&ouml;nnen, ihr Verhalten entspricht dabei im grossen und ganzen dem der diskreten Logik-Gatter,
+ wie sie z.B. in TTL-IC's vorkommen.
+<br /><br />
+<h3>1.1.0. NOT</h3>
+Diese logische Verkn&uuml;pfung wird als Negierung (NOT) bezeichnet. Gesetzte Bits werden previousgesetzt, nicht gesetzte Bits werden gesetzt:
+<br /><br />
+<table width="30%">
+<tr><th width="50%">OP 1</th><th width="25%">0</th><th width="25%">1</th></tr>
+<tr><td>Ergebnis</td><td>1</td><td>0</td></tr>
+</table>
+<br />
+<h3>1.1.1. AND</h3>
+Diese Verkn&uuml;pfung wird mit UND (AND) bezeichnet. Nur wenn beide Operanden gesetzt sind, wird das Ergebnis gesetzt, ist nur einer oder keiner der Operanden gesetzt, so wird das
+ Ergebnis previousgesetzt:
+<br /><br />
+<table width="30%">
+<tr><th width="40%">OP 1</th><th width="15%">0</th><th width="15%">1</th><th width="15%">0</th><th width="15%">1</th></tr>
+<tr><td>OP 2</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>Ergebnis</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+</table>
+<br />
+<h3>1.1.2. OR</h3>
+Diese Verkn&uuml;pfung wird mit ODER (OR) bezeichnet. Nur wenn beide Operanden nicht gesetzt sind,  wird das Ergebnis previousgesetzt, ist einer oder beide Operanden gesetzt, so wird
+ das Ergebnis ebenfalls gesetzt:
+<br /><br />
+<table width="30%">
+<tr><th width="40%">OP 1</th><th width="15%">0</th><th width="15%">1</th><th width="15%">0</th><th width="15%">1</th></tr>
+<tr><td>OP 2</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>Ergebnis</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+</table>
+<br />
+<h3>1.1.3. XOR</h3>
+Diese Verkn&uuml;pfung wird mit Exclusive (ausschliessendes) OR (XOR) bezeichnet, zu gut Deutsch: Entweder - Oder. Wenn beide Operanden verschieden sind, wird das Ergebnis gesetzt.
+ Sind hingegen beide Operanden gleich, dann wird das Ergebnis previousgesetzt:
+<br /><br />
+<table width="30%">
+<tr><th width="40%">OP 1</th><th width="15%">0</th><th width="15%">1</th><th width="15%">0</th><th width="15%">1</th></tr>
+<tr><td>OP 2</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>Ergebnis</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+</table>
+<br />
+<h3>1.1.4. NAND</h3>
+Diese Verkn&uuml;pfung wird mit NOT AND (NAND) bezeichnet.  Sie entsteht durch durch Negierung einer AND-Verkn&uuml;pfung:
+<br /><br />
+<table width="30%">
+<tr><th width="40%">OP 1</th><th width="15%">0</th><th width="15%">1</th><th width="15%">0</th><th width="15%">1</th></tr>
+<tr><td>OP 2</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>Ergebnis</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+</table>
+<br />
+<h3>1.1.5. NOR</h3>
+Diese Verkn&uuml;pfung wird mit NOT OR (NOR) bezeichnet. Sie entsteht bei der Negierung einer OR-Verkn&uuml;pfung:
+<br /><br />
+<table width="30%">
+<tr><th width="40%">OP 1</th><th width="15%">0</th><th width="15%">1</th><th width="15%">0</th><th width="15%">1</th></tr>
+<tr><td>OP 2</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>Ergebnis</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+</table>
+<br />
+Die letzten beiden Logikverkn&uuml;pfungen werden haupts&auml;chlich in elektronischen Schaltungen verwendet, die Verwendung auf Software-Ebene ist hingegen wenig gebr&auml;uchlich
+ (es gibt keine entsprechenden Op-Codes, eine Realisierung w&auml;re &uuml;ber AND, bzw. OR und anschliessendes NOT m&ouml;glich).
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0807.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0FF0.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

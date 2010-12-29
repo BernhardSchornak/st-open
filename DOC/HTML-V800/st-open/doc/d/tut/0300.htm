@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Weichwaren" />
+ <meta name="Description" content="ST-Open - Weichwaren" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>System-Speicher</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0200.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Globale Variablen</h1>
+Wie im letzten Tutorial bereits angesprochen, gibt es zwei Speicherbereiche in BNR, in denen
+ globale Variablen gespeichert werden k&ouml;nnen. Der Bereich 0x0000 bis 0x0FFF stellt 896
+ statische Variablen zur Verf&uuml;gung. Diese werden beim Beenden des Programms in der Datei
+ <i>num.dat</i> im SYST-Ordner des Programms gespeichert. Der zweite Bereich stellt weitere
+ 1.024 Laufzeitvariablen zur Verf&uuml;gung, die beim Beenden des Programms jedoch verloren
+ gehen.
+<div class="crlf1"></div>
+ Da nicht jede globale Variable permanent verf&uuml;gbar sein muss, sind die fl&uuml;chtigen
+ Variablen z.B. n&uuml;tzlich, um darin Speicherhenkel, Fensterhenkel und &auml;hnliche Daten
+ abzulegen, die sich bei jedem Programmstart &auml;ndern, oder wenn einige Programmpunkte ein
+ festgelegtes Startverhalten aufweisen sollen, der durch den Wert Null in einer zugewiesenen
+ Variablen signalisiert wird.
+<div class="crlf1"></div>
+<h2>Definition globaler Variablen</h2>
+Die Definition globaler Variablen gab bisher den Abstand eines Variablenspeicherplatzes von
+ <b>BNR</b> an, der Zugriff erfolgte mittels eigens daf&uuml;r programmierter Funktionen. Da
+ die Version 7.0.0. mit dem Ziel maximaler Geschwindigkeitsoptimierung &uuml;berarbeitet und
+ weiterentwickelt wurde, gibt es diese <i>Umgehungskr&uuml;cken</i> ab sofort nicht mehr. Die
+ neu eingef&uuml;hrte Methode benutzt statt der Variablen <b>BNR</b> die Variable <b>GVAR</b>
+ f&uuml;r Zugriffe auf den Variablenspeicher. Der Inhalt beider Variablen ist identisch, der
+ einzige Unterschied besteht in ihrer C-Definition. <b>BNR</b> ist als ein Zeiger auf Leer,
+ <b>GVAR</b> hingegen als ein Zeiger auf Lang definiert. Diese Definition &uuml;berredet den
+ C-+*.net-Compiler, aus <b>BNR</b> Doppelworte zu lesen. Da der C-+*.net-Compiler <b>GVAR</b>
+ jedoch wie ein <i>Doppelwortarray</i> behandelt, und (sinnigerweise) alle Abst&auml;nde mit
+ Vier multipliziert, brauchen wir unsere Abst&auml;nde in der Kopfdatei also nur noch durch
+ Vier teilen, bevor wir endlich auf eine von uns adressierte Variable zugreifen k&ouml;nnen:
+<div class="crlf1"></div>
+<div class="box100q"><pre>
+  #define STV_HFRAME     ((GVAR) + (0x0000 &gt;&gt; 2))   /* Rahmenhenkel     */
+  #define STV_HCLIENT    ((GVAR) + (0x0004 &gt;&gt; 2))   /* Klientenhenkel   */
+  #define STV_SCREEN_W   ((GVAR) + (0x0008 &gt;&gt; 2))   /* Bildschirmbreite */
+  #define STV_SCREEN_H   ((GVAR) + (0x000C &gt;&gt; 2))   /* Bildschirmhoehe  */
+  ...
+</pre></div>
+<div class="crlf1"></div>
+Wenn Sie Ihre Variablen jemals in <i>num.dat</i> zu finden oder mir Programme zur Fehlersuche
+ zu schicken gedenken, ist diese Form der Definition angeraten. Ich weigere mich schlicht und
+ ergreifend, Arrayindizes in von Menschen lesbare Abst&auml;nde umzurechnen - das sollten Sie
+ Sich ebenso wert sein!
+<div class="crlf1"></div>
+ Die Abst&auml;nde 0x0000 bis 0x01FF sowie 0x1800 bis 0x1FFF sind f&uuml;r die Funktionen der
+ Bibliotheken reserviert. F&uuml;r Anwendungen verbleiben somit die Abst&auml;nde 0x0200 bis
+ 0x0FFF und 0x2000 bis 0x2FFF. 1920 Variablen sollten im allgemeinen f&uuml;r jedes Programm
+ ausreichen. Wenn Sie mehr Variablen ben&ouml;tigen, dann sollten Sie diese in Ihren eigenen
+ Feldern und nicht in den <i>Systemvariablen</i> speichern...
+<div class="crlf1"></div>
+Die in den Funktionen der Bibliotheken systemweit definierten Variablen sind in der Kopfdatei
+ <b>..\ST7\include\yvar.h</b> zu finden. Globale Variablen f&uuml;r Ihr Programm sollten Sie
+ in einer programmeigenen Kopfdatei (in ST-Open's Applikationen <b>hvar.h</b>) definieren, um
+ den &Uuml;berblick zu behalten.
+<div class="crlf1"></div>
+<h2>Zugriff auf globale Variablen</h2>
+<h3>1. Die langwierige Methode</h3>
+Da die Variablen von 0x0000 bis 0x0FFF zum Feld num.dat geh&ouml;ren, <i>kann</i> man mittels
+ der Funktion FDacc() (ST-Open's Datenbankmaschine) darauf zugreifen. Das sollte man jedoch
+ tunlichst sein lassen, da der direkte Zugriff wesentlich schneller und zudem einfacher ist.
+ In der Zeit, in der die sechs Parameter f&uuml;r FDacc() auf dem Stapel abgelegt werden, ist
+ bereits ein Direktzugriff ausgef&uuml;hrt und der zweite in Arbeit. Bis FDacc() abgearbeitet
+ wurde, k&ouml;nnten sie schon zehn oder mehr Direktzugriffe ausgef&uuml;hrt haben.
+<h3>2. Die einfache Methode</h3>
+Dank der Verrenkungen bei der Definition gestaltet sich der Direktzugriff letztendlich doch
+ relativ simpel:
+<div class="box100q"><pre>
+{
+ DD x, *ea;
+
+ /* Lesen:          */     x = *MEINE_VARIABLE;
+
+ /* Schreiben:      */     *MEINE_VARIABLE = 10;
+                           *DEINE_VARIABLE = 10;
+
+ /* Addition:       */     *MEINE_VARIABLE += *DEINE_VARIABLE;
+
+ /* Subtraktion:    */     *MEINE_VARIABLE -= *DEINE_VARIABLE;
+
+ /* Multiplikation: */     *MEINE_VARIABLE *= *DEINE_VARIABLE;
+
+ /* Division:       */     *MEINE_VARIABLE /= *DEINE_VARIABLE;
+
+ /* Inkrementieren: */     *MEINE_VARIABLE++;
+
+ /* Dekrementieren: */     *MEINE_VARIABLE--;
+
+ /* Adresse:        */     ea = MEINE_VARIABLE;
+}
+</pre></div>
+<div class="crlf1"></div>
+MEINE_VARIABLE hat nach wie vor den Inhalt 10. Wenn man die Verrenkungen mit den Definitionen
+ erst einmal hinter sich hat, ist das Ganze nur noch einfach kompliziert... ;)
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0200.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0300.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

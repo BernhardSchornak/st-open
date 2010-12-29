@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Organisation of Field Headers</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0501.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0503.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>Field Header</h1>
+The field header contains all required parameters to manage the field:
+<div class="crlf1"></div>
+<table width="100%">
+<tr><th width="4%">Offset</th><th width="6%">.0</th><th width="6%">.1</th><th width="6%">.2</th><th width="6%">.3</th><th width="6%">.4</th>
+<th width="6%">.5</th><th width="6%">.6</th><th width="6%">.7</th><th width="6%">.8</th><th width="6%">.9</th><th width="6%">.A</th>
+<th width="6%">.B</th><th width="6%">.C</th><th width="6%">.D</th><th width="6%">.E</th><th width="6%">.F</th></tr>
+<tr><td>000.</td><td colspan="4">0000 0000 (zero)</td><td colspan="12">name of this field -</td></tr>
+<tr><td>001.</td><td colspan="16">up to 27 characters and one (or more) trailing zero(es)</td></tr>
+<tr><td>002.</td><td colspan="4">block size (38 * 3C)</td><td colspan="4">type count</td><td colspan="4">SecSys control data</td><td colspan="4">field number</td></tr>
+<tr><td>003.</td><td colspan="2">status</td><td>Sec-R</td><td>Sec-W</td><td colspan="4">field end (offset)</td><td colspan="4">max. entry length</td><td colspan="4">amount entries</td></tr>
+<tr><td>004.</td><td>Typ00</td><td>Typ01</td><td>Typ02</td><td>Typ03</td><td>Typ04</td><td>Typ05</td><td>Typ06</td><td>Typ07</td>
+<td>Typ08</td><td>Typ09</td><td>Typ0A</td><td>Typ0B</td><td>Typ0C</td><td>Typ0D</td><td>Typ0E</td><td>Typ0F</td></tr>
+<tr><td>005.</td><td>Typ10</td><td>Typ11</td><td>Typ12</td><td>Typ13</td><td>Typ14</td><td>Typ15</td><td>Typ16</td><td>Typ17</td>
+<td>Typ18</td><td>Typ19</td><td>Typ1A</td><td>Typ1B</td><td>Typ1C</td><td>Typ1D</td><td>Typ1E</td><td>Typ1F</td></tr>
+<tr><td>006.</td><td colspan="4">offset 00</td><td colspan="4">offset 01</td><td colspan="4">offset 02</td><td colspan="4">offset 03</td></tr>
+<tr><td>007.</td><td colspan="4">offset 04</td><td colspan="4">offset 05</td><td colspan="4">offset 06</td><td colspan="4">offset 07</td></tr>
+<tr><td>008.</td><td colspan="4">offset 08</td><td colspan="4">offset 09</td><td colspan="4">offset 0A</td><td colspan="4">offset 0B</td></tr>
+<tr><td>009.</td><td colspan="4">offset 0C</td><td colspan="4">offset 0D</td><td colspan="4">offset 0E</td><td colspan="4">offset 0F</td></tr>
+<tr><td>00A.</td><td colspan="4">offset 10</td><td colspan="4">offset 11</td><td colspan="4">offset 12</td><td colspan="4">offset 13</td></tr>
+<tr><td>00B.</td><td colspan="4">offset 14</td><td colspan="4">offset 15</td><td colspan="4">offset 16</td><td colspan="4">offset 17</td></tr>
+<tr><td>00C.</td><td colspan="4">offset 18</td><td colspan="4">offset 19</td><td colspan="4">offset 1A</td><td colspan="4">offset 1B</td></tr>
+<tr><td>00D.</td><td colspan="4">offset 1C</td><td colspan="4">offset 1D</td><td colspan="4">offset 1E</td><td colspan="4">offset 1F</td></tr>
+<tr><td>00E.</td><td colspan="16">reserved</td></tr>
+<tr><td>00F.</td><td colspan="16">reserved</td></tr>
+</table>
+<div class="crlf1"></div>
+<h2>Descriptions</h2>
+<h3>0000</h3>
+0000[MemEA] always contains a dword with a content of zero. All strings initally are set to
+ offset zero - the address of an empty string. Some system functions evaluate this dword to
+ validate the integrity of datafields. If a non-zero is found at 0000[MemEA], the content
+ of the memory block is rejected and an ERR_NOT_A_FIELD message is returned.
+<div class="crlf1"></div>
+<h3>0004</h3>
+0004[MemEA] through 001F holds an optional field name. If no name is given, DatTools insert
+ the number of the datafield in hexadecimal notation by default. This name is treated as a
+ string, so it must be terminated with a trailing zero. Therefore, its maximum size is 27
+ byte. DatTools automatically truncate names exceeding this limit.
+<div class="crlf1"></div>
+<h3>0020</h3>
+0020[MemEA] holds the maximum size of any subfield in this datafield. It is calculated with
+ the formula <b>length * amount</b>. This multiplication is done when the field is created,
+ saving repeated calculations in functions where this value is required.
+<div class="crlf1"></div>
+<h3>0024</h3>
+0024[MemEA] holds the amount of datatypes stored in this datafield. Storing the count omits
+ scans and superfluous calculations.
+<div class="crlf1"></div>
+<h3>0028</h3>
+0028[MemEA] holds control data for SecSys. If you don't use SecSys, the dword should be set
+ to zero.
+<div class="crlf1"></div>
+<h3>002C</h3>
+002C[MemEA] holds the field number. It is used by the Loader for validation.
+<div class="crlf1"></div>
+<h3>0030</h3>
+0030[MemEA] holds the <a href="0103.htm">status</a> word of the datafield.
+<div class="crlf1"></div>
+<h3>0032</h3>
+0032[MemEA] holds the required read permission for SecSys controlled datafields.
+<div class="crlf1"></div>
+<h3>0033</h3>
+0033[MemEA] holds the required write permission for SecSys controlled datafields.
+<div class="crlf1"></div>
+<h3>0034</h3>
+0034[MemEA] holds the current size of the datafield. This also is the offset where the next
+ string will be written to.
+<div class="crlf1"></div>
+<h3>0038</h3>
+0038[MemEA] holds the maximum size of any entry in this datafield. For type 06 (FIX), it is
+ the fixed size of each block in the subfield.
+<div class="crlf1"></div>
+<h3>003C</h3>
+003C[MemEA] holds the total amount of entries in each subfield.
+<div class="crlf1"></div>
+<h3>0040</h3>
+0040[MemEA] holds the type table of this datafield. The first not defined and all following
+ entries in the table must be set to zero (no type).
+<div class="crlf1"></div>
+<h3>0060</h3>
+0060[MemEA] holds the offset table of this datafield. Unused offsets must be set to zero.
+<div class="crlf1"></div>
+<h3>00E0</h3>
+00E0[MemEA] up to 00FF[MemEA] are reserved for future expansions. All 32 bytes in this area
+ should be set to zero.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0501.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0503.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

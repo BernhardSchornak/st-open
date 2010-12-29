@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Sprachunterst&uuml;tzung" />
+ <meta name="Description" content="ST-Open Tutorial: Sprachunterst&uuml;tzung" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Sprachunterst&uuml;tzung</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0519.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0601.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Sprachunterst&uuml;tzung</h1>
+Das ST-System bietet ab Version 7.0.0. eine feldbasierte Sprachunterst&uuml;tzung f&uuml;r bis
+ zu 16 Sprachen an. Der Benutzer kann im laufenden Programm von einer Sprache auf die andere
+ umschalten, alle Men&uuml;-, Fenster- und Dialogtexte werden umgehend auf die neue Sprache
+ umgestellt. Durch den Wegfall der Textteile verkleinert sich der Resourcenbedarf des Programms
+ erheblich. Das Schreiben der Texte in die Fenster ist vollst&auml;ndig automatisiert und
+ wesentlich schneller als die &uuml;bliche Methode des Ladens aus der Resourcedatei, die zudem
+ nur in einer einzigen Sprache verf&uuml;gbar ist und die selben Funktionsaufrufe verwendet.
+<div class="crlf1"></div>
+Eingabe, &Uuml;bersetzung und Verwaltung der betreffenden Felder erfolgt komfortabel &uuml;ber
+ eigens daf&uuml;r bereitgestellte Dialoge der <a href="../../../st7/d/md5.htm">DatTools</a>,
+ ST-Open's Werkzeugsammlung zur Erstellung und Bearbeitung von Datenfeldern. Da die DatTools
+ frei verf&uuml;gbar sind, kann nach der Eingabe einer einzigen Sprache <b>jeder</b> Benutzer
+ - auch ohne jegliche Programmierkenntnisse - eine &Uuml;bersetzung hinzuf&uuml;gen. Zudem kann
+ das zu &uuml;bersetzende Programm w&auml;hren der &Uuml;bersetzungsarbeit ge&ouml;ffnet sein,
+ was die Erstellung von Texten und &Uuml;bersetzungen vereinfacht. Die Dialoge, Men&uuml;s und
+ Nachrichten laden das entsprechende Sprachfeld nur beim Aufbau des jeweiligen Fensters und
+ geben es anschliessend wieder frei. Sie k&ouml;nnen die &Uuml;bersetzung also direkt nach dem
+ Erscheinen des Fensters eingeben, den Dialog schliessen, auf die neue Sprache umschalten und
+ die &Uuml;bersetzung im laufenden Programm pr&uuml;fen. Hilfetexte und Topics sind geladen,
+ so lange die Hilfe oder der Topicdialog im Programm angezeigt werden. &Uuml;bersetzungen sind
+ also nur m&ouml;glich, wenn im laufenden Programm momentan keine Hilfe angezeigt wird. Da der
+ &Uuml;bersetzungsdialog der Hilfe in den DatTools zwei Sprachen simultan anzeigt, d&uuml;rfte
+ das kein all zu grosses Hindernis sein.
+<div class="crlf1"></div>
+ Um die Datenfelder einer Applikation zu bearbeiten, muss zuerst der Quellordner der Applikation
+ als aktueller Arbeitsordner der DatTools festgelegt werden. W&auml;hlen sie <i>Auswahl</i> im
+ Hauptmen&uuml;, dann <i>Quellordner</i>:
+<div class="crlf1"></div>
+<div class="box100"><img src="../../../st7/md5/d/pics/mnu01.png" alt="Men&uuml;: Auswahl" width="620" height="192" border="0" /></div>
+<div class="crlf1"></div>
+Nach der Auswahl des Quellverzeichnisses k&ouml;nnen Sie nun &uuml;ber <i>Tools</i> den gerade
+ ben&ouml;tigten &Uuml;bersetzungsdialog aufrufen:
+<div class="crlf1"></div>
+<div class="box100"><img src="../../../st7/md5/d/pics/mnu03.png" alt="Men&uuml;: Tools" width="620" height="192" border="0" /></div>
+<div class="crlf1"></div>
+<h2>Namen der Sprachen</h2>
+Die Namen der verf&uuml;gbaren Sprachen sind in den <i>Systemzeichenketten</i> abgelegt. Diese
+ Namen werden zum Beispiel f&uuml;r Men&uuml;s oder Dialoge zur Sprachauswahl in Programmen
+ ben&ouml;tigt. Um Programmierern die aufw&auml;ndige Eingabe der Namen mit dem Feldbetrachter
+ zu ersparen, bieten DatTools f&uuml;r diese Arbeit einen eigenen Dialog an:
+<div class="crlf1"></div>
+<div class="box100"><img src="../../../st7/md5/d/pics/lng.png" alt="Men&uuml;: Sprachen" width="612" height="732" border="0" /></div>
+<div class="crlf1"></div>
+Dieser Dialog wird beim Anklicken des obersten Punktes im Men&uuml; <i>Tools</i> ge&ouml;ffnet.
+Die Beschreibung der weiteren Dialoge folgt auf den n&auml;chsten Seiten.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0519.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0601.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0600.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Global Variables</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0200.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>Global Variables</h1>
+As mentioned in the previous tutorial, there are two system areas where global variables can be stored. The first one occupies
+ the locations 0x0000 through 0x0FFF and holds 1,024 static variables. Static variables are kept in <i>num.dat</i>. They are
+ loaded while the Loader is initialised and stored when the Loader is terminated. The first 128 variables (locations 0x0000 -
+ 0x01FF) are reserved for the system, the remaining 896 variables are free for applications. The second area occupies memory
+ locations 0x2000 through 0x2FFF. 1,024 temporary variables can be stored here, but their content gets lost when the Loader
+ is terminated.
+<div class="crlf1"></div>
+Temporary variables are used to store runtime variables like window handles, <i>MemHandles</i> or parameters which should be
+ zero on initialisation. Such variables change every time the program is started, so it doesn't make sense to store them in a
+ file (except you have to debug your code).
+<div class="crlf1"></div>
+<h4>My Guru Preaches NOT To Use Global Variables?</h4>
+Kick her/his arse... ;)
+<div class="crlf1"></div>
+If you want to speed up your code, you should avoid passing parameters on the stack. Passing parameters on the stack blows up
+ your code and slows it down. First, parameters are pushed onto the stack. Secondly, the same parameters will be read from the
+ stack twenty or thirty clock cycles later. This wastes <i>at least</i> 6 clock cycles and about 8 byte of code for writing and
+ reloading <i>one</i> parameter. Using a global variable reduces the overhead to 3 clock cycles and 6 bytes of code. If you use
+ globals consequently, your functions run much faster and your executables are smaller.
+<div class="crlf1"></div>
+<h2>Definition of Global Variables</h2>
+With Version 7.0.0., the definition of global variables was changed. Older versions defined global variables as offsets to BNR
+ (defined as VOID *) and called special functions like GET() to access them. The primary goals of Version 8.0.0. are speed
+ optimisation and code reduction. Following <a href="http://st-intelligentdesign.blogspot.com/">Intelligent Design</a> rules,
+ crutches like GET() were eliminated and GVAR - BNR defined as DD * (pointer to doubleword) - replaces BNR in the definitions
+ now. The new definition convinces GCC to stop muttering about void pointers used to address doublewords and such. Because GCC
+ multiplies all offsets with four (assuming BNR is a dword array?), we have to divide them by four in our headers (sigh...):
+<div class="crlf1"></div>
+<div class="box100q"><pre>
+  #define STV_HFRAME     ((GVAR) + (0x0000 &gt;&gt; 2))   /* HWND   frame     */
+  #define STV_HCLIENT    ((GVAR) + (0x0004 &gt;&gt; 2))   /*        client    */
+  #define STV_SCREEN_W   ((GVAR) + (0x0008 &gt;&gt; 2))   /* screen width     */
+  #define STV_SCREEN_H   ((GVAR) + (0x000C &gt;&gt; 2))   /*        height    */
+  ...
+</pre></div>
+<div class="crlf1"></div>
+If you ever want to find your variables in <i>num.dat</i>, this kind of definition is strongly recommended.
+<div class="crlf1"></div>
+Offsets 0x0000 through 0x01FF and 0x1000 through 0x1FFF are reserved for system core and library functions. Offsets 0x0200
+ through 0x0FFF and 0x2000 through 0x2FFF are free for applications. These 1920 variables should be sufficient, even for heavy
+ weight applications. If you still need more, I suggest to create a field suiting your needs and use ST-Open's database engine...
+<div class="crlf1"></div>
+Variables for library functions are defined in the systemwide header <b>..\ST8\include\yvar.h</b>. Global variables for programs
+ should be defined in a separate header in the program's source folder (in ST-Open applikations always <b>hvar.h</b>). Do not alter
+ ST-Open headers if you want to maintain more than one application!
+<div class="crlf1"></div>
+<h2>Accessing Global Variables</h2>
+<h3>1. The Longwinded Method</h3>
+All static variables are stored in <i>num.dat</i>. Because <i>num.dat</i> is a field, you might access static variables via FDacc().
+ One good advice: Don't do it! Direct access is much faster. While those six parameters for FDacc() are pushed onto the stack
+ (assuming you code in C), one variable can be accessed and another access is in progress. Until FDacc() returns, at least ten
+ direct accesses can be performed. FDacc() validates all passed parameters before it starts to perform the requested action and
+ cannot be faster than accessing the same data directly.
+<h3>2. The Simple Method</h3>
+After leaving all elaborate contortions with the definitions of our global variables behind us, it's quite easy to access them now:
+<div class="box100q"><pre>
+{
+ DD x, *ea;
+
+ /* Read:           */     x = *MY_VARIABLE;
+
+ /* Write:          */     *MY_VARIABLE   = 10;
+                           *YOUR_VARIABLE = 10;
+
+ /* Addition:       */     *MY_VARIABLE  += *YOUR_VARIABLE;
+
+ /* Subtraction:    */     *MY_VARIABLE  -= *YOUR_VARIABLE;
+
+ /* Multiplication: */     *MY_VARIABLE  *= *YOUR_VARIABLE;
+
+ /* Division:       */     *MY_VARIABLE  /= *YOUR_VARIABLE;
+
+ /* Increment:      */     *MY_VARIABLE += 1;
+
+ /* Decrement:      */     *MY_VARIABLE -= 1;
+
+ /* Address:        */     ea = MY_VARIABLE;
+}
+</pre></div>
+<div class="crlf1"></div>
+MY_VARIABLE still is 10...
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0200.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

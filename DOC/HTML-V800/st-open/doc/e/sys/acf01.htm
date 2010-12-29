@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="FDvpt()" />
+ <meta name="Description" content="ST-Open Libraries: FDvpt()" />
+ <meta name="Keywords" content="ST-Open, open, source, ST-Open, library, libraries, free, software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>FDvpt()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="acf000.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="acf02.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100"><div class="inner">..\st7\lib\sources\base\acf.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>FDvpt</b></div><div class="outer">Function</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = FDvpt(MemHandle, entry, subfield, FDA_*);</div><div class="outer">Call</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div>
+<div class="inners">MemHandle</div>
+<div class="innerl">MemHandle of a loaded field</div>
+<div class="crlf0"></div>
+<div class="inners">RDX</div>
+<div class="inners">entry</div>
+<div class="innerl">entry number</div>
+<div class="crlf0"></div>
+<div class="inners">R08</div>
+<div class="inners">subfield</div>
+<div class="innerl">subfield number</div>
+<div class="crlf0"></div>
+<div class="inners">R09</div>
+<div class="inners">FDA_*</div>
+<div class="innerl">only FDA_ADDRESS is valid</div>
+</div><div class="outer">Input</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RAX</div>
+<div class="inners">rc</div>
+<div class="innerl">address of specified entry</div>
+</div><div class="outer">Output</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+FDvpt() is an additional definition for FDacc() to avoid casting orgies. Any
+ qword returned by FDacc() is called 'qword' while qwords returned by FDvpt()
+ are called 'pointer to void'. On error, FDvpt() returns the address of a
+ system variable containing zero (empty string).
+<div class="crlf1"></div>
+<b>WARNING:</b> Do not write strings to the returned address. Writing strings
+ to a field directly might corrupt its content, leading to unpredictable errors
+ and inconsitencies in the field's offset table. Use FDA_WRITE to write strings
+ to your fields. This does not apply to numeric data. If you choose the proper
+ size, you can write numeric data directly. That's faster than calling FDacc()
+ repeatedly.
+</div><div class="outer">Description</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ VOID *p;
+ p = FDvpt(MH_STR, STR_MESSAGE, 0, FDA_ADDRESS, 0, 0);
+}
+</pre>
+A dword containing the address of STR_MESSAGE is returned by FDvpt() and stored
+ in variable p.
+</div><div class="outer">Example</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="acf000.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="acf02.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

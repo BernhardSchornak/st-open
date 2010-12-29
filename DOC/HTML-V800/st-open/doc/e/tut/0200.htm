@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>System Memory</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0104.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>System Memory</h1>
+The system allocates five pages a 4,096 byte for tables, buffers and variables. The three
+ blocks for global variables (address: BNR) are included in these five pages. 1920 global
+ variables are available for applications, the remaining bytes are reserved for system use.
+<div class="crlf1"></div>
+<h3>The Loader Table (BMM)</h3>
+The Loader Table (address: BMM) has 256 entries. Each entry holds eight dwords (32 byte)
+ with parameters of one allocated memory block. Unused entries are filled with zeroes and
+ all parameters of a block are cleared if the block is freed. All entries are organised as
+ follows:
+<div class="crlf1"></div>
+<table width="100%">
+<tr><th width="25%">.0</th><th width="25%">.4</th><th width="12.5%">.8</a></th><th width="12.5%">.A</th><th width="25%">.C</th></tr>
+<tr><td colspan="2">Field Address</td><td><a href="0103.htm">Status</a></td><td>Instances</td><td>Time Stamp</td></tr>
+<tr><td>Allocated Size</td><td>Field Size</td><td colspan="2">Field Number</td><td>Amount Entries</td></tr>
+</table>
+<div class="crlf1"></div>
+The address of an entry in BMM is called <i>Memory Handle</i> or <i>MemHandle</i>. Whenever
+ you call <a href="../sys/ldr01.htm">LDreq()</a>, the Loader writes the <i>MemHandle</i> to
+ LD.MMoff in the passed LD structure. The <i>MemHandle</i> is required for all other Loader
+ functions, including <a href="../sys/ldr03.htm">LDfre()</a> (release allocated block).
+<div class="crlf1"></div>
+<i>MemHandles</i> are declared as dword to satisfy C compilers and avoid pointless casting
+ orgies. If you use invalid <i>MemHandles</i> or write data directly to BMM, OS/2 probably
+ rewards you with a SYS3175 message. More information about ST-Open's Loader can be found
+ in its <a href="0400.htm">Tutorial</a>.
+<div class="crlf1"></div>
+<h3>System Tables and Variables</h3>
+The three pages (address: BNR) are organised as follows:
+<div class="crlf1"></div>
+<div class="inner">128 static variables reserved for the system</div><div class="outer">0x0000</div><div class="crlf0"></div>
+<div class="inner">896 static variables for applications</div><div class="outer">0x0200</div><div class="crlf0"></div>
+<div class="inner">8 conversion tables (256 byte each)</div><div class="outer">0x1000</div><div class="crlf0"></div>
+<div class="inner">SecSys area</div><div class="outer">0x1800</div><div class="crlf0"></div>
+<div class="inner">system flags, variables and buffers</div><div class="outer">0x1C00</div><div class="crlf0"></div>
+<div class="inner">1024 runtime variables for applications</div><div class="outer">0x2000</div><div class="crlf2"></div>
+Static variables are stored in NUM.DAT before the program is shut down. Please do not write
+ to system memory. The only exception are variables defined for input of user parameters
+ (e.g. STV_MSG_*).
+<div class="crlf1"></div>
+The last conversion table (0x1700 - 0x17FF) is free for appliations.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0104.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>DM Basics</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0502.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0504.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>Basics</h1>
+Now that you know how the field headers are defined, it is time to introduce you to some
+ internals of the DBE. All offsets are addressed relative to the field's base. This address
+ is returned in member MemEA of the LD structure you pass to LDreq(). Please do <i>not</i>
+ mismatch it with the <i>MemHandle</i> returned in member MMoff of the LD structure. All
+ calls to FDacc() pass the <i>MemHandle</i> of the field. While the <i>MemHandle</i> always
+ is the same, the real address might change if a string does not fit into the allocated
+ block and the DBE resizes the field. The real address, stored at offset 0x00 in the
+ <i>MemHandle</i>, is loaded by the DBE whenever you call FDacc(). All internal operations
+ use it to read data from or write data to entries.
+<div class="crlf1"></div>
+The field header provides all information the DBE needs to perform its tasks. By default,
+ 00[MemEA] contains a dword with a content of zero. This dword is used as an empty string.
+ All string offsets in the offset table of $32 subfields initially point to offset zero.
+ If a string is appended to the field's end, the content of 0x34[MemEA] is stored as string
+ offset, then the length of the string is added to 0x34[MemEA], so it points to the end of
+ the field, again. Second, 0x00[MemEA] is used to validate the field. If it contains a zero
+ and the field number stored at 0x2C[MemEA] is equal to the field number stored in the
+ <i>MemHandle</i>, it probably is a valid field. 0x04[MemEA] through 0x1F[MemEA] contain
+ the optional field name. It must be terminated with at least one trailing zero. The field
+ shown in the graphic has no name, so all bytes are set to zero. 20[MemEA] contains the
+ maximum size of each subfield. It is required for some functions, so we do the vector path
+ IMUL once and read the result further on with direct path MOVs. The dword at 24[MemEA]
+ tells us, how many subfields are stored in the field. In our example, we have two of them:
+ The first contains bytes (type 01), the second dynamic strings (type 07). At 28[MemEA], we
+ can find control data for SecSys. A value of zero does not necessarily mean this field is
+ not controlled by SecSys (actually, we only could determine SecSys control if we evaluated
+ the status word at 30[MemEA]). 2C[MemEA] holds the field number. As mentioned, this dword
+ is used to validate the field. The word at 30[MemEA] holds the status of the field. In our
+ example, the field grants read and write access, the content was changed and the automated
+ inactivity check is bypassed. The bytes at 32[MemEA] and 33[MemEA] determine the required
+ read and write permission for SecSys controlled fields. Both are ignored if the SecSys
+ flag in the status word is not set. The dword at 34[MemEA] holds the current size of the
+ field. It is updated whenever strings are written to the end of the field. The dword at
+ 38[MemEA] determines the maximum size of any entry in the field. For fixed size blocks, it
+ is the block size, for dynamic strings it is their maximum length. Input exceeding this
+ size is truncated and a trailing zero is appended. In our example, strings are limited to
+ 32 byte (including the trailing zero). 3C[MemEA] determines the amount of entries stored
+ in each subfileld. In our case, we have two subfields with 16 entries in each of them.
+ That's all general information stored in the header.
+<div class="crlf1"></div>
+The field's type table starts at offset 40[MemEA]. It always has a size of 32 byte for up
+ to 32 subfields. Each byte defines the data type stored in the corresponding subfield. A
+ data type zero is equal to 'no type' - all unused subfields must be set to this type! In
+ our example, we have two subfields. Subfield 00 contains 16 bytes (type 01), subfield 01
+ 16 dynamic strings (type 07).
+<div class="crlf1"></div>
+The field's offset table starts at offset 60[MemEA]. It contains 32 dwords, occupying 128
+ byte. Each dword contains the offset of the corresponding subfield relative to the field's
+ base address. Please do not mismatch this subfield OT with the string OT described later.
+<div class="crlf1"></div>
+Have a closer look at the field header. Its definition applies simple, but very efficient
+ logic. The DBE is able to access required control parameters with a few MOV instructions
+ - no time consuming calculations are required for most tasks. Data types 01 through 04
+ (DB, DW, DD, DQ) can be accessed with indirect indexed addressing, the remaining types
+ require a simple shift and/or one multiplication to determine the address where they are
+ stored. The only time consuming task is to replace existing strings, because they are
+ removed from the field completely before their new content is written to the field's end.
+ However, garbage collection keeps a field's size as small as possible and avoids to search
+ for a string's end. The DBE just checks the byte at *******F to determine if the end of
+ a string is reached or if it exceeds the paragraph's boundary. If you want to avoid this
+ time consuming garbage collection, you might consider to store strings in fixed length
+ blocks (type 06). However, you have to search for a string's end on your own, wasting
+ some time. In the end, you probably waste more time than you win, except your application
+ writes strings more often than it reads them. If you use the DBE to write strings, then
+ access them via FDA_ADDRESS for the first offset and subsequent direct access for all
+ following reads, you will gain better performance. One advice: Never write strings to
+ a field on your own - you probably leave a corrupted field behind if you do that!
+<div class="crlf1"></div>
+<h2>Interrelationships</h2>
+<div class="limage"><img src="../../pics/doc0004.png" alt="field construction" width="300" height="300" border="0" /></div>
+The image illustrates interrelationships between informations stored in a datafield's
+ header. All areas with same colour are related to each other. The content of the byte at
+ offset 0x40[MemEA] determines the data type (01 = byte), the dword at offset 0x60[MemEA]
+ determines the distance of the first subfield from the base address of the datafield. As
+ defined in the dword at 0x3C[MemEA], this datafield has sixteen entries per subfield, so
+ data of the first subfield can be found at 0100[MemEA] through 010F[MemEA]. Subfield two
+ holds data of type 07, the already mentioned dynamic strings. Dynamic strings are treated
+ in a special way. Subfields of type 07 hold 0x3C[MemEA] (= total amount) offsets to the
+ locations where the string with the corresponding entry number is stored. Initially, all
+ offsets are zero - pointing to the first byte in the datafield, where a dword containing
+ zero is stored. Hence, never written strings automatically are handled as empty strings.
+ If an existing string is deleted, its content is removed from the datafield and its offset
+ in the offset table (OT) is set to zero. If a new string is to be written, its content is
+ appended to the end of the field, its offset is stored in the subfield's offset table and
+ the dword at 0x34[MemEA] is set to the new end of the datafield (which is identical to the
+ end of the last written string). If a string already exists, it is removed from the field,
+ all strings above are shuffled down to fill the gap, all OT entries are updated to the new
+ values and, finally, the current string is appended to the end of the datafield. Well, our
+ software gurus use a different language and named this behaviour "garbage collection".
+ Whenever the DBE issues a write of a dynamic string, the dirty flag in the datafield's
+ status word is set and only removed if this task was completed with success. As long as
+ the dirty flag of a datafield is set, the DBE denies any further access to that datafield,
+ because its data are not consistent as long as a garbage collection is in progress. In the
+ worst case, an error occurs during the garbage collection or the following write, and the
+ dirty flag never is reset. In this case, the entire datafield is treated as corrupted and
+ the Loader denies to save it - it is released without storing its content and all changes
+ are lost. Whenever you re-open such a field, the Loader will fetch an intact copy in the
+ last stable state.
+<div class="crlf1"></div>
+
+
+&Uuml;bersteigt die Gr&ouml;sse einer zum Schreiben &uuml;bergebenen Zeichenkette die in
+ 38[MemEA] festgelegte Gr&ouml;sse, wird die Zeichenkette so abgeschnitten, dass sie mit
+ der terminierenden Null zusammen genau die maximale Gr&ouml;sse hat. In unserem Beispiel
+ w&uuml;rde eine 40 Byte grosse Zeichenkette auf 31 Byte plus Null = 32 Byte gek&uuml;rzt,
+ bevor sie an das Feldende angeh&auml;ngt wird. Zeichenketten werden prinzipiell auf eine
+ L&auml;nge erweitert, die einem ganzzahligen Vielfachen von Vier entspricht. Durch diese
+ Anpassung kann die DBE Doppelworte statt Byte kopieren, was alle Kopiervorg&auml;nge um
+ mindestens 400 Prozent beschleunigt.
+<div class="crlf1"></div>
+<h2>Anwendung</h2>
+Die DBE ist ein Funktionsverteiler mit Unterfunktionen, der mit dem Aufruf
+<div class="crlf1"></div>
+<div class="box100">
+<b>Ergebnis = FDacc(Speicherhenkel, Eintrag, Unterfeld, Funktion, Adresse, Zahl);</b>
+</div>
+<div class="crlf1"></div>
+angesprochen wird. F&uuml;r die R&uuml;ckgabe von Adressen hat FDacc() den Namen FDvpt():
+<div class="crlf1"></div>
+<div class="box100">
+<b>Adresse = FDvpt(Speicherhenkel, Eintrag, Unterfeld, Funktion, Adresse, Zahl);</b>
+</div>
+<div class="crlf1"></div>
+FDvpt() ist keine zweite Funktion, sondern nur eine zus&auml;tzliche Deklaration f&uuml;r
+ C-Programmierer. Sie vermeidet die von C-Kompilierern vorgenommenen Typumwandlungen, die
+ teilweise sehr aufw&auml;ndig (und auf abenteuerlichen Wegen) Doppelworte in Doppelworte
+ umwandeln. <i>Intelligent Design</i>-Programmierer haben es hier etwas leichter, da sie
+ durchgehend mit _FDacc arbeiten k&ouml;nnen...
+<div class="crlf1"></div>
+<h3>Parameter</h3>
+<h4>Ausgabe: Ergebnis</h4>
+Ein Ergebnis wird nur f&uuml;r die Typen 01 bis 03, respektive von der Unterfunktion
+ FDA_OFFSET, zur&uuml;ckgeliefert. F&uuml;r alle anderen Datentypen ist dieses Ergebnis
+ irrelevant, da sich Daten mit einer Breite jenseits von 32 Bit nicht in einem 32 Bit
+ breiten Register darstellen lassen. Nichtsdestotrotz wird das Ergebnis der Typen 04 bis
+ 07 generell auf Null gesetzt. Sollte das nicht der Fall sein, w&auml;re ich sehr erfreut,
+ wenn Sie mir eine kurze Mitteilung schicken, da das auf Fehler in der entsprechenden
+ Unterfunktion hinweist.
+<div class="crlf1"></div>
+<h4>Ausgabe: Adresse</h4>
+FDvpt() gibt immer die Adresse des spezifizierten Eintrags zur&uuml;ck. Ist einer der an
+ FDvpt() &uuml;bergebenen Parameter ung&uuml;ltig, dann liefert FDvpt() die Feldadresse an
+ den Aufrufer zur&uuml;ck, um Abst&uuml;rze wegen ung&uuml;ltiger Adressen zu vermeiden.
+ Wie bereits besprochen, liegt am Feldanfang ein Doppelwort mit dem Inhalt Null. F&uuml;r
+ die Datentypen 01 bis 03 und 07 ist das ein g&uuml;ltiger R&uuml;ckgabewert. Bei anderen
+ Datentypen sollte man immer vergleichen, ob die zur&uuml;ckgelieferte Adresse identisch
+ mit der Feldadresse ist. Schreiboperationen in den Feldkopf vermindern zwangsl&auml;ufig
+ die Konsistenz des Feldes.
+<div class="crlf1"></div>
+<h4>Eingabe: Speicherhenkel</h4>
+Der Speicherhenkel des Feldes. Dies ist das Mitglied <b>MMoff</b> der LD-Struktur, die sie
+ dem Lader bei der Anforderung des Feldes &uuml;bergeben haben. Er sollte gleich nach der
+ Anforderung in eine globale Variable kopiert werden, damit Sie die DBE ansprechen und das
+ Feld nach seiner Verwendung mittels LDfre() wieder freigeben k&ouml;nnen.
+<div class="crlf1"></div>
+<h4>Eingabe: Eintrag</h4>
+Die Nummer des Eintrags. Bei einigen Unterfunktionen ist dies die Nummer des Zieleintrags!
+<div class="crlf1"></div>
+<h4>Eingabe: Unterfeld</h4>
+Die Nummer des Unterfeldes. Bei Feldern mit nur einem Datentyp ist das prinzipiell Null,
+ bei zwei Datentypen Null oder Eins, und so weiter.
+<div class="crlf1"></div>
+<h4>Eingabe: Funktion</h4>
+Eine der definierten FDA_*-Funktionen.
+<div class="crlf1"></div>
+<h4>Eingabe: Adresse</h4>
+Dieser Parameter ist optional. Er wird generell nur f&uuml;r Datentypen ben&ouml;tigt, die
+ breiter als 32 Bit sind.
+<div class="crlf1"></div>
+<h4>Eingabe: Zahl</h4>
+F&uuml;r FDA_WRITE wird hier der Wert des zu schreibenden Bytes, Wortes oder Doppelwortes
+ &uuml;bergeben. Bei einigen anderen Unterfunktionen &uuml;bergibt man in diesem Parameter
+ die Nummer des Quelleintrages.
+<div class="crlf2"></div>
+Soviel zu den Grundlagen der Datenbankmaschine. Es g&auml;be bestimmt noch einige Dinge zu
+ erg&auml;nzen. Das Tutorial soll aber nicht zum ausgewachsenen Buch mutieren, so dass ich
+ langsam einen Schlu&szlig;strich ziehe und Sie an die Anleitung zur praktischen Anwendung
+ der DBE weiterleite.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0502.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0504.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Der Lader" />
+ <meta name="Description" content="ST-Open Tutorial: Der Lader" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Der Lader</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0401.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Der Lader</h1>
+Die urspr&uuml;ngliche Aufgabe des ehemaligen Speicherverwalters (MM) war das Laden und Speichern
+ der Felder der Datenbankmaschine. Im Lauf der Zeit kamen etliche Erweiterungen dazu, so dass die
+ inzwischen in Lader (LDR) umgetaufte Funktionssammlung Speicher f&uuml;r alle beliebigen Dateien
+ allozieren und sie auch in den allozierten Speicher laden kann. Das Speichern "normaler" Dateien
+ kann durch Setzen zweier Laderkontrollf&auml;hnchen automatisiert werden.
+<div class="crlf1"></div>
+<h2>Dynamische Speicherverwaltung</h2>
+Der Speicherhenkel jedes allozierten Speicherblocks enth&auml;lt eine Zeitmarke. Wurde auf einen
+ Speicherblock f&uuml;r eine vordefinierte Zeitspanne nicht zugegriffen, dann wird er automatisch
+ freigegeben. Felder, deren Inhalt mit einer Funktion der Datenbankmaschine ge&auml;ndert wurde,
+ werden vor ihrer Freigabe selbstverst&auml;ndlich gespeichert. Greift die Datenbankmaschine auf
+ ein Feld zu, wird dessen Zeitmarke automatisch aktualisiert. Enth&auml;lt der Speicherblock kein
+ Feld, dann wird die Zeitmarke <i>niemals</i> aktualisiert. Um die automatische Speicherfreigabe
+ f&uuml;r reine Speicherbl&ouml;cke und geladene Dateien zu unterbinden, sollte das F&auml;hnchen
+ <b>LDR_STATIC</b> im Kontrollregister LD.LdCtl der LD-Struktur gesetzt werden, bevor man LDreq()
+ aufruft. Ist <b>LDR_STATIC</b> gesetzt, so schreibt LDreq() als Zeitmarke ein 0xFFFFFFFF in die
+ Ladertabelle. Die Zeitmarke 0xFFFFFFFF signalisiert dem "Pr&uuml;fer", dass dieser Speicherblock
+ nur vom Anwender aus dem Speicher entfernt werden darf.
+<div class="crlf1"></div>
+Die dynamische Speicherverwaltung wird mit den beiden globalen Variablen CHK_DELAY und CHK_REMOVE
+ gesteuert. CHK_DELAY gibt die Zeit an, nach der der "Pr&uuml;fer" gestartet wird, CHK_REMOVE die
+ Zeit, die ungenutzte Speicherbl&ouml;cke alloziert bleiben sollen. Beide Variablen verwenden das
+ OS/2-Zeitformat [HHMMSShh] (Stunden, Minuten, Sekunden, Hundertstelsekunden). Bitte benutzen Sie
+ keine Hundertstelsekunden, der Zeitnehmer kennt pro Sekunde nur 18 Zeitnehmermarken.
+<div class="crlf1"></div>
+CHK_DELAY und CHK_REMOVE werden in einer der Kopfdateien des Programms individuell festgelegt, es
+ gibt keine Systemvorgabe. Wenn Sie die dynamische Speicherverwaltung nicht ben&ouml;tigen, dann
+ m&uuml;ssen Sie auch keine Zeitnehmerfunktion programmieren, Sie k&ouml;nnen dann auch die ganze
+ WM_TIMER-Prozedur aus dem Programmskelett entfernen. Der Code f&uuml;r LDchk() wird nicht in das
+ Programm eingebunden, wenn Sie die Funktion nicht verwenden. Einer der Vorteile von Bibliotheken
+ gegen&uuml;ber DLLs.
+<div class="crlf1"></div>
+<h2>Instanzen</h2>
+Dateien, Felder und Speicherbl&ouml;cke k&ouml;nnen &uuml;ber LDreq() mehrmals angefordert werden.
+ Ist ein Feld bereits geladen, dann erh&ouml;ht der Lader nur den im Speicherhenkel angelegten
+ Instanzz&auml;hler um eins und gibt in der &uuml;bergebenen LD-Struktur die Daten des bereits
+ geladenen Feldes zur&uuml;ck. Fordert eine Funktion &uuml;ber LDfre() die Freigabe des Feldes,
+ so wird der Instanzz&auml;hler um eins erniedrigt. Das Feld wird nur dann freigegeben, wenn der
+ Instanzz&auml;hler gleich Null ist, anderenfalls verbleibt es im Speicher. Dies gilt analog auch
+ f&uuml;r Dateien und Speicherbl&ouml;cke.
+<div class="crlf1"></div>
+Das war die gute Nachricht. Die Sache hat nat&uuml;rlich einen kleinen, recht vertrackten Haken:
+ Die Lese- und Schreibvorg&auml;nge aller Instanzen eines Speicherblocks erfolgen auf eben diesen
+ einen Speicherblock. Es liegt in Ihrer eigenen Verantwortung, Speicherbl&ouml;cke zeitlich so zu
+ allozieren und wieder freizugeben, dass die darin enthaltenen Daten konsistent bleiben.
+<div class="crlf1"></div>
+<h2>Anwendung</h2>
+Die folgenden Seiten enthalten eine detailierte Beschreibung der Anwendungsgebiete des Laders mit
+ Codebeispielen. Da das Tutorial etwas umfangreicher ist, wurde es in mehrere Seiten aufgeteilt.
+ Die n&auml;chste Seite beschreibt, wie man den Lader startet und wieder beendet.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0401.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0400.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

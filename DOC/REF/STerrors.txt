@@ -1,0 +1,147 @@
+
+
+     S Y S T E M   E R R O R S 
+     อออออออออออออออออออออออออ
+
+
+     Number      Definition                       Description
+
+     FFFF FFFF   ERR_INVALID                      invalid error number
+
+     0000 0000   ERR_NO_ERROR                     no error
+     0000 0001   ERR_ERROR                        general error
+     0000 0002   ERR_SYS_SERIOUS                  SYSTEM serious error, terminate
+     0000 0003   ERR_SYS_INTRUDE                         intruder - terminate at once!
+     0000 0004   ERR_SYS_LDR_BUSY                        LOADER engaged (retry)
+     0000 0005   ERR_SYS_DBE_BUSY                        FDacc  writing (retry)
+     0000 0006   ERR_SYS_TERMINATED                      application closing
+     0000 0007   ERR_07
+     0000 0008   ERR_PAR_INVALID                  PARAM  passed parameter invalid
+     0000 0009   ERR_PAR_ABOVE                           too large
+     0000 000A   ERR_PAR_BELOW                           too small
+     0000 000B   ERR_PAR_ARGUMENT                        unknown argument
+     0000 000C   ERR_PAR_COMMAND                                 command
+     0000 000D   ERR_2ND_INSTANCE                 no second instance allowed
+     0000 000E   ERR_0E
+     0000 000F   ERR_0F
+
+     0000 0010   ERR_LDR_ERROR                    LOADER general
+     0000 0011   ERR_LDR_NO_MEM                          insufficient memory
+     0000 0012   ERR_LDR_RESIZE                          can't resize memory block
+     0000 0013   ERR_LDR_MH                              invalid MemHandle
+     0000 0014   ERR_LDR_OS2MH                                   MemEA
+     0000 0015   ERR_LDR_FIELD                           cannot load field
+     0000 0016   ERR_LDR_FILE                                        file
+     0000 0017   ERR_LDR_CORRUPT                         field corrupted
+     0000 0018   ERR_LDR_NO_FIELD                        not a field
+     0000 0019   ERR_LDR_NO_SIZE                         file size is zero
+     0000 001A   ERR_LDR_OUT_OF_MH                       no free MemHandles
+     0000 001B   ERR_LDR_ALLOC                           allocation failed
+     0000 001C   ERR_LDR_FORBIDDEN                       access to system memory denied
+     0000 001D   ERR_1D                                  -
+     0000 001E   ERR_DBE_NO_READ                  DBE    field has no read
+     0000 001F   ERR_DBE_NO_WRITE                                     write
+
+     0000 0020   ERR_DBE_TYPE                            unknow data type
+     0000 0021   ERR_DBE_MH                              invalid MemHandle
+     0000 0022   ERR_DBE_SUBFIELD                                subfield number
+     0000 0023   ERR_DBE_ENTRY                                   entry number
+     0000 0024   ERR_DBE_WRITE                           write string failed
+     0000 0025   ERR_DBE_GARBCOL                         garbage collection failed
+     0000 0026   ERR_DBE_SECSYS                          en-/decryption failed
+     0000 0027   ERR_DBE_27                              -
+     0000 0028   ERR_FMG_28                       FILES  -
+     0000 0029   ERR_SET_DIR                             can't change directory
+     0000 002A   ERR_DIR_CREATE                          can't create directory
+     0000 002B   ERR_FILE_OPEN                           can't open
+     0000 002C   ERR_FILE_READONLY                       is read only
+     0000 002D   ERR_FILE_READ                           can't read
+     0000 002E   ERR_FILE_WRITE                          can't write
+     0000 002F   ERR_FILE_SETPTR                         can't set file pointer
+
+     0000 0030   ERR_FILE_RESIZE                         can't set size
+     0000 0031   ERR_FILE_CLOSE                          can't close
+     0000 0032   ERR_TARGET_EXISTS                       target exists (ask user!)
+     0000 0033   ERR_TARGET_MISSING                             doesn't exist
+     0000 0034   ERR_FILE_COPY                           failed: copy
+     0000 0035   ERR_FILE_MOVE                                   move
+     0000 0036   ERR_FILE_DELETE                                 delete
+     0000 0037   ERR_FILE_CREATE                                 create
+     0000 0038   ERR_API                          API    returned below error
+     0000 0039   ERR_API_RC                              RC not expected
+     0000 003A   ERR_3A                           
+     0000 003B   ERR_PATH_INCOMPLETE                     path not qualified
+     0000 003C   ERR_SS_ERROR                     SecSys general error
+     0000 003D   ERR_SS_ACCESS                           general: access denied
+     0000 003E   ERR_SS_READ                             no permission for read
+     0000 003F   ERR_SS_WRITE                                              write
+
+     0000 0040   ERR_OLH_TOP_FULL                 OLH    no free topics
+     0000 0041   ERR_OLH_SEL_OOR                         selection > 63 byte
+     0000 0042   ERR_42
+     0000 0043   ERR_43
+     0000 0044   ERR_44
+     0000 0045   ERR_45
+     0000 0046   ERR_46
+     0000 0047   ERR_47
+     0000 0048   ERR_48
+     0000 0049   ERR_49
+     0000 004A   ERR_4A
+     0000 004B   ERR_4B
+     0000 004C   ERR_4C
+     0000 004D   ERR_4D
+     0000 004E   ERR_4E
+     0000 004F   ERR_4F
+
+     0000 0050   ERR_50
+     0000 0051   ERR_51
+     0000 0052   ERR_52
+     0000 0053   ERR_53
+     0000 0054   ERR_54
+     0000 0055   ERR_55
+     0000 0056   ERR_56
+     0000 0057   ERR_57
+     0000 0058   ERR_58
+     0000 0059   ERR_59
+     0000 005A   ERR_5A
+     0000 005B   ERR_5B
+     0000 005C   ERR_5C
+     0000 005D   ERR_5D
+     0000 005E   ERR_5E
+     0000 005F   ERR_5F
+
+     0000 0060   ERR_60
+     0000 0061   ERR_61
+     0000 0062   ERR_62
+     0000 0063   ERR_63
+     0000 0064   ERR_64
+     0000 0065   ERR_65
+     0000 0066   ERR_66
+     0000 0067   ERR_67
+     0000 0068   ERR_68
+     0000 0069   ERR_69
+     0000 006A   ERR_6A
+     0000 006B   ERR_6B
+     0000 006C   ERR_6C
+     0000 006D   ERR_6D
+     0000 006E   ERR_6E
+     0000 006F   ERR_6F
+
+     0000 0070   ERR_70
+     0000 0071   ERR_71
+     0000 0072   ERR_72
+     0000 0073   ERR_73
+     0000 0074   ERR_74
+     0000 0075   ERR_75
+     0000 0076   ERR_76
+     0000 0077   ERR_77
+     0000 0078   ERR_78
+     0000 0079   ERR_79
+     0000 007A   ERR_7A
+     0000 007B   ERR_7B
+     0000 007C   ERR_7C
+     0000 007D   ERR_7D
+     0000 007E   ERR_7E
+
+     ERR_7E is the last error in err.dat (including ERR_INVALID,
+     there are 0x80 (128) errors in this field...).

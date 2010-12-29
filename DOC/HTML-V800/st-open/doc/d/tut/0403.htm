@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Felder laden" />
+ <meta name="Description" content="ST-Open Tutorial: Felder laden" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Felder laden</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0402.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0404.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Felder laden</h1>
+Das L&ouml;schen der LD-Struktur kennen wir schon, der Aufruf von Mcl() muss also nicht erneut
+ erkl&auml;rt werden. Der erste Parameter zur Anforderung von Datenfeldern ist die Feldnummer,
+ ich verwende hier einmal die Nummer 0x00000001:
+<div class="box100q"><pre>
+DD Test(VOID)
+{
+ LD ld;
+ DD mh, rc;
+ Mcl(&amp;ld, 40);
+ ld.FldNr = 0x00000001;
+</pre></div>
+Der zweite Parameter sind die Laderkontrollf&auml;hnchen:
+<div class="box100q"><pre>
+ ld.LdCtl = LDR_READ | LDR_WRITE;
+</pre></div>
+Hier wird nur die Lese- und Schreibfreigabe ben&ouml;tigt. Optional k&ouml;nnten Sie noch ein
+ <b>| LDR_STATIC</b> anh&auml;ngen, um die automatische Entfernung aus dem Speicher
+ abzuschalten. Damit sind alle Parameter gesetzt und der Lader kann aufgerufen werden:
+<div class="box100q"><pre>
+ rc = LDreq(&amp;ld);
+ if(rc)
+ {
+  return(rc);
+ }
+ mh = ld.MMoff;
+</pre></div>
+Ab hier steht Ihnen das geladene Feld zur Verf&uuml;gung. Da Felder prinzipiell &uuml;ber den
+ Speicherhenkel angesprochen werden, habe ich ihn hier in die Variable <b>mh</b> kopiert. Soll
+ das Feld auch nach dem Beenden der momentanen Funktion weiter verwendet werden, empfiehlt es
+ sich, den Speicherhenkel in einer globalen Variablen, z.B. MEIN_FELD (Variable muss in einer
+ Kopfdatei als Abstand zu <b>GVAR</b> definiert werden!) zu speichern:
+<div class="box100q"><pre>
+ *MEIN_FELD = ld.MMoff;
+</pre></div>
+Der Zugriff auf das Feld erfolgt nun mit der Datenbankmaschine:
+<div class="box100q"><pre>
+ rc = FDacc(mh, 0, 0, FDA_READ, 0, 0);
+</pre></div>
+Nach getaner Arbeit sollten Sie das Feld wieder freigeben:
+<div class="box100q"><pre>
+ LDfre(mh);
+</pre></div>
+Und auch hier das Ganze noch einmal am St&uuml;ck:
+<div class="box100q"><pre>
+DD Test(VOID)
+{
+ LD ld;
+ DD rc;
+ Mcl(&amp;ld, 40);
+ ld.FldNr = 0x00000001;
+ ld.LdCtl = LDR_READ | LDR_WRITE;
+ rc = LDreq(&amp;ld);
+ if(rc)
+ {
+  return(rc);
+ }
+ mh         = ld.MMoff;
+ *MEIN_FELD = ld.MMoff;
+ /*
+   CODE DER FUNKTION
+ */
+ rc = FDacc(mh, 0, 0, FDA_READ, 0, 0);
+ /*
+   MEHR CODE
+ */
+ LDfre(ld.MMoff);
+ return(rc);
+}
+</pre></div>
+<div class="crlf1"></div>
+Auf der n&auml;chsten Seite geht es weiter mit dem Laden von Dateien.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0402.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0404.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0403.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

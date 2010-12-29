@@ -1,0 +1,71 @@
+  /*
+  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+  บ                         M e m H a n d l e - M O N I T O R                          บÛ
+  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
+  บ                          *** (C) ST-Open 1979 - 2010 ***                           บÛ
+  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  */
+  DLGTEMPLATE 0x0940 LOADONCALL MOVEABLE DISCARDABLE
+  BEGIN
+   DIALOG            "",   0x0940,   0,   0, 300, 193, WS_VISIBLE | WS_SYNCPAINT, FCF_TITLEBAR
+    BEGIN
+     CONTROL         "",   0x0941,   3,  83, 144,  60, WC_STATIC, SS_HALFTONEFRAME | WS_GROUP | WS_VISIBLE
+     LTEXT           "",   0x0980,   7, 130,  65,   8
+     ENTRYFIELD      "",   0x0960,  80, 130,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     LTEXT           "",   0x0981,   7, 116,  65,   8
+     ENTRYFIELD      "",   0x0961,  80, 116,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     LTEXT           "",   0x0982,   7, 102,  65,   8
+     ENTRYFIELD      "",   0x0962,  80, 102,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     CTEXT           "",   0x098B,   7,  87, 133,   8
+     CONTROL         "",   0x0942, 153,  83, 144,  60, WC_STATIC, SS_HALFTONEFRAME | WS_GROUP | WS_VISIBLE
+     LTEXT           "",   0x0983, 157, 130,  65,   8
+     ENTRYFIELD      "",   0x0963, 230, 130,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     LTEXT           "",   0x0984, 157, 116,  65,   8
+     ENTRYFIELD      "",   0x0964, 230, 116,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     LTEXT           "",   0x0985, 157, 102,  65,   8
+     ENTRYFIELD      "",   0x0965, 230, 102,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     LTEXT           "",   0x0986, 157,  88,  65,   8
+     ENTRYFIELD      "",   0x0966, 230,  88,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     CONTROL         "",   0x0943,   3,   3, 144,  76, WC_STATIC, SS_HALFTONEFRAME | WS_GROUP | WS_VISIBLE
+     LTEXT           "",   0x0987,   7,  66,  65,   8
+     ENTRYFIELD      "",   0x0967,  80,  66,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     LTEXT           "",   0x0988,   7,  52,  65,   8
+     ENTRYFIELD      "",   0x0968,  80,  52,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     LTEXT           "",   0x0989,   7,  38,  65,   8
+     ENTRYFIELD      "",   0x0969,  80,  38,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     LTEXT           "",   0x098A,   9,  24,  65,   8
+     ENTRYFIELD      "",   0x096A,  80,  24,  60,   8, ES_RIGHT | ES_MARGIN | ES_READONLY
+     CONTROL         "",   0x0944, 153,   3, 144,  76, WC_STATIC, SS_HALFTONEFRAME | WS_GROUP | WS_VISIBLE
+     LTEXT           "",   0x0977, 157,  69,  60,   8
+     LTEXT           "",   0x0976, 157,  60,  60,   8
+     LTEXT           "",   0x0975, 157,  51,  60,   8
+     LTEXT           "",   0x0974, 157,  42,  60,   8
+     LTEXT           "",   0x0973, 157,  33,  60,   8
+     LTEXT           "",   0x0972, 157,  24,  60,   8
+     LTEXT           "",   0x0971, 157,  15,  60,   8
+     LTEXT           "",   0x0970, 157,   6,  60,   8
+     LTEXT           "",   0x097F, 230,  69,  60,   8
+     LTEXT           "",   0x097E, 230,  60,  60,   8
+     LTEXT           "",   0x097D, 230,  51,  60,   8
+     LTEXT           "",   0x097C, 230,  42,  60,   8
+     LTEXT           "",   0x097B, 230,  33,  60,   8
+     LTEXT           "",   0x097A, 230,  24,  60,   8
+     LTEXT           "",   0x0979, 230,  15,  60,   8
+     LTEXT           "",   0x0978, 230,   6,  60,   8
+     CONTROL         "",   0x0945,   3, 169, 294,  20, WC_STATIC, SS_HALFTONEFRAME | WS_GROUP | WS_VISIBLE
+     PUSHBUTTON      "",   0x0952,  11, 173,  40,  12
+     PUSHBUTTON      "",   0x0953,  99, 173,  40,  12
+     ENTRYFIELD      "",   0x0956,  62, 175,  26,   8, ES_CENTER | ES_MARGIN | ES_READONLY
+     PUSHBUTTON      "",   0x0950, 160, 172,  60,  14
+     PUSHBUTTON      "",   0x0951, 230, 172,  60,  14
+     CONTROL         "",   0x0946,   3, 147, 294,  18, WC_STATIC, SS_HALFTONEFRAME | WS_GROUP | WS_VISIBLE
+     LTEXT           "",   0x098D,   7, 152,  65,   8
+     ENTRYFIELD      "",   0x096D,  80, 152, 210,   8, ES_MARGIN
+    END
+  END
+  /*
+  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  */

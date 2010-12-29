@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="SftDn()" />
+ <meta name="Description" content="ST-Open Libraries: SftDn()" />
+ <meta name="Keywords" content="ST-Open, open, source, ST-Open, library, libraries, free, software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>SftDn()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="acf02.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="cap00.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100"><div class="inner">..\st7\lib\sources\base\acf.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>SftDn</b></div><div class="outer">Function</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = SftDn(MemHandle, start, subfield);</div><div class="outer">Call</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div>
+<div class="inners">MemHandle</div>
+<div class="innerl">MemHandle of the field</div>
+<div class="crlf0"></div>
+<div class="inners">RDX</div>
+<div class="inners">start</div>
+<div class="innerl">number of start entry</div>
+<div class="crlf0"></div>
+<div class="inners">R08</div>
+<div class="inners">subfield</div>
+<div class="innerl">subfield number</div>
+</div><div class="outer">Input</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RAX</div>
+<div class="inners">rc</div>
+<div class="innerl">
+00 ERR_NO_ERROR<div class="crlf0"></div>
+05 ERR_SYS_DBE_BUSY<div class="crlf0"></div>
+08 ERR_PAR_INVALID<div class="crlf0"></div>
+1C ERR_LDR_FORBIDDEN<div class="crlf0"></div>
+20 ERR_DBE_TYPE<div class="crlf0"></div>
+21 ERR_DBE_MH<div class="crlf0"></div>
+22 ERR_DBE_SUBFIELD<div class="crlf0"></div>
+23 ERR_DBE_ENTRY
+</div>
+</div><div class="outer">Output</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+SftUp() deletes the entry specified as start entry, then shuffles all
+ entries in the specified subfield down by one. This function is thought
+ to remove entries from continuous lists without leaving a gap between
+ any two entries. Strings are not moved themselves, only the offset
+ table is reorganised.
+</div><div class="outer">Description</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ DD rc;
+ rc = SftDn(*MY_FIELD, 0x14, 0x00);
+}
+</pre>
+Deletes entry number 20, then shuffles down the remaining entries by one.
+ On return, entry 21 now is entry 20, and so on.
+</div><div class="outer">Example</div></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="acf02.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="cap00.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

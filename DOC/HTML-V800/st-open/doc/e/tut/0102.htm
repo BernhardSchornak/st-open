@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>The LD-Structure</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0101.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0103.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>LD</h1>
+<div class="inner">
+<pre>
+   typedef struct _LD{
+                      VOID *MemEA;
+                      DD    MemSz;
+                      DD    FldNr;
+                      DD    LdCtl;
+                      DD    MMoff;
+                      VOID *FileN;
+                      DD    Moffs;
+                      DD    Foffs;
+                      DD    AmtBy;
+                      VOID *FileH;
+                     } LD;
+   typedef LD *PLD;
+</pre>
+</div><div class="outer">Definition</div><div class="crlf1"></div>
+<div class="inner">
+address of the allocated memory block
+</div><div class="outer">MemEA</div><div class="crlf0"></div>
+<div class="inner">
+optional: requested memory size (n * 4096 byte)
+</div><div class="outer">MemSz</div><div class="crlf0"></div>
+<div class="inner">
+optional: field number
+</div><div class="outer">FldNr</div><div class="crlf0"></div>
+<div class="inner">
+<a href="0103.htm">control and status flags</a>
+</div><div class="outer">LdCtl</div><div class="crlf0"></div>
+<div class="inner">
+MemHandle (this is an address in the Loader table!)
+</div><div class="outer">MMoff</div><div class="crlf0"></div>
+<div class="inner">
+optional: filename
+</div><div class="outer">FileN</div><div class="crlf0"></div>
+<div class="inner">
+optional: memory offset (relative to MemEA)
+</div><div class="outer">Moffs</div><div class="crlf0"></div>
+<div class="inner">
+optional: file offset (relative to the 1st byte in the file)
+</div><div class="outer">Foffs</div><div class="crlf0"></div>
+<div class="inner">
+optional: amount of bytes to copy (0 = entire file)
+</div><div class="outer">AmtBy</div><div class="crlf0"></div>
+<div class="inner">
+optional: address of an FH structure
+</div><div class="outer">FileH</div><div class="crlf1"></div>
+<div class="inner">
+<b>All unused optional parameters must be set to zero!</b>
+<div class="crlf1"></div>
+The LD structure only is required for the call to LDreq(), you may delete it after the call.
+ To access the memory block, you either need the MemHandle (ld.MMoff) or the address of the
+ memory block (ld.MemEA). You <i>have to</i> store the MemHandle. If you don't save it, you
+ cannot access any Loader function - including LDfre()! It is recommended to store the
+ MemHandle and the address (if required) in a <a href="0300.htm">global variable</a> if you
+ want to access a memory block outside the function where it was allocated.
+</div><div class="outer">Description</div><div class="crlf1"></div>
+<div class="inner">
+If you want to use the Loader, it is recommended to read the <a href="0400.htm">Loader Tutorial</a>.
+</div><div class="outer">Usage</div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0101.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0103.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

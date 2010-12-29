@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="DelCi()" />
+ <meta name="Description" content="ST-Open Bibliotheken: DelCi()" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>DelCi()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="pmf06.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="pmf08.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st7\lib\sources\core\pmf.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="text100">
+<div class="crlf1"></div>
+<h3>DelCi()</h3>
+Diese als obsolet gekennzeichnete Funktion wurde aus der Bibliothek entfernt:
+<div class="box100q"><pre>
+       /*
+          ---------------------------------
+          rc = DelCi(HWND, ID, PFA, index);
+          ---------------------------------
+       */
+       .align 2,0x90
+.globl _DelCi
+_DelCi:subl $0x2C,%esp
+       nop
+       nop
+       movl 0x38(%esp),%eax              # EAX = FA
+       movl %edx,0x18(%esp)
+       movl %ecx,0x1C(%esp)
+       movl %ebx,0x20(%esp)
+       movl %edi,0x24(%esp)
+       movl %esi,0x28(%esp)
+       movl 0x00(%eax),%eax              # EAX = MMoff
+       movl 0x08(%eax),%ecx              # ECX = SubFd
+       movl 0x0C(%eax),%edx              # EDX = Entry
+       movl 0x30(%esp),%edi              # EDI = HWND
+       movl 0x34(%esp),%esi              # ESI = ID
+       movl %eax,0x00(%esp)              # MH
+       movl %edx,0x04(%esp)              # entry
+       movl %ecx,0x08(%esp)              # subfield
+       movl $0x07,0x0C(%esp)             # FDA_ADDRESS
+       call _FDacc
+       cmpb $0x00,0x00(%eax)             # empty string?
+       je 0f
+       movl %edi,0x00(%esp)              # HWND
+       movl %esi,0x04(%esp)              # ID
+       movl $0x016B,0x08(%esp)           # LM_SEARCHSTRING
+       movl $0xFFFF0002,0x0C(%esp)       # LIT_FIRST, LSS_PREFIX
+       movl %eax,0x10(%esp)              # string
+       call _SnDIM
+       cmpl $-1,%eax                     # LIT_NONE?
+       je 0f
+       cmpl $-3,%eax                     # LIT_ERROR?
+       je 0f
+       movl $0x0163,0x08(%esp)           # LM_DELETEITEM
+       movl %eax,0x0C(%esp)              # item
+       movl $0x00,0x10(%esp)             # NULL
+       call _SnDIM
+       movl $0x00,0x08(%esp)             # 0
+       call _SelCi
+       xorl %eax,%eax
+     0:movl 0x18(%esp),%edx
+       movl 0x1C(%esp),%ecx
+       movl 0x20(%esp),%ebx
+       movl 0x24(%esp),%edi
+       movl 0x28(%esp),%esi
+       addl $0x2C,%esp
+       ret
+</pre></div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="pmf06.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="pmf08.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fsys%2Fpmf07.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

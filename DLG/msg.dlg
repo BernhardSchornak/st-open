@@ -1,0 +1,24 @@
+
+  STsmsg DIALOG PRELOAD DISCARDABLE                  0,  0, 290, 275
+  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+  CAPTION "System Message"
+  FONT 10, "Consolas"
+  BEGIN
+   LTEXT           "Text",                0x08E0,   5,   7, 280,  10
+   EDITTEXT                               0x08D0,   5,  27, 280, 160, ES_MULTILINE | WS_VSCROLL
+   LTEXT           "Parameter 1:",        0x08D4,   5, 194,  60,   8
+   LTEXT           "Parameter 2:",        0x08D5,   5, 208,  60,   8
+   LTEXT           "Parameter 3:",        0x08D6,   5, 222,  60,   8
+   LTEXT           "Parameter 4:",        0x08D7,   5, 236,  60,   8
+   RTEXT           "",                    0x08D8,  70, 194,  80,   8
+   RTEXT           "",                    0x08D9, 155, 194, 130,   8
+   RTEXT           "",                    0x08DA,  70, 208,  80,   8
+   RTEXT           "",                    0x08DB, 155, 208, 130,   8
+   RTEXT           "",                    0x08DC,  70, 222,  80,   8
+   RTEXT           "",                    0x08DD, 155, 222, 130,   8
+   RTEXT           "",                    0x08DE,  70, 236,  80,   8
+   RTEXT           "",                    0x08DF, 155, 236, 130,   8
+   PUSHBUTTON      "",                    0x08D1,   5, 254,  90,  16
+   PUSHBUTTON      "",                    0x08D2, 100, 254,  90,  16
+   PUSHBUTTON      "",                    0x08D3, 195, 254,  90,  16
+  END

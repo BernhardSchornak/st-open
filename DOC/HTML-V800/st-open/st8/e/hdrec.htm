@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="HDrecord" />
+ <meta name="Description" content="V800 Software: HDrecord" />
+ <meta name="Keywords" content="ST-Open, Software, Open Source, free software, library, libraries, assembler, C" />
+ <meta name="date" content="2010-07-18T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../pics/favicon.ico" />
+ <title>HDrecord</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../indexe.htm">ST-Open</a></li>
+ <li><a href="../../doc/e/index.htm">Documentation</a></li>
+ <li><a href="../d/hdrec.htm">Deutsch</a></li>
+</ul>
+</div>
+<div class="update">[2010-07-18]</div>
+<div class="headpc"><img src="../../../pics/pgm.png" alt="ST-Software Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../../indexe.htm"><img src="../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="hddrum.htm"><img src="../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="md5.htm"><img src="../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>HDrecord</h1>
+This program is on the development list.
+<div class="crlf1"></div>
+ST's HDrecord is planned as a software replacement for my current equipment, the
+ <i>soundcard mixer</i>. It shall feed an analog mixer with the output signal
+ (multiple channels) from a soundcard, add an instrument to the analog stream,
+ and send the instrument back to the line input of the soundcard. While I
+ currently use some kind of modern overdubbing, where the tape recorder is
+ replaced by a harddisk, HDrecord should work like a real studio, where a PC
+ replaces the mixer as well as the recording machine. Runtime mixing of several
+ tracks while recording is not the best thing to do, because even the best
+ soundcards have an audible delay, caused by quite low performance of the drivers
+ and mixing software, most times coded in C(++). HDrecord creates a pre-mix which
+ is fed to a modified version of the soundcard mixer. It feeds the pre-mix and
+ the instrument to the headphones and the pure instrument back to the soundcard.
+ Because both streams run simultaneously and continuously, there are no latencies.
+<div class="crlf1"></div>
+I hope I find some time to translate my ideas into working code...
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../../indexe.htm"><img src="../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="hddrum.htm"><img src="../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="md5.htm"><img src="../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   control messages      (sent or posted)
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   EM_GETSEL                   0x000000B0
+   EM_SETSEL                   0x000000B1
+   EM_GETRECT                  0x000000B2
+   EM_SETRECT                  0x000000B3
+   EM_SETRECTNP                0x000000B4
+   EM_SCROLL                   0x000000B5
+   EM_LINESCROLL               0x000000B6
+   EM_SCROLLCARET              0x000000B7
+   EM_GETMODIFY                0x000000B8
+   EM_SETMODIFY                0x000000B9
+   EM_GETLINECOUNT             0x000000BA
+   EM_LINEINDEX                0x000000BB
+   EM_SETHANDLE                0x000000BC
+   EM_GETHANDLE                0x000000BD
+   EM_GETTHUMB                 0x000000BE
+   EM_LINELENGTH               0x000000C1
+   EM_REPLACESEL               0x000000C2
+   EM_GETLINE                  0x000000C4
+   EM_SETLIMITTEXT             0x000000C5
+   EM_LIMITTEXT                0x000000C5
+   EM_CANUNDO                  0x000000C6
+   EM_UNDO                     0x000000C7
+   EM_FMTLINES                 0x000000C8
+   EM_LINEFROMCHAR             0x000000C9
+   EM_SETTABSTOPS              0x000000CB
+   EM_SETPASSWORDCHAR          0x000000CC
+   EM_EMPTYUNDOBUFFER          0x000000CD
+   EM_GETFIRSTVISIBLELINE      0x000000CE
+   EM_SETREADONLY              0x000000CF
+   EM_SETWORDBREAKPROC         0x000000D0
+   EM_GETWORDBREAKPROC         0x000000D1
+   EM_GETPASSWORDCHAR          0x000000D2
+   EM_SETMARGINS               0x000000D3
+   EM_GETMARGINS               0x000000D4
+   EM_GETLIMITTEXT             0x000000D5
+   EM_POSFROMCHAR              0x000000D6
+   EM_CHARFROMPOS              0x000000D7
+   EM_SETIMESTATUS             0x000000D8
+   EM_GETIMESTATUS             0x000000D9
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   notification messages (received)
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   EN_SETFOCUS                 0x00000100
+   EN_KILLFOCUS                0x00000200
+   EN_CHANGE                   0x00000300
+   EN_UPDATE                   0x00000400
+   EN_ERRSPACE                 0x00000500
+   EN_MAXTEXT                  0x00000501
+   EN_HSCROLL                  0x00000601
+   EN_VSCROLL                  0x00000602
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   edit control styles
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ES_LEFT                     0x00000000
+   ES_CENTER                   0x00000001
+   ES_RIGHT                    0x00000002
+   ES_MULTILINE                0x00000004
+   ES_UPPERCASE                0x00000008
+   ES_LOWERCASE                0x00000010
+   ES_PASSWORD                 0x00000020
+   ES_AUTOVSCROLL              0x00000040
+   ES_AUTOHSCROLL              0x00000080
+   ES_NOHIDESEL                0x00000100
+   ES_OEMCONVERT               0x00000400
+   ES_READONLY                 0x00000800
+   ES_WANTRETURN               0x00001000
+   ES_NUMBER                   0x00002000
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴

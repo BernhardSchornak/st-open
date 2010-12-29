@@ -1,0 +1,9 @@
+
+   TO DO - DatTools Version 5
+   様様様様様様様様様様様様様
+
+   - field repair tool
+
+   - text based creation tool (like MakeDat 2 or 3)
+
+   - dialogs for some standard fields (bitmaps, notebooks, etc.)

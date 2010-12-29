@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Initialisierung und Beenden</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0402.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>Initialisation</h1>
+The initialisation of the Loader is done by <b>LDinit()</b>. It allocates five pages of
+ memory (4,096 byte, each) for the system. The first two pages (BMM) are allocated for
+ the Loader Table (LDT), another three pages are allocated for the SystemNumerics. When
+ these memory block are available, the content of the files <b>num.dat</b>, the static
+ globals, and <b>cvt.dat</b>, 8 conversion tables, are copied to BNR (SystemNumerics).
+ The Loader is working now. It loads the file <b>str.dat</b> and allocates another page
+ as general purpose buffer. Several internal parameters are updated, screen size, drive
+ map and the current path to the program are queried and stored, before the Loader
+ finally returns.
+<div class="crlf1"></div>
+Because the ST-Open system relies on data stored in SystemNumerics and language fields,
+ LDinit() must be called before WM_CREATE is processed. In other words: The call must
+ be placed before the call to WinCreateWindow(), because WM_CREATE is processed by that
+ function - it's not <i>sent</i> through the message loop! Have a look at <b>main()</b>
+ in the file <b>V700.c</b> (V700 folder in the V700 archive) to learn how to use
+ LDinit() properly.
+<div class="crlf1"></div>
+<h2>Termination</h2>
+A call to <b>LDexit()</b> terminates the Loader. <b>LDexit()</b> first closes all open
+ MemHandles, changed fields are stored before the memory block is freed. Closing works
+ from top to bottom, so the last closed MemHandle is the Loader Table. After this call,
+ <i>neither</i> call Loader functions nor the database engine! There is no more memory
+ allocated and any of these calls triggers a SYS3175 immediately, so <b>LDexit()</b>
+ should be the very last thing you call before posting the final WM_QUIT.
+<div class="crlf2"></div>
+That much about initialising and terminating the Loader. The next page explains how to
+ allocate memory blocks.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0402.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: SecSys" />
+ <meta name="Description" content="ST-Open Tutorial: SecSys" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, Intelligent Design" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>SecSys</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/secsys.png" alt="SecSys Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0800.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0802.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Felder und Variablen</h1>
+<div class="crlf1"></div>
+<h2>Datenfelder</h2>
+F&uuml;r den Betrieb des Sicherheitssystems sind folgende Datenfelder zwingend erfordelich:
+<div class="crlf1"></div>
+<div class="inner">In diesem Feld sind die Anmeldedaten zur Initialisierung des Sicherheitssystems abgelegt. Der Meisterschl&uuml;ssel
+ wird bei der Anmeldung des Systemmeisters aus 4.096 der insgesamt 1.048.576 Eintr&auml;ge zusammengesetzt. Das Datenfeld muss bei der
+ Auslieferung unbedingt <i>leer</i> sein!</div><div class="outer"><b>FFFFFFE1</b></div><div class="crlf1"></div>
+<div class="inner">
+Dieses Feld enth&auml;lt Paare aus Passw&ouml;rtern und Zugriffsberechtigungen. Die einem Benutzer zugeteilte PIN (pers&ouml;nliche
+ Identifikationsnummer) ist die Eintragnummer des zugeteilten Paars. Die Anzahl der Eintr&auml;ge ist frei w&auml;hlbar und richtet
+ sich nach den jeweiligen Erfordernissen.</div><div class="outer"><b>FFFFFFE2</b></div><div class="crlf1"></div>
+<div class="inner">
+Enth&auml;lt die Texte der Anmeldedialoge in bis zu 16 Sprachen. Die Sprache ist durch die Systemvariable STV_USR_LANGUAGE zentral
+ festgelegt und sollte per Men&uuml; ausw&auml;hlbar sein.</div><div class="outer"><b>FFFFFFE3</b></div><div class="crlf0"></div>
+<div class="crlf1"></div>
+<h2>Variablen</h2>
+Alle Kontrollvariablen werden in den Systemvariablen (BNR) abgelegt. &Uuml;ber die aktuelle Laufzeit hinaus erforderliche Daten werden
+ permanent im Systemblock 0000[BNR]...01FF[BNR] vorgehalten und beim Beenden des Programms automatisch gesichert. Tempor&auml;re Daten
+ (Feldadressen, Speicherhenkel, Puffer) sind im Bereich 1800[BNR]...193F[BNR] zwischengespeichert. Sie werden nach dem Beenden des
+ Programms nicht mehr ben&ouml;tigt und m&uuml;ssen daher nicht gesichert werden.
+<h3>permanent</h3>
+<div class="inner">Enth&auml;lt den Abstand des n&auml;chsten zur Verschl&uuml;sselung verwendeten Bytes zur
+ Basis des Meisterschl&uuml;ssels.</div><div class="outer"><b>SS_NXT</b></div><div class="crlf0"></div>
+<div class="inner">Fehlgeschagene Versuche beim Einloggen des Systemmeisters.</div><div class="outer"><b>SS_MLI</b></div><div class="crlf0"></div>
+<div class="inner">Fehlgeschagene Versuche beim Einloggen eines Benutzers.</div><div class="outer"><b>SS_ULI</b></div><div class="crlf0"></div>
+<div class="inner">Zeit des letzten Fehlversuchs.</div><div class="outer"><b>SS_TMS</b></div><div class="crlf0"></div>
+<div class="inner">Datum des letzten Fehlversuchs</div><div class="outer"><b>SS_DTS</b></div><div class="crlf0"></div>
+<h3>tempor&auml;r</h3>
+<div class="inner">Adresse des SecSys-Arbeitsbereichs.</div><div class="outer"><b>EA_SSW</b></div><div class="crlf0"></div>
+<div class="inner">Speicherhenkel des SecSys-Arbeitsbereichs.</div><div class="outer"><b>MH_SSW</b></div><div class="crlf0"></div>
+<div class="inner">Adresse Meister- oder Benutzerschl&uuml;sselfeld.</div><div class="outer"><b>EA_PWF</b></div><div class="crlf0"></div>
+<div class="inner">Speicherhenkel Meister- oder Benutzerschl&uuml;sselfeld.</div><div class="outer"><b>MH_PWF</b></div><div class="crlf0"></div>
+<div class="inner">"SecSys aktiviert"-F&auml;hnchen.</div><div class="outer"><b>SS_ACT</b></div><div class="crlf0"></div>
+<div class="inner">"SecSys l&auml;uft"-F&auml;hnchen.</div><div class="outer"><b>SS_RUN</b></div><div class="crlf0"></div>
+<div class="inner">"SecSys Dump"-F&auml;hnchen.</div><div class="outer"><b>SS_DMP</b></div><div class="crlf0"></div>
+<div class="inner">"SecSys Servierer"-F&auml;hnchen.</div><div class="outer"><b>SS_SRV</b></div><div class="crlf0"></div>
+<div class="inner">"SecSys Aufseher"-F&auml;hnchen.</div><div class="outer"><b>SS_SVM</b></div><div class="crlf0"></div>
+<div class="inner">"Einloggen abgebrochen"-F&auml;hnchen.</div><div class="outer"><b>LGIABT</b></div><div class="crlf0"></div>
+<div class="inner">Pers&ouml;nliche Identifikationsnummer (PIN) des aktuellen Benutzers.</div><div class="outer"><b>SS_USR</b></div><div class="crlf0"></div>
+<div class="inner">"Neuer Benutzer"-F&auml;hnchen.</div><div class="outer"><b>PW_PIN</b></div><div class="crlf0"></div>
+<div class="inner">Speicherhenkel des Nachrichtenfeldes.</div><div class="outer"><b>MH_SSM</b></div><div class="crlf0"></div>
+<div class="inner">Zugriffsberechtigung des aktuellen Benutzers.</div><div class="outer"><b>ACCESS</b></div><div class="crlf0"></div>
+<div class="inner">Administrationsrechte des aktuellen Benutzers.</div><div class="outer"><b>ADMINR</b></div><div class="crlf0"></div>
+<div class="inner">Leseberechtigung des aktuellen Benutzers.</div><div class="outer"><b>USR_RW</b></div><div class="crlf0"></div>
+<div class="inner">Schreibberechtigung des aktuellen Benutzers.</div><div class="outer"><b>USR_WR</b></div><div class="crlf0"></div>
+<div class="inner">"Schmutzig"-F&auml;hnchen.</div><div class="outer"><b>SS_DRT</b></div><div class="crlf0"></div>
+<div class="inner">Passwortpuffer 1 (32 Byte).</div><div class="outer"><b>PWEF_1</b></div><div class="crlf0"></div>
+<div class="inner">Passwortpuffer 2 (32 Byte).</div><div class="outer"><b>PWEF_2</b></div><div class="crlf0"></div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0800.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0802.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

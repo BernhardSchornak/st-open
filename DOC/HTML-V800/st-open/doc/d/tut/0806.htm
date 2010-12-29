@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: SecSys" />
+ <meta name="Description" content="ST-Open Tutorial: SecSys" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>SecSys</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/secsys.png" alt="SecSys Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0805.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0807.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>SecSys beenden</h1>
+Um das Sicherheitssystem zu beenden, muss nur der Befehl SS_SDN ausgef&uuml;hrt werden:
+<div class="crlf1"></div>
+<div class="box100q"><pre>SecSy(SS_SDN, 0, 0);</pre></div>
+<div class="crlf1"></div>
+Mit diesem Befehl wird das Sicherheitssystem beendet. Die vom Sicherheitssystem allozierten
+ Speicherbereiche werden freigegeben, tempor&auml;re Puffer und Variablen werden mit Nullen
+ gef&uuml;llt. Die Kontroll-Logik der Applikation wird durch diesen Befehl in den Status
+ <i>Gast</i> zur&uuml;ckversetzt - es k&ouml;nnen nur noch solche Aktionen ausgef&uuml;hrt
+ werden, die einem Gast zugestanden werden. Es ist daher angeraten, SS_SDN im Epilog der
+ Applikation auszuf&uuml;hren, um dem Benutzer das Abschalten selbiger zu erm&ouml;glichen.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0805.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0807.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

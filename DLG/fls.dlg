@@ -1,0 +1,26 @@
+  /*
+  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+  บ                               O n L i n e - H e l p                                บÛ
+  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
+  บ                          *** (C) ST-Open 1979 - 2010 ***                           บÛ
+  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+  ณ FileList                     0032 - 0034 ณÛ
+  ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤูÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  */
+  FLSdlg DIALOG PRELOAD DISCARDABLE     0,   0, 310, 255
+  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+  CAPTION "ST FileList"
+  FONT 8, "MS Shell Dlg"
+  BEGIN
+   LISTBOX                    0x0886,   5,   7, 300, 200, LBS_SORT | WS_VSCROLL | WS_TABSTOP
+   AUTOCHECKBOX    "autoadd", 0x0887,   5, 217, 125,  10
+   PUSHBUTTON      "abort",   0x0881,   5, 233,  60,  18
+   PUSHBUTTON      "load",    0x0882,  70, 233,  60,  18
+   PUSHBUTTON      "remove",  0x0885, 135, 235, 105,  15
+   PUSHBUTTON      "clear",   0x0883, 135, 215, 105,  15
+   PUSHBUTTON      "help",    0x0884, 245, 233,  60,  18
+   LTEXT           "",        0x0888, 245, 213,  60,   8
+  END

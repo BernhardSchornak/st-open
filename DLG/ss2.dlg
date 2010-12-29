@@ -1,0 +1,21 @@
+  /*
+  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+  บ                             S e c S y s   D I A L O G                              บÛ
+  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
+  บ                          *** (C) ST-Open 1979 - 2010 ***                           บÛ
+  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  */
+  DLGTEMPLATE 0x09F0 LOADONCALL MOVEABLE DISCARDABLE
+  BEGIN
+   DIALOG            "",        0x09F0,   0,   0, 225, 130, WS_VISIBLE | WS_SYNCPAINT, FCF_TITLEBAR
+    BEGIN
+     CONTROL         "",        0x09F6,   5,  53, 215,  72, WC_MLE, MLS_READONLY | MLS_WORDWRAP | WS_VISIBLE | WS_SYNCPAINT
+     PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+     PRESPARAMS PP_BACKGROUNDCOLOR, 0x00CCCCCCL
+     ENTRYFIELD      "",        0x09F7,   7,  39, 211,   8, ES_MARGIN | ES_UNREADABLE
+     ENTRYFIELD      "",        0x09F8,   7,  25, 211,   8, ES_MARGIN | ES_UNREADABLE
+     DEFPUSHBUTTON   "",        0x09F3,   5,   4, 105,  14
+     PUSHBUTTON      "",        0x09F4, 115,   4, 105,  14
+    END
+  END

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="LdCursor()" />
+ <meta name="Description" content="ST-Open Bibliotheken: LdCursor()" />
+ <meta name="Keywords" content="ST-Open, Weichwaren, Open, offen, Quelle, ST-Open, Bibliothek, frei, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>LdCursor()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="cap04.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="cap06.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st8\lib\sources\core\cap.S
+</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>LdCursor</b></div><div class="outer">Sandkasten</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">hcursor = LdCursor(hinst, zeigername);<div class="crlf0"></div>oder<div class="crlf0"></div>
+hwnd = WnCreate(class, titel, stil, x, y, b, h, helt, hmenue, hinst, krea);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div>
+<div class="inners">class</div>
+<div class="innerl">Adresse des Klassennamens</div>
+<div class="crlf0"></div>
+<div class="inners">RDX</div>
+<div class="inners">titel</div>
+<div class="innerl">Adresse Fenstertitel</div>
+<div class="crlf0"></div>
+<div class="inners">R08</div>
+<div class="inners">stil</div>
+<div class="innerl">Stilf&auml;hnchen</div>
+<div class="crlf0"></div>
+<div class="inners">R09</div>
+<div class="inners">x</div>
+<div class="innerl">x-Position (linke Kante)</div>
+<div class="crlf0"></div>
+<div class="inners">20[RSP]</div>
+<div class="inners">y</div>
+<div class="innerl">y-Position (untere Kante)</div>
+<div class="crlf0"></div>
+<div class="inners">28[RSP]</div>
+<div class="inners">b</div>
+<div class="innerl">Breite</div>
+<div class="crlf0"></div>
+<div class="inners">30[RSP]</div>
+<div class="inners">h</div>
+<div class="innerl">H&ouml;he</div>
+<div class="crlf0"></div>
+<div class="inners">38[RSP]</div>
+<div class="inners">helt</div>
+<div class="innerl">Elterhenkel</div>
+<div class="crlf0"></div>
+<div class="inners">40[RSP]</div>
+<div class="inners">hmenue</div>
+<div class="innerl">Men&uuml;henkel</div>
+<div class="crlf0"></div>
+<div class="inners">48[RSP]</div>
+<div class="inners"></div>
+<div class="innerl">Instanzhenkel</div>
+<div class="crlf0"></div>
+<div class="inners">50[RSP]</div>
+<div class="inners">krea</div>
+<div class="innerl">Kreationsvierfachwort</div></div>
+<div class="outer">Eingabe</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RAX</div>
+<div class="inners">hwnd</div>
+<div class="innerl">Fensterhenkel (0 = Fehler)</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+WnCreate() ruft CreateWindowA() auf, und stellt anschliessend die von der API
+ &uuml;berschriebenen Register ECX, EDX, R08, R09, R10 und R11 wieder her.
+<div class="crlf1"></div>
+Verwenden Sie Sandk&auml;sten nicht in C-Code. Mit schlampigen Konventionen
+ arbeitende Compiler &uuml;berschreiben die m&uuml;hsam wiederhergestellten
+ Register sofort wieder mit gerade anfallendem M&uuml;ll.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+ ...
+ movl  $0x80000000, %edi        # RDI = CW_USEDEFAULT
+ xorl  %ecx, %ecx               # RCX = NULL
+ leaq  LC01(%rip), %rdx         # RDX = EA Klassenname
+ leaq  LC02(%rip), %r8          # R08 = EA titel
+ movl  $0x00CF0000, %r9d        # R09 = stil
+ movq  %rdi, 0x20(%rsp)         # x
+ movq  %rdi, 0x28(%rsp)         # y
+ movq  %rdi, 0x30(%rsp)         # b
+ movq  %rdi, 0x38(%rsp)         # h
+ movq  %rcx, 0x40(%rsp)         # HWND elter
+ movq  %rcx, 0x48(%rsp)         # Hmenue
+ movq  %rsi, 0x50(%rsp)         # Hinstanz
+ call  _WnCreate(%rip)
+ movq  %rax, _Hmain(%rip)       # Henkel speichern
+ testq %rax, %rax               # Fehler?
+ je    L00
+ ...
+</pre>
+Erschafft ein neues Fenster. Der Fensterhenkel wird in RAX zur&uuml;ckgegeben.
+ Enth&auml;lt RAX Null, ist ein Fehler bei der Erschaffung aufgetreten.
+</div><div class="outer">Beispiel</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="cap04.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="cap06.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

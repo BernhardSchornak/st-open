@@ -1,0 +1,33 @@
+
+
+          S T  -  R E S O U R C E   I D ' s
+          อออออออออออออออออออออออออออออออออ
+
+
+          This file contains all used resource file ID's for the entire ST-System.
+
+          To let ST-Open's predefined dialogs coexist with user application dialogs, you
+          should not use predefined resource IDs listed below. Even monster applications
+          will not define 61440 resource IDs. It's no sacrifice to start application IDs
+          with 0x1000 - please leave all resource IDs below alone!
+
+
+          0x0000 - 0x07FF   OS/2 (Windows)
+
+          0x0800 - 0x083F   ST-Open - OLH OnLine-Help
+
+          0x0840 - 0x087F           - ErrorHandler
+
+          0x0880 - 0x08BF           - FileList
+
+          0x08C0 - 0x08FF           - SystemMessages
+
+          0x0900 - 0x093F           - Register Monitor
+
+          0x0940 - 0x099F           - MH Monitor
+
+          0x09A0 - 0x09FF           - SecSys
+
+          0x0A00 - 0x0FFF           - reserved for ST-Open
+
+          0x1000 - 0xFFFF   user

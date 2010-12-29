@@ -1,0 +1,85 @@
+  /*
+  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+  º                                    E R R O R S                                     ºÛ
+  ºÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄºÛ
+  º                          *** (C) ST-Open 1979 - 2011 ***                           ºÛ
+  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼Û
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+  º       THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE        ºÛ
+  ºÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄºÛ
+  º You may copy and distribute it as often as you want, but recipients aren't allowed ºÛ
+  º to pay *anything* for any copy of this file.                                       ºÛ
+  º                                                                                    ºÛ
+  º You are free to modify the content of this file if you want to. However, derivates ºÛ
+  º of the content of this file *still* are subject to the terms of the FT4FP license. ºÛ
+  º Recipients neither are allowed to pay *anything* for original work nor for altered ºÛ
+  º or derived replica.                                                                ºÛ
+  ºÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄºÛ
+  º       FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!        ºÛ
+  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼Û
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+
+  00   ERR_NO_ERROR
+  01   ERR_NO_ST8               no ST8 folders found
+  02   ERR_CANNOT_LOAD          field load failed
+  03   ERR_CANNOT_SAVE          field save failed
+  04   ERR_INTERNAL             MakeDat internal error
+  05   ERR_TOO_LARGE            (entries * length) > RAM
+  06   ERR_CREATE               create field failed
+  07   ERR_OLD_FIELD            we do not process them!
+  08   ERR_CANNOT_UNLOAD        cannot unload field
+  09   ERR_SYSTEM_FLD           system fields cannot be viewed!
+  0A   ERR_0A                   -
+  0B   ERR_0B                   -
+  0C   ERR_0C                   -
+  0D   ERR_0D                   -
+  0E   ERR_0E                   -
+  0F   ERR_0F                   -
+  10   ERR_10                   -
+  11   ERR_11                   -
+  12   ERR_12                   -
+  13   ERR_13                   -
+  14   ERR_14                   -
+  15   ERR_15                   -
+  16   ERR_16                   -
+  17   ERR_17                   -
+  18   ERR_18                   -
+  19   ERR_19                   -
+  1A   ERR_1A                   -
+  1B   ERR_1B                   -
+  1C   ERR_1C                   -
+  1D   ERR_1D                   -
+  1E   ERR_1E                   -
+  1F   ERR_OT_SIZE              wrong string type
+  20   ERR_NO_SOURCE            no source selected
+  21   ERR_NO_FIELDS            no fields in source fldr
+  22   ERR_FLD_CREATE           creation failed
+  23   ERR_SECSYS               SecSys field
+  24   ERR_ALLOC_MD3S           dat > md3 source memory
+  25   ERR_LOAD_SOURCE          load source field failed
+  26   ERR_LOAD_TARGET          load target field failed
+  27   ERR_NOT_A_FLD            file is not a field
+  28   ERR_HDR_BEGIN            md3 > dat marker missing
+  29   ERR_HDR_END              md3 > dat marker missing
+  2A   ERR_DATA_BEGIN           md3 > dat marker missing
+  2B   ERR_FIELD_LOADED         field used by DatTools
+  2C   ERR_DB_OVERFLOW          too many fields in src
+  2D   ERR_OVERWRITE            confirm overwriting data
+  2E   ERR_SIZE_ZERO            selected size is zero
+  2F   ERR_FLD_EXISTS           field number exists
+  30   ERR_FLD_SIZE             in creation dialog
+  31   ERR_SIZE                 file size != field end
+  32   ERR_QWORD_IN             qword not supported
+  33   ERR_FIXED_IN             fixed not supported
+  34   ERR_DRIVEMAP             select drive map
+  35   ERR_MOVE_EQUAL           MOVE from = to
+  36   ERR_MOVE_RANGE           move outside field
+  37   ERR_DTOOL_DENY           DatTools field number
+  38   ERR_38                   -
+  39   ERR_39                   -
+  3A   ERR_3A                   -
+  3B   ERR_3B                   -
+  3C   ERR_3C                   -
+  3D   ERR_3D                   -
+  3E   ERR_3E                   -

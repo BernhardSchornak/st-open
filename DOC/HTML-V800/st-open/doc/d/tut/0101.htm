@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Weichwaren" />
+ <meta name="Description" content="ST-Open - Weichwaren" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>FH-Struktur</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0100.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0102.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>FH</h1>
+<div class="inner">
+Die FH-Struktur wird f&uuml;r den Zugriff auf Dateien mit den Funktionen der Kernbibliothek
+ ben&ouml;tigt. Durch diese Schnittstelle lassen sich Dateioperationen mit wenigen Befehlen
+ erledigen. Durch die umfassende Definition k&ouml;nnen Daten von jeder beliebigen Position
+ in der Datei an jede beliebige Speicherstelle kopiert werden und umgekehrt.
+</div><div class="outer">Beschreibung</div><div class="crlf1"></div>
+<div class="inner"><pre>
+   typedef struct _FH{
+                      HFILE WINfh;
+                      DQ    Fsize;
+                      VOID *Mbase;
+                      DQ    Moffs;
+                      DQ    Foffs;
+                      DQ    Fstat;
+                     } FH;
+   typedef FH *PFH;
+</pre></div>
+<div class="outer">Definition</div><div class="crlf1"></div>
+<div class="inner">Windows-Dateihenkel</div>
+<div class="outer">00 WINfh</div><div class="crlf0"></div>
+<div class="inner">Dateigr&ouml;sse</div>
+<div class="outer">08 Fsize</div><div class="crlf0"></div>
+<div class="inner">Speicheradresse f&uuml;r Lese- und Schreibzugriffe</div>
+<div class="outer">10 Mbase</div><div class="crlf0"></div>
+<div class="inner">Abstand zur Speicheradresse</div>
+<div class="outer">18 Moffs</div><div class="crlf0"></div>
+<div class="inner">Position des Dateizeigers</div>
+<div class="outer">20 Foffs</div><div class="crlf0"></div>
+<div class="inner">Dateistatus</div>
+<div class="outer">28 Fstat</div><div class="crlf1"></div>
+<div class="inner">0x30 (48)</div>
+<div class="outer">Strukturgr&ouml;sse</div><div class="crlf1"></div>
+<div class="inner">
+<pre>
+ DD Meine_Funktion(DB *name)
+ {
+  FH fh;
+  DQ a, rc;
+  Mcl(&amp;fh, 48);
+  rc = Fopen(&amp;fh, 0, 2, name);
+  if(rc)
+  {
+   return(rc);
+  }
+  fh.Mbase = &amp;a;
+  fh.Foffs = (fh.Fsize - 8);
+  Fread(&amp;fh, 8);
+  a++;
+  Fwrite(&amp;fh, 8);
+  Fclose(&amp;fh);
+  return(0);
+ }
+</pre>
+Diese Funktion l&ouml;scht erst einmal die FH-Struktur, und &ouml;ffnet dann die mit "name"
+ spezifizierte Datei, wenn sie existiert. Fopen() schreibt generell den Windows-Dateihenkel,
+ die G&ouml;sse der Datei und den Dateistatus in die &uuml;bergebene FH-Struktur. Tritt bei
+ der Ausf&uuml;hrung von Fopen() ein Fehler auf, sind die Daten in der FH-Struktur in jedem
+ Fall ung&uuml;ltig. Die  Beispielfunktion kopiert nun die letzten 8 Byte aus der Datei in
+ die Variable <b>a</b>, inkrementiert den Wert und schreibt das Ergebnis zur&uuml;ck in die
+ Datei. Abschliessend wird die ge&auml;nderte Datei geschlossen und die Funktion kehrt mit
+ dem R&uuml;ckgabewert Null zur aufrufenden Funktion zur&uuml;ck.
+</div><div class="outer">Anwendung</div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0100.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0102.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0101.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

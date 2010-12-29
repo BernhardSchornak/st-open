@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Loading Memory Blocks" />
+ <meta name="Description" content="ST-Open Tutorial: Loading Memory Blocks" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Loading Memory Blocks</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0401.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0403.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>Loading Memory Blocks</h1>
+To request a memory block you need a LD structure. This structure must be cleared before
+ you can use it:
+<div class="box100q"><pre>
+DD Test(VOID)
+{
+ LD ld;
+ DD rc;
+ Mcl(&amp;ld, 40);
+</pre></div>
+The LD structure contains ten dwords, so we have to clear 40 bytes. Mcl() sets the passed
+ amount of bytes, beginning at the passed address, to zero. After clearing the structure,
+ we can fill it with the required parameters. Because we request a pure memory block, the
+ Loader flags are set to:
+<div class="box100q"><pre>
+ ld.LdCtl = LDR_READ | LDR_WRITE | LDR_MEM | LDR_STATIC;
+</pre></div>
+LDR_READ grants read permission, LDR_WRITE grants write permission for the memory block.
+ LDR_MEM tells the Loader we want to allocate a pure memory object without file loading.
+ LDR_STATIC switches off the dynamic removing after the timestamp expired. Because we do
+ not know, how long this memory block will be used, we make it static.
+<div class="crlf1"></div>
+The second parameter is the required size of the memory block. Because the loader rounds
+ uneven sizes up to the next page boundary, this should be a multiple of 4,096.
+<div class="box100q"><pre>
+ ld.MemSz = 0x00001000;
+</pre></div>
+The last parameter is the field number we want to assign to the memory block. I recommend
+ a number starting at 0xFFFFE000 to keep track of fields, files and memory objects. Field
+ numbers must be unique. If you request an already loaded field, the Loader just copies
+ the data of the block with this field number to the passed LD structure and increments
+ its request counter. <b>LDfre()</b> decrements the request counter. It does not free the
+ associated block if the counter is not zero.
+<div class="box100q"><pre>
+ ld.FldNr = 0xFFFFE000;
+</pre></div>
+Now, we have set all required parameters and tell the Loader to allocate the memory block
+ for further use:
+<div class="box100q"><pre>
+ rc = LDreq(&amp;ld);
+ if(rc)
+ {
+  return(rc);
+ }
+</pre></div>
+Always evaluate the return code. If the request fails, all parameters in the LD structure
+ hold the initial value of zero. The first access using ld.MemEA (= zero) will trigger a
+ SYS3175. Do not omit this important check to save some bytes or typing work!
+<div class="crlf1"></div>
+The memory block can be accessed via the address stored in <b>ld.MemEA</b>. <i>Never</i>
+ use the MemHandle (ld.MMoff)! <b>ld.MMoff</b> is an address in the Loader Table. Writing
+ to it corrupts the LDT and causes crashes.
+<div class="crlf1"></div>
+After the work is done, you should free the allocated block to save valuable resources.
+ To free memory you need the MemHandle <b>ld.MMoff</b>:
+<div class="box100q"><pre>
+ LDfre(ld.MMoff);
+}
+</pre></div>
+The complete code in one piece:
+<div class="box100q"><pre>
+DD Test(VOID)
+{
+ LD ld;
+ DD rc;
+ Mcl(&amp;ld, 40);
+ ld.LdCtl = LDR_READ | LDR_WRITE | LDR_MEM | LDR_STATIC;
+ ld.MemSz = 0x00001000;
+ ld.FldNr = 0xFFFFE000;
+ rc = LDreq(&amp;ld);
+ if(rc){return(rc);}
+ /*
+   FUNCTION CODE
+ */
+ LDfre(ld.MMoff);
+ return(rc);
+}
+</pre></div>
+<div class="crlf1"></div>
+The next page explains how to load a field.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0401.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0403.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

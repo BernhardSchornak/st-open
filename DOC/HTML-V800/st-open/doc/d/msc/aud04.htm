@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="mo2st()" />
+ <meta name="Description" content="ST-Open Bibliotheken: mo2st()" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>mo2st()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="aud03.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="aud05.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st7\lib\sources\aud\low.S</div><div class="outer"><big>aud.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>mo2st</b></div><div class="outer">Funktion</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = mo2st(quelle, ziel, gr&ouml;sse, links, rechts);</div><div class="outer">Aufruf</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">VOID *</div>
+<div class="inners">quelle</div>
+<div class="innerl">Adresse der Quelle</div>
+<div class="crlf0"></div>
+<div class="inners">VOID *</div>
+<div class="inners">ziel</div>
+<div class="innerl">Adresse des Ziels</div>
+<div class="crlf0"></div>
+<div class="inners">DD</div>
+<div class="inners">gr&ouml;sse</div>
+<div class="innerl">Gr&ouml;sse der Quelldatei</div>
+<div class="crlf0"></div>
+<div class="inners">DD</div>
+<div class="inners">links</div>
+<div class="innerl">Lautst&auml;rke linker Kanal in Prozent</div>
+<div class="crlf0"></div>
+<div class="inners">DD</div>
+<div class="inners">rechts</div>
+<div class="innerl">Lautst&auml;rke rechter Kanal in Prozent</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">DD</div>
+<div class="inners">rc</div>
+<div class="innerl">Fehlercodes siehe Quelle</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+mo2st() wandelt die monauralen Daten der [quelle] in stereophone Daten um und speichert diese im [ziel]. Das [ziel] muss mindestens doppelt so gross wie die [quelle] sein, da die
+ Datenmenge sich verdoppelt. Die Lautst&auml;rke f&uuml;r die beiden Ausgangskan&auml;le kann getrennt eingestellt werden. Es werden sowohl 8- als auch 16-Bit Dateien verarbeitet.
+<br /><br />
+[quelle] muss einen g&uuml;ltigen Wellenkopf enthalten, da dieser f&uuml;r die Verarbeitung ben&ouml;tigt wird. [ziel] enth&auml;lt nach der Umwandlung eine g&uuml;ltige Wellendatei.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+DD MyFunction(VOID *quelle, VOID *ziel)
+{
+ DD rc;
+ rc = mo2st(quelle, ziel, 0x20000, 100, 100);
+ return(rc);
+}
+</pre>
+128 kB aus [quelle] werden in eine 256 kB grosse Stereodatei umgewandelt und in [ziel] gespeichert. Die Lautst&auml;rke beider Stereokan&auml;le ist 100%.
+</div><div class="outer">Beispiel</div></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="aud03.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="aud05.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fmsc%2Faud04.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

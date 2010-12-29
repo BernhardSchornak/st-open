@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="SPN-Struktur" />
+ <meta name="Description" content="ST-Open Bibliotheken: SPN-Struktur" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>SPN-Struktur</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="spn00.htm">STspn()</a></li>
+ <li><a href="../tut/0700.htm">ST-Open Drehkn&ouml;pfe</a></li>
+ <li><a href="spn000.htm">SPN-Befehle</a></li>
+ <li>SPN-Struktur</li>
+ <li><a href="spn002.htm">Drehknopftypen</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="spn000.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="spn002.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Die SPN-Struktur</h1>
+Das Drehknopffeld verwendet den Datentyp FIX mit einer Gr&ouml;sse von 64 Byte pro Eintrag. Der Zugriff erfolgt nach Aufruf des Befehls SPN_GETSTRUC direkt
+ auf die SPN-Struktur.
+<div class="crlf1"></div>
+<div class="inner">
+<pre>
+typedef struct   _SPN{
+                      DD    Shwnd;     /*  x 00 HWND spin                            */
+                      DD    ResID;     /*  > 04 resource ID spinbutton               */
+                      DQ    Min;       /*  > 08 lower limit                          */
+                      DQ    Max;       /*  > 10 upper limit                          */
+                      DQ    Cur;       /* <> 18 current value or entry               */
+                      DD    Type;      /*  > 20 spinbutton type                      */
+                      DD    Field;     /*  > 24 [opt] MemHandle                      */
+                      DD    SubFd;     /*  > 28 [opt] subfield number                */
+                      DD    FPdig;     /*  > 2C [opt] pseudo-fp digits               */
+                      DD    Formt;     /*  > 30 [opt] format SPN_DEC32, _TIME, _DATE */
+                      DD    AccCt;     /*  x 34 internal: accelerator counter        */
+                      DQ    AccVa;     /*  x 38 internal: accelerator current        */
+                     } SPN;
+  typedef SPN *PSPN;
+</pre>
+</div><div class="outer"><b>Definition</b></div><div class="crlf2"></div>
+<div class="inner">Fensterhenkel des Drehknopfs</div><div class="outer"><b>00 DD</b></div><div class="crlf1"></div>
+<div class="inner">Resource-ID des Drehknopfs</div><div class="outer"><b>04 DD</b></div><div class="crlf1"></div>
+<div class="inner">minimaler Wert</div><div class="outer"><b>08 DQ</b></div><div class="crlf1"></div>
+<div class="inner">maximaler Wert</div><div class="outer"><b>10 DQ</b></div><div class="crlf1"></div>
+<div class="inner">aktueller Wert</div><div class="outer"><b>18 DQ</b></div><div class="crlf1"></div>
+<div class="inner"><a href="spn002.htm">Drehknopftyp</a></div><div class="outer"><b>20 DD</b></div><div class="crlf1"></div>
+<div class="inner">optional: Speicherhenkel</div><div class="outer"><b>24 DD</b></div><div class="crlf1"></div>
+<div class="inner">optional: Unterfeld</div><div class="outer"><b>28 DD</b></div><div class="crlf1"></div>
+<div class="inner">optional: Pseudofliesskommastellen</div><div class="outer"><b>2C DD</b></div><div class="crlf1"></div>
+<div class="inner">optional: Formatierung (SPN_DEC32, _TIME, _DATE)</div><div class="outer"><b>30 DD</b></div><div class="crlf1"></div>
+<div class="inner">intern: Beschleunigerz&auml;hler</div><div class="outer"><b>34 DD</b></div><div class="crlf1"></div>
+<div class="inner">intern: Beschleunigungswert</div><div class="outer"><b>38 DQ</b></div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="spn000.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="spn002.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fsys%2Fspn001.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

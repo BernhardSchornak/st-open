@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="GStkObj()" />
+ <meta name="Description" content="ST-Open Libraries: GStkObj()" />
+ <meta name="Keywords" content="ST-Open, open, source, ST-Open, library, libraries, free, software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>GStkObj()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="cap03.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="cap05.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100"><div class="inner">..\st7\lib\sources\core\cap.S
+</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>GStkObj</b></div><div class="outer">Function</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = GStkObj(objtype);</div><div class="outer">Call</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div>
+<div class="inners">objtype</div>
+<div class="innerl">predefined stock object ID</div></div>
+<div class="outer">Input</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RAX</div>
+<div class="inners">HGDIOBJ</div>
+<div class="innerl">handle of the requested stock object</div>
+</div><div class="outer">Output</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+GStkObj() calls GetStockObject(), then restores the destroyed content
+ of ECX, EDX, R08, R09, R10 and R11.
+<div class="crlf1"></div>
+Please do not call sandboxes from C code. It is a waste of precious time
+ to restore registers which are refilled with random garbage soon after.
+</div><div class="outer">Description</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+ ...
+ xorl  %ecx, %ecx        # RCX = 0
+ call  _GStkObj
+ ...
+</pre>
+Retrieves the object handle <b>HGDIOBJ</b> for BLACK_BRUSH (symbols are
+ predefined in "winuser.h").
+</div><div class="outer">Example</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="cap03.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="cap05.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

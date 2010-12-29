@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="Version 8.0.0." />
+ <meta name="Description" content="V800 Libraries: Version 8.0.0." />
+ <meta name="Keywords" content="ST-Open, Software, Open Source, free software, library, libraries, assembler, C" />
+ <meta name="date" content="2010-07-18T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../pics/favicon.ico" />
+ <title>Version 8.0.0.</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../indexe.htm">ST-Open</a></li>
+ <li><a href="../../doc/e/index.htm">Documentation</a></li>
+ <li><a href="../d/800.htm">Deutsch</a></li>
+</ul>
+</div>
+<div class="update">[2010-07-18]</div>
+<div class="headpc"><img src="../../../pics/pgm.png" alt="ST-Software Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../../indexe.htm"><img src="../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="v8s.htm"><img src="../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="hddrum.htm"><img src="../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>Version 8.0.0. (64 bit Windows)</h1>
+<b>This software is optimised for AMD-64 processors!</b>
+<div class="crlf1"></div>
+ST-Open's libraries provide about 300 functions developed for and tested with every
+ day GUI applications. Even if all functions are coded in pure assembler, they can
+ be used as dense and fast replacements for standard library functions of all High
+ Level Languages following the 64 bit WinAPI calling conventions. The core library
+ includes a high speed database engine, capable to handle 4,294,967,295 datafields
+ with a size of 4 GB, each. Each datafield can hold up to 32 subfields with one of
+ the defined datatypes: Byte, words, dwords, qwords, owords, 16*n byte blocks and
+ dynamic strings. ST-Open's loader keeps loading of datafields transparent to the
+ programmer, reducing required transactions to single calls: LDreq() to request a
+ datafield, file or memory block, LDchg() to change an allocated block's size and
+ LDfre() to free a block, datafield or file. Datafields are automatically saved if
+ their content changed (can be skipped with a flag), files must be saved manually
+ before the associated memory is freed (can be automated).
+<div class="crlf1"></div>
+ST-Open's database engine (DBE) and memory management (Loader) are core components
+ of the V800 system library. About 270 other functions for data conversion, string
+ manipulation, time and date calculation and conversion, file system manipulation,
+ API sandboxes (all used registers restored) and then some are included in the core
+ library at the moment. Additional libraries provide ST-Open's filelist, ST-Open's
+ OnLine-Help (OLH), the loader monitor, a register monitor with dump utilities for
+ debugging, ST-Open's SecSys (security system) and an audio library.
+<div class="crlf1"></div>
+ST-Open's V800 libraries are multi-lingual. You can switch between sixteen languages
+ in the running program. Translations are stored in datafields, so every program can
+ support as many languages as required by simply exchanging datafields on the fly.
+<div class="crlf1"></div>
+<h2>SourceDoc</h2>
+A detailed documentation of all functions is available as
+ <a href="../../doc/e/index.htm">offline document</a>.
+<div class="crlf1"></div>
+<h2>Screenshots</h2>
+These dialogs are parts of ST-Open's libraries. More dialogs are available, see the
+ <a href="../../doc/e/index.htm">offline document</a> for detailed information.
+ Please have a look at the formatting of decimal and hexadecimal numbers. It is
+ integrated in ST-Open's conversion functions - no additional instructions required.
+<div class="crlf1"></div>
+<div class="box100">
+<h3>OnLine Help</h3>
+<img src="./pics/olh.png" alt="Screenshot OLH" width="532" height="484" border="0" />
+<div class="crlf1"></div>
+OnLine Help (OLH) is multi-lingual now and supports up to 16 languages. There are
+ dialogs with two MLEs to translate texts comfortably by just typing them in. As an
+ alternative, you may enter help texts and headlines in the OLH dialog directly.
+<div class="crlf1"></div>
+<h3>OnLine-Help - topics feature</h3>
+<img src="./pics/topic.png" alt="Screenshot TOPICS" width="372" height="284" border="0" />
+<div class="crlf1"></div>
+<h3>FileList</h3>
+<img src="./pics/fls.png" alt="Screenshot file list" width="572" height="404" border="0" />
+<div class="crlf1"></div>
+<h3>System Messages</h3>
+<img src="./pics/syserr.png" alt="Screenshot system message" width="532" height="408" border="0" />
+<div class="crlf1"></div>
+<h3>Application Messages</h3>
+<img src="./pics/usrerr.png" alt="Screenshot system message" width="532" height="408" border="0" />
+<div class="crlf1"></div>
+<h3>Extended Spinbuttons</h3>
+<img src="../../doc/pics/spn.png" alt="ST-Open Spinbuttons" width="732" height="460" border="0" />
+<div class="crlf1"></div>
+<h3>Optional - SecSys</h3>
+<img src="./pics/sece0.png" alt="V500 SecSys Master" width="464" height="360" border="0" />
+<div class="crlf1"></div>
+<img src="./pics/sece1.png" alt="V500 SecSys User" width="464" height="360" border="0" />
+<div class="crlf1"></div>
+<h3>MemHandle-Monitor</h3>
+<img src="./pics/mhmon.png" alt="Screenshot loader monitor" width="612" height="516" border="0" />
+<div class="crlf1"></div>
+<h3>RegisterMonitor (my debugging tool)</h3>
+<img src="./pics/rgmon.png" alt="Screenshot register monitor" width="856" height="244" border="0" />
+</div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../../indexe.htm"><img src="../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="v8s.htm"><img src="../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="hddrum.htm"><img src="../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="FDacc()" />
+ <meta name="Description" content="ST-Open Libraries: FDacc()" />
+ <meta name="Keywords" content="ST-Open, open, source, ST-Open, library, libraries, free, software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>FDacc()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="../msc/sec04.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="acf000.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100"><div class="inner">..\st7\lib\sources\base\acf.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>FDacc</b></div><div class="outer">Function</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = FDacc(MemHandle, entry, subfield, FDA_*, address, number);</div><div class="outer">Call</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div>
+<div class="inners">MemHandle</div>
+<div class="innerl">memory handle of a loaded field</div>
+<div class="crlf0"></div>
+<div class="inners">RDX</div>
+<div class="inners">entry</div>
+<div class="innerl">entry number</div>
+<div class="crlf0"></div>
+<div class="inners">R08</div>
+<div class="inners">subfield</div>
+<div class="innerl">subfield number</div>
+<div class="crlf0"></div>
+<div class="inners">R09</div>
+<div class="inners">FDA_*</div>
+<div class="innerl">database <a href="acf000.htm">function</a> to perform</div>
+<div class="crlf0"></div>
+<div class="inners">20[RSP]</div>
+<div class="inners">address</div>
+<div class="innerl">address for in- or output</div>
+<div class="crlf0"></div>
+<div class="inners">28[RSP]</div>
+<div class="inners">number</div>
+<div class="innerl">numeric input</div>
+</div><div class="outer">Input</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RAX</div>
+<div class="inners">rc</div>
+<div class="innerl">depends on the performed <a href="acf000.htm">function</a></div>
+</div><div class="outer">Output</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+FDacc() is the function distributor of ST-Open's database engine. The
+ <a href="acf000.htm">function</a>, passed with the 4th parameter,
+ determines, which subfunction of the database engine is performed.
+ Please read the tutorial <a href="../tut/0500.htm">ST-Open's DataManager
+ (DM)</a>, to get in touch with the functions of this database engine.
+</div><div class="outer">Description</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ DD mh, rc;
+ rc = FDacc(*MY_FIELD, 0, 0, FDA_READ, 0, 0);
+ FDacc(*MY_FIELD, 1, 0, FDA_WRITE, 0, rc);
+ FDacc(*MY_FIELD, 2, 0, FDA_INC, 0, 0);
+}
+</pre>
+MY_FIELD is the address where the MemHandle of the field is stored. It points
+ to a location in the global variables. Memory handles usually are stored in
+ the runtime area above 0x2000[GVAR]. We read the content of the first entry
+ (its number is 0 because fields are zero based) in subfield 0 and store it
+ in <b>rc</b>. Then we copy the content of <b>rc</b> to the 2nd entry. The
+ last access increments the third entry.
+</div><div class="outer">Example</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+Some database functions do not require parameter 5 or 6. You safely can omit
+ all parameters not required for a specific subfunction to save superfluous
+ <b>mov</b> instructions. Not required parameters neither are evaluated nor
+ are they used. 
+</div><div class="outer">Intelligent Design</div></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="../msc/sec04.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="acf000.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

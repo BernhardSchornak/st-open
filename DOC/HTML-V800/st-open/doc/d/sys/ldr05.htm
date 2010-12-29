@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="LDchk()" />
+ <meta name="Description" content="ST-Open Bibliotheken: LDchk()" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>LDchk()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="ldr04.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="ldr06.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st7\lib\sources\core\ldr.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>LDchk</b></div><div class="outer">Funktion</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = LDchk(CHK_REMOVE);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">DD</div>
+<div class="inners">CHK_REMOVE</div>
+<div class="innerl">Maximale Dauer der Inaktivit&auml;t im OS/2 HMSh-Format</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">DD</div>
+<div class="inners">rc</div>
+<div class="innerl">immer Null</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+LDchk() pr&uuml;ft periodisch alle Speicherbl&ouml;cke auf Inaktivit&auml;t. Die Zeit zwischen zwei &Uuml;berpr&uuml;fungen wird mit CHK_DELAY (im OS/2 HMSh-Format) festgelegt.
+ Wurde auf einen Speicherblock l&auml;nger als die in CHK_REMOVE (im OS/2 HMSh-Format) festgelegte Zeit nicht zugegriffen, dann wird der Speicherblock freigegeben. Automatisch
+ freigegebene Datenfelder werden vor der Freigabe gespeichert, wenn ihr Inhalt ver&auml;ndert wurde. Die automatische Freigabe kann mit dem Laderkontrollf&auml;hnchen
+ <b>LDR_STATIC</b> f&uuml;r jeden Speicherblock individuell abgeschaltet werden. Da nur die Datenbankmaschine das "ge&auml;ndert"-F&auml;hnchen nach jeder Schreiboperation
+ automatisch setzt, ist es ratsam, bei der Anforderung von Speicherobjekten und Dateien das Laderkontrollf&auml;hnchen <b>LDR_STATIC</b> prinzipiell zu setzen, wenn der
+ Speicherblock voraussichtlich l&auml;nger als die in CHK_REMOVE festgelegte Zeit ben&ouml;tigt wird.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+Die dynamische Speicherverwaltung ist optional. Um sie einzuschalten, m&uuml;ssen die beiden Variablen <b>CHK_DELAY</b> und <b>CHK_REMOVE</b> auf Werte ungleich Null gesetzt
+ und beim Programmstart ein Zeitgeber eingerichtet werden. F&uuml;r den Zeitgeber muss eine WM_TIMER-Prozedur existieren, in der LDchk() dann periodisch aufgerufen wird. Im
+ <a href="../../../st7/d/v7s.htm">V700-Skelett</a> ist der entsprechende Code bereits enthalten. Schauen Sie in <i>V700.c</i> und <i>hvar.h</i> nach, wie die dynamische
+ Speicherverwaltung konkret programmiert wird.
+</div><div class="outer">Anmerkung</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="ldr04.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="ldr06.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fsys%2Fldr05.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="SftDn()" />
+ <meta name="Description" content="ST-Open Bibliotheken: SftDn()" />
+ <meta name="Keywords" content="ST-Open, Weichwaren, Open, offen, Quelle, ST-Open, Bibliothek, frei, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>SftDn()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="acf02.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="cap00.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st8\lib\sources\base\acf.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>SftDn</b></div><div class="outer">Funktion</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = SftDn(SpeiHenk, Starteintrag, UntFeld);</div><div class="outer">Aufruf</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div>
+<div class="inners">SpeiHenk</div>
+<div class="innerl">Speicherhenkel des geladenen Feldes</div>
+<div class="crlf0"></div>
+<div class="inners">RDX</div>
+<div class="inners">Eintrag</div>
+<div class="innerl">Nummer des Starteintrags</div>
+<div class="crlf0"></div>
+<div class="inners">R08</div>
+<div class="inners">UntFeld</div>
+<div class="innerl">Nummer des Unterfeldes</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RAX</div>
+<div class="inners">rc</div>
+<div class="innerl">
+00 ERR_NO_ERROR<div class="crlf0"></div>
+05 ERR_SYS_DBE_BUSY<div class="crlf0"></div>
+08 ERR_PAR_INVALID<div class="crlf0"></div>
+1C ERR_LDR_FORBIDDEN<div class="crlf0"></div>
+20 ERR_DBE_TYPE<div class="crlf0"></div>
+21 ERR_DBE_MH<div class="crlf0"></div>
+22 ERR_DBE_SUBFIELD<div class="crlf0"></div>
+23 ERR_DBE_ENTRY
+</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+SftUp() l&ouml;scht den ersten Eintrag im angegebenen Unterfeld und schiebt alle
+ Eintr&auml;ge ab [Starteintrag] um eine Eintragsnummer nach unten. Die Funktion
+ ist zum schnellen Bearbeiten von Listen n&uuml;tzlich.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ DD rc;
+ rc = SftDn(*MEIN_FELD, 20, 0);
+}
+</pre>
+Der Zugriff l&ouml;scht Eintrag 20 in Unterfeld 00 von MEIN_FELD und schiebt danach
+ die Eintr&auml;ge ab Eintrag 21 um Eins nach unten (Eintrag 21 wird zu Eintrag 20,
+ Eintrag 22 zu 21, und so weiter).
+</div><div class="outer">Beispiel</div></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="acf02.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="cap00.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

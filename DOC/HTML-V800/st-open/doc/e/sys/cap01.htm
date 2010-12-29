@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="RegClssX()" />
+ <meta name="Description" content="ST-Open Libraries: RegClssX()" />
+ <meta name="Keywords" content="ST-Open, open, source, ST-Open, library, libraries, free, software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>RegClssX()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="cap00.htm"><img src="../../../../pics/nav_bk.png" alt="back" width="20" height="20" border="0" title="back" /></a>
+&#160;&#160;&#160;<a href="cap02.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100"><div class="inner">..\st7\lib\sources\core\cap.S
+</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>RegClssX</b></div><div class="outer">Sandbox</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">id = RegClssX(VOID *wndclass);</div><div class="outer">Call</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div><div class="inners">wndclass</div><div class="innerl">address of a WNDCLASS structure</div><div class="crlf0"></div>
+</div><div class="outer">Input</div></div><div class="crlf0"></div><div class="text100">
+<div class="inner"><div class="inners">RAX</div><div class="inners">id</div><div class="innerl">unique class ID</div></div>
+<div class="outer">Output</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+RegClssX() calls RegisterClassExA(), then restores the destroyed content
+ of ECX, EDX, R08, R09, R10 and R11.
+<div class="crlf1"></div>
+Other than RegClass(), RegClssX() allows to set the <i>small icon</i>.
+<div class="crlf1"></div>
+Please do not call sandboxes from C code. It is a waste of precious time
+ to restore registers which are refilled with random garbage soon after.
+<div class="crlf1"></div>
+</div><div class="outer">Description</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ ...
+ pxor  %xmm0,%xmm0                 # XM0 = 0
+ leaq  _MainWndProc(%rip), %r9     # R09 = EA window procedure
+ leaq  0x60(%rsp), %rcx            # RCX = EA WC
+ leaq  LC00(%rip), %rdx            # RDX = EA menu name
+ leaq  LC01(%rip), %r8             # R08 = EA class name
+ movq  %xmm0, 0x60(%rsp)           # 0x00[WC] = 0
+ movq  %r9, 0x68(%rsp)             # 0x08[WC] = EA window procedure
+ movq  %xmm0, 0x70(%rsp)           # 0x10[WC] = 0, 0x14[WC] = 0
+ movq  %rsi, 0x78(%rsp)            # 0x18[WC] = Hinstance
+ movq  %rbp, 0x80(%rsp)            # 0x20[WC] = Hicon
+ movq  %rdi, 0x88(%rsp)            # 0x28[WC] = Hcursor
+ movq  %rax, 0x90(%rsp)            # 0x30[WC] = background colour
+ movq  %rdx, 0x98(%rsp)            # 0x38[WC] = EA menu name
+ movq  %r8, 0xA0(%rsp)             # 0x40[WC] = EA class name
+ leaq  0x60(%rsp), %rcx            # RCX = EA WC
+ call  _RegClssX
+ testl %eax, %eax                  # registered?
+ je    L00
+ ...
+</pre>
+LC00 and LC01 are defined in the <i>.rdata</i> segment, <i>WC</i> stands for <b>WNDCLASS</b>.
+</div><div class="outer">Example</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="cap00.htm"><img src="../../../../pics/nav_bk.png" alt="back" width="20" height="20" border="0" title="back" /></a>
+&#160;&#160;&#160;<a href="cap02.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

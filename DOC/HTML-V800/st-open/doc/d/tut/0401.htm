@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Initialisierung des Laders" />
+ <meta name="Description" content="ST-Open Tutorial: Initialisierung des Laders" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Initialisierung des Laders</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0402.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Initialisierung des Laders</h1>
+Die Initialisierung der Speicherverwaltung erfolgt &uuml;ber die Funktion <b>LDinit()</b>.
+ Sie alloziert f&uuml;nf Seiten mit je 4.096 Byte. Die ersten zwei Seiten werden f&uuml;r
+ die Verwaltungstabelle (LDT) des Laders ben&ouml;tigt, die restlichen drei Seiten sind
+ f&uuml;r die Systemvariablen (BNR) reserviert. Steht dieser Speicher bereit, werden die
+ Dateien <b>num.dat</b> (statische Variablen) und <b>cvt.dat</b> (Umwandlungstabellen)
+ nach BNR kopiert. Der Lader ist nun betriebsbereit. Er l&auml;dt die Systemzeichenketten
+ und alloziert einen Arbeitspuffer f&uuml;r die Datenbankmaschine. Abschliessend werden
+ diverse Verwaltungstabellen mit den momentanen Daten aktualisiert und ein paar globale
+ Variablen auf festgelegte Startwerte gesetzt.
+<div class="crlf1"></div>
+Da die Henkel des Rahmen- und Hauptfensters und die Aufbaudaten des Hauptfensters in den
+ Systemvariablen gespeichert sind, muss die Initialisierung des Laders vor der Erschaffung
+ des Rahmenfensters erfolgen. Wenn Sie mit fester Fenstergr&ouml;sse arbeiten und keine
+ Fensterhenkel ben&ouml;tigen, k&ouml;nnen Sie die Initialisierung nat&uuml;rlich zu einem
+ sp&auml;teren Zeitpunkt durchf&uuml;hren, zum Beispiel w&auml;hrend der Abarbeitung von
+ WM_CREATE. <b>LDinit()</b> darf jedoch im gesamten Programm nur <i>ein einziges Mal</i>
+ aufgerufen werden!
+<div class="crlf1"></div>
+Die Datei <b>V700.c</b> im <a href="../../../st7/d/v7s.htm">V700 Programmskelett</a> zeigt
+ Ihnen in den Funktionen main() und STinit() ganz genau, wie der Lader initialisiert und
+ wieder beendet wird.
+<div class="crlf1"></div>
+<h2>Optionen</h2>
+Es gibt momentan zwei Optionen, die durch Setzen auf einen beliebigen Wert ungleich Null
+ eingeschaltet werden k&ouml;nnen. Die erste schaltet die Entfehlerungsfunktionen frei:
+<div class="box100q"><pre>
+ DEBUG = 1;
+ LDinit();
+</pre></div>
+Durch das Setzen der Variablen DEBUG wird w&auml;hrend der Initialisierung des Systems der
+ 4096 Byte grosse Speicherblock TST alloziert, in dem 128 Registerausz&uuml;ge gespeichert
+ werden k&ouml;nnen. Jeder Auszug enth&auml;lt den Inhalt der Register EAX, EBX, ECX, EDX,
+ EDI, ESI, EBP und ESP zum Zeitpunkt des Aufrufs von MonTST(). Die erstellten Ausz&uuml;ge
+ k&ouml;nnen mit dem Registermonitor durch Aufruf des Dialogs REGmon() betrachtet werden.
+ Die Entfehlerungsbibliothek sollte bei fehlerfrei funktionierenden Programmen nicht mehr
+ eingebunden werden, da sie das Programm unn&ouml;tig vergr&ouml;ssert. DEBUG sollte dann
+ auf Null gesetzt werden, um den geringstm&ouml;glichen Speicherbedarf zu garantieren.
+<div class="crlf1"></div>
+Die zweite Option schaltet die Laderdateiliste frei:
+<div class="box100q"><pre>
+ USE_LDF = 1;
+ LDinit();
+</pre></div>
+Die Laderdateiliste wird ben&ouml;tigt, sofern die mit dem Lader geladenen Dateien vor der
+ Freigabe des Speichers automatisch gesichert werden sollen. Ist die Option eingeschaltet,
+ l&auml;dt der Lader bei der Initialisierung des Systems das Feld lfl.dat. Ist dieses Feld
+ nicht geladen, dann wird das Laderf&auml;hnchen LDR_LFLIST (resp. LDR_AUTOSAVE) vom Lader
+ ignoriert und Sie m&uuml;ssen Dateien vor der Freigabe selbst sichern. Wenn Sie Dateien
+ laden wollen, die automatisch gesichert werden, empfiehlt sich die Verwendung des Laders.
+ Das spart sehr viel zus&auml;tzlichen Code und ist wesentlich schneller als das Aufrufen
+ etlicher C-Funktionen.
+<div class="crlf1"></div>
+<h1>Beenden</h1>
+Um den Lader zu beenden, gen&uuml;gt der Aufruf der Funktion <b>LDexit()</b>. Die Funktion
+ schliesst alle offenen Speicherhenkel. Felder, deren Inhalt ge&auml;ndert wurde, werden
+ vor dem Schliessen gesichert. Als letztes Feld werden die Systemvariablen gesichert und
+ geschlossen, danach wird die Ladertabelle freigegeben. Nach Ausf&uuml;hrung von LDexit()
+ d&uuml;rfen die Funktionen des Laders und der Datenbankmaschine nicht mehr aufgerufen
+ werden, da die Speicherverwaltung nun nicht mehr existiert!
+<div class="crlf2"></div>
+Soviel zur Initialisierung und dem Beenden des Laders. Auf der n&auml;chsten Seite erfahren
+ Sie, wie ein Speicherblock angefordert und verwendet wird.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0402.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0401.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

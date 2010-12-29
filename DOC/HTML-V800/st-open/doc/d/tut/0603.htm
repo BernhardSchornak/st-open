@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Programmnachrichten" />
+ <meta name="Description" content="ST-Open Tutorial: Programmnachrichten" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Programmnachrichten</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0602.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0700.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Programmnachrichten</h1>
+<h2>Datenfeld</h2>
+Die Programmnachrichten sind im Feld "nsm.dat" (im Unterordner SYST des Programms) gespeichert. Dieses
+ Feld ist im V700-Programmskelett bereits enthalten. Ben&ouml;tigen Sie doch einmal etwas mehr mehr als
+ 46 Programmnachrichten, so muss das Feld mit der ben&ouml;tigten Anzahl an Eintr&auml;gen neu erstellt
+ werden. Das Feld enth&auml;lt 16 Unterfelder des Typs $32 (Zeichenkette) mit <i>n</i> Eintr&auml;gen.
+ Die Gesamtanzahl der Eintr&auml;ge <i>n</i> wird mit folgender Formel berechnet:
+<div class="crlf1"></div>
+<div class="box100">n = 4 * [Anzahl ben&ouml;tigter Nachrichten <b>+ 2</b>])</div>
+<div class="crlf1"></div>
+Die ersten acht Eintr&auml;ge sind f&uuml;r Standardnachrichten reserviert:
+<div class="crlf1"></div>
+1. "Nachricht unbekannt" wird angezeigt, wenn die &uuml;bergebene Nachrichtennummer gr&ouml;sser als
+ die h&ouml;chste m&ouml;gliche Nachrichtennummer ist, oder die angeforderte Nachricht nur eine leere
+ Zeichenkette enth&auml;lt. Diese Nachricht ist immer die erste Nachricht im Feld. Sie muss in jedem
+ Nachrichtenfeld vorhanden sein.
+<div class="crlf1"></div>
+2. "Kein Fehler" wird von ErrMgr() niemals angezeigt. Wird die Nachrichtennummer NULL an die Funktion
+ &uuml;bergeben, kehrt sie ohne Ausgabe zum Aufrufer zur&uuml;ck. Dadurch lassen sich in C-Funktionen
+ Konstrukte wie
+<pre>
+ErrMgr(Fopen(s, 2, 0, &fh));
+</pre>
+programmieren, die ausschliesslich dann eine Meldung ausgeben, wenn ein Fehler aufgetreten ist. Diese
+ Nachricht kann optional mit einem Text versehen werden. Der ist aber nicht zwingend erforderlich.
+<div class="crlf1"></div>
+Alle weiteren Nachrichten sind Sache des Anwendungsprogrammierers.
+<div class="crlf2"></div>
+<h2>Systemnachrichten</h2>
+Die Systemnachrichten sind im Feld "err.dat" (im Unterordner SYST jedes Programms) gespeichert. Dieses
+ Feld ist f&uuml;r <i>jede</i> mit ST-Open's Bibliotheken arbeitende Applikation <i>obligatorisch</i>!
+ Systemnachrichten werden, wie der Name bereits andeutet, immer dann ausgegeben, wenn Systemfunktionen
+ einen Fehler melden. Der Inhalt des Feldes darf ausschliesslich bei der &Uuml;bersetzung in eine neue
+ Sprache ge&auml;ndert werden! Die Datei "err.dat" sollte bei &Auml;nderungen an einer Distribution
+ durch die aktuellste verf&uuml;gbare Version ersetzt werden, sp&auml;testens jedoch beim Ersatz einer
+ der Bibliotheken durch eine fehlerbereinigte Version.
+<div class="crlf2"></div>
+<h2>Eingabe</h2>
+<div class="box100"><img src="../../../st7/md5/d/pics/smsg.png" alt="Tool: Systemnachrichten" width="696" height="700" border="0" /></div>
+<div class="crlf1"></div>
+Der Eingabedialog ist einfach zu bedienen. Geben Sie im MLE den Nachrichtentext und in den drei kleinen
+ Eingabefeldern darunter die Texte f&uuml;r die Kn&ouml;pfe ein. Ist der Nachrichtentext eine leere
+ Zeichenkette, dann wird die im Screenshot abgebildete Nachricht (Eintrag 0) angezeigt. Enth&auml;lt
+ der Text f&uuml;r einen Knopf eine leere Zeichenkette, dann wird der Knopf ausgeblendet. Da der Dialog
+ ohne Knopf nicht mehr geschlossen werden kann, setzt die Funktion ErrMgr() automatisch den mittleren
+ Knopf auf den Text "O K", wenn die Texte aller drei Kn&ouml;pfe leere Zeichenketten sind.
+<div class="crlf1"></div>
+<b>Achtung:</b> Sollte f&uuml;r beide Eingabebl&ouml;cke dieselbe Sprache ausgew&auml;hlt sein, werden
+ Eingaben in den unteren Eingabeblock stillschweigend ignoriert. Bei unterschiedlichen Sprachen werden
+ &Auml;nderungen der Bedienelemente im unteren Eingabeblock selbstverst&auml;ndlich in das der zweiten
+ Sprache zugeordnete Unterfeld geschrieben.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0602.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0700.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0603.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

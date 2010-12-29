@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="RegClssX()" />
+ <meta name="Description" content="ST-Open Bibliotheken: WnCre()" />
+ <meta name="Keywords" content="ST-Open, Weichwaren, Open, offen, Quelle, ST-Open, Bibliothek, frei, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>RegClssX()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="cap00.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="cap02.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st8\lib\sources\core\cap.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>RegClssX</b></div><div class="outer">Sandkasten</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">id = RegClssX(VOID *wndclass);</div><div class="outer">Aufruf</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner"><div class="inners">RCX</div><div class="inners">wndclass</div>
+<div class="innerl">Adresse einer WNDCLASS-Struktur</div></div>
+<div class="outer">Eingabe</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner"><div class="inners">RAX</div><div class="inners">id</div><div class="innerl">eindeutige Klassen-ID</div></div>
+<div class="outer">Ausgabe</div>
+</div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+RegClssX() ruft RegisterClassExA() auf und stellt anschliessend die von der
+ API &uuml;berschriebenen Register ECX, EDX, R08, R09, R10 und R11 wieder her.
+<div class="crlf1"></div>
+Im Gegensatz zu RegClass() kann mit RegClssX() auch die <i>kleine Ikone</i>
+ gesetzt werden.
+<div class="crlf1"></div>
+Verwenden Sie Sandk&auml;sten nicht in C-Code. Mit schlampigen Konventionen
+ arbeitende Compiler &uuml;berschreiben die m&uuml;hsam wiederhergestellten
+ Register sofort wieder mit gerade anfallendem M&uuml;ll.
+</div><div class="outer">Beschreibung</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner"><pre>
+ ...
+ pxor  %xmm0,%xmm0                # XM0 = 0
+ leaq  _MainWndProc(%rip), %r9    # R09 = EA Fensterprozedur
+ leaq  0x60(%rsp), %rcx           # RCX = EA WC
+ leaq  LC00(%rip), %rdx           # RDX = EA Menuename
+ leaq  LC01(%rip), %r8            # R08 = EA Klassenname
+ movq  %xmm0, 0x60(%rsp)          # 0x00[WC] = 0
+ movq  %r9, 0x68(%rsp)            # 0x08[WC] = EA Fensterprozedur
+ movq  %xmm0, 0x70(%rsp)          # 0x10[WC] = 0, 0x14[WC] = 0
+ movq  %rsi, 0x78(%rsp)           # 0x18[WC] = Hinstance
+ movq  %rbp, 0x80(%rsp)           # 0x20[WC] = Hicon
+ movq  %rdi, 0x88(%rsp)           # 0x28[WC] = Hcursor
+ movq  %rax, 0x90(%rsp)           # 0x30[WC] = Hintergrundfarbe
+ movq  %rdx, 0x98(%rsp)           # 0x38[WC] = EA Menuename
+ movq  %r8, 0xA0(%rsp)            # 0x40[WC] = EA Klassenname
+ leaq  0x60(%rsp), %rcx           # RCX = EA WC
+ call  RegClssX
+ testl %eax, %eax                 # registriert?
+ je    L00
+ ...
+</pre>
+LC00 und LC01 sind in <i>.rdata</i> definiert, <i>WC</i> steht für <b>WNDCLASS</b>.
+</div><div class="outer">Beispiel</div></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="cap00.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="cap02.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

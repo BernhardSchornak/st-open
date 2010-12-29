@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="m16up()" />
+ <meta name="Description" content="ST-Open Bibliotheken: m16up()" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>m16up()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="aud07.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="aud09.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st7\lib\sources\aud\low.S</div><div class="outer"><big>aud.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>m16up</b></div><div class="outer">Funktion</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = m16up(quelle, ziel, anzahl);</div><div class="outer">Aufruf</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">VOID *</div>
+<div class="inners">quelle</div>
+<div class="innerl">Adresse der Quelle</div>
+<div class="crlf0"></div>
+<div class="inners">VOID *</div>
+<div class="inners">ziel</div>
+<div class="innerl">Adresse des Ziels</div>
+<div class="crlf0"></div>
+<div class="inners">DD</div>
+<div class="inners">anzahl</div>
+<div class="innerl">Anzahl umzuwandelnder Proben</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">DD</div>
+<div class="inners">rc</div>
+<div class="innerl">Fehlercodes siehe Quelle</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+m16up() verdoppelt die Probenanzahl einer monauralen 16 Bit Quelle. Zwei aufeinander folgende Proben werden hierzu addiert und das Ergebnis durch zwei geteilt. Das Resultat wird
+ zwischen die beiden Originalproben eingef&uuml;gt und in [ziel] gespeichert. [ziel] muss mindestens doppelt so gross wie [quelle] sein, da sich die Datenmenge verdoppelt.
+<div class="crlf1"></div>
+Die &uuml;bergebenen Adressen [quelle] und [ziel] m&uuml;ssen auf den Anfang des Datenbereichs verweisen, es k&ouml;nnen somit beliebige Teile innerhalb der Datei umgewandelt werden.
+<div class="crlf1"></div>
+<b>ACHTUNG:</b> Es k&ouml;nnen nur 11.025 in 22.050 Proben/s und 22.050 in 44.100 Proben/s umgewandelt werden! Alle anderen Probengr&ouml;ssen k&ouml;nnen mit dem verwendeten
+ Verfahren <i>nicht</i> umgewandelt werden.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+DD MeineFunktion(VOID *quelle, VOID *ziel)
+{
+ DD rc;
+ rc = m16up(quelle, ziel, 0x2000);
+ return(rc);
+}
+</pre>
+8.192 16-Bit Proben aus [quelle] werden in 16.384 16-Bit Proben umgewandelt und in [ziel] gespeichert.
+</div><div class="outer">Beispiel</div></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="aud07.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="aud09.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fmsc%2Faud08.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

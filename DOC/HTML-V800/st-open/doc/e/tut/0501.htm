@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Defined Data Types</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0500.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0502.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>Data Types</h1>
+Because each data type requires one procedure for each DBE subfunction, the amount of
+ available data types and subfunctions must be limited to a reasonable set. ST-Open's
+ DBE just knows bytes (8 bit), words (16 bit), d(ouble)words (32 bit), q(uad)words,
+ (64 bit), o(cta)words (128 bit), fixed size memory blocks (16*n byte) and dynamic
+ strings (16 * n byte). The size of fixed blocks and the maximum length of dynamic
+ strings must be a multiple of 16 to allow access via XMM instructions. ST-Open's DBE
+ ignores multiple names for one and the same data type by default. Whether you call a
+ 32 bit quantity word, long, dword, pointer to void, LPARAM or <i>Hugo</i> - none of
+ these names is known at processor level. Actually, there are exactly two kinds of 32
+ bit quantities: Addresses and data. Everything else is beyond machine level. It only
+ depends on definitions of humans who do not know anything about real programming.
+<div class="crlf1"></div>
+The built-in math functions FDA_INC, FDA_DEC, FDA_ADD and FDA_SUB should be used with
+ exceptional care. They are thought to perform some simple math operations with given
+ entries. All entries are treated as unsigned numbers by default. If you store signed
+ numbers in a field, it is up to you to test the conditions after the operation was
+ performed. If the MSB is toggled, the result is invalid, of course. The DBE does not
+ care about toggled bits inside stored entries. Operations always throw valid results
+ if the DBE does not crash the program. If you assign special meanings to single bits
+ within a number, it is your problem to validate the result of operations performed
+ on that number.
+<div class="crlf1"></div>
+<h2>Caution</h2>
+<i>Buffers for strings and fixed size data blocks <b>must have</b> a size equal to or
+ greater than the <b>size</b> definition in the field's header!</i>
+<div class="crlf1"></div>
+FDacc() explicitely uses XMM registers to copy data types 06 and 07. The buffer size
+ <i>must have</i> a sufficient size to hold the copied data block. If your buffer is
+ too small, the copy action inevitably overwrites data beyond the buffer's end - the
+ DBE expands all strings to the next multiple of 16 per default!
+<div class="crlf1"></div>
+<h3>Notes</h3>
+Datatype definitions for Version 8.0.0. of ST-Open's DBE are not downwards compatible
+ to older DBE versions (versions prior to 7.0.0. had a different header definition).
+<div class="crlf1"></div>
+The new type 05 (DO) expands the list of available datatypes with 128 bit quantities
+ called o(cta)words. These were introduced with SSE (LETNi) and 3Dnow! (AMD).
+<div class="crlf1"></div>
+<h2>Definitions</h2>
+<div class="inner">invalid, no datatype</div><div class="outer"><b>00</b></div><div class="crlf0"></div>
+<div class="inner">byte (8 bit)</div><div class="outer"><b>01 - DB</b></div><div class="crlf0"></div>
+<div class="inner">wort (16 bit)</div><div class="outer"><b>02 - DW</b></div><div class="crlf0"></div>
+<div class="inner">doubleword (32 bit)</div><div class="outer"><b>03 - DD</b></div><div class="crlf0"></div>
+<div class="inner">quadword (64 bit)</div><div class="outer"><b>04 - DQ</b></div><div class="crlf0"></div>
+<div class="inner">octaword (128 bit)</div><div class="outer"><b>05 - DO</b></div><div class="crlf0"></div>
+<div class="inner">fixed size block (n * 128 bit)</div><div class="outer"><b>06 - FIX</b></div><div class="crlf0"></div>
+<div class="inner">dynamic string with 32 bit offset table (field size up to 4 GB)</div><div class="outer"><b>07 - $32</b></div><div class="crlf0"></div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0500.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0502.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

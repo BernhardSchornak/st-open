@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: SecSys" />
+ <meta name="Description" content="ST-Open Tutorial: SecSys" />
+ <meta name="Keywords" content="ST-Open Weichwaren, open, source, Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, Intelligent Design" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>SecSys</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/secsys.png" alt="SecSys Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0804.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0806.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Ver- und Entschl&uuml;sselung</h1>
+Zur Ver- und Entschl&uuml;sselung von Daten jeder Art kommt ein von ST-Open entwickeltes
+ Verfahren mit einem 4.096 Byte (32.768 Bit) breiten Schl&uuml;ssel zum Einsatz. Der zu
+ verschl&uuml;sselnde Text wird beim Verschl&uuml;sseln um zwei Doppelworte (8 Byte)
+ erweitert. Das erste Doppelwort ist die Textl&auml;nge in Byte, das zweite Doppelwort
+ gibt das zuletzt verwendete Byte im Schl&uuml;ssel an. Weiterhin wird jeder Text durch
+ durch Einf&uuml;gen von Nullen auf das n&auml;chstgr&ouml;ssere Vielfache von sechzehn
+ erweitert, um das schnelle Kopieren mit XMM-Registern zu erm&ouml;glichen. Die Variable
+ <b>SS_NXT</b> gibt an, welches Byte aus dem Meisterschl&uuml;ssel als n&auml;chstes zur
+ Verschl&uuml;sselung benutzt wird.
+<div class="crlf1"></div>
+Zur Verschl&uuml;sselung dient der Befehl SS_ENC:
+<div class="crlf1"></div>
+<div class="box100q"><pre>SecSy(SS_ENC, Adresse, 0);</pre></div>
+<div class="crlf1"></div>
+<i>Adresse</i> gibt hierbei an, wo der zu verschl&uuml;sselnde Text momentan gespeichert
+ ist. Die zu alloziernde Puffergr&ouml;sse muss auf ein Vielfaches von sechzehn gerundet
+ werden. Zu beachten w&auml;re ausserdem, dass der verschl&uuml;sselte Text acht Zeichen
+ l&auml;nger als der unverschl&uuml;sselte Text sein wird.
+<div class="crlf1"></div>
+<i>Achtung</i>: FDacc(), ST-Open's Datenbankmaschine, berechnet die Endgr&ouml;sse vor
+ dem Verschl&uuml;sseln und schneidet die Zeichenkette gegebenenfalls ab, bevor sie an
+ SSenc() &uuml;bergeben wird!
+<div class="crlf2"></div>
+Zum Entschl&uuml;sseln sendet man den komplement&auml;ren Befehl:
+<div class="crlf1"></div>
+<div class="box100q"><pre>SecSy(SS_DEC, Adresse, 0);</pre></div>
+<div class="crlf1"></div>
+<i>Adresse</i> gibt an, wo der zu entschl&uuml;sselnde Text gespeichert ist. Dieser wird
+ beim Entschl&uuml;sseln um acht Byte k&uuml;rzer.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0804.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0806.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>
+

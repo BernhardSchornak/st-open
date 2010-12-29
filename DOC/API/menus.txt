@@ -1,0 +1,285 @@
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   menu messages (sent, posted, received)
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   WM_DRAWITEM                 0x0000002B
+   WM_MEASUREITEM              0x0000002C
+   WM_CONTEXTMENU              0x0000007B
+   WM_COMMAND                  0x00000111
+   WM_SYSCOMMAND               0x00000112
+   WM_INITMENU                 0x00000116
+   WM_INITMENUPOPUP            0x00000117
+   WM_MENUSELECT               0x0000011F
+   WM_MENUCHAR                 0x00000120
+   WM_MENURBUTTONUP            0x00000122
+   WM_MENUDRAG                 0x00000123
+   WM_MENUGETOBJECT            0x00000124
+   WM_MENUCOMMAND              0x00000126
+   WM_UNINITMENUPOPUP          0x00000125
+   WM_ENTERMENULOOP            0x00000211
+   WM_EXITMENULOOP             0x00000212
+   WM_NEXTMENU                 0x00000213
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   defined constants
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   MIIM_STATE                  0x00000001
+   MIIM_ID                     0x00000002
+   MIIM_SUBMENU                0x00000004
+   MIIM_CHECKMARKS             0x00000008
+   MIIM_TYPE                   0x00000010
+   MIIM_DATA                   0x00000020
+   MIIM_STRING                 0x00000040
+   MIIM_BITMAP                 0x00000080
+   MIIM_FTYPE                  0x00000100
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   MFT_STRING                  0x00000000
+   MFT_BITMAP                  0x00000004
+   MFT_MENUBARBREAK            0x00000020
+   MFT_MENUBREAK               0x00000040
+   MFT_OWNERDRAW               0x00000100
+   MFT_RADIOCHECK              0x00000200
+   MFT_SEPARATOR               0x00000800
+   MFT_RIGHTORDER              0x00002000
+   MFT_RIGHTJUSTIFY            0x00004000
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   MFS_ENABLED                 0x00000000
+   MFS_UNCHECKED               0x00000000
+   MFS_UNHILITE                0x00000000
+   MFS_DISABLED                0x00000003
+   MFS_GRAYED                  0x00000003
+   MFS_CHECKED                 0x00000008
+   MFS_HILITE                  0x00000080
+   MFS_DEFAULT                 0x00001000
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   defined constants (unrelated)
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   MIM_MAXHEIGHT               0x00000001
+   MIM_BACKGROUND              0x00000002
+   MIM_HELPID                  0x00000004
+   MIM_MENUDATA                0x00000008
+   MIM_STYLE                   0x00000010
+   MIM_APPLYTOSUBMENUS         0x80000000
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   MF_BYCOMMAND                0x00000000
+   MF_ENABLED                  0x00000000
+   MF_STRING                   0x00000000
+   MF_INSERT                   0x00000000
+   MF_UNHILITE                 0x00000000
+   MF_UNCHECKED                0x00000000
+   MF_GRAYED                   0x00000001
+   MF_DISABLED                 0x00000002
+   MF_BITMAP                   0x00000004
+   MF_CHECKED                  0x00000008
+   MF_POPUP                    0x00000010
+   MF_MENUBARBREAK             0x00000020
+   MF_MENUBREAK                0x00000040
+   MF_END                      0x00000080
+   MF_CHANGE                   0x00000080
+   MF_APPEND                   0x00000080
+   MF_HILITE                   0x00000080
+   MF_OWNERDRAW                0x00000100
+   MF_DELETE                   0x00000200
+   MF_USECHECKBITMAPS          0x00000200
+   MF_BYPOSITION               0x00000400
+   MF_SEPARATOR                0x00000800
+   MF_DEFAULT                  0x00001000
+   MF_REMOVE                   0x00001000
+   MF_SYSMENU                  0x00002000
+   MF_HELP                     0x00004000
+   MF_RIGHTJUSTIFY             0x00004000
+   MF_MOUSESELECT              0x00008000
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   menu structures
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   struct                      /* 0x08 */
+   {
+    00   DW        wVersion;
+    02   DW        wOffset;
+    04   DD        dwHelpId;
+   }
+   MENUEX_TEMPLATE_HEADER;
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   struct                      /* 0x10 */
+   {                           /* 0x14 */
+    00   DD        dwType;
+    04   DD        dwState;
+    08   DD        uId;
+    0C   DW        bResInfo;
+    0E   DB[]      szText[1];
+   #10   DD        dwHelpId;
+   }
+   MENUEX_TEMPLATE_ITEM;
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   MENUITEMINFO                /* 0x2C */
+   {                           /* 0x30 */
+    00   DD        cbSize;
+    04   DD        fMask;
+    08   DD        fType;
+    0C   DD        fState;
+    10   DD        wID;
+    14   DD        hSubMenu;
+    18   DD        hbmpChecked;
+    1C   DD        hbmpUnchecked;
+    20   DD        dwItemData;
+    24   VOID*     dwTypeData;
+    28   DD        cch;
+   #2C   DD        hbmpItem;             /* NT >= 0500 */
+   }
+   MENUITEMINFO,*LPMENUITEMINFO;
+   MENUITEMINFOA = MENUITEMINFO;
+   MENUITEMINFOW = MENUITEMINFO;
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   struct                      /* 0x04 */
+   {
+    00   DW        versionNumber;
+    02   DW        offset;
+   }
+   MENUITEMTEMPLATEHEADER;
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   struct                      /* 0x06 */
+   {
+    00   DW        mtOption;
+    00   DW        mtID;
+    00   DB[]      mtString[1];
+   }
+   MENUITEMTEMPLATE;
+   MENUTEMPLATE,MENUTEMPLATEA,
+   MENUTEMPLATEW,*LPMENUTEMPLATEA,
+   *LPMENUTEMPLATEW,*LPMENUTEMPLATE;
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   TPMPARAMS                   /* 0x14 */
+   {
+    00   DD        cbSize;
+    04   RECT      rcExclude;
+           04      DD x;
+           08      DD cy;
+           0C      DD cx;
+           10      DD y;
+   }
+   TPMPARAMS, FAR *LPTPMPARAMS;
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   menu structures (unrelated)
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   MENUINFO                    /* 0x1C */
+   {
+    00   DD        cbSize;
+    04   DD        fMask;
+    08   DD        dwStyle;
+    0C   DD        cyMax;
+    10   DD        hbrBack;
+    14   DD        dwContextHelpID;
+    18   VOID*     dwMenuData;
+   }
+   MENUINFO,*LPMENUINFO;
+   typedef MENUINFO CONST *LPCMENUINFO;
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   MENUBARINFO                 /* 0x24 */
+   {
+    00   DD        cbSize;
+    04   RECT      rcBar;
+           04      DD x;
+           08      DD cy;
+           0C      DD cx;
+           10      DD y;
+    14   DD        hMenu;
+    18   DD        hwndMenu;
+    1C   DD        fBarFocused:1;
+    20   DD        fFocused:1;
+   }
+   MENUBARINFO,*PMENUBARINFO;
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+   MENUGETOBJECTINFO           /* 0x14 */
+   {
+    00   DD        dwFlags;
+    04   DD        uPos;
+    08   DD        hmenu;
+    0C   VOID*     riid;
+    10   VOID*     pvObj;
+   }
+   MENUGETOBJECTINFO,
+   *PMENUGETOBJECTINFO;
+   ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД
+
+struct MENUITEMINFO      (64 bit)
+  cbSize	dd 00
+  fMask 	dd 04
+  fType 	dd 08
+  fState	dd 0C
+  wID		dd 10 14(pad)
+  hSubMenu	dq 18
+  hbmpChecked	dq 20
+  hbmpUnchecked dq 28
+  dwItemData	dq 30
+  dwTypeData	dq 38
+  ucc           dd 40
+  HBITMAP       dq 48
+
+              size 48
+
+          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
+          і                                                                                    іЫ
+          і HWNDmenu = GetMenu(HWNDpar) = MnuHw(HWNDparent)                                    іЫ
+          і                                                                                    іЫ
+          і GetMenuItemInfo(HWNDmenu, item, flag, MENUITEMINFO) = MnGet(MENUITEMINFO)          іЫ
+          і SetMenuItemInfo(HWNDmenu, item, flag, MENUITEMINFO) = MnSet(MENUITEMINFO)          іЫ
+          і                                                                                    іЫ
+          і where                                                                              іЫ
+          і                                                                                    іЫ
+          і HWNDmenu        menu HWND                                                          іЫ
+          і                                                                                    іЫ
+          і item            ID (flag = 0) or zero based item position (flag <> 0)              іЫ
+          і                                                                                    іЫ
+          і flag            MF_BYCOMMAND      0x00000000                                       іЫ
+          і                 MF_BYPOSITION     0x00000400                                       іЫ
+          і                                                                                    іЫ
+          і MENUITEMINFO   EA structure                                                        іЫ
+          і                                                                                    іЫ
+          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
+          і MENUITEMINFO structure                                                             іЫ
+          і ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД                                       іЫ
+          і 00   DD   structure size          0x00000038                                       іЫ
+          і ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД                                       іЫ
+          і 04   DD   mask  MIIM_STATE        0x00000001   set or retrieve the masked options  іЫ
+          і                 MIIM_ID           0x00000002                                       іЫ
+          і                 MIIM_SUBMENU      0x00000004                                       іЫ
+          і                 MIIM_CHECKMARKS   0x00000008                                       іЫ
+          і                 MIIM_TYPE         0x00000010                                       іЫ
+          і                 MIIM_DATA         0x00000020                                       іЫ
+          і                 MIIM_STRING       0x00000040                                       іЫ
+          і                 MIIM_BITMAP       0x00000080                                       іЫ
+          і                 MIIM_FTYPE        0x00000100                                       іЫ
+          і ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД                                       іЫ
+          і 08   DD   type  MFT_STRING        0x00000000                                       іЫ
+          і                 MFT_BITMAP        0x00000004                                       іЫ
+          і                 MFT_MENUBARBREAK  0x00000020                                       іЫ
+          і                 MFT_MENUBREAK     0x00000040                                       іЫ
+          і                 MFT_OWNERDRAW     0x00000100                                       іЫ
+          і                 MFT_RADIOCHECK    0x00000200                                       іЫ
+          і                 MFT_SEPARATOR     0x00000800                                       іЫ
+          і                 MFT_RIGHTORDER    0x00002000                                       іЫ
+          і                 MFT_RIGHTJUSTIFY  0x00004000                                       іЫ
+          і ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД                                       іЫ
+          і 0C   DD   state MFS_ENABLED       0x00000000                                       іЫ
+          і                 MFS_UNCHECKED     0x00000000                                       іЫ
+          і                 MFS_UNHILITE      0x00000000                                       іЫ
+          і                 MFS_DISABLED      0x00000003                                       іЫ
+          і                 MFS_GRAYED        0x00000003                                       іЫ
+          і                 MFS_CHECKED       0x00000008                                       іЫ
+          і                 MFS_HILITE        0x00000080                                       іЫ
+          і                 MFS_DEFAULT       0x00001000                                       іЫ
+          і ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД                                       іЫ
+          і 10   DD   resource ID                                                              іЫ
+          і 14   DD   - (padding)                                                              іЫ
+          і 18   DQ   HWND (only if sub- or popup-menu)                                        іЫ
+          і 20   DQ   HBITMAP checked                                                          іЫ
+          і 28   DQ   HBITMAP unchecked                                                        іЫ
+          і 30   DQ   item data                            EA doubleword (??? for MIIM_DATA)   іЫ
+          і ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД                                       іЫ
+          і 38   DQ   type  MFT_BITMAP    bitmap handle    EA string, only (whatever else you  іЫ
+          і           data  MFT_OWNERDRAW [application]    select in the mask is ignored)      іЫ
+          і                 MFT_SEPARATOR ignored                                              іЫ
+          і                 MFT_STRING    EA string                                            іЫ
+          і ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД                                       іЫ
+          і 40   DD   cch   string size                                                        іЫ
+          і 48   DD   (HBITMAP own)   possibly it does not exist in 64 bit Windows             іЫ
+          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
+            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ

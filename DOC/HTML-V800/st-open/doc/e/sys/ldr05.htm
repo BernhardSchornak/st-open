@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="LDchk()" />
+ <meta name="Description" content="ST-Open Libraries: LDchk()" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, Bibliothek, Bibliotheken, freie Software, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>LDchk()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="ldr04.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="ldr06.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100"><div class="inner">..\st7\lib\sources\core\ldr.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>LDchk</b></div><div class="outer">Function</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = LDchk();</div><div class="outer">Call</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">-</div>
+<div class="inners">-</div>
+<div class="innerl">nothing</div>
+</div><div class="outer">Input</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">DD</div>
+<div class="inners">rc</div>
+<div class="innerl">always zero</div>
+</div><div class="outer">Output</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+LDchk() periodically queries the time stamp of all allocated memory blocks. If the time stamp of a memory block
+ expired, it is freed automatically. The timer interval is defined in the global variable CHK_DELAY (OS/2 HMSh
+ format), the maximum time of inactivity is defined in the global variable CHK_REMOVE (OS/2 HMSh format).
+ LDchk() subtracts the time stamp of each block from the current time and calls LDfre(), if the difference is a
+ negative number. To prevent memory blocks from being removed by LDchk(), you should set the LDR_STATIC flag
+ before you call LDreq(). Data fields and fields allocated with the LDR_AUTOSAVE option are stored automatically,
+ all other memory blocks are removed without saving them.
+</div><div class="outer">Description</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+Dynamic memory management is an optional feature. You have to set CHK_DELAY and CHK_REMOVE to non-zero values,
+ create and start a timer and provide a WM_TIMER procedure calling LDchk() to make use of it. Please read the
+ files <i>V700.c</i> und <i>hvar.h</i> found in the <a href="../../../st7/d/v7s.htm">V700 skeleton</a> to get
+ an overwiew how to implement the dynamic memory management feature properly.
+</div><div class="outer">Note</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="ldr04.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="ldr06.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fe%2Fsys%2Fldr05.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="validate XHTML" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

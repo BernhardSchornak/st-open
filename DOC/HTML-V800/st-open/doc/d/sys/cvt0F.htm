@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="s2num()" />
+ <meta name="Description" content="ST-Open Bibliotheken: s2num()" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>s2num()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="cvt0E.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="cvt10.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st7\lib\sources\core\cvt.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>s2num</b></div><div class="outer">Funktion</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = s2num(quelle, ziel, anzahl, basis);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">VOID *</div>
+<div class="inners">quelle</div>
+<div class="innerl">Adresse der Quellzeichenkette</div>
+<div class="crlf0"></div>
+<div class="inners">VOID *</div>
+<div class="inners">ziel</div>
+<div class="innerl">Adresse der Zielzeichenkette</div>
+<div class="crlf0"></div>
+<div class="inners">DD</div>
+<div class="inners">anzahl</div>
+<div class="innerl">Anzahl umzuwandelnder Bytes</div>
+<div class="crlf0"></div>
+<div class="inners">DD</div>
+<div class="inners">basis</div>
+<div class="innerl">Zahlenbasis (10 oder 16)</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">DD</div>
+<div class="inners">rc</div>
+<div class="innerl">Anzahl der umgewandelten Bytes</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+s2num() wandelt [anzahl] ASCII-Bytes ab der Adresse [quelle] in ungepackte numerische Werte der gegebenen Zahlenbasis um. Das Ergebnis der Umwandlung wird in der
+ Zeichenkette ab Adresse [ziel] abgelegt. G&uuml;ltige ASCII-Zeichen sind 0x30 bis 0x39 Dezimal/Hex sowie 0x41 bis 0x46 und 0x61 bis 0x66 Hex, alle anderen
+ ASCII-Zeichen werden ignoriert. s2num() liefert als Ausgabewert die Anzahl der in der Zielzeichenkette enthaltenen ungepackten Zahlen zur&uuml;ck.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ DD rc;
+ DB s[16], t[16];
+ SCpy(t, "1c3krt4s1b");
+ rc = s2num(t, s, 10, 16);
+}
+</pre>
+Die Zeichenkette s enth&auml;lt nun [01 0C 03 04 01 0B 00]. Der in rc zur&uuml;ckgelieferte Ausgabewert ist 6.
+</div><div class="outer">Beispiel</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="cvt0E.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="cvt10.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fsys%2Fcvt0F.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

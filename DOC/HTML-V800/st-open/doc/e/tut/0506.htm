@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>FDA_WRITE</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0505.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0507.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>FDA_WRITE</h1><br />
+Copy the data passed in [address] or [numeric value] to the [entry] in [MemHandle][sub-field].
+<h2>Numeric Data</h2>
+<h3>bytes, Words and Dwords</h3>
+<div class="box100q"><pre>
+VOID My_Function(DD mh, DD a)
+{
+ FDacc(mh, 0, 0, FDA_WRITE, 0, a);
+}
+</pre></div>
+<b>Please notice:</b> Data of any size is passed in a dword. FDacc() writes the first 8 bits (type 01), the first 16 bits (type 02) or all bits (type 03) to the target entry. Surplus
+ bits not fitting into the data types 01 or 02 are ignored.
+<h3>Qwords</h3>
+<div class="box100q"><pre>
+VOID My_Function(DD mh, VOID *q)
+{
+ FDacc(mh, 0, 0, FDA_WRITE, q, 0);
+ return(q);
+}
+</pre></div>
+<h3>Strings</h3>
+<div class="box100q"><pre>
+VOID My_Function(DD mh, DB *s)
+{
+ FDacc(mh, 0, 1, FDA_WRITE, s, 0);
+}
+</pre></div>
+<div class="crlf1"></div>
+<h3>Intelligent Design</h3>
+You do not need to pass parameter 5 if no address is required. Omit parameter 6 if no numeric value is to pass.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0505.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0507.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

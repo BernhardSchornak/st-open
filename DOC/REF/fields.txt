@@ -1,0 +1,280 @@
+
+          F I E L D   D E F I N I T I O N S
+          อออออออออออออออออออออออออออออออออ
+
+          Field number  0000 0000  is defined to be no field. This number is used by all
+          LD functions to mark free entries (no field) in the Loader table !!!
+
+          Field numbers FFFF FF00 ... FFFF FFFF are reserved for the ST-Open system:
+
+          FFFF FFFF     _BMM   memory    LOADER TABLE
+          FFFF FFFE     _BNR   NUM.DAT   SYSTEM NUMERICS
+          FFFF FFFD            CVT.DAT   CONVERSION TABLES
+          FFFF FFFC     _BST   STR.DAT   SYSTEM STRINGS
+          FFFF FFFB            HLP.DAT   OLH
+          FFFF FFFA            TOP.DAT   OLH-TOPICS
+          FFFF FFF9            ERR.DAT   ErrMgr() system errors
+          FFFF FFF8            SY8.DAT
+          FFFF FFF7            FLS.DAT   FILE LIST
+          FFFF FFF6     _LFL   LFL.DAT   LIST OF LOADED FILES
+          FFFF FFF5            NSM.DAT   ErrMgr() user messages
+          FFFF FFF4            SY4.DAT
+          FFFF FFF3            SY3.DAT
+          FFFF FFF2            SY2.DAT
+          FFFF FFF1            SY1.DAT
+          FFFF FFF0            SY0.DAT
+
+          FFFF FFEF     .
+          FFFF FFEE     .
+          FFFF FFED     .
+          FFFF FFEC     .
+          FFFF FFEB     .
+          FFFF FFEA     .
+          FFFF FFE9     .
+          FFFF FFE8     .
+          FFFF FFE7     .
+          FFFF FFE6     .
+          FFFF FFE5     .
+          FFFF FFE4     .
+          FFFF FFE3     SecSys messages                   ?,??? depends on text
+          FFFF FFE2            PIN passwords + rights ?,???,??? depends on entries
+          FFFF FFE1            master key             1,048,832 byte (fixed)
+          FFFF FFE0            work area                  4,096 byte (expandable)
+
+          FFFF FFDF     .
+          FFFF FFDE     .
+          FFFF FFDD     .
+          FFFF FFDC     .
+          FFFF FFDB     .
+          FFFF FFDA     .
+          FFFF FFD9     .
+          FFFF FFD8     .
+          FFFF FFD7     .
+          FFFF FFD6     .
+          FFFF FFD5     .
+          FFFF FFD4     .
+          FFFF FFD3     .
+          FFFF FFD2     .
+          FFFF FFD1     .
+          FFFF FFD0     .
+
+          FFFF FFCF     .
+          FFFF FFCE     .
+          FFFF FFCD     .
+          FFFF FFCC     .
+          FFFF FFCB     .
+          FFFF FFCA     .
+          FFFF FFC9     .
+          FFFF FFC8     .
+          FFFF FFC7     .
+          FFFF FFC6     .
+          FFFF FFC5     .
+          FFFF FFC4     .
+          FFFF FFC3     .
+          FFFF FFC2     _OBF   65,536 byte shared    buffer for general purposes
+          FFFF FFC1     _BBF   65,536 byte exclusive buffer for DBE
+          FFFF FFC0     _TST   65,536 byte optional  buffer for register dumps
+
+          FFFF FFBF     .
+          FFFF FFBE     .
+          FFFF FFBD     .
+          FFFF FFBC     .
+          FFFF FFBB     .
+          FFFF FFBA     .
+          FFFF FFB9     .
+          FFFF FFB8     .
+          FFFF FFB7     .
+          FFFF FFB6     .
+          FFFF FFB5     .
+          FFFF FFB4     .
+          FFFF FFB3     .
+          FFFF FFB2     .
+          FFFF FFB1     .
+          FFFF FFB0     .
+
+          FFFF FFAF     .
+          FFFF FFAE     .
+          FFFF FFAD     .
+          FFFF FFAC     .
+          FFFF FFAB     .
+          FFFF FFAA     .
+          FFFF FFA9     .
+          FFFF FFA8     .
+          FFFF FFA7     .
+          FFFF FFA6     .
+          FFFF FFA5     .
+          FFFF FFA4     .
+          FFFF FFA3     .
+          FFFF FFA2     .
+          FFFF FFA1     .
+          FFFF FFA0     .
+
+          FFFF FF9F     .
+          FFFF FF9E     .
+          FFFF FF9D     .
+          FFFF FF9C     .
+          FFFF FF9B     .
+          FFFF FF9A     .
+          FFFF FF99     .
+          FFFF FF98     .
+          FFFF FF97     .
+          FFFF FF96     .
+          FFFF FF95     .
+          FFFF FF94     .
+          FFFF FF93     .
+          FFFF FF92     .
+          FFFF FF91     .
+          FFFF FF90     .
+
+          FFFF FF8F     .
+          FFFF FF8E     .
+          FFFF FF8D     .
+          FFFF FF8C     .
+          FFFF FF8B     .
+          FFFF FF8A     .
+          FFFF FF89     .
+          FFFF FF88     .
+          FFFF FF87     .
+          FFFF FF86     .
+          FFFF FF85     .
+          FFFF FF84     .
+          FFFF FF83     .
+          FFFF FF82     .
+          FFFF FF81     .
+
+          FFFF FF70     .
+          FFFF FF7F     .
+          FFFF FF7E     .
+          FFFF FF7D     .
+          FFFF FF7C     .
+          FFFF FF7B     .
+          FFFF FF7A     .
+          FFFF FF79     .
+          FFFF FF78     .
+          FFFF FF77     .
+          FFFF FF76     .
+          FFFF FF75     .
+          FFFF FF74     .
+          FFFF FF73     .
+          FFFF FF72     .
+          FFFF FF71     .
+          FFFF FF70     .
+
+          FFFF FF6F     .
+          FFFF FF6E     .
+          FFFF FF6D     .
+          FFFF FF6C     .
+          FFFF FF6B     .
+          FFFF FF6A     .
+          FFFF FF69     .
+          FFFF FF68     .
+          FFFF FF67     .
+          FFFF FF66     .
+          FFFF FF65     .
+          FFFF FF64     .
+          FFFF FF63     .
+          FFFF FF62     .
+          FFFF FF61     .
+          FFFF FF60     .
+
+          FFFF FF5F     .
+          FFFF FF5E     .
+          FFFF FF5D     .
+          FFFF FF5C     .
+          FFFF FF5B     .
+          FFFF FF5A     .
+          FFFF FF59     .
+          FFFF FF58     .
+          FFFF FF57     .
+          FFFF FF56     .
+          FFFF FF55     .
+          FFFF FF54     .
+          FFFF FF53     .
+          FFFF FF52     .
+          FFFF FF51     .
+          FFFF FF50     .
+
+          FFFF FF4F     .
+          FFFF FF4E     .
+          FFFF FF4D     .
+          FFFF FF4C     .
+          FFFF FF4B     .
+          FFFF FF4A     .
+          FFFF FF49     .
+          FFFF FF48     .
+          FFFF FF47     .
+          FFFF FF46     .
+          FFFF FF45     .
+          FFFF FF44     .
+          FFFF FF43     .
+          FFFF FF42     .
+          FFFF FF41     .
+          FFFF FF40     .
+
+          FFFF FF3F     .
+          FFFF FF3E     .
+          FFFF FF3D     .
+          FFFF FF3C     .
+          FFFF FF3B     .
+          FFFF FF3A     .
+          FFFF FF39     .
+          FFFF FF38     .
+          FFFF FF37     .
+          FFFF FF36     .
+          FFFF FF35     .
+          FFFF FF34     .
+          FFFF FF33     .
+          FFFF FF32     .
+          FFFF FF31     .
+          FFFF FF30     .
+
+          FFFF FF2F     .
+          FFFF FF2E     .
+          FFFF FF2D     .
+          FFFF FF2C     .
+          FFFF FF2B     .
+          FFFF FF2A     .
+          FFFF FF29     .
+          FFFF FF28     .
+          FFFF FF27     .
+          FFFF FF26     .
+          FFFF FF25     .
+          FFFF FF24     .
+          FFFF FF23     .
+          FFFF FF22     .
+          FFFF FF21     .
+          FFFF FF20     .
+
+          FFFF FF1F     .
+          FFFF FF1E     .
+          FFFF FF1D     DatTools         temporary memory block
+          FFFF FF1C     DatTools         new field (creation in progress)
+          FFFF FF1B     DatTools         field we are currently working with
+          FFFF FF1A     DatTools         system filenames
+          FFFF FF19     DatTools         source directories
+          FFFF FF18     DatTools         field names & numbers
+          FFFF FF17     .
+          FFFF FF16     .
+          FFFF FF15     .
+          FFFF FF14     .
+          FFFF FF13     WINDOW TITLES          (multilingual) - SYSTEM DIALOGS
+          FFFF FF12     MENU AND WINDOW TITLES (multilingual) - USER   DIALOGS
+          FFFF FF11     BITMAPS
+          FFFF FF10     .
+
+          FFFF FF0F     .
+          FFFF FF0E     .
+          FFFF FF0D     .
+          FFFF FF0C     .
+          FFFF FF0B     .
+          FFFF FF0A     .
+          FFFF FF09     .
+          FFFF FF08     .
+          FFFF FF07     .
+          FFFF FF06     .
+          FFFF FF05     .
+          FFFF FF04     .
+          FFFF FF03     .
+          FFFF FF02     .
+          FFFF FF01     user SPINBUTTONS
+          FFFF FF00          NOTEBOOK #1

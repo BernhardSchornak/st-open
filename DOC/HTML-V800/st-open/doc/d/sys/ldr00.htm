@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="LDinit()" />
+ <meta name="Description" content="ST-Open Bibliotheken: LDinit()" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>LDinit()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="cvt16.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="ldr01.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st7\lib\sources\core\ldr.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>LDinit</b></div><div class="outer">Funktion</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = LDinit();</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">VOID</div>
+<div class="inners">-</div>
+<div class="innerl">nichts</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">DD</div>
+<div class="inners">rc</div>
+<div class="innerl">00000000 - kein Fehler<div class="crlf0"></div>XXXXXXXX - Fehler: Programm beenden!</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+LDinit() initialisiert die Speicherverwaltung des ST-Systems. Dazu werden 8.192 Byte f&uuml;r die Verwaltungstabelle BMM sowie 12.288 Byte f&uuml;r die Systemvariablen
+ (BNR, GVAR) alloziert und die Systemvariablen (num.dat) und Tabellen (cvt.dat) geladen. Anschliessend werden die Systemzeichenketten und ein Datenpuffer f&uuml;r die
+ Datenbankmaschine geladen. Abschliessend werden Bildschirmaufl&ouml;sung und verf&uuml;gbare Laufwerke ermittelt und in den entsprechenden Systemvariablen gespeichert.
+ Das ST-System ist nun betriebsbereit.
+<div class="crlf1"></div>
+<b>Anmerkung:</b> Die bisher verwendeten Funktionen ScnInit() und DRIVES() sind ab Version 7.0.0. in die Funktion LDinit() integriert. F&uuml;r die beiden Funktionen
+ gibt es keinen Ersatz, da sie nur vom System selbst aufgerufen wurden. Mit der Integration in LDinit() werden etliche Taktzyklen f&uuml;r Parameter&uuml;bergabe und
+ Funktionsaufrufe eingespart.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ LDinit();
+}
+</pre>
+LDinit() darf nur einmal beim Programmstart aufgerufen werden, der Aufruf muss nach der Erzeugung des Hauptfensters und vor dem Start der Nachrichtenverarbeitungsschleife erfolgen.
+ Das <a href="../../../st7/d/v7s.htm">V700-Skelett</a> enth&auml;lt diesen Aufruf an der richtigen Stelle - benutzen Sie das Skelett bitte als Vorlage f&uuml;r Ihr Programm.
+</div><div class="outer">Beispiel</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="cvt16.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="ldr01.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fsys%2Fldr00.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

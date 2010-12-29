@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Die Datenbankmaschine" />
+ <meta name="Description" content="ST-Open Tutorial: Die Datenbankmaschine" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Die Datenbankmaschine</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0405.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0501.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Die Datenbankmaschine</h1>
+ST-Open's Datenbankmaschine ist mit Abstand die gr&ouml;sste Funktion im ST-Open System. Sie
+ kann bis zu 4.294.967.295 Felder mit einer maximalen Gr&ouml;sse von jeweils 4.294.967.295
+ Byte verwalten. In der Praxis ist die Gr&ouml;sse aller geladenen Felder allerdings auf den
+ allozierbaren Speicher beschr&auml;nkt, so dass die im wahren Leben verwendeten Felder wohl
+ deutlich unterhalb des Limits liegen. Dieses Tutorial vermittelt Ihnen einen &Uuml;berblick
+ &uuml;ber den inneren Aufbau der Datenbankmaschine und des Feldkopfes. Weiterhin wird durch
+ Codebeispiele die Anwendung der einzelnen Funktionen anschaulich demonstriert.
+<br /><br />
+<div class="inner">Definierte Datentypen</div><div class="outer"><a href="0501.htm">Datentypen</a></div><div class="crlf0"></div>
+<div class="inner">Aufbau des Feldkopfes</div><div class="outer"><a href="0502.htm">Feldkopf</a></div><div class="crlf0"></div>
+<div class="inner">Grundlagen</div><div class="outer"><a href="0503.htm">Grundlagen</a></div><div class="crlf0"></div>
+<div class="inner">Parameter pr&uuml;fen</div><div class="outer"><a href="0504.htm">FDA_TEST</a></div><div class="crlf0"></div>
+<div class="inner">Eintrag lesen</div><div class="outer"><a href="0505.htm">FDA_READ</a></div><div class="crlf0"></div>
+<div class="inner">Eintrag schreiben</div><div class="outer"><a href="0506.htm">FDA_WRITE</a></div><div class="crlf0"></div>
+<div class="inner">Eintrag l&ouml;schen</div><div class="outer"><a href="0507.htm">FDA_DELETE</a></div><div class="crlf0"></div>
+<div class="inner">Eintrag kopieren</div><div class="outer"><a href="0508.htm">FDA_COPY</a></div><div class="crlf0"></div>
+<div class="inner">Eintrag verschieben</div><div class="outer"><a href="0509.htm">FDA_MOVE</a></div><div class="crlf0"></div>
+<div class="inner">Eintr&auml;ge vertauschen</div><div class="outer"><a href="0510.htm">FDA_XCHANGE</a></div><div class="crlf0"></div>
+<div class="inner">Adresse ermitteln</div><div class="outer"><a href="0511.htm">FDA_ADDRESS</a></div><div class="crlf0"></div>
+<div class="inner">Nach Muster suchen</div><div class="outer"><a href="0512.htm">FDA_SEARCH</a></div><div class="crlf0"></div>
+<div class="inner">Mit Muster vergleichen</div><div class="outer"><a href="0513.htm">FDA_COMPARE</a></div><div class="crlf0"></div>
+<div class="inner">Eintrag inkrementieren</div><div class="outer"><a href="0514.htm">FDA_INC</a></div><div class="crlf0"></div>
+<div class="inner">Eintrag dekrementieren</div><div class="outer"><a href="0515.htm">FDA_DEC</a></div><div class="crlf0"></div>
+<div class="inner">Zahl zu Eintrag addieren</div><div class="outer"><a href="0516.htm">FDA_ADD</a></div><div class="crlf0"></div>
+<div class="inner">Zahl von Eintrag subtrahieren</div><div class="outer"><a href="0517.htm">FDA_SUB</a></div><div class="crlf0"></div>
+<div class="inner">Abstand ermitteln</div><div class="outer"><a href="0518.htm">FDA_OFFSET</a></div><div class="crlf0"></div>
+<div class="inner">Fehlermeldung ausl&ouml;sen</div><div class="outer"><a href="0519.htm">FDA_ERROR</a></div><div class="crlf0"></div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0405.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0501.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0500.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="GetMsg()" />
+ <meta name="Description" content="ST-Open Libraries: GetMsg()" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, Bibliothek, Bibliotheken, freie Software, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>GetMsg()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="cap08.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="cap0A.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100"><div class="inner">..\st8\lib\sources\core\cap.S
+</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>GetMsg</b></div><div class="outer">Sandbox</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">msg = GetMsg(addr, hwnd, minflt, maxflt);</div><div class="outer">Call</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div>
+<div class="inners">addr</div>
+<div class="innerl">address of a message structure</div>
+<div class="crlf0"></div>
+<div class="inners">RDX</div>
+<div class="inners">hwnd</div>
+<div class="innerl">window handle</div>
+<div class="crlf0"></div>
+<div class="inners">R08</div>
+<div class="inners">minflt</div>
+<div class="innerl">lowest message (filter)</div>
+<div class="crlf0"></div>
+<div class="inners">R09</div>
+<div class="inners">maxflt</div>
+<div class="innerl">largest message (filter)</div></div>
+<div class="outer">Input</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RAX</div><div class="inners">WM_QUIT</div><div class="innerl">0000 0000 0000 0000</div><div class="crlf0"></div>
+<div class="inners">.</div><div class="inners">message</div><div class="innerl">xxxx xxxx xxxx xxxx</div><div class="crlf0"></div>
+<div class="inners">.</div><div class="inners">error</div><div class="innerl">FFFF FFFF FFFF FFFF</div></div>
+<div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+GetMsg() calls GetMessage(), then restores the destroyed content of ECX, EDX,
+ R08, R09, R10 and R11.
+<div class="crlf1"></div>
+Please do not call sandboxes from C code. It is a waste of precious time
+ to restore registers which are refilled with random garbage soon after.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+   Standard Message Loop:
+   ...
+ 0:leaq  0x80(%rsp), %rcx                       # RCX = EA MSG
+   xorl  %edx, %edx                             # RDX = all windows
+   xorl  %r8d, %r8d                             # R08 = no filter
+   xorl  %r9d, %r9d                             # R09 = no filter
+   call  _GetMsg
+   testl %eax, %eax                             # WM_QUIT?
+   je    1f
+   incl  %eax                                   # on error jump to
+   je    0b                                     # appropriate handler
+   call  _TrnsMsg                               # translate message
+   call  _DispMsg                               # dispatch  message
+   jmp   0b
+ 1:                                             # exit (terminate)
+   ...
+</pre>
+Get (and remove) the next message from the message loop. After calling GetMsg(),
+ the message is returned in RAX. RAX should be evaluated for zero (WM_QUIT) and
+ -1 (error). All other possible values are valid messages. They should be handled
+ by the corresponding window procedure.
+<div class="crlf1"></div>
+<b>Caution:</b> The example uses sandboxes for three subsequent calls. Sandboxes
+ restore all used registers properly - there's no need to reload them between two
+ calls. If you call the corresponding API functions directly, it is very likely
+ you have to reload parameters before each call (API functions probably overwrite
+ RCX, RDX, R08, R09, R10, R11, XMM4 and XMM5 with random values).
+</div><div class="outer">Example</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="cap08.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="cap0A.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

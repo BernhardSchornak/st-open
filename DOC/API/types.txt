@@ -1,0 +1,112 @@
+
+   All types holding addresses or 'handles' should be DQ in Win64?
+
+   ACHAR            DB     # ASCII
+   ATOM             DD     # atom (4 byte string)
+   BOOL             DD     # DD
+   COLORREF         DD     # RGB colour
+   DWORDLONG        DQ     # DQ
+   FARPROC          DD     # EA procedure entry point
+   GLOBALHANDLE     DD     # handle global
+   HACCEL           DD     #        accelerator
+   HANDLE           DD     #        unspecified
+   HBITMAP          DD     #        bitmap
+   HBRUSH           DD     #        brush
+   HCOLORSPACE      DD     #        colour space
+   HCURSOR          DD     #        cursor
+   HDC              DD     #        device context
+   HDWP             DD     #        defer win pos
+   HENHMETAFILE     DD     #        enhanced metafile
+   HFILE            DD     #        file
+   HFONT            DD     #        font
+   HGLOBAL          DD     #        global
+   HHOOK            DD     #        hook
+   HICON            DD     #        icon
+   HINSTANCE        DD     #        instance
+   HINTERNET        DD     #        internet
+   HLOCAL           DD     #        local
+   HMENU            DD     #        menu
+   HMETAFILE        DD     #        metafile
+   HMODULE          DD     #        module
+   HPALETTE         DD     #        palette
+   HPEN             DD     #        pen
+   HRGN             DD     #        region
+   HRSRC            DD     #        resource
+   HSTR             DD     #        string
+   HTASK            DD     #        task
+   HTREEITEM        DD     #        tree view item
+   HWND             DD     #        window
+   NWCCODE          DD     # completion code
+   NWCONN_HANDLE    DD     # connection handle
+   NWCONN_NUM       DW     # connection number
+   NWDIR_HANDLE     DB     # directory handle
+   NWOBJ_ID         DD     # object id
+   NWOBJ_TYPE       DD     # object type
+   NWSTATION_NUM    DB     # station number
+   NWSTATION_NUM2   DD     # long station number
+   INTEGER          DD     # standard integer
+   INTERNET_PORT    DW     # internet port
+   LOCALHANDLE      DD     # local handle
+   LONG             DD     # long integer
+   LONGINT          DD     # long integer
+   LPARAM           DD     # long parameter
+   LPASTR           DD     # EA ASCII string
+   LPBOOL           DD     # EA DD
+   LPBYTE           DD     # EA DB
+   LPCSTR           DD     # EA string
+   LPCTSTR          DD     # EA string
+   LPCVOID          DD     # EA buffer
+   LPDWORD          DD     # EA DD
+   LPFN             DD     # EA function entry point
+   LPINT            DD     # EA DW
+   LPLONG           DD     # EA DD
+   LPSHORT          DD     # EA DW
+   LPSTR            DD     # EA string (ASCII)
+   LPTSTR           DD     # EA string (ASCII)
+   LPVOID           DD     # EA buffer
+   LPWORD           DD     # EA DW
+   LPWSTR           DD     # EA string (unicode)
+   LRESULT          DD     # RC
+   NTSTATUS         DD     # NT status
+   PADDR            DD     # EA address (VOID**)
+   PASTR            DD     # EA string (ASCII)
+   PBOOL            DD     # EA DD
+   PBYTE            DD     # EA DB
+   PDWORD           DD     # EA DD
+   PFN              DD     # EA function entry point
+   PINT             DD     # EA DD
+   PLONG            DD     # EA DD
+   POINTER          DD     # EA (VOID*)
+   PPADDR           DD     # EA -> EA (VOID**)
+   PPASTR           DD     # EA -> EA (DB**) (ASCII)
+   PPBOOL           DD     # EA -> EA DD
+   PPBYTE           DD     # EA -> EA DB
+   PPDWORD          DD     # EA -> EA DD
+   PPFN             DD     # EA -> EA function entry point
+   PPINT            DD     # EA -> EA DD
+   PPLONG           DD     # EA -> EA DD
+   PPOINTER         DD     # EA -> EA (VOID**)
+   PPSHORT          DD     # EA -> EA DW
+   PPSTR            DD     # EA -> EA string
+   PPVOID           DD     # EA -> EA buffer
+   PPWORD           DD     # EA -> EA DW
+   PPWSTR           DD     # EA -> unicode string ptr
+   PSHORT           DD     # EA DW
+   PSTR             DD     # EA string (ASCII)
+   PVOID            DD     # EA buffer
+   PWORD            DD     # EA DW
+   PWSTR            DD     # EA string (unicode)
+   SHORTINT         DW     # SW
+   SOCKET           DD     # socket
+   u_char           DB     # DB
+   u_int            DD     # DD
+   u_long           DD     # DD
+   u_short          DW     # DW
+   UACHAR           DB     # DB (ASCII)
+   UINT             DD     # DD
+   ULONG            DD     # DD
+   USHORT           DW     # DW
+   UWCHAR           DW     # DW (unicode)
+   WCHAR            DW     # DW (unicode)
+   WNDPROC          DD     # EA entry point of window procedure
+   WPARAM           DD     # DD

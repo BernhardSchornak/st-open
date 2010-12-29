@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="st2mo()" />
+ <meta name="Description" content="ST-Open Libraries: st2mo()" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, Library, Libraries, free Software, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>st2mo()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="aud04.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="aud06.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100"><div class="inner">..\st7\lib\sources\aud\low.S</div><div class="outer"><big>aud.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>st2mo</b></div><div class="outer">Function</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = st2mo(source, target, size);</div><div class="outer">Call</div></div>
+<div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">VOID *</div>
+<div class="inners">source</div>
+<div class="innerl">address source</div>
+<div class="crlf0"></div>
+<div class="inners">VOID *</div>
+<div class="inners">target</div>
+<div class="innerl">address target</div>
+<div class="crlf0"></div>
+<div class="inners">DD</div>
+<div class="inners">size</div>
+<div class="innerl">source size</div>
+</div><div class="outer">Input</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">DD</div>
+<div class="inners">rc</div>
+<div class="innerl">errors see source</div>
+</div><div class="outer">Output</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+st2mo() converts a stereophonic [source] into a monaural [target] file. [target] must have a size of <i>at least</i> one half  of [source]. The volume
+ is computed in the mixing process and can't be adjusted. st2mo can handle 8 bit as well as 16 bit WAV files.
+<div class="crlf1"></div>
+[source] must start with a valid WAV header. Its information is required for the conversion process.
+</div><div class="outer">Description</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+DD MyFunction(VOID *source, VOID *target)
+{
+ DD rc;
+ rc = st2mo(source, target, 0x40000, 100);
+ return(rc);
+}
+</pre>
+256 kB from the stereophonic [source] are converted to a monaural [target] with a size of 128 kB.
+</div><div class="outer">Example</div></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="aud04.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="aud06.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fe%2Fmsc%2Faud05.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="validate XHTML" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

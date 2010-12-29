@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Weichwaren" />
+ <meta name="Description" content="ST-Open - Weichwaren" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>LD-Struktur</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0101.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0103.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>LD</h1>
+<div class="inner">
+Die LD-Struktur wird zur Speicheranforderung mit ST-Open's Lader ben&ouml;tigt. Nach dem
+ Aufruf von LDreq() kann sie bedenkenlos gel&ouml;scht werden, da alle weiteren Zugriffe
+ &uuml;ber den Speicherhenkel (LD.MMoff) erfolgen. Der Speicherhenkel und gegebenenfalls
+ die Adresse des Speicherblocks (LD.MemEA) sollten in globalen Variablen abgelegt werden,
+ wenn der Speicherblock funktions&uuml;bergreifend verwendet werden soll. Der von LDreq()
+ zur&uuml;ckgelieferte Speicherhenkel <i>muss</i> auf jeden Fall gespeichert werden, da
+ er f&uuml;r alle Laderfunktionen ben&ouml;tigt wird. Sie k&ouml;nnen den Speicherblock
+ ohne Speicherhenkel nicht einmal freigeben, da er der einzige Aufrufparameter f&uuml;r
+ LDfre() ist.
+</div><div class="outer">Beschreibung</div><div class="crlf1"></div>
+<div class="inner">
+<pre>
+   typedef struct _LD{
+                      VOID *MemEA;
+                      DQ    MemSz;
+                      DD    FldNr;
+                      DD    LdCtl;
+                      DQ    MMoff;
+                      VOID *FileN;
+                      DQ    Moffs;
+                      DQ    Foffs;
+                      DQ    AmtBy;
+                      VOID *FileH;
+                     } LD;
+   typedef LD *PLD;
+</pre>
+</div><div class="outer">Definition</div><div class="crlf1"></div>
+<div class="inner">
+Adresse des allozierten Speicherblocks
+</div><div class="outer">00 MemEA</div><div class="crlf0"></div>
+<div class="inner">
+Option: Gr&ouml;sse des Speicherblocks (n * 4096 Byte)
+</div><div class="outer">08 MemSz</div><div class="crlf0"></div>
+<div class="inner">
+Option: Feldnummer
+</div><div class="outer">10 FldNr</div><div class="crlf0"></div>
+<div class="inner">
+<a href="0103.htm">Kontroll- und Statusf&auml;hnchen</a>
+</div><div class="outer">14 LdCtl</div><div class="crlf0"></div>
+<div class="inner">
+Speicherhenkel (Dies ist eine Adresse in BMM!)
+</div><div class="outer">18 MMoff</div><div class="crlf0"></div>
+<div class="inner">
+Option: Dateiname
+</div><div class="outer">20 FileN</div><div class="crlf0"></div>
+<div class="inner">
+Option: Abstand zu MemEA
+</div><div class="outer">28 Moffs</div><div class="crlf0"></div>
+<div class="inner">
+Option: Abstand zum Dateianfang
+</div><div class="outer">30 Foffs</div><div class="crlf0"></div>
+<div class="inner">
+Option: Anzahl zu kopierender Bytes
+</div><div class="outer">38 AmtBy</div><div class="crlf0"></div>
+<div class="inner">
+Option: Adresse einer <a href="0101.htm">FH-Struktur</a>
+</div><div class="outer">40 FileH</div><div class="crlf1"></div>
+<div class="inner">0x48 (144)</div>
+<div class="outer">Strukturgr&ouml;sse</div><div class="crlf1"></div>
+<div class="inner">
+Zur Verwendung des Laders gibt es ein eigenes <a href="0400.htm">Tutorial</a>!
+</div><div class="outer">Anwendung</div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0101.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0103.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0102.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

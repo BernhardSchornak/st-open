@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+    <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>FH structure</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0100.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0102.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>FH</h1>
+<div class="inner">
+<pre>
+   typedef struct _FH{
+                      HFILE OS2fh;
+                      DD    Fsize;
+                      VOID *Mbase;
+                      DD    Moffs;
+                      DD    Foffs;
+                      DD    Fstat;
+                     } FH;
+   typedef FH *PFH;
+</pre>
+</div><div class="outer">Definition</div><div class="crlf1"></div>
+<div class="inner">
+OS/2 file handle
+</div><div class="outer">OS2fh</div><div class="crlf0"></div>
+<div class="inner">
+file size
+</div><div class="outer">Fsize</div><div class="crlf0"></div>
+<div class="inner">
+address for read and write access (memory base)
+</div><div class="outer">Mbase</div><div class="crlf0"></div>
+<div class="inner">
+memory offset (relative to Mbase)
+</div><div class="outer">Moffs</div><div class="crlf0"></div>
+<div class="inner">
+file pointer (offset relative to the 1st byte in the file)
+</div><div class="outer">Foffs</div><div class="crlf0"></div>
+<div class="inner">
+file status
+</div><div class="outer">Fstat</div><div class="crlf1"></div>
+<div class="inner">
+The FH structure contains the working parameters for all file access functions. With this interface,
+ file operations are reduced to a few lines of code. It allows to copy data from any position in the
+ file to any position in memory and vice versa.
+</div><div class="outer">Description</div><div class="crlf1"></div>
+<div class="inner">
+<pre>
+ DD My_Function(DB *name)
+ {
+  FH fh;
+  DD a, rc;
+  Mcl(&amp;fh, 24);
+  rc = Fopen(name, 2, 0, &amp;fh);
+  if(rc)
+  {
+   return(rc);
+  }
+  fh.Mbase = &amp;a;
+  fh.Foffs = (fh.Fsize - 4);
+  Fread(&amp;fh, 4);
+  a++;
+  Fwrite(&amp;fh, 4);
+  Fclose(&amp;fh);
+  return(0);
+ }
+</pre>
+As first step always set all parameters in the FH structure to the initial value of zero. This is
+ done via Mcl(). After clearing the structure <a href="../sys/wrp00.htm">Fopen()</a> is called. It
+ opens the file with the passed name if it exists (flag = 2). If the file was opened with success,
+ the parameters in the FH structure contain the file handle passed by OS/2, the size of the file
+ and the file status. To read data from the file we have to set fh.Mbase to the address where bytes
+ are written to or read from. The function then sets the file pointer to 4 bytes below the file end,
+ copies the last four bytes from file to memory, increments the read dword and writes it back to the
+ file. Finally the file is closed and the function returns to the caller.
+</div><div class="outer">Application</div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0100.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0102.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

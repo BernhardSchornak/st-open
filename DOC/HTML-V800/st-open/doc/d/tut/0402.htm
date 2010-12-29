@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Speicherblock anfordern" />
+ <meta name="Description" content="ST-Open Tutorial: Speicherblock anfordern" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Speicherblock anfordern</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0401.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0403.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>Speicherblock anfordern</h1>
+Zum Anfordern eines Speicherblocks ben&ouml;tigen Sie eine LD-Struktur, die vor ihrer
+ Verwendung gel&ouml;scht werden sollte. Das sieht so aus:
+<div class="box100q"><pre>
+DD Test(VOID)
+{
+ LD ld;
+ DD rc;
+ Mcl(&amp;ld, 40);
+</pre></div>
+Die LD-Struktur umfasst 10 Doppelworte, es m&uuml;ssen demnach 40 Bytes gel&ouml;scht
+ werden. Nachdem alle Parameter auf Null gesetzt wurden, k&ouml;nnen wir nun die vom
+ Lader ben&ouml;tigten Kontrollparameter in unsere Struktur schreiben. Da wir einen
+ Speicherblock anfordern wollen, setzen wir die entsprechenden Laderf&auml;hnchen:
+<div class="box100q"><pre>
+ ld.LdCtl = LDR_READ | LDR_WRITE | LDR_MEM | LDR_STATIC;
+</pre></div>
+LDR_READ erlaubt uns den Lese-, LDR_WRITE den Schreibzugriff auf diesen Speicherblock.
+ LDR_MEM teilt dem Lader mit, dass wir ein reines Speicherobjekt anfordern, und daher
+ keine Datei geladen werden muss. LDR_STATIC schaltet die automatische Entfernung aus
+ dem Speicher ab, da Zeitmarken nur bei Zugriffen der Datenbankmaschine aktualisiert
+ werden, und wir nicht wissen, wie lange dieser Speicherblock insgesamt verwendet und
+ wann der "Pr&uuml;fer" das n&auml;chste Mal gestartet wird.
+<div class="crlf1"></div>
+Der zweite Parameter ist die ben&ouml;tigte Speichergr&ouml;sse. Das sollte eine durch
+ 4096 teilbare Zahl sein, da der Lader "krumme" Werte automatisch auf das n&auml;chste
+ Vielfache von 4096 aufrundet:
+<div class="box100q"><pre>
+ ld.MemSz = 0x00001000;
+</pre></div>
+Als letzten Parameter &uuml;bergeben wir eine beliebige Feldnummer. Ich empfehle Ihnen
+ eine Zahl ab 0xFFFFE000, dann bleiben Felder und Speicherbl&ouml;cke unterscheidbar
+ voneinander getrennt:
+<div class="box100q"><pre>
+ ld.FldNr = 0xFFFFE000;
+</pre></div>
+Damit haben wir alle erforderlichen Parameter festgelegt und k&ouml;nnen nun den Lader
+ mit der Allozierung des Speicherblocks beauftragen:
+<div class="box100q"><pre>
+ rc = LDreq(&amp;ld);
+ if(rc)
+ {
+  return(rc);
+ }
+</pre></div>
+Die Abfrage der R&uuml;ckgabevariablen sollte immer erfolgen. Wenn bei der Anforderung
+ etwas schief l&auml;uft, und Sie den vermeintlich allozierten Speicher dann &uuml;ber
+ ld.MemEA ansprechen, enth&auml;lt dieser Parameter nach wie vor die Null, die wir mit
+ Mcl() dort hineingeschrieben haben. Ein Zugriff auf die Adresse 0x00000000 f&uuml;hrt
+ unweigerlich zu einem Absturz, die Abfrage ist also berechtigt.
+<div class="crlf1"></div>
+Unser Speicherblock l&auml;sst sich nun &uuml;ber die in <b>ld.MemEA</b> gespeicherte
+ Adresse ansprechen. Bitte schreiben Sie <i>niemals</i> Daten in den Adressbereich des
+ Speicherhenkels (<b>ld.MMoff</b>)! Dort liegt die Verwaltungstabelle des Laders, auf
+ die <i>ausschliesslich</i> die Laderfunktionen zugreifen d&uuml;rfen. Schreibzugriffe
+ auf die Ladertabelle k&ouml;nnen zu Datenverlusten, unbrauchbaren Dateien und anderen
+ Fehlfunktionen f&uuml;hren.
+<div class="crlf1"></div>
+Sobald die Funktion den Speicherblock nicht mehr ben&ouml;tigt, sollte sie ihn so bald
+ wie m&ouml;glich freigeben, um den f&uuml;r uns reservierten Speicher wieder f&uuml;r
+ andere Speicheranforderungen verf&uuml;gbar zu machen. Hierzu ben&ouml;tigen Sie den
+ Speicherhenkel <b>ld.MMoff</b>:
+<div class="box100q"><pre>
+ LDfre(ld.MMoff);
+}
+</pre></div>
+Das Ganze noch einmal am St&uuml;ck:
+<div class="box100q"><pre>
+DD Test(VOID)
+{
+ LD ld;
+ DD rc;
+ Mcl(&amp;ld, 40);
+ ld.MemSz = 0x00001000;
+ ld.FldNr = 0xFFFFE000;
+ ld.LdCtl = LDR_READ | LDR_WRITE | LDR_MEM | LDR_STATIC;
+ rc = LDreq(&amp;ld);
+ if(rc)
+ {
+  return(rc);
+ }
+ /*
+   CODE DER FUNKTION
+ */
+ LDfre(ld.MMoff);
+ return(rc);
+}
+</pre></div>
+<div class="crlf1"></div>
+Die n&auml;chste Seite behandelt das Laden von Feldern.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0401.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0403.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0402.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

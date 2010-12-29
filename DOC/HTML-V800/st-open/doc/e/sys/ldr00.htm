@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="LDinit()" />
+ <meta name="Description" content="ST-Open Libraries: LDinit()" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, Bibliothek, Bibliotheken, freie Software, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>LDinit()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="cvt16.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="ldr01.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100"><div class="inner">..\st7\lib\sources\core\ldr.S</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>LDinit</b></div><div class="outer">Function</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = LDinit();</div><div class="outer">Call</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">VOID</div>
+<div class="inners">-</div>
+<div class="innerl">nothing</div>
+</div><div class="outer">Input</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">DD</div>
+<div class="inners">rc</div>
+<div class="innerl">00000000 - okay<div class="crlf0"></div>******** - Loader not available!</div>
+</div><div class="outer">Output</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+LDinit() initialises ST-Opens Loader, the memory management subsystem for ST-Open's database engine. First, 8,192 byte for the
+ Loader Table (BMM) and 12,288 byte for the global variables (BNR, GVAR) are allocated and the global variables (num.dat) and
+ conversion tables (cvt.dat) are loaded. Next, the system strings (str.dat) are loaded and a buffer for the DBE is allocated.
+ Finally, screen resolution and drive map are queried and stored in global variables. The system core now is initialised and
+ all core functions are available for application calls.
+<div class="crlf1"></div>
+<b>Warning:</b> If LDinit() does not return zero, you <i>have to</i> terminate the program immediately!
+<div class="crlf1"></div>
+<b>Note:</b> LDinit() <i>must not</i> be called more than once!
+<div class="crlf1"></div>
+<b>Note:</b> ScnInit() and DRIVES() are integral parts of LDinit() now (version 7.0.0. and up).
+</div><div class="outer">Description</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ LDinit();
+}
+</pre>
+To get in touch with the proper handling of ST-Open's Loader, I suggest to have a look into the source code of the program
+ template called <a href="../../../st7/e/v7s.htm">V700 Skeleton</a>. All critical calls are at the proper places, so you
+ don't have to worry about them and can start programming without studying tons of documentations... ;)
+</div><div class="outer">Example</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="cvt16.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="ldr01.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fe%2Fsys%2Fldr00.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="validate XHTML" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

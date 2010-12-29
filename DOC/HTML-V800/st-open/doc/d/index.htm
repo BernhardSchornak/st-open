@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="SourceDoc" />
+ <meta name="Description" content="SourceDoc - Dokumentation der ST-Open Bibliotheken" />
+ <meta name="Keywords" content="ST-Open, QuelleDoc, Open, Quelle, Weichwaren, Bibliothek, Bibliotheken, freie, frei, Weichware, Weichwaren, Assembler, C" />
+ <meta name="date" content="2010-07-18T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../pics/favicon.ico" />
+ <title>SourceDoc</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../index.htm">Weichwaren</a></li>
+ <li><a href="./tut/index.htm">Tutorials</a></li>
+ <li>Dokumentation</li>
+ <li><a href="alp.htm">alphabetisch</a></li>
+ <li><a href="fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2010-07-18]</div>
+<div class="headpc"><img src="../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../../index.htm"><img src="../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="alp.htm"><img src="../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="fct.htm"><img src="../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="./tut/FFFF.htm">Glossar</a>
+<div class="text100">
+<h1>SourceDoc</h1>
+Zur Einf&uuml;hrung in die wichtigsten Bestandteile der ST-Open Bibliotheken und der
+ hinter dem Konzept der Bibliotheken stehenden Philosophie empfehle ich Ihnen, die
+ <a href="./tut/index.htm" title="Einf&uuml;hrung in das ST-System">Tutorials</a>
+ sorgf&auml;ltig zu lesen, bevor Sie Sich mit den einzelnen Funktionen eingehender
+ besch&auml;ftigen. Sie k&ouml;nnen Sich sehr viel Arbeit und Code sparen, wenn Sie
+ die in den Bibliotheken angebotenen Funktionen sinnvoll anwenden. Da die Funktionen
+ meistens f&uuml;r konkrete Programme entwickelt wurden, haben sie etliche Vorteile
+ gegen&uuml;ber den sehr allgemein gehaltenen Funktionen der Standardbibliotheken.
+ Mit ST-Open's Datenbankmaschine (DBE) steht Ihnen ein sehr m&auml;chtiges Werkzeug
+ zur Verf&uuml;gung, das die Einschr&auml;nkungen h&ouml;herer Programmiersprachen
+ umgeht und Ihnen zum Beispiel den globalen Zugriff auf 896 statische (Speicherung
+ bei Programmende) und 1024 Laufzeitvariablen erm&ouml;glicht, ohne dass Sie eine
+ einzige Zeile zus&auml;tzlichen Code schreiben m&uuml;ssen. Die Verwaltung ist
+ f&uuml;r den Programmierer unsichtbar und alle Variablen sind global verf&uuml;gbar,
+ ohne sie von einer Funktion zur anderen &uuml;bergeben zu m&uuml;ssen. Schauen Sie
+ selbst, was rund 60 Kilobyte Assemblercode zustande bringen...
+<div class="crlf1"></div>
+Sie k&ouml;nnen alle in ST-Open's Bibliotheken enthaltenen Funktionen bedenkenlos in
+ Ihren C- oder C++-Programmen verwenden, um deren Ausf&uuml;hrung geringf&uuml;gig zu
+ beschleunigen. Erwarten Sie nicht zu viel davon, da handels&uuml;bliche C-Kompilierer
+ den gr&ouml;ssten Teil der Optimierungen durch die standardgem&auml;ss praktizierte
+ Verlagerung von Register- auf Speicherzugriffe rigoros zunichte macht. Der wirkliche
+ Vorteil ist bei derartiger Mischprogrammierung eher darin zu sehen, dass Funktionen
+ der ST-Open Bibliotheken <i>wesentlich</i> schneller und kompakter als entsprechende
+ Funktionen in den Standardbibliotheken sind, und dem Programmierer viele Werkzeuge
+ zur Verf&uuml;gung stellen, mit denen die eingeschr&auml;nkten F&auml;higkeiten eines
+ HLL-Kompilierers umgangen werden k&ouml;nnen. So erspart zum Beispiel die konsequente
+ Verwendung globaler Variablen die zeitintensive Parameter&uuml;bergabe auf dem Stapel,
+ da viele Kompilierer immer noch das gute, alte <b>push</b> statt dem zeitgem&auml;ssen
+ <b>mov</b> verwenden.
+<div class="crlf1"></div>
+<h2>Hinweise</h2>
+<h3>Technische Voraussetzungen</h3>
+Die Funktionen in Version 8.0.0. der ST-Open Bibliotheken und die damit erstellten
+ Programme erfordern einen 64 Bit Prozessor und eine 64 Bit Version von Windows.
+ Beide Voraussetzungen m&uuml;ssen erf&uuml;llt sein, um diese Software verwenden
+ zu k&ouml;nnen!
+<div class="crlf1"></div>
+<h3>Urheberrechte</h3>
+S&auml;mtliche unter dem ST-Open-Logo ver&ouml;ffentlichten Bibliotheken, Programme
+ und Publikationen unterstehen dem Urheberrecht und werden nach den Regeln der
+ <a href="http://ft4fp.blogspot.com/p/die-ft4fp-lizenz.html">FT4FP Lizenz</a>
+ vertrieben.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../../index.htm"><img src="../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="alp.htm"><img src="../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="fct.htm"><img src="../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

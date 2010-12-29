@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="Fmove()" />
+ <meta name="Description" content="ST-Open Bibliotheken: Fmove()" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Fmove()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">ST-Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="fh_04.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="fh_06.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st7\lib\sources\fh\fh.S</div><div class="outer"><big>fh.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>Fmove</b></div><div class="outer">Funktion</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = Fmove(quelle, ziel, faehnchen);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">VOID *</div>
+<div class="inners">quelle</div>
+<div class="innerl">Adresse der Quelle</div>
+<div class="crlf0"></div>
+<div class="inners">VOID *</div>
+<div class="inners">ziel</div>
+<div class="innerl">Adresse des Ziels</div>
+<div class="crlf0"></div>
+<div class="inners">DD</div>
+<div class="inners">faehnchen</div>
+<div class="innerl">00 existierendes Ziel &uuml;berschreiben<div class="crlf0"></div>01 Anwender fragen, wenn Ziel existiert<div class="crlf0"></div>02 keine Aktion wenn Ziel existiert</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">DD</div>
+<div class="inners">rc</div>
+<div class="innerl">00000000 kein Fehler<div class="crlf0"></div>00000032 ERR_FILE_EXISTS<div class="crlf0"></div>00000036 ERR_FILE_DELETE<div class="crlf0"></div>0000003A ERR_NAME_OBJECT</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+Fmove() kopiert die Datei [quelle] nach [ziel] und l&ouml;scht anschliessend [quelle]. Das F&auml;hnchen bestimmt die Verfahrensweise f&uuml;r den Fall, dass [ziel] bereits
+ existiert. Die zweite Option ruft eine Fehlermeldung des Systems auf, die den Anwender nach der gew&uuml;nschten Verfahrensweise fragt.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+DD MeineFunktion(DB *quelle, DB *ziel)
+<pre>
+{
+ DD rc;
+ rc = Fmove(quelle, ziel);
+ return(rc);
+}
+</pre>
+Die Datei wurde erfolgreich verschoben, wenn rc Null ist.
+</div><div class="outer">Beispiel</div></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="fh_04.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="fh_06.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fmsc%2Ffh_05.htm">
+<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

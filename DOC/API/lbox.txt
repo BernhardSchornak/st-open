@@ -1,0 +1,85 @@
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   control messages      (sent or posted)
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   LB_ADDSTRING                0x00000180
+   LB_INSERTSTRING             0x00000181
+   LB_DELETESTRING             0x00000182
+   LB_SELITEMRANGEEX           0x00000183
+   LB_RESETCONTENT             0x00000184
+   LB_SETSEL                   0x00000185
+   LB_SETCURSEL                0x00000186
+   LB_GETSEL                   0x00000187
+   LB_GETCURSEL                0x00000188
+   LB_GETTEXT                  0x00000189
+   LB_GETTEXTLEN               0x0000018A
+   LB_GETCOUNT                 0x0000018B
+   LB_SELECTSTRING             0x0000018C
+   LB_DIR                      0x0000018D
+   LB_GETTOPINDEX              0x0000018E
+   LB_FINDSTRING               0x0000018F
+   LB_GETSELCOUNT              0x00000190
+   LB_GETSELITEMS              0x00000191
+   LB_SETTABSTOPS              0x00000192
+   LB_GETHORIZONTALEXTENT      0x00000193
+   LB_SETHORIZONTALEXTENT      0x00000194
+   LB_SETCOLUMNWIDTH           0x00000195
+   LB_ADDFILE                  0x00000196
+   LB_SETTOPINDEX              0x00000197
+   LB_GETITEMRECT              0x00000198
+   LB_GETITEMDATA              0x00000199
+   LB_SETITEMDATA              0x0000019A
+   LB_SELITEMRANGE             0x0000019B
+   LB_SETANCHORINDEX           0x0000019C
+   LB_GETANCHORINDEX           0x0000019D
+   LB_SETCARETINDEX            0x0000019E
+   LB_GETCARETINDEX            0x0000019F
+   LB_SETITEMHEIGHT            0x000001A0
+   LB_GETITEMHEIGHT            0x000001A1
+   LB_FINDSTRINGEXACT          0x000001A2
+   LB_SETLOCALE                0x000001A5
+   LB_GETLOCALE                0x000001A6
+   LB_SETCOUNT                 0x000001A7
+   LB_INITSTORAGE              0x000001A8
+   LB_ITEMFROMPOINT            0x000001A9
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   notification messages (received)
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   LBN_SELCHANGE               0x00000001
+   LBN_DBLCLK                  0x00000002
+   LBN_SELCANCEL               0x00000003
+   LBN_SETFOCUS                0x00000004
+   LBN_KILLFOCUS               0x00000005
+   LBN_ERRSPACE                0xFFFFFFFE
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   listbox styles
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   LBS_NOTIFY                  0x00000001
+   LBS_SORT                    0x00000002
+   LBS_NOREDRAW                0x00000004
+   LBS_MULTIPLESEL             0x00000008
+   LBS_OWNERDRAWFIXED          0x00000010
+   LBS_OWNERDRAWVARIABLE       0x00000020
+   LBS_HASSTRINGS              0x00000040
+   LBS_USETABSTOPS             0x00000080
+   LBS_NOINTEGRALHEIGHT        0x00000100
+   LBS_MULTICOLUMN             0x00000200
+   LBS_WANTKEYBOARDINPUT       0x00000400
+   LBS_EXTENDEDSEL             0x00000800
+   LBS_DISABLENOSCROLL         0x00001000
+   LBS_NODATA                  0x00002000
+   LBS_NOSEL                   0x00004000
+   LBS_STANDARD                0x00A00003
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   DELETEITEMSTRUCT
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   DELETEITEMSTRUCT            /* 0x14 */
+   {
+    0x00   DD   CtlType;
+    0x04   DD   CtlID;
+    0x08   DD   itemID;
+    0x0C   DD   hwndItem;
+    0x10   DD   itemData;
+   }
+   DELETEITEMSTRUCT,*PDELETEITEMSTRUCT,
+   *LPDELETEITEMSTRUCT;
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴

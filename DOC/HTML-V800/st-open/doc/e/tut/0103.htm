@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>The Loader Flags</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0102.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0104.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>LDR_*</h1>
+<div class="inner">Loader aktive, access denied</div><div class="outer"><b>LDR_BUSY</b></div>
+<div class="inner">field possibly corrupted</div><div class="outer"><b>LDR_CORRUPT</b></div><div class="crlf0"></div>
+<div class="inner">field controlled by SecSys</div><div class="outer"><b>LDR_SECSYS</b></div><div class="crlf0"></div>
+<div class="inner">field content encrypted</div><div class="outer"><b>LDR_ENCRYPT</b></div><div class="crlf0"></div>
+<div class="inner">write access running, data might be inconsistent (garbage collection)</div><div class="outer"><b>LDR_DIRTY</b></div><div class="crlf0"></div>
+<div class="inner">reserved</div><div class="outer"><b>LDR_RES0A</b></div><div class="crlf0"></div>
+<div class="inner">reserved</div><div class="outer"><b>LDR_RES09</b></div><div class="crlf0"></div>
+<div class="inner">reserved</div><div class="outer"><b>LDR_RES08</b></div><div class="crlf0"></div>
+<div class="inner">file is not a field</div><div class="outer"><b>LDR_NO_FIELD</b></div><div class="crlf0"></div>
+<div class="inner">add to loaded files list (LFL)</div><div class="outer"><b>LDR_LFLIST</b></div><div class="crlf0"></div>
+<div class="inner">set CHK_REMOVE to infinity</div><div class="outer"><b>LDR_STATIC</b></div><div class="crlf0"></div>
+<div class="inner">memory block, no file loading required</div><div class="outer"><b>LDR_MEM</b></div><div class="crlf0"></div>
+<div class="inner">don't close file after copying its content to memory</div><div class="outer"><b>LDR_LEAVE_OPEN</b></div><div class="crlf0"></div>
+<div class="inner">content changed</div><div class="outer"><b>LDR_CHANGED</b></div><div class="crlf0"></div>
+<div class="inner">write access allowed</div><div class="outer"><b>LDR_WRITE</b></div><div class="crlf0"></div>
+<div class="inner">read access allowed</div><div class="outer"><b>LDR_READ</b></div><div class="crlf1"></div>
+<div class="inner">load file (LDR_READ | LDR_WRITE | LDR_STATIC | LDR_NO_FIELD)</div><div class="outer"><b>LDR_FILE</b></div>
+<div class="inner">add file to LFL (LDR_READ | LDR_WRITE | LDR_STATIC | LDR_LFLIST | LDR_NO_FIELD)</div><div class="outer"><b>LDR_AUTOSAVE</b></div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0102.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0104.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

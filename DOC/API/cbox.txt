@@ -1,0 +1,83 @@
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   control messages      (sent or posted)
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   CB_GETEDITSEL               0x00000140
+   CB_LIMITTEXT                0x00000141
+   CB_SETEDITSEL               0x00000142
+   CB_ADDSTRING                0x00000143
+   CB_DELETESTRING             0x00000144
+   CB_DIR                      0x00000145
+   CB_GETCOUNT                 0x00000146
+   CB_GETCURSEL                0x00000147
+   CB_GETLBTEXT                0x00000148
+   CB_GETLBTEXTLEN             0x00000149
+   CB_INSERTSTRING             0x0000014A
+   CB_RESETCONTENT             0x0000014B
+   CB_FINDSTRING               0x0000014C
+   CB_SELECTSTRING             0x0000014D
+   CB_SETCURSEL                0x0000014E
+   CB_SHOWDROPDOWN             0x0000014F
+   CB_GETITEMDATA              0x00000150
+   CB_SETITEMDATA              0x00000151
+   CB_GETDROPPEDCONTROLRECT    0x00000152
+   CB_SETITEMHEIGHT            0x00000153
+   CB_GETITEMHEIGHT            0x00000154
+   CB_SETEXTENDEDUI            0x00000155
+   CB_GETEXTENDEDUI            0x00000156
+   CB_GETDROPPEDSTATE          0x00000157
+   CB_FINDSTRINGEXACT          0x00000158
+   CB_SETLOCALE                0x00000159
+   CB_GETLOCALE                0x0000015A
+   CB_GETTOPINDEX              0x0000015B
+   CB_SETTOPINDEX              0x0000015C
+   CB_GETHORIZONTALEXTENT      0x0000015D
+   CB_SETHORIZONTALEXTENT      0x0000015E
+   CB_GETDROPPEDWIDTH          0x0000015F
+   CB_SETDROPPEDWIDTH          0x00000160
+   CB_INITSTORAGE              0x00000161
+   CB_SETMINVISIBLE            0x00001701
+   CB_GETMINVISIBLE            0x00001702
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   notification messages (received)
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   CBN_SELCHANGE               0x00000001
+   CBN_DBLCLK                  0x00000002
+   CBN_SETFOCUS                0x00000003
+   CBN_KILLFOCUS               0x00000004
+   CBN_EDITCHANGE              0x00000005
+   CBN_EDITUPDATE              0x00000006
+   CBN_DROPDOWN                0x00000007
+   CBN_CLOSEUP                 0x00000008
+   CBN_SELENDOK                0x00000009
+   CBN_SELENDCANCEL            0x0000000A
+   CBN_ERRSPACE                0xFFFFFFFF
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   combination box styles
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   CBS_SIMPLE                  0x00000001
+   CBS_DROPDOWN                0x00000002
+   CBS_DROPDOWNLIST            0x00000003
+   CBS_OWNERDRAWFIXED          0x00000010
+   CBS_OWNERDRAWVARIABLE       0x00000020
+   CBS_AUTOHSCROLL             0x00000040
+   CBS_OEMCONVERT              0x00000080
+   CBS_SORT                    0x00000100
+   CBS_HASSTRINGS              0x00000200
+   CBS_NOINTEGRALHEIGHT        0x00000400
+   CBS_DISABLENOSCROLL         0x00000800
+   CBS_UPPERCASE               0x00002000
+   CBS_LOWERCASE               0x00004000
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   DELETEITEMSTRUCT
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   DELETEITEMSTRUCT            /* 0x14 */
+   {
+    0x00   DD   CtlType;
+    0x04   DD   CtlID;
+    0x08   DD   itemID;
+    0x0C   DD   hwndItem;
+    0x10   DD   itemData;
+   }
+   DELETEITEMSTRUCT,*PDELETEITEMSTRUCT,
+   *LPDELETEITEMSTRUCT;
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴

@@ -1,0 +1,103 @@
+
+          BITMAPFILEHEADER
+          мммммммммммммммм
+
+          здддддбдддддбдддддбдддддбдддддбдддддбдддддбдддддбдддддбдддддбдддддбдддддбдддддбддддд©
+          Ё  B      M Ё  offset bitmap data   Ё        reserved       Ё    offset pel data    Ё
+          юдддддадддддадддддадддддадддддадддддадддддадддддадддддадддддадддддадддддадддддаддддды
+
+WINDOWS    00   DW   "BM"
+           02   DD   offset bitmap data (bitmap pels or colour table)
+           06   DD   reserved
+           0A   DD   offset of the bitmap relative to file begin
+
+OS/2       00   DW   file type (BM, IC, PT, CI, CP)
+           02   DD   size BITMAPFILEHEADER(2)
+           06   SW   x hotspot
+           08   SW   y hotspot
+           0A   DD   offset pel data (relative to file begin)
+           0E   --   BITMAPINFOHEADER(2)
+
+
+
+          Bitmapinfoheaders begin at offset 0x0E (relative to file begin):       Bitmapinfo begins at offset 0x0E (relative to file begin):
+          дддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд       дддддддддддддддддддддддддддддддддддддддддддддддддддддддддд
+
+          BITMAPINFOHEADER                                                       BITMAPINFO
+          мммммммммммммммм                                                       мммммммммм
+
+          здддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбддд©                      здддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбддд©
+          Ё header size   Ё c   x Ё c   y Ё planesЁ bit/p Ё                      Ё header size   Ё c   x Ё c   y Ё planesЁ bit/p Ё
+          юдддадддадддадддадддадддадддадддадддадддадддаддды                      юдддадддадддадддадддадддадддадддадддадддадддаддды
+
+          file   struct.   type   content                                        file   struct.   type   content
+          ддддддддддддддддддддддддддддддддддддддддддддддддд                      ддддддддддддддддддддддддддддддддддддддддддддддддд
+            0E        00     DD   header size                                    0E     00        DD     header size
+            12        04     DW   cx (width  in pel)                             12     04        DW     cx (width  in pel)
+            14        06     DW   cy (height in pel)                             14     06        DW     cy (height in pel)       
+            16        08     DW   number of planes                               16     08        DW     number of planes         
+            18        0A     DW   bits / plane                                   18     0A        DW     bits / plane             
+          ддддддддддддддддддддддддддддддддддддддддддддддддд                      ддддддддддддддддддддддддддддддддддддддддддддддддд
+          size: 0x0C                                                             size: 0x0C + colour table (starts at 0x1A)
+
+
+          BITMAPINFOHEADER2 (OS/2 bitmap)                                        BITMAPINFO2 (OS/2 bitmap)
+          ммммммммммммммммм                                                      ммммммммммм
+
+          здддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбддд©      здддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбддд©
+          Ё header size   Ё cx in pel     Ё cy in pel     Ё planesЁ bit/p Ё      Ё header size   Ё cx in pel     Ё cy in pel     Ё planesЁ bit/p Ё
+          юдддадддадддадддадддадддадддадддадддадддадддадддадддадддадддаддды      юдддадддадддадддадддадддадддадддадддадддадддадддадддадддадддаддды
+          здддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбддд©      здддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбддд©
+          Ё compression   Ё image size    Ё cx resolution Ё cy resolution Ё      Ё compression   Ё image size    Ё cx resolution Ё cy resolution Ё
+          юдддадддадддадддадддадддадддадддадддадддадддадддадддадддадддаддды      юдддадддадддадддадддадддадддадддадддадддадддадддадддадддадддаддды
+          здддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбддд©      здддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбддд©
+          Ё colours used  Ё min. colours  Ё units Ё res.  Ё rec.  Ё rend. Ё      Ё colours used  Ё min. colours  Ё units Ё res.  Ё rec.  Ё rend. Ё
+          юдддадддадддадддадддадддадддадддадддадддадддадддадддадддадддаддды      юдддадддадддадддадддадддадддадддадддадддадддадддадддадддадддаддды
+          здддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбддд©      здддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбдддбддд©
+          Ё render size 1 Ё render size 2 Ё colour encod. Ё identifier    Ё      Ё render size 1 Ё render size 2 Ё colour encod. Ё identifier    Ё
+          юдддадддадддадддадддадддадддадддадддадддадддадддадддадддадддаддды      юдддадддадддадддадддадддадддадддадддадддадддадддадддадддадддаддды
+
+          ддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд      ддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд
+          file   struct.   type   content                                        file   struct.   type   content
+          ддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд      ддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд
+          0E     00        DD     header size                                    0E     00        DD     header size
+          12     04        DD     cx (width  in pel)                             12     04        DD     cx (width  in pel)
+          16     08        DD     cy (height in pel)                             16     08        DD     cy (height in pel)
+          1A     0C        DW     amount planes                                  1A     0C        DW     amount planes
+          1C     0E        DW            bits/plane                              1C     0E        DW            bits/plane
+          1E     10        DD     compression scheme                             1E     10        DD     compression scheme
+          22     14        DD     size of the image in bytes                     22     14        DD     size of the image in bytes
+          26     18        DD     x resolution                                   26     18        DD     x resolution
+          2A     1C        DD     y resolution                                   2A     1C        DD     y resolution
+          2E     20        DD     colour indexes used                            2E     20        DD     colour indexes used
+          32     24        DD     minimum colour indexes needed                  32     24        DD     minimum colour indexes needed
+          36     28        DW     units of measure                               36     28        DW     units of measure
+          38     2A        DW     reserved                                       38     2A        DW     reserved
+          3A     2C        DW     recording algorithm                            3A     2C        DW     recording algorithm
+          3C     2E        DW     rendering algorithm                            3C     2E        DW     rendering algorithm
+          3E     30        DD     render size value 1                            3E     30        DD     render size value 1
+          42     34        DD                 value 2                            42     34        DD                 value 2
+          46     38        DD     colour encoding                                46     38        DD     colour encoding
+          4A     3C        DD     reserved for application use                   4A     3C        DD     reserved for application use
+          ддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд      ддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд
+          size: OS/2 0x40 (Windows 0x28)                                         size: 0x40 (Windows 0x28) + colour table (starts at 0x4E)
+
+                                                                                 Colour tables start at 0x1A or 0x4E (relative to file begin):
+          BITMAPINFO = BITMAPINFOHEADER + colour table...
+                                                                                 planes   bit/p   RGB triples   byte/triple
+          BITMAPINFO2 = BITMAPINFOHEADER2 + colour table...                      ддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд
+                                                                                 1         1        2           3 (colour table)
+                                                                                 1         4       16           3 (colour table)
+          *****************************************************************      1         8      256           4 (colour table)
+          * Ooops. Who defined these perfectly misaligned headers and has *      1        16        -           2 (bitmap)
+          * the nerve to demand we -have- to pass a dword-aligned header? *      1        24        -           3 (bitmap)
+          *                                                               *      1        32        -           4 (bitmap)
+          * Dear megascrap and IBM: This is worst case development at its *      ддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд
+          * best. I suggest you retry it if you learned something more... *      RGB values are define as:
+          *****************************************************************
+          *                                                               *      (DB   reserved)   ---   RGB2
+          * LDreq() bitmaps with LD.Foffs = 0x00 and LD.Moffs = 0x02...   *       DB   red         RGB   RGB2
+          *                                                               *       DB   green       RGB   RGB2
+          * Anyone out there who knows why megascrap stuff works at all?  *       DB   blue        RGB   RGB2
+          *                                                               *
+          *****************************************************************

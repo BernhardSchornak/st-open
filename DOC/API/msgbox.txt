@@ -1,0 +1,90 @@
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   message box styles
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   MB_OK                          0x00000000
+   MB_APPLMODAL                   0x00000000
+   MB_DEFBUTTON1                  0x00000000
+   MB_OKCANCEL                    0x00000001
+   MB_ABORTRETRYIGNORE            0x00000002
+   MB_YESNOCANCEL                 0x00000003
+   MB_YESNO                       0x00000004
+   MB_RETRYCANCEL                 0x00000005
+   MB_CANCELTRYCONTINUE           0x00000006
+   MB_TYPEMASK                    0x0000000F
+   MB_ICONERROR                   0x00000010
+   MB_ICONHAND                    0x00000010
+   MB_ICONSTOP                    0x00000010
+   MB_ICONQUESTION                0x00000020
+   MB_ICONEXCLAMATION             0x00000030
+   MB_ICONWARNING                 0x00000030
+   MB_ICONASTERISK                0x00000040
+   MB_ICONINFORMATION             0x00000040
+   MB_USERICON                    0x00000080
+   MB_ICONMASK                    0x000000F0
+   MB_DEFBUTTON2                  0x00000100
+   MB_DEFBUTTON3                  0x00000200
+   MB_DEFBUTTON4                  0x00000300
+   MB_DEFMASK                     0x00000F00
+   MB_SYSTEMMODAL                 0x00001000
+   MB_TASKMODAL                   0x00002000
+   MB_MODEMASK                    0x00003000
+   MB_HELP                        0x00004000
+   MB_NOFOCUS                     0x00008000
+   MB_MISCMASK                    0x0000C000
+   MB_SETFOREGROUND               0x00010000
+   MB_DEFAULT_DESKTOP_ONLY        0x00020000
+   MB_TOPMOST                     0x00040000
+   MB_SERVICE_NOTIFICATION        0x00040000     /* NT <       0x0400 */
+   MB_SERVICE_NOTIFICATION_NT3X   0x00040000     /* NT >=      0x0400 */
+   MB_RIGHT                       0x00080000
+   MB_RTLREADING                  0x00100000
+   MB_SERVICE_NOTIFICATION        0x00200000     /* NT >=      0x0400 */
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   return codes
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   IDOK                           0x00000001
+   IDCANCEL                       0x00000002
+   IDABORT                        0x00000003
+   IDRETRY                        0x00000004
+   IDIGNORE                       0x00000005
+   IDYES                          0x00000006
+   IDNO                           0x00000007
+   IDCLOSE                        0x00000008
+   IDHELP                         0x00000009
+   IDTRYAGAIN                     0x0000000A
+   IDCONTINUE                     0x0000000B
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   structures
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   struct                         /* 0x28 */
+   {
+    0x00   DD         cbSize;
+    0x04   DD         hwndOwner;
+    0x08   DD         hInstance;
+    0x0C   EA         lpszText;
+    0x10   EA         lpszCaption;
+    0x14   DD         dwStyle;
+    0x18   EA         lpszIcon;
+    0x1C   DD         dwContextHelpId;
+    0x20   EA         lpfnMsgBoxCallback;
+    0x24   DD         dwLanguageId;
+   }
+   MSGBOXPARAMSA,*PMSGBOXPARAMSA,
+   *LPMSGBOXPARAMSA;
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   struct                         /* 0x28 */
+   {
+    0x00   DD         cbSize;
+    0x04   DD         hwndOwner;
+    0x08   DD         hInstance;
+    0x0C   EA         lpszText;
+    0x10   EA         lpszCaption;
+    0x14   DD         dwStyle;
+    0x18   EA         lpszIcon;
+    0x1C   DD         dwContextHelpId;
+    0x20   EA         lpfnMsgBoxCallback;
+    0x24   DD         dwLanguageId;
+   }
+   MSGBOXPARAMSW,*PMSGBOXPARAMSW,
+   *LPMSGBOXPARAMSW;
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ

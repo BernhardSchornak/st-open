@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open - Software" />
+ <meta name="Description" content="ST-Open - Software" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>ST-System: Data Types</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0100.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>Data Types</h1>
+<div class="inner">Naming in C</div><div class="outer">ST-Type</div><div class="crlf1"></div>
+<div class="inner">unsigned char, uchar, unsigned byte</div><div class="outer"><b>DB</b></div><div class="crlf0"></div>
+<div class="inner">char, byte</div><div class="outer"><b>SB</b></div><div class="crlf0"></div>
+<div class="inner">byte-array, string</div><div class="outer"><b>DB *</b></div><div class="crlf0"></div>
+<div class="inner">unsigned short, ushort, uint, uword</div><div class="outer"><b>DW</b></div><div class="crlf0"></div>
+<div class="inner">short, int, word</div><div class="outer"><b>SW</b></div><div class="crlf0"></div>
+<div class="inner">unsigned long, ulong, uint</div><div class="outer"><b>DD</b></div><div class="crlf0"></div>
+<div class="inner">long, int</div><div class="outer"><b>SD</b></div><div class="crlf0"></div>
+<div class="inner">unsigned long long</div><div class="outer"><b>DQ</b></div><div class="crlf0"></div>
+<div class="inner">long long</div><div class="outer"><b>SQ</b></div><div class="crlf0"></div>
+<div class="inner">void *</div><div class="outer"><b>VOID *</b></div><div class="crlf1"></div>
+<div class="crlf1"></div>
+The naming of ST-Open's data types is similar to the naming in most assemblers. It saves a lot of typing
+ work and defines the type explicitely. The subdivision into signed and unsigned only was defined to keep
+ the compiler happy. Actually, most library functions treat data as quantities with a size of 8, 16, 32,
+ 64 or 128 bit. In other words: They neither care about names nor signs and handle only one special data
+ size. Whether you call a byte <i>char</i>, <i>uchar</i> or <i>Hugo</i> does not matter if you pass it to
+ a function working with doublewords...
+<div class="crlf1"></div>
+As a matter of fact: There are no data type definitions in assembler code at all - you either use a full
+ register or partial registers like AX or CL. The same applies to addresses, they're always treated as 32
+ bit data. There's a short tutorial about <a href="0F00.htm">data types and logic</a> to learn more about
+ data types. Unfortunately, it is written in German and I have no time to translate it.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0100.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

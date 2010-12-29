@@ -1,0 +1,152 @@
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   control messages      (sent or posted)
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   DM_GETDEFID                                              0x00000400
+   DM_SETDEFID                                              0x00000401
+   DM_REPOSITION                                            0x00000402
+   WM_ACTIVATE                                              0x00000006
+   WM_SETFOCUS                                              0x00000007
+   WM_CLOSE                                                 0x00000010
+   WM_ERASEBKGND                                            0x00000014
+   WM_SHOWWINDOW                                            0x00000017
+   WM_NEXTDLGCTL                                            0x00000028
+   WM_VKEYTOITEM                                            0x0000002E
+   WM_CHARTOITEM                                            0x0000002F
+   WM_GETFONT                                               0x00000031
+   WM_COMPAREITEM                                           0x00000039
+   WM_NCDESTROY                                             0x00000082
+   WM_GETDLGCODE                                            0x00000087
+   WM_NCLBUTTONDOWN                                         0x000000A1
+   WM_INITDIALOG                                            0x00000110
+   WM_COMMAND                                               0x00000111
+   WM_SYSCOMMAND                                            0x00000112
+   WM_ENTERIDLE                                             0x00000121
+   WM_CTLCOLORMSGBOX                                        0x00000132
+   WM_CTLCOLORDLG                                           0x00000136
+   WM_LBUTTONDOWN                                           0x00000201
+
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   modal dialog box styles
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   DS_ABSALIGN                                              0x00000001
+   DS_SYSMODAL                                              0x00000002
+   DS_3DLOOK                                                0x00000004
+   DS_FIXEDSYS                                              0x00000008
+   DS_NOFAILCREATE                                          0x00000010
+   DS_LOCALEDIT                                             0x00000020
+   DS_SETFONT                                               0x00000040
+   DS_SHELLFONT                                             0x00000048
+   DS_MODALFRAME                                            0x00000080
+   DS_NOIDLEMSG                                             0x00000100
+   DS_SETFOREGROUND                                         0x00000200
+   DS_CONTROL                                               0x00000400
+   DS_CENTER                                                0x00000800
+   DS_CENTERMOUSE                                           0x00001000
+   DS_CONTEXTHELP                                           0x00002000
+   WS_SYSMENU                                               0x00080000
+   WS_DLGFRAME                                              0x00400000
+   WS_BORDER                                                0x00800000
+   WS_VISIBLE                                               0x10000000
+   WS_POPUP                                                 0x80000000
+
+   create  :   DialogBox()
+   destroy :   EndDialog()
+
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   modeless dialog box styles
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   DS_ABSALIGN                                              0x00000001
+   DS_SYSMODAL                                              0x00000002
+   DS_3DLOOK                                                0x00000004
+   DS_FIXEDSYS                                              0x00000008
+   DS_NOFAILCREATE                                          0x00000010
+   DS_LOCALEDIT                                             0x00000020
+   DS_SETFONT                                               0x00000040
+   DS_SHELLFONT                                             0x00000048
+   DS_MODALFRAME                                            0x00000080
+   DS_NOIDLEMSG                                             0x00000100
+   DS_SETFOREGROUND                                         0x00000200
+   DS_CONTROL                                               0x00000400
+   DS_CENTER                                                0x00000800
+   DS_CENTERMOUSE                                           0x00001000
+   DS_CONTEXTHELP                                           0x00002000
+   WS_SYSMENU                                               0x00080000
+   WS_DLGFRAME                                              0x00400000
+   WS_BORDER                                                0x00800000
+   WS_VISIBLE                                               0x10000000
+   WS_CHILD                                                 0x40000000
+   WS_POPUP                                                 0x80000000
+
+   create  :   CreateDialog()
+   destroy :   DestroyWindow()
+
+   NOTE    :   The application must close
+               all open dialogs before it
+               terminates itself!
+
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   structures
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   struct                      /* 0x14 */
+   {
+    0x00   DD         style;
+    0x04   DD         dwExtendedStyle;
+    0x08   SW         x;
+    0x0A   SW         y;
+    0x0C   SW         cx;
+    0x0E   SW         cy;
+    0x10   DW         id;
+   }
+   DLGITEMTEMPLATE,*LPDLGITEMTEMPLATE;
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   struct                      /* 0x12 */
+   {
+    0x00   DD         style;
+    0x04   DD         dwExtendedStyle;
+    0x08   DW         cdit;
+    0x0A   SW         x;
+    0x0C   SW         y;
+    0x0E   SW         cx;
+    0x10   SW         cy;
+   }
+   DLGTEMPLATE,*LPDLGTEMPLATE,
+   *LPDLGTEMPLATEA,*LPDLGTEMPLATEW;
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   struct                      /* 0x20 */
+   {
+    0x00   DD         helpID;
+    0x04   DD         exStyle;
+    0x08   DD         style;
+    0x0C   SW         x;
+    0x0E   SW         y;
+    0x10   SW         cx;
+    0x12   SW         cy;
+    0x14   DW         id;
+    0x16   DD or EA   windowClass;       // name or ordinal of a window class
+    0x1A   DD or EA   title;             // title string or ordinal of a resource
+    0x1E   DW         extraCount;        // bytes of following creation data
+   }
+   DLGITEMTEMPLATEEX;
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   struct                      /* 0x?? */
+   {
+    0x00   DW         dlgVer;
+    0x02   DW         signature;
+    0x04   DD         helpID;
+    0x08   DD         exStyle;
+    0x0C   DD         style;
+    0x10   DW         cDlgItems;
+    0x12   SW         x;
+    0x14   SW         y;
+    0x16   SW         cx;
+    0x18   SW         cy;
+    0x1A   DD or EA   menu;              // name or ordinal of a menu resource
+    0x1E   DD or EA   windowClass;       // name or ordinal of a window class
+    0x22   DB[]       title[titleLen];   // title string of the dialog box
+    0x??   SW         pointsize;         // only if DS_SETFONT flag is set
+    0x??   SW         weight;            // only if DS_SETFONT flag is set
+    0x??   SW         bItalic;           // only if DS_SETFONT flag is set
+    0x??   DB[]       font[fontLen];     // typeface name, if DS_SETFONT is set
+   }
+   DLGTEMPLATEEX;
+   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴

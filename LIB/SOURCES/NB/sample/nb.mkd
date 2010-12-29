@@ -1,0 +1,75 @@
+
+     ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+     º NAME       notebook skeleton                       ºÛ
+     º REVISION   ST-SYSTEM   V 6.0.0.                    ºÛ
+     º DATE       15.08.2007                              ºÛ
+     ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼Û
+       ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+     ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+     ³ _MUL_                                              ³Û
+     ³                                                    ³Û
+     ³ _ENTRY                                             ³Û
+     ³                                                    ³Û
+     ³ _AMOUNT      [0000 0010]                           ³Û
+     ³                                                    ³Û
+     ³ _NAME        [notebook skeleton ## $$]             ³Û
+     ³                                                    ³Û
+     ³ _NUMBER      [FFFF FF00] (default 1st notebook)    ³Û
+     ³                                                    ³Û
+     ³ _TYPE        [03 03 03 03 03 03 20 20]             ³Û
+     ³                                                    ³Û
+     ³ _MAXLEN      [0000 0020]                           ³Û
+     ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙÛ
+      ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+_DATA
+
+0000000F# 00000000# 00000000# 00000000# 00000000# 00000000# ş ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 01ş Tab Pg 01ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 02ş Tab Pg 02ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 03ş Tab Pg 03ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 04ş Tab Pg 04ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 05ş Tab Pg 05ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 06ş Tab Pg 06ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 07ş Tab Pg 07ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 08ş Tab Pg 08ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 09ş Tab Pg 09ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 10ş Tab Pg 10ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 11ş Tab Pg 11ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 12ş Tab Pg 12ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 13ş Tab Pg 13ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 14ş Tab Pg 14ş
+00000000# 00000000# 00000000# 00000000# 00000000# 00000000# Title of Page 15ş Tab Pg 15ş
+
+ÀÄÄÄÂÄÄÄÙ ÀÄÄÄÂÄÄÄÙ ÀÄÄÄÂÄÄÄÙ ÀÄÄÄÂÄÄÄÙ ÀÄÄÄÂÄÄÄÙ ÀÄÄÄÂÄÄÄÙ ÀÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÙ ÀÄÂÄÄÄÄÄÄÙ
+    ³         ³         ³         ³         ³         ³       ³                 ÀÄ Tab
+    ³         ³         ³         ³         ³         ³       ³                    Text
+    ³         ³         ³         ³         ³         ³       ³
+    ³         ³         ³         ³         ³         ³       ÀÄ Page Title Text
+    ³         ³         ³         ³         ³         ³
+    ³         ³         ³         ³         ³         ³
+    ³         ³         ³         ³         ³         ÀÄ Page ID's
+    ³         ³         ³         ³         ³            ( set by BkInit() )
+    ³         ³         ³         ³         ³
+    ³         ³         ³         ³         ÀÄÄÄÄÄÄÄÄÄÄÄ Page HWND's
+    ³         ³         ³         ³                      ( set by BkInit() )
+    ³         ³         ³         ³
+    ³         ³         ³         ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ PFNWP's of the page processes
+    ³         ³         ³                                ( set this in BkMain() )
+    ³         ³         ³
+    ³         ³         ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ Set this to the resource ID
+    ³         ³                                          of each page dialog
+    ³         ³
+    ³         ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ Tab- and Pagetypes :   
+    ³                                                    0   BKA_MAJOR, BKA_FIRST
+    ³                                                    1   BKA_MAJOR, BKA_NEXT
+    ÀÄ Reserved for system                               2   BKA_MINOR, BKA_NEXT
+                                                         3   BKA_MAJOR, BKA_LAST
+                                                         4   BKA_MINOR, BKA_LAST
+
+                                                         TabType of entry 0 must hold
+                                                         the total amount of pages
+                                                         ( major + minor )
+
+  Please notice: Page 0 is the notebook control itself. You may neither give it a name
+  nor a tab text. Also, you should leave all data at zero values, except the tab type,
+  which must be set to the total amount of pages.

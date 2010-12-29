@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Software" />
+ <meta name="Description" content="ST-Open Software for the OS/2 and eCS platform" />
+ <meta name="Keywords" content="ST-Open, Software, Open Source, free software, library, libraries, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../pics/favicon.ico" />
+ <title>ST-Open Software</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="./st8/e/800.htm">Version 8.0.0.</a></li>
+ <li><a href="./doc/e/index.htm">Documentation</a></li>
+ <li><a href="index.htm">Deutsch</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../pics/pgm.png" alt="ST-Software Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<img src="../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" />
+&#160;&#160;&#160;<a href="index.htm"><img src="../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="index.htm"><img src="../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>ST-Open Libraries</h1>
+<div class="crlf1"></div>
+<h2>Version 8.0.0.</h2>
+ST-Open libraries version 8.0.0. are designed for Windows (64 bit). To run the executables, a
+ 64 bit version of Windows is required. The libraries still are ported from OS/2 (eCS) to 64
+ bit Windows, hence, this HTML documentation is not up-to-date at the moment. The downloadable
+ material provided at Google-Code is not tested, yet - it is considered to be beta software at
+ the moment. Because porting the libraries and helper programs has absolute priority, you should
+ not expect that the HTML documentation is fixed very soon. In any case, the documentation of
+ in- and output parameters stored in the source files overrides the current HTML documentation.
+<div class="crlf1"></div>
+<h2>What's offered by ST-Open?</h2>
+<h3>Libraries</h3>
+The main (system) library includes ST-Open's database engine, ST-Open's memory management aka Loader,
+ supporting 896 static and 1,024 runtime variables without an extra line of code, many data conversion
+ functions, sandboxes for the most often used API functions (the sandboxes preserve ECX, EDX, R8, R9,
+ R10, R11, XMM4 and XMM5 and replace the garbage delivered by the API with the original register content),
+ support for easy and simple programming of Windows controls (buttons, menus, list- and comboboxes,
+ extended spinbuttons, multilingual menus and dialogs, ...), a lot of useful string functions, time and
+ (leap year aware) date functions and much more. Additional libraries extend the system library with
+ ST-Open's file list, a DBE driven, easy to use notebook skeleton, bitmap functions controlled by the DBE,
+ the MemHandle monitor, showing how many memory the Loader allocated for which data fields, a simple
+ register monitor for assembler freaks, ST-Open's multilingual online help (OLH) and SecSys - ST-Open's
+ security system, controlling access to restricted menus, dialogs, functions and data fields. The
+ management of SecSys protected data fields is fully integrated in ST-Open's DBE and transparent to the
+ user. This includes privilege level checking as well as the en- and decryption of strings.
+<div class="crlf1"></div>
+<h3>Programs</h3>
+These programs are developed and maintained at the moment:
+<div class="crlf1"></div>
+<a href="./st8/d/calc.htm" title="Programmer's Calculator">ST-Open Calc</a> - a slightly different calculator for assembler programmers.
+<div class="crlf1"></div>
+<a href="./st8/d/hddrum.htm" title="The Harddisk Drummer">HDdrum</a> - the harddisk drummer. Plays 4/4 as well as 7/4 or 9/8...
+<div class="crlf1"></div>
+<a href="./st8/d/hdrec.htm" title="The Harddisk Studio">HDrec</a> - the harddisk studio. A slightly different solution to mix audio sources.
+<div class="crlf1"></div>
+<a href="./st8/d/md5.htm" title="MakeDat 5">MakeDat 5</a> - ST-Open's toolbox for data fields used by the
+ DBE. Includes all tools to create and manipulate the DBE's data fields. ST-Open's <i>Easy Translation
+ Tools</i> are an integral part of DatTools since 2006.
+<div class="crlf1"></div>
+<a href="./st8/d/sre.htm" title="The Search And Replace Editor">SRE</a> - ST-Open's search and replace
+ editor is a slightly different MLE editor. SRE supports up to 32 simultaneously loaded files, allows to
+ split huge files (up to 4 GB) into handy, editable parts and puts them together after editing, converts
+ binary files into editable hex dumps and re-converts edited hex dumps back to binary files and provides
+ 32 search and replace pairs in the MLE search function. While search patterns are restricted to single
+ lines (the MLE's internal search function handles line breaks as string end), the replace pattern may
+ include as many line breaks as you want. A unique feature of SRE is its global search. It provides
+ searching for up to 32 search patterns in up to 256 directories. Matching text parts are replaced by the
+ corresponding replace patterns. Found subdirectories are included in the search automatically, but the
+ maximum amount of processed files is limited to 16,384 (expandable with larger data fields). SRE offers
+ a toolbox filled with some useful extra tools: A <i>text module</i> chosen from a set of up to 256
+ modules can be inserted at the beginning, end or current cursor position in the MLE. Up to 256
+ <i>scribs</i> are available as a built in database. For example, you don't have to open the toolkit books
+ to look for a structure's members any longer - just store it as a scrib. It's just three mouse clicks to
+ get that information whenever you need it again. A (not finished) HTML tool finds all tags in HTML
+ documents. If finished, it's thought to manage entire sites like ST-Open (> 2100 files!). The last tool
+ processes GCC's <b>.s</b> files created with the <i>-S</i> option. The files are formatted properly and
+ the stupid conversions from hex to decimal are undone.
+<div class="crlf1"></div>
+<a href="./st8/d/v8s.htm" title="V800 Program Skeleton">V800 Program Skeleton</a> - ST-Open's 'template'
+for <i>your</i> next program. It includes everything you need to start programming. Oh, yes, you might
+want to replace my example code with your own functions... ;)
+<div class="crlf1"></div>
+<h2>Announcement</h2>
+Please notice and accept this: I only support and maintain code and applications included in the current
+ version (at the moment this is version 8.0.0.). I am busy between 18 and 24 hours per day to develop and
+ upgrade the current libraries and applications. I have <b>NO</b> time to maintain stuff I wrote years
+ ago. If you think you can upgrade badly coded functions with better code: JUST DO IT! Please do not
+ change my code if you cannot accept the terms of the
+ <a href="http://ft4fp.blogspot.com/p/ft4fp-license.html">FT4FP License</a>. Any derivates of my code
+ still are subject to the terms of the
+ <a href="http://ft4fp.blogspot.com/p/ft4fp-license.html">FT4FP License</a>. Recipients of copies of
+ derivates of copies of my work are not allowed to pay for those derivates. Derivates must be published
+ for free and without denying anyone to get a copy.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<img src="../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" />
+&#160;&#160;&#160;<a href="index.htm"><img src="../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="index.htm"><img src="../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

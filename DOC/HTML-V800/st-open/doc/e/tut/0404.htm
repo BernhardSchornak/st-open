@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: Loading Files" />
+ <meta name="Description" content="ST-Open Tutorial: Loading Files" />
+ <meta name="Keywords" content="ST-Open Software, Open Source, ST-Open, Software, library, libraries, free software, assembler, C" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>Loading Files</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../indexe.htm">Software</a></li>
+ <li><a href="index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Documentation</a></li>
+ <li><a href="../alp.htm">alphabetical</a></li>
+ <li><a href="../fct.htm">by Function</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div><div class="headpc"><img src="../../pics/ste.png" alt="SourceDoc Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0403.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0405.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="text100">
+<h1>Loading Files</h1>
+First, we set the control flags for the Loader:
+<div class="box100q"><pre>
+DD Test(VOID)
+{
+ LD ld;
+ DD rc;
+ Mcl(&amp;ld, 40);
+ ld.LdCtl = LDR_READ | LDR_WRITE | LDR_NO_FIELD | LDR_STATIC;
+</pre></div>
+Adding the flag <b>LDR_NO_FIELD</b> is all we need to load files via the Loader. Add
+ <b>LDR_STATIC</b> to the control flags if you're not sure the file isn't needed any
+ longer when the timestamp expires. The second parameter is the full qualified path
+ and filename:
+<div class="box100q"><pre>
+ ld.FileN = "Q:\MyDir\MyFile.ext";
+</pre></div>
+These parameters are all we need to call the Loader:
+<div class="box100q"><pre>
+ rc = LDreq(&amp;ld);
+ if(rc)
+ {
+  return(rc);
+ }
+ mh = ld.MMoff;
+</pre></div>
+The content of the file is available at the address stored in <b>ld.MemEA</b>. Version
+ 7.0.0. does not provide direct access functions any longer - <i>Intelligent Design</i>
+ programs are written in assembly language by default. Hence, you have to provide your
+ own functions to access the loaded file. After processing the file content, you should
+ call LDfre() to release the allocated memory:
+<div class="box100q"><pre>
+ LDfre(mh);
+</pre></div>
+The entire code in one piece:
+<div class="box100q"><pre>
+DD Test(VOID)
+{
+ LD ld;
+ DD rc;
+ Mcl(&amp;ld, 40);
+ ld.LdCtl = LDR_READ | LDR_WRITE | LDR_NO_FIELD | LDR_STATIC;
+ ld.FileN = "Q:\MyDir\MyFile.ext";
+ rc = LDreq(&amp;ld);
+ if(rc){return(rc);}
+ /*
+   FUNCTION CODE
+ */
+ LDfre(ld.MMoff);
+ return(rc);
+}
+</pre></div>
+<br />
+The next page explains how you can change the size of the allocated memory block.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0403.htm"><img src="../../../../pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0405.htm"><img src="../../../../pics/nav_fw.png" alt="next" width="20" height="20" border="0" title="next" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

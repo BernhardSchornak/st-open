@@ -1,0 +1,990 @@
+RESOLUTION  800*600Ё      *************************
+FONT 10. System VIOЁ       ***********************
+ддддддддддддддддддды        *********************
+                             *******************
+                              *****************
+                               ***************
+                                *************
+          *********************************************************
+           *******************************************************
+            ***********зддддддддддддддддддддддддддддд©***********
+             **********Ё ST - Bin Lobster-CALCULATOR Ё**********
+              *********юддддддддддддддддддддддддддддды*********
+               ***********************************************
+                *********************************************
+                 *******************************************
+                  ***********зддддддддддддддддд©***********
+                   **********ЁBernhard SchornakЁ**********
+                    *********Ё                 Ё*********
+                     ********ЁKapellenstrasse 3Ё********
+                      *******Ё                 Ё*******
+                       ******ЁD-86462  LangweidЁ******
+                        *****юддддддддддддддддды*****
+                         ***************************
+                          *************************
+                           ***********************
+                            *********************
+                             *******************
+                              *****************
+                               ***************
+                                *************
+                                 ***********
+                                  *********
+                                   *******
+                                    *****
+                                     ***
+                                      *
+
+
+
+                       иммммммммммммммммммммммммммммм╩
+                       ╨ ST - Bin Lobster-Calculator ╨
+                       хммммммммммммммммммммммммммммм╪
+
+
+-                                                                                     -
+
+
+          CONTENTS
+          мммммммм
+
+
+          0.        Introduction
+
+          1.        Floating Point Formats
+          1.0.1.    Short Real
+          1.0.2.    Long Real
+          1.0.3.    Temporary Real
+          1.0.4.    *87 special
+          1.1.      Basic Thoughts
+          1.1.1.    About Biases
+          1.1.2.    About Exponents
+
+          2.        Bin Lobster Format
+          2.0.      Notation
+          2.1.      About BCD's / corrections for GAS
+          2.2.      ST-Calculator
+          2.2.0.    Memory
+
+          2.3.      Basic math operations
+          2.3.0.    Addition
+          2.3.1.    Subtraction
+          2.3.2.    Multiplication
+          2.3.3.    Division
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+0.        Introduction
+          мммммммммммм
+
+
+          The "Bin Lobster"-Calculator is part of the ST-System. It was called BCD-
+          Calc before, because it was intentionally though to be a calculator work- 
+          ing with unpacked BCD digits, but the original concept was too slow to be
+          of use for real world applications.
+
+          After long discussions in alt.lang.asm, I finally decided to redesign the 
+          BCD calculator. Because the new version uses hexadecimals ("BIN"ary base)
+          together with the unintelligent reverse iNTEL format ("LOBSTER"), the new
+          name "Bin Lobster" calculator was born... :)
+
+
+
+
+          Special thanks to Wolfgang Kern, who showed a lot of patience to teach me
+          the one or other thing (including the complete logarithm stuff)!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+1.        Floating Point Formats
+          мммммммммммммммммммммм
+
+
+          There are some...
+
+          ...but I do not think, that we should discuss all of them. There are only
+          three formats used in 80 *87 FPU's, so we just leave all others alone.
+
+          These formats are called 'short real', 'long real' and 'temporary real' -
+          C-programmers better know them as 'float', 'double' and 'long double'. As
+          this manual is thought to be written for assembler programmers, I use the
+          first mentioned names, so we really know, what we are doing here. There's
+          a standard - IEEE 754 - where all these things are written down in a very
+          thick book...
+
+          To speed up things, we continue with these three formats.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+1.0.1.    Short Real
+          дддддддддд
+
+          33333333222222221111111100000000
+          FEDCBA9876543210FEDCBA9876543210
+          ЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧ
+          Ёюддддбдыюбдддддддддддддддддддды
+          Ё     Ё   юдддд> 23 bits => mantissa
+          Ё     юдддддддд>  8 bits => exponent
+          юдддддддддддддд>  1 bit  => sign of the number
+
+
+
+
+1.0.2.    Long Real
+          ддддддддд
+
+          7777777766666666555555554444444433333333222222221111111100000000
+          FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210
+          ЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧ
+          Ёюддддддддбыюбддддддддддддддддддддддддддддддддддддддддддддддддды
+          Ё         Ё  юд> 52 bits => mantissa
+          Ё         юдддд> 11 bits => exponent
+          юдддддддддддддд>  1 bit  => sign of the number
+
+
+
+
+1.0.3.    Temporary Real
+          дддддддддддддд
+
+       99999999888888887777777766666666555555554444444433333333222222221111111100000000
+       FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210
+       ЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧЧ
+       Ёюддддддддддддбыюбддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
+       Ё             Ё  юдддд> 64 bits => mantissa
+       Ё             юддддддд> 15 bits => exponent
+       юддддддддддддддддддддд>  1 bit  => sign of the number
+
+
+
+
+-
+
+
+1.0.4.    *87 Special
+          ддддддддддд
+
+
+          As you may have guessed, all formats are stored in un-iNTELligent order,
+          as long as you are working with 80 *87 FPU's. To get a usable format, we
+          have three functions: dintl(x), qintl(x, y) and tintl(x, y). It's sad to
+          waste valuable clock cycles to convert LETNi storage formats into usable
+          numbers, but it's unavoidable if we are bound to the x86 platform.
+
+          Please notice, that qintl(x) and tintl(x) need the address of x, because
+          registers are 32 bit long, so we cannot pass 64 or 80 bit data...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+1.1.      Basic Thoughts
+          дддддддддддддд
+
+
+          All floating point formats ( except ST's ) are stored in the form of sign
+          of number ( MSB ), exponent in biased format, and a mantissa in different 
+          length. Regardless of the used format, it looks like
+
+
+                        sign  exponent  1 . mantissa
+
+
+          where the leading 1 is not stored in short and long real (it's assumed to
+          be there...) - but in temporary real, the 1 is stored as first bit of the
+          mantissa. A nice game to confuse poor programmers... :)
+
+
+          The bits beyond the leading 1 tell us, if the next power of 2 is added or
+          not - it's just that simple. Calculating negative powers of 2 is done by:
+
+
+                                 n
+                   1            5                -n      n       -n
+                 ддддд    =   ддддддд     or    2    =  5   *  10
+                    n             n
+                  2            10
+
+
+          If you don't believe it:  2 E-1 = 0.5    =    5 * 0.1
+                                    2 E-2 = 0.25   =   25 * 0.01
+                                    2 E-3 = 0.125  =  125 * 0.001
+                                    ...               ...
+
+
+          Hence, it is no problem to convert a floating point number into something
+          human readable and vice versa.
+
+
+
+
+
+
+-
+
+
+1.1.1.    About Biases
+          дддддддддддд
+
+
+          To prevent mortal programmers from writing floating point conversion rou-
+          tines, the gods who invented the floating point formats defined the expo-
+          nents to be biased.
+
+          Let us be touched by the light of their divine wisdom - and get deep into
+          the mysteries of those biases:
+
+          Let it be known, that any negative exponent shall be marked with the sign
+          of the bias, so it shall be positive again. If the exponent has the nerve
+          to be negative in a short real format, it shall be the number of 127 that
+          has to be added to its unholy value. If it wants to be part of a long re-
+          al, it shall be turned by adding 1023. If it tries to get into a tempora-
+          ry real, it shall be ??? ... Oops, what happened ? Got no info about it !
+
+          Some hours later:
+
+          Bias for temporary real is 16383 ( 2e14 - 1 )!
+
+
+          Ok, lets get serious.
+
+          The bias is added to the exponent, if the exponent is assembled, and sub-
+          tracted, if the exponent is disassembled.
+
+          Example (long real):
+
+          Assemble    :   2e-1 ->  -1  ->  03FF + FFFF = 03FE
+
+          Disassemble :   03FE - 03FF = FFFF - >  -1  -> 2e-1
+
+
+
+
+
+
+
+
+
+-
+
+
+1.1.2.    About Exponents
+          ддддддддддддддд
+
+
+          Now we have all information about floating point formats, so we may go on
+          and code some conversion routines. But first, we should have another look
+          on the formats:
+
+          Format           Exponent Range        Mantissa (bit)
+
+          Short Real         -128 ...   +127     23
+          Long Real         -1024 ...  +1023     52
+          Temporary Real   -16384 ... +16383     64
+
+          The largest integer format on LETNi machines is 64 bit, so we cannot con-
+          vert a float into a qword, if the exponent exeeds 63. Thus, conversion is
+          limited to a small range of floating point numbers.
+
+          Here are some other interesting things to mention:
+
+          1. If the exponent (x) exeeds the amount of bits (n) in the mantissa, our 
+             original number is truncated to the highest n digits multiplied by the
+             x'th through n'th power of 2. This is a significant loss in precision,
+             especially for the short real format, but can't be avoided, except the
+             length of our mantissa is equal to the maximum value of the exponent.
+
+          2. Because a real number is split into negative powers of 2, translations
+             are not very accurate. E. g.: 1.1 is translated to the nearest equiva-
+             lent of 1.1000000000000008881784197001252323389125 in binary precision.
+
+          3. 
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+1.2.      Conversion Routines
+          ммммммммммммммммммм
+
+
+          Finally, there are some conversion routines for the IEEE formats. Because
+          of the different formats, I coded conversion routines for each one. Don't
+          mismatch the formats, because the routines cannot distinguish if they are
+          valid or not.
+
+          sr2str   short real   -> display string
+          str2sr   input string -> short real
+
+          lr2str   long real    -> display string
+          str2lr   input string -> long real
+
+          tr2str   tempor. real -> display string
+          str2tr   input string -> temporary real
+
+
+          There is another conversion routine BaseCvt() which translates numbers in
+          a given base into numbers of another base. Bases for both may be any num-
+          ber between 2 and 16. You could convert a number given in octal notation,
+          base 8, into a binary number, base 2. Funny stuff - convert a number with
+          base 13 into a number with base 7... :)
+
+          BaseCvt() is limited to integer numbers with up to 256 digits ( so binary
+          numbers are limited to an input size of 32 bytes ).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+2.        Bin Lobster Format
+          мммммммммммммммммм
+
+
+          The Bin Lobster format is defined as follows :
+
+          здбдбдбдбдбдбдбдбдбдбдбдбдбдбдбдбдбдбд   дбдбдбдбдбдбдбдбдбдбдбдбдбдбдбд©
+          ЁfЁdЁxЁxЁmЁmЁmЁmЁmЁmЁmЁmЁmЁmЁmЁmЁmЁmЁm     mЁmЁmЁmЁmЁmЁmЁmЁmЁmЁmЁmЁmЁmЁmЁ
+          юдададададададададададададададададададад   дадададададададададададададады
+           Ё Ё юбы юддбдддддддддддддддддддддддд д д д ддддддддддддддддддддддддддды
+           Ё Ё  Ё     Ё
+           Ё Ё  Ё     юдддддддд 112 byte mantissa
+           Ё Ё  Ё
+           Ё Ё  Ё
+           Ё Ё  юдддддддддддддд   2 byte exponent
+           Ё Ё
+           Ё Ё
+           Ё юддддддддддддддддд   1 byte amount digits in mantissa
+           Ё
+           Ё
+           юддддддддддддддддддд     Flags
+
+                                  7 calc      multi-purpose flag
+                                  6           internal error
+                                  5           overflow
+                                  4           underflow
+                                  3 too large exponent
+                                  2           mantissa
+                                  1 sign      exponent
+                                  0           mantissa
+
+
+
+          This format is used as internal and storage format of the BinLobsterCalc.
+
+
+
+
+
+
+
+
+-
+
+
+2.0.      Notation
+          дддддддд
+
+
+          BinLobster awaits engineering notation for exponents. In other words: Any
+          exponent is a multiple of three, regardless of its sign. Therefore, it is
+          allowed to use the following characters instead of exponents:
+
+
+
+          10 E +24   "Y"   Yotta
+          10 E +21   "Z"   Zetta
+          10 E +18   "E"   Exa
+          10 E +15   "P"   Peta
+          10 E +12   "T"   Tera
+          10 E + 9   "G"   Giga
+          10 E + 6   "M"   Mega
+          10 E + 3   "K"   Kilo
+
+          10 E   0       number itself - please don't use "E" alone (see below)
+
+          10 E - 3   "m"   milli
+          10 E - 6   "Ф"   micro  (or "u", if there is no "Ф" on your keyboard)
+          10 E - 9   "n"   nano
+          10 E -12   "p"   pico
+          10 E -15   "f"   femto
+          10 E -18   "a"   atto
+          10 E -21   "z"   zepto
+          10 E -24   "y"   yocto
+
+
+
+
+          If the input routine detects an E, it's treated as exponent marker, if it
+          is followed by a number. If there's no number, the E is treated as an Exa
+          (10 E +18).
+
+          Any number is rearranged to fit into the above definition. You might have
+          guessed it - my second hobby near to programming is electronics...
+
+
+
+-
+
+
+2.1.      About BCD's / corrections for GAS
+          ддддддддддддддддддддддддддддддддд
+
+
+          BCD is the short form of binary coded decimal. Each BCD digit is a number
+          from 0 - 9. In our computers, we have two kinds of BCD's - packed and un-
+          packed ones.  Unpacked BCD's are stored in  one  byte, allowed values are
+          00 through 09. Please notice the preceding zero, that's an important part
+          of the unpacked BCD. Packed BCD's, as the name suggests, are two BCD nib-
+          bles ( one nibble is one half of a byte ) stored in one byte, so the byte
+          may be anything between 00 and 99. Please notice, that  both  nibbles may
+          not exeed the decimal 9 ( A through F are no decimal numbers ).
+
+          To pack or unpack BCD nibbles, there are two CPU commands, AAM and AAD. C
+          doesn't offer any BCD support, so it got no mechanisms to work with them.
+
+
+
+          CAUTION :
+
+          If you use GCC/2 or EMX, you have to patch the GNU assembler, because the
+          programmer took fixed values for the  AAD / AAM  commands. If you want to
+          re-compile ST sources, you have to do the following :
+
+          Change
+          ...
+          {"aad", ...............................},
+          {"aam", ...............................},
+          ...
+
+          to
+          ...
+          {"aad", 1, 0xd5, _, NoModrm, Imm8, 0, 0},
+          {"aam", 1, 0xd4, _, NoModrm, Imm8, 0, 0},
+          ...
+
+          and re-compile GAS. Both commands are not used by gcc (as far as I know),
+          so you don't have to worry about this patch.
+
+          NOTE: This is fixed in version 3.2.2. of the GCC suite, you don't have to
+                apply the patch any longer.
+
+-
+
+
+2.2.      ST-Calculator
+          ддддддддддддд
+
+
+          Now let me tell you something about the basic parts of the ST-Calculator.
+          There are four 256 byte buffers called OP1, OP2, RES and COM. Each one is
+          capable to hold one BCD number. OP1 and OP2 are operand buffers, where we
+          store the operands for any mathematical operation. RES is defined to hold
+          the result of any operation. COM is a common buffer for temporary results
+          in complex math operations like multiply or divide.
+
+          There are four corresponding DWords which hold exponents, signs and flags
+          for each operand buffer, because operand buffers only store the digits of 
+          the normalized operands exclusive any signs or exponents.
+
+          Normalized operands: Both operands are expanded to the same exponent. The
+                               operand with the larger amount of digits is taken as
+                               reference. Its exponent is set to a value that turns
+                               the operand into an integer ( the floating point po-
+                               sition is moved beyond the last digit ).
+
+          Normalize would do this for example:
+
+          > OP1   17.321987654321 E +18
+          > OP2   21.856734312089 E -9
+
+          > ADD_OP2
+
+          ддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд
+            OP1   17321987654321000000000000000000000000000   XP1 +30    INTERNAL
+          + OP2   00000000000000000000000000021856734312089   XP2 -21    OPERATIONS
+                                                                         OF THE BCD
+            RES   17321987654321000000000000021856734312089   XPR +30    CALCULATOR
+          ддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд
+                ( 00000000000000000001.00000000000000000000 ) position of 1.0
+
+          < RES   17.321987654321000000000000021856734312089 E +18
+
+
+          Notice that no digits are lost in this example. Just try to calculate the
+          example with an IEEE calculator - you get OP1 as result...
+
+-
+
+
+2.2.0.    Memory
+          дддддд
+
+
+               Conversion Data         BCD-Format Data
+
+           зддддддддддадддддддддд© зддддддддддадддддддддд©
+
+          здддддбдддддбдддддбдддддбдддддбдддддбддддддддддд©
+          ЁFlagsЁ$-LenЁExpStЁFltStЁFlagsЁIntDgЁ EXPONENT  Ё   COMMON
+          цдддддедддддедддддедддддедддддедддддеддддддддддд╢
+          ЁFlagsЁ$-LenЁExpStЁFltStЁFlagsЁIntDgЁ EXPONENT  Ё   OPERAND 1
+          цдддддедддддедддддедддддедддддедддддеддддддддддд╢
+          ЁFlagsЁ$-LenЁExpStЁFltStЁFlagsЁIntDgЁ EXPONENT  Ё   OPERAND 2
+          цдддддедддддедддддедддддедддддедддддеддддддддддд╢
+          ЁFlagsЁ$-LenЁExpStЁFltStЁFlagsЁIntDgЁ EXPONENT  Ё   RESULT
+          юдддддадддддадддддадддддадддддадддддаддддддддддды
+          зддддддддддддддддддддддддддддддддддддддддддддддд©
+          Ё COMMON BUFFER                                 Ё
+          цддддддддддддддддддддддддддддддддддддддддддддддд╢
+          Ё BUFFER OPERAND 1                              Ё
+          цддддддддддддддддддддддддддддддддддддддддддддддд╢
+          Ё BUFFER OPERAND 2                              Ё
+          цддддддддддддддддддддддддддддддддддддддддддддддд╢
+          Ё BUFFER RESULT                                 Ё
+          юддддддддддддддддддддддддддддддддддддддддддддддды
+
+
+
+          Flags      BOTH  : see 2.2.1.
+          $-Len      INPUT : length of an input string
+          ExpSt      INPUT : 1st digit of the exponent
+          FltSt      INPUT : 1st digit after decimal point
+          IntDg      FORMAT: amount integer digits
+          EXPONENT   FORMAT: exponent of the assigned buffer
+
+
+
+
+
+
+
+-
+
+
+2.2.1.    Flags
+          ддддд
+
+
+          07   exponent too large
+          06   mantissa too large
+          05   overflow
+          04   multi purpose
+          03   multi purpose
+          02   multi purpose
+          01   multi purpose
+          00   sign mantissa              0 positive   1 negative
+
+
+          Flags are true, if the corresponding bit is set, except sign flags, where
+          set bits signal negative values for exponent or mantissa.
+
+          Flags are set accordingly to the occurance of the corresponding error. If
+          SystemFlags are set to MATH_ERRH, all errors are handled by the ST-Error-
+          Handler, otherwise you have to code your own error handling functions.
+
+          In conversion routines flags are set in the first byte. Math routines use
+          the fifth byte to store their flags. 
+
+          If the operand is used by a function, bit 7 must be checked. The set flag
+          signals, that the operand holds a valid number, which should not be over-
+          written by another function...
+
+          Too large input values are treated as invalid. The ST-ErrorHandler may be
+          able to set such input to the maximum possible value 999.999... E+9999 to
+          allow operations to finish calculation. 
+
+          Calculation underflow is treated as  0.0 E+0  !!!
+
+          Calculation overflow is treated as  999.999... E+9999 !!!
+
+          Invalid digits are not recognized as part of the input number. Thus, they
+          are truncated. You may pre-process the input string for invalid ASCII's.
+
+
+
+
+-
+
+
+2.3.      Basic math operations
+          ммммммммммммммммммммм
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+2.3.0.    Addition
+          дддддддд
+
+
+          OP1 > OP2
+
+          +   +   +   OP1 + OP2
+          +   -   +   OP1 - OP2
+          -   +   -   OP1 - OP2
+          -   -   -   OP1 + OP2
+
+          OP1 < OP2
+
+          +   +   +   OP1 + OP2
+          +   -   -   OP2 - OP1
+          -   +   +   OP2 - OP1
+          -   -   -   OP1 + OP2
+
+          OP1 = OP2
+
+          +   +   +   OP1 + OP2
+          +   -   +   0
+          -   +   +   0
+          -   -   -   OP1 + OP2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+2.3.1.    Subtraction
+          ддддддддддд
+
+
+          OP1 > OP2
+
+          +   +   +   OP1 - OP2
+          +   -   +   OP1 + OP2
+          -   +   -   OP1 + OP2
+          -   -   -   OP1 - OP2
+
+          OP1 < OP2
+
+          +   +   -   OP2 - OP1
+          +   -   +   OP1 + OP2
+          -   +   -   OP1 + OP2
+          -   -   +   OP2 - OP1
+
+          OP1 = OP2
+
+          +   +   +   0
+          +   -   +   OP1 + OP2
+          -   +   -   OP1 + OP2
+          -   -   +   0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+2.3.2.    Multiplication
+          дддддддддддддд
+
+
+          To multiply OP1 with OP2, the BCD-calculator uses the following algorithm
+          for speeding up the calulation time:
+
+          1. OP1 is compared against OP2. The larger operand is taken as OP1.
+
+          1. The temporary MUL buffer is cleared.
+
+          2. OP1 is added to the MUL buffer.
+
+          3. OP2 is scanned for all 1's (digits with a value of 1). If a '1' is de-
+             tected, the contents of the MUL buffer is added to RES buffer at posi-
+             tion [LSD + position of the '1']. Scan is repeated until MSD of OP2.
+
+          4. OP1 is added to MUL, so MUL now holds the value OP1 * n.
+
+          5. Steps 1 - 4 are repeated until all valid digits of the source base are
+             done.
+
+          _mulBCD needs exactly [source base - 1] plus [OP2 digits] additions for a
+          multiplication of the given operands.
+
+          This is the fastest possible multiplication method for 32-bit x86 CPUs. A
+          lengthy and detailed discussion can be found in alt.lang.asm (year: 2003)
+          in the thread "division of really huge numbers".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+2.3.3.    Division
+          дддддддд
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+x.x.x.    
+          мммммммммммдддддддддддд
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-

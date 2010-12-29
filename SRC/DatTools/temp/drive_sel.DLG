@@ -1,0 +1,547 @@
+
+100 DIALOG 5, 20, 200, 140
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Drive Selection"
+FONT 8, "Verdana"
+BEGIN
+    LTEXT           "Text", 0x0065, 10, 7, 180, 8
+    AUTOCHECKBOX    " A:", 0x0066, 10, 25, 30, 10
+    AUTOCHECKBOX    " B:", 0x0067, 10, 36, 30, 10
+    AUTOCHECKBOX    " C:", 0x0068, 45, 25, 30, 10
+    AUTOCHECKBOX    " D:", 0x0069, 45, 36, 30, 10
+    AUTOCHECKBOX    " E:", 0x006a, 45, 47, 30, 10
+    AUTOCHECKBOX    " F:", 0x006b, 45, 58, 30, 10
+    AUTOCHECKBOX    " G:", 0x006c, 45, 69, 30, 10
+    AUTOCHECKBOX    " H:", 0x006d, 45, 80, 30, 10
+    AUTOCHECKBOX    " I:", 0x006e, 85, 25, 30, 10
+    AUTOCHECKBOX    " J:", 0x006f, 85, 36, 30, 10
+    AUTOCHECKBOX    " K:", 0x0070, 85, 47, 30, 10
+    AUTOCHECKBOX    " L:", 0x0071, 85, 58, 30, 10
+    AUTOCHECKBOX    " M:", 0x0072, 85, 69, 30, 10
+    AUTOCHECKBOX    " N:", 0x0073, 85, 80, 30, 10
+    AUTOCHECKBOX    " O:", 0x0074, 125, 25, 30, 10
+    AUTOCHECKBOX    " P:", 0x0075, 125, 36, 30, 10
+    AUTOCHECKBOX    " Q:", 0x0076, 125, 47, 30, 10
+    AUTOCHECKBOX    " R:", 0x0077, 125, 58, 30, 10
+    AUTOCHECKBOX    " S:", 0x0078, 125, 69, 30, 10
+    AUTOCHECKBOX    " T:", 0x0079, 125, 80, 30, 10
+    AUTOCHECKBOX    " U:", 0x007a, 165, 25, 30, 10
+    AUTOCHECKBOX    " V:", 0x007b, 165, 36, 30, 10
+    AUTOCHECKBOX    " W:", 0x007c, 165, 47, 30, 10
+    AUTOCHECKBOX    " X:", 0x007d, 165, 58, 30, 10
+    AUTOCHECKBOX    " Y:", 0x007e, 165, 69, 30, 10
+    AUTOCHECKBOX    " Z:", 0x007f, 165, 80, 30, 10
+    PUSHBUTTON      "Select", 0x0082, 70, 120, 60, 14
+    PUSHBUTTON      "Abort", 0x0083, 5, 120, 60, 14
+    PUSHBUTTON      "Help", 0x0084, 135, 120, 60, 14
+    PUSHBUTTON      "all", 0x0085, 5, 103, 60, 12
+    PUSHBUTTON      "reload", 0x0086, 135, 103, 60, 12
+    PUSHBUTTON      "none", 0x0087, 70, 103, 60, 12
+END
+
+200 DIALOG 5, 20, 300, 232
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Select Source Folder / Field"
+FONT 8, "Verdana"
+BEGIN
+    LTEXT           "Select a source folder", 0x00c9, 5, 5, 290, 8
+    LISTBOX         0x00ca, 5, 20, 290, 175, LBS_SORT | WS_VSCROLL | 
+                    WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "Abort", 0x00cb, 5, 206, 70, 18
+    PUSHBUTTON      "Select", 0x00cc, 80, 206, 70, 18
+    PUSHBUTTON      "External", 0x00cd, 155, 206, 70, 18
+    PUSHBUTTON      "Help", 0x00ce, 230, 206, 65, 18
+END
+
+300 DIALOG 5, 20, 300, 80
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Create File"
+FONT 8, "Verdana"
+BEGIN
+    LTEXT           "Name", 0x012d, 5, 6, 50, 8
+    EDITTEXT        0x012e, 60, 5, 235, 12, ES_AUTOHSCROLL
+    LTEXT           "Size", 0x012f, 5, 26, 50, 8
+    EDITTEXT        0x0130, 60, 25, 235, 12, ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "Abort", 0x0131, 5, 56, 80, 18
+    PUSHBUTTON      "Create", 0x0132, 90, 56, 80, 18
+    PUSHBUTTON      "Create", 0x0133, 215, 56, 80, 18
+END
+
+400 DIALOG 5, 20, 350, 100
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Move Entries"
+FONT 8, "Verdana"
+BEGIN
+    LTEXT           "From entry", 0x0191, 5, 10, 50, 8
+    EDITTEXT        0x0192, 60, 8, 70, 12, ES_AUTOHSCROLL
+    LTEXT           "To entry", 0x0193, 5, 27, 50, 8
+    EDITTEXT        0x0194, 60, 25, 70, 12, ES_AUTOHSCROLL
+    LTEXT           "Amount", 0x0195, 5, 50, 50, 8
+    EDITTEXT        0x0196, 60, 48, 70, 12, ES_AUTOHSCROLL
+    AUTORADIOBUTTON "Single subfield", 0x0197, 150, 9, 100, 10, WS_GROUP | 
+                    WS_TABSTOP
+    EDITTEXT        0x0198, 315, 8, 30, 12, ES_AUTOHSCROLL
+    AUTORADIOBUTTON "Subfield range", 0x0199, 150, 26, 100, 10, WS_TABSTOP
+    LTEXT           "number", 0x019a, 255, 10, 55, 8
+    EDITTEXT        0x019b, 315, 24, 30, 12, ES_AUTOHSCROLL
+    LTEXT           "from", 0x019c, 255, 26, 55, 8
+    EDITTEXT        0x019d, 315, 39, 30, 12, ES_AUTOHSCROLL
+    LTEXT           "to", 0x019e, 255, 41, 55, 8
+    AUTORADIOBUTTON "All subfield", 0x019f, 150, 50, 100, 10, WS_TABSTOP
+    PUSHBUTTON      "Abort", 0x01a0, 5, 75, 80, 18
+    PUSHBUTTON      "Move", 0x01a1, 95, 75, 80, 18
+    PUSHBUTTON      "Help", 0x01a2, 265, 75, 80, 18
+END
+
+500 DIALOG 6, 18, 300, 85
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Copy Field Content"
+FONT 8, "Verdana"
+BEGIN
+    LTEXT           "Source", 0x01f5, 5, 9, 70, 8
+    PUSHBUTTON      "Select", 0x01f6, 80, 6, 50, 15
+    EDITTEXT        0x01f7, 135, 8, 160, 12, ES_AUTOHSCROLL
+    LTEXT           "Target", 0x01f8, 5, 33, 70, 8
+    PUSHBUTTON      "Select", 0x01f9, 80, 30, 50, 15
+    EDITTEXT        0x01fa, 135, 32, 160, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "Abort", 0x01fb, 5, 58, 80, 18
+    PUSHBUTTON      "Copy", 0x01fc, 95, 58, 80, 18
+    PUSHBUTTON      "Help", 0x01fd, 215, 58, 80, 18
+END
+
+600 DIALOG 6, 18, 325, 320
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Create Field"
+FONT 8, "Verdana"
+BEGIN
+    LTEXT           "Number", 0x025a, 10, 22, 60, 8
+    EDITTEXT        0x025b, 75, 21, 80, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "Search", 0x025c, 170, 20, 70, 14
+    LTEXT           "Name", 0x025d, 10, 42, 60, 8
+    EDITTEXT        0x025e, 75, 41, 240, 12, ES_AUTOHSCROLL
+    GROUPBOX        " Field ", 0x025f, 5, 8, 315, 55
+    EDITTEXT        0x0259, 75, 80, 80, 12, ES_AUTOHSCROLL
+    LTEXT           "Amount", 0x0260, 10, 82, 60, 8
+    EDITTEXT        0x0261, 235, 80, 80, 12, ES_AUTOHSCROLL
+    LTEXT           "Size", 0x0262, 170, 82, 60, 8
+    GROUPBOX        " Entries ", 0x0263, 5, 67, 315, 35
+    GROUPBOX        " Flags ", 0x0266, 5, 107, 315, 31
+    PUSHBUTTON      "DB", 0x0267, 10, 156, 30, 14
+    PUSHBUTTON      "DW", 0x0268, 45, 156, 30, 14
+    PUSHBUTTON      "DD", 0x0269, 80, 156, 30, 14
+    PUSHBUTTON      "DQ", 0x026a, 115, 156, 30, 14
+    PUSHBUTTON      "DO", 0x026b, 150, 156, 30, 14
+    PUSHBUTTON      "FIX", 0x026c, 185, 156, 30, 14
+    PUSHBUTTON      "$32", 0x026d, 220, 156, 30, 14
+    GROUPBOX        " Subfield Data Types ", 0x026f, 5, 143, 315, 98
+    LTEXT           "minimum", 0x0270, 10, 260, 60, 8
+    EDITTEXT        0x0271, 75, 258, 80, 12, ES_AUTOHSCROLL
+    LTEXT           "maximum", 0x0272, 170, 260, 60, 8
+    EDITTEXT        0x0273, 235, 258, 80, 12, ES_AUTOHSCROLL
+    GROUPBOX        " Field Size ", 0x0274, 5, 246, 315, 33
+    PUSHBUTTON      "Close", 0x0275, 5, 297, 75, 18
+    PUSHBUTTON      "Create", 0x0276, 85, 297, 75, 18
+    PUSHBUTTON      "View", 0x0277, 165, 297, 75, 18
+    PUSHBUTTON      "Help", 0x0278, 245, 297, 75, 18
+    AUTOCHECKBOX    "Read Only", 0x0264, 10, 120, 110, 10
+    AUTOCHECKBOX    "Encrypted", 0x0265, 170, 120, 110, 10
+    PUSHBUTTON      "clear last", 0x0279, 255, 156, 60, 14
+    PUSHBUTTON      "clear all", 0x027a, 255, 175, 60, 14
+    CTEXT           "---", 0x026e, 10, 178, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x027c, 40, 178, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x027d, 70, 178, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x027e, 100, 178, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x027f, 130, 178, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0280, 160, 178, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0281, 190, 178, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x027b, 220, 178, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0282, 10, 193, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0283, 40, 193, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0284, 70, 193, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0285, 100, 193, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0286, 130, 193, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0287, 160, 193, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0288, 190, 193, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0289, 220, 193, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x028a, 10, 208, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x028b, 40, 208, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x028c, 70, 208, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x028d, 100, 208, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x028e, 130, 208, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x028f, 160, 208, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0290, 190, 208, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0291, 220, 208, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0292, 10, 223, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0293, 40, 223, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0294, 70, 223, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0295, 100, 223, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0296, 130, 223, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0297, 160, 223, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0298, 190, 223, 30, 8, NOT WS_GROUP
+    CTEXT           "---", 0x0299, 220, 223, 30, 8, NOT WS_GROUP
+    AUTOCHECKBOX    "decimal", 0x029a, 5, 283, 75, 10
+END
+
+700 DIALOG 6, 18, 200, 125
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "About..."
+FONT 10, "Verdana"
+BEGIN
+    ICON            0x02be, 0x02bd, 92, 6, 14, 16
+    CTEXT           "ST-Open's toolbox for data field maintenance", 0x02bf, 
+                    10, 54, 180, 8
+    CONTROL         "", 0x02c0, "Static", SS_GRAYFRAME, 5, 74, 190, 17
+    CTEXT           "(C) Bernhard Schornak", 0x02c1, 10, 78, 180, 8
+    CTEXT           "DatTools 5", 0x02c2, 13, 42, 180, 8
+    CONTROL         "", 0x02c3, "Static", SS_GRAYFRAME, 5, 36, 190, 33
+    PUSHBUTTON      "OK", 0x02c4, 70, 99, 60, 18
+END
+
+800 DIALOG 6, 18, 180, 140
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Language Selection"
+FONT 10, "Verdana"
+BEGIN
+    LTEXT           "Available", 0x0321, 5, 5, 170, 8
+    AUTORADIOBUTTON "English", 0x0322, 10, 23, 70, 10, WS_GROUP | WS_TABSTOP
+    AUTORADIOBUTTON "Deutsch", 0x0323, 10, 34, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x0324, 10, 45, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x0325, 10, 56, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x0326, 10, 67, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x0327, 10, 78, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x0328, 10, 89, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x0329, 10, 100, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x032a, 100, 23, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x032b, 100, 34, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x032c, 100, 45, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x032d, 100, 56, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x032e, 100, 67, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x032f, 100, 78, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x0330, 100, 89, 70, 10, WS_TABSTOP
+    AUTORADIOBUTTON "?", 0x0331, 100, 100, 70, 10, WS_TABSTOP
+    PUSHBUTTON      "Select", 0x0332, 5, 120, 55, 14
+    PUSHBUTTON      "More...", 0x0333, 65, 120, 55, 14
+    PUSHBUTTON      "Help", 0x0334, 125, 120, 50, 14
+END
+
+900 DIALOG 6, 18, 330, 413
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Field Manager"
+FONT 8, "Lucida Console"
+BEGIN
+    GROUPBOX        " Entry ", 0x0387, 5, 6, 100, 33
+    EDITTEXT        0x0385, 21, 18, 68, 12, ES_AUTOHSCROLL
+    GROUPBOX        " Subfield ", 0x0386, 110, 6, 100, 33
+    EDITTEXT        0x0388, 126, 18, 68, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0389, 10, 59, 140, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "zero", 0x038a, 155, 59, 40, 12
+    PUSHBUTTON      "max", 0x038b, 200, 59, 40, 12
+    GROUPBOX        " Numeric Types ", 0x038c, 5, 47, 320, 33
+    EDITTEXT        0x038d, 10, 120, 310, 246, ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    AUTOCHECKBOX    "decimal", 0x038e, 220, 19, 100, 10
+    PUSHBUTTON      "clear", 0x038f, 10, 101, 70, 12
+    GROUPBOX        " Complex Types ", 0x0390, 5, 88, 320, 288
+    PUSHBUTTON      "Discard", 0x0391, 5, 387, 70, 18
+    PUSHBUTTON      "Store", 0x0392, 80, 387, 70, 18
+    PUSHBUTTON      "Help", 0x0393, 255, 387, 70, 18
+    PUSHBUTTON      "<", 0x0394, 115, 18, 10, 12
+    PUSHBUTTON      ">", 0x0395, 195, 18, 10, 12
+    PUSHBUTTON      "<", 0x0396, 10, 18, 10, 12
+    PUSHBUTTON      ">", 0x0397, 90, 18, 10, 12
+END
+
+1100 DIALOG 6, 18, 475, 285
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "OLH Topics"
+FONT 8, "Verdana"
+BEGIN
+    EDITTEXT        0x03e9, 5, 86, 230, 158, ES_AUTOHSCROLL
+    EDITTEXT        0x03ea, 240, 86, 230, 158, ES_AUTOHSCROLL
+    EDITTEXT        0x03ec, 203, 260, 32, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "<", 0x03ed, 173, 260, 12, 12
+    PUSHBUTTON      ">", 0x03ee, 188, 260, 12, 12
+    PUSHBUTTON      "<", 0x03f0, 40, 8, 12, 12
+    PUSHBUTTON      ">", 0x03f1, 55, 8, 12, 12
+    EDITTEXT        0x03f2, 70, 8, 130, 12, ES_AUTOHSCROLL
+    LTEXT           "Topic Number", 0x03eb, 240, 262, 70, 8
+    PUSHBUTTON      "<", 0x03f3, 275, 8, 12, 12
+    PUSHBUTTON      ">", 0x03f4, 290, 8, 12, 12
+    EDITTEXT        0x03f5, 305, 8, 130, 12, ES_AUTOHSCROLL
+    LTEXT           "Topic", 0x03f7, 5, 37, 60, 8
+    EDITTEXT        0x03f8, 5, 51, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x03f9, 240, 51, 230, 12, ES_AUTOHSCROLL
+    LTEXT           "Topic", 0x03fa, 240, 37, 60, 8
+    LTEXT           "Text", 0x03fb, 5, 72, 60, 8
+    LTEXT           "Text", 0x03fc, 240, 73, 60, 8
+    PUSHBUTTON      "kopieren =>", 0x03fd, 70, 70, 70, 12
+    PUSHBUTTON      "Abort", 0x03fe, 5, 257, 70, 17
+    PUSHBUTTON      "kopieren =>", 0x03ff, 70, 35, 70, 12
+    PUSHBUTTON      "Close", 0x0400, 80, 257, 70, 17
+END
+
+1000 DIALOG 6, 18, 615, 340
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "OnLine Help"
+FONT 8, "Verdana"
+BEGIN
+    EDITTEXT        0x03e9, 5, 86, 300, 214, ES_AUTOHSCROLL
+    EDITTEXT        0x03ea, 310, 86, 300, 214, ES_AUTOHSCROLL
+    EDITTEXT        0x03ec, 198, 315, 32, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "<", 0x03ed, 168, 315, 12, 12
+    PUSHBUTTON      ">", 0x03ee, 183, 315, 12, 12
+    PUSHBUTTON      "<", 0x03f0, 75, 8, 12, 12
+    PUSHBUTTON      ">", 0x03f1, 90, 8, 12, 12
+    EDITTEXT        0x03f2, 105, 8, 130, 12, ES_AUTOHSCROLL
+    LTEXT           "Help Number", 0x03eb, 235, 317, 70, 8
+    PUSHBUTTON      "<", 0x03f3, 380, 8, 12, 12
+    PUSHBUTTON      ">", 0x03f4, 395, 8, 12, 12
+    EDITTEXT        0x03f5, 410, 8, 130, 12, ES_AUTOHSCROLL
+    LTEXT           "Title", 0x03f7, 5, 37, 60, 8
+    EDITTEXT        0x03f8, 5, 51, 300, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x03f9, 310, 51, 300, 12, ES_AUTOHSCROLL
+    LTEXT           "Title", 0x03fa, 310, 37, 60, 8
+    LTEXT           "Text", 0x03fb, 5, 72, 60, 8
+    LTEXT           "Text", 0x03fc, 310, 73, 60, 8
+    PUSHBUTTON      "kopieren =>", 0x03fd, 75, 70, 70, 12
+    PUSHBUTTON      "Abort", 0x03fe, 5, 312, 70, 17
+    PUSHBUTTON      "kopieren =>", 0x03ff, 75, 35, 70, 12
+    PUSHBUTTON      "Close", 0x0400, 80, 312, 70, 17
+END
+
+1200 DIALOG 6, 18, 320, 290
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Standard Fields"
+FONT 8, "Verdana"
+BEGIN
+    GROUPBOX        " Menus + Dialogs ", 0x04b1, 5, 7, 310, 45
+    AUTOCHECKBOX    "FFFFFF12 (User)", 0x04b2, 10, 20, 100, 10
+    PUSHBUTTON      "<", 0x04b3, 280, 19, 12, 12
+    PUSHBUTTON      ">", 0x04b4, 295, 19, 12, 12
+    EDITTEXT        0x04b5, 215, 19, 60, 12, ES_AUTOHSCROLL
+    AUTOCHECKBOX    "FFFFFF13 (System)", 0x04b6, 10, 35, 100, 10
+    GROUPBOX        " Messages ", 0x04b7, 5, 57, 310, 45
+    AUTOCHECKBOX    "nsm.dat (User)", 0x04b8, 10, 70, 100, 10
+    PUSHBUTTON      "<", 0x04b9, 280, 69, 12, 12
+    PUSHBUTTON      ">", 0x04ba, 295, 69, 12, 12
+    EDITTEXT        0x04bb, 215, 69, 60, 12, ES_AUTOHSCROLL
+    AUTOCHECKBOX    "err.dat (System)", 0x04bc, 10, 85, 100, 10
+    GROUPBOX        " OnLine Help ", 0x04bd, 5, 107, 310, 45
+    AUTOCHECKBOX    "olh.dat", 0x04be, 10, 120, 100, 10
+    PUSHBUTTON      "<", 0x04bf, 280, 119, 12, 12
+    PUSHBUTTON      ">", 0x04c0, 295, 119, 12, 12
+    EDITTEXT        0x04c1, 215, 119, 60, 12, ES_AUTOHSCROLL
+    AUTOCHECKBOX    "top.dat", 0x04c2, 10, 135, 100, 10
+    EDITTEXT        0x04c3, 215, 134, 60, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "<", 0x04c4, 280, 134, 12, 12
+    PUSHBUTTON      ">", 0x04c5, 295, 134, 12, 12
+    GROUPBOX        " Spinbuttons ", 0x04c6, 5, 157, 310, 30
+    AUTOCHECKBOX    "FFFFFF01", 0x04c7, 10, 169, 100, 10
+    PUSHBUTTON      "<", 0x04c8, 280, 168, 12, 12
+    PUSHBUTTON      ">", 0x04c9, 295, 168, 12, 12
+    EDITTEXT        0x04ca, 215, 168, 60, 12, ES_AUTOHSCROLL
+    GROUPBOX        " Notebook ", 0x04cb, 5, 192, 310, 30
+    AUTOCHECKBOX    "FFFFFF00", 0x04cc, 10, 204, 100, 10
+    PUSHBUTTON      "<", 0x04cd, 280, 203, 12, 12
+    PUSHBUTTON      ">", 0x04ce, 295, 203, 12, 12
+    EDITTEXT        0x04cf, 215, 203, 60, 12, ES_AUTOHSCROLL
+    GROUPBOX        " Bitmaps ", 0x04d0, 5, 227, 310, 30
+    AUTOCHECKBOX    "FFFFFF10", 0x04d1, 10, 239, 100, 10
+    PUSHBUTTON      "<", 0x04d2, 280, 238, 12, 12
+    PUSHBUTTON      ">", 0x04d3, 295, 238, 12, 12
+    EDITTEXT        0x04d4, 215, 238, 60, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x04d5, 115, 203, 40, 12, ES_AUTOHSCROLL
+    LTEXT           "Pages", 0x04d6, 160, 204, 50, 8
+    LTEXT           "Amount", 0x04d7, 160, 240, 50, 8
+    LTEXT           "Amount", 0x04d8, 160, 170, 50, 8
+    LTEXT           "Topics", 0x04d9, 160, 136, 50, 8
+    LTEXT           "Texts", 0x04da, 160, 120, 50, 8
+    LTEXT           "Messages", 0x04db, 160, 71, 50, 8
+    LTEXT           "Amount", 0x04dc, 160, 21, 50, 8
+    PUSHBUTTON      "Abort", 0x04dd, 5, 266, 70, 18
+    PUSHBUTTON      "Create", 0x04de, 80, 266, 70, 18
+END
+
+1300 DIALOG 6, 18, 320, 290
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Standard Fields"
+FONT 8, "Verdana"
+BEGIN
+    GROUPBOX        " Menus + Dialogs ", 0x04b1, 5, 7, 310, 45
+    AUTOCHECKBOX    "FFFFFF12 (User)", 0x04b2, 10, 20, 100, 10
+    PUSHBUTTON      "<", 0x04b3, 280, 19, 12, 12
+    PUSHBUTTON      ">", 0x04b4, 295, 19, 12, 12
+    EDITTEXT        0x04b5, 215, 19, 60, 12, ES_AUTOHSCROLL
+    AUTOCHECKBOX    "FFFFFF13 (System)", 0x04b6, 10, 35, 100, 10
+    GROUPBOX        " Messages ", 0x04b7, 5, 57, 310, 45
+    AUTOCHECKBOX    "nsm.dat (User)", 0x04b8, 10, 70, 100, 10
+    PUSHBUTTON      "<", 0x04b9, 280, 69, 12, 12
+    PUSHBUTTON      ">", 0x04ba, 295, 69, 12, 12
+    EDITTEXT        0x04bb, 215, 69, 60, 12, ES_AUTOHSCROLL
+    AUTOCHECKBOX    "err.dat (System)", 0x04bc, 10, 85, 100, 10
+    GROUPBOX        " OnLine Help ", 0x04bd, 5, 107, 310, 45
+    AUTOCHECKBOX    "olh.dat", 0x04be, 10, 120, 100, 10
+    PUSHBUTTON      "<", 0x04bf, 280, 119, 12, 12
+    PUSHBUTTON      ">", 0x04c0, 295, 119, 12, 12
+    EDITTEXT        0x04c1, 215, 119, 60, 12, ES_AUTOHSCROLL
+    AUTOCHECKBOX    "top.dat", 0x04c2, 10, 135, 100, 10
+    EDITTEXT        0x04c3, 215, 134, 60, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "<", 0x04c4, 280, 134, 12, 12
+    PUSHBUTTON      ">", 0x04c5, 295, 134, 12, 12
+    GROUPBOX        " Spinbuttons ", 0x04c6, 5, 157, 310, 30
+    AUTOCHECKBOX    "FFFFFF01", 0x04c7, 10, 169, 100, 10
+    PUSHBUTTON      "<", 0x04c8, 280, 168, 12, 12
+    PUSHBUTTON      ">", 0x04c9, 295, 168, 12, 12
+    EDITTEXT        0x04ca, 215, 168, 60, 12, ES_AUTOHSCROLL
+    GROUPBOX        " Notebook ", 0x04cb, 5, 192, 310, 30
+    AUTOCHECKBOX    "FFFFFF00", 0x04cc, 10, 204, 100, 10
+    PUSHBUTTON      "<", 0x04cd, 280, 203, 12, 12
+    PUSHBUTTON      ">", 0x04ce, 295, 203, 12, 12
+    EDITTEXT        0x04cf, 215, 203, 60, 12, ES_AUTOHSCROLL
+    GROUPBOX        " Bitmaps ", 0x04d0, 5, 227, 310, 30
+    AUTOCHECKBOX    "FFFFFF10", 0x04d1, 10, 239, 100, 10
+    PUSHBUTTON      "<", 0x04d2, 280, 238, 12, 12
+    PUSHBUTTON      ">", 0x04d3, 295, 238, 12, 12
+    EDITTEXT        0x04d4, 215, 238, 60, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x04d5, 115, 203, 40, 12, ES_AUTOHSCROLL
+    LTEXT           "Pages", 0x04d6, 160, 204, 50, 8
+    LTEXT           "Amount", 0x04d7, 160, 240, 50, 8
+    LTEXT           "Amount", 0x04d8, 160, 170, 50, 8
+    LTEXT           "Topics", 0x04d9, 160, 136, 50, 8
+    LTEXT           "Texts", 0x04da, 160, 120, 50, 8
+    LTEXT           "Messages", 0x04db, 160, 71, 50, 8
+    LTEXT           "Amount", 0x04dc, 160, 21, 50, 8
+    PUSHBUTTON      "Abort", 0x04dd, 5, 266, 70, 18
+    PUSHBUTTON      "Create", 0x04de, 80, 266, 70, 18
+    PUSHBUTTON      "Help", 0x04df, 245, 266, 70, 18
+END
+
+1500 DIALOG 6, 18, 160, 100
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Notebooks"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    PUSHBUTTON      "OK", 0x0515, 60, 81, 40, 14
+    LTEXT           "Under Construction", 0x0516, 5, 7, 150, 8
+END
+
+1400 DIALOG 6, 18, 160, 100
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Bitmaps"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    PUSHBUTTON      "OK", 0x0515, 60, 81, 40, 14
+    LTEXT           "Under Construction", 0x0516, 5, 7, 150, 8
+END
+
+1600 DIALOG 6, 18, 160, 100
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Spinbuttons"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    PUSHBUTTON      "OK", 0x0515, 60, 81, 40, 14
+    LTEXT           "Under Construction", 0x0516, 5, 7, 150, 8
+END
+
+1700 DIALOG 6, 18, 240, 315
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Dialog Title"
+FONT 8, "Verdana"
+BEGIN
+    EDITTEXT        0x0641, 5, 7, 60, 12, ES_AUTOHSCROLL
+    LTEXT           "ID:", 0x0642, 90, 9, 20, 8
+    EDITTEXT        0x0643, 115, 7, 32, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0644, 5, 30, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0645, 5, 46, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0646, 5, 62, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0647, 5, 78, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0648, 5, 94, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0649, 5, 110, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x064a, 5, 126, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x064b, 5, 142, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x064c, 5, 158, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x064d, 5, 174, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x064e, 5, 190, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x064f, 5, 206, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0650, 5, 222, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0651, 5, 238, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0652, 5, 254, 230, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x0653, 5, 270, 230, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "Discard", 0x0654, 5, 291, 70, 16
+    PUSHBUTTON      "Store", 0x0655, 80, 291, 70, 16
+    PUSHBUTTON      "Help", 0x0656, 165, 291, 70, 16
+END
+
+1800 DIALOG 6, 18, 575, 379
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Dialog Title"
+FONT 8, "Verdana"
+BEGIN
+    EDITTEXT        0x06a5, 5, 47, 280, 160, ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        0x06a6, 290, 47, 280, 160, ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        0x06a7, 5, 6, 50, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "<", 0x06a9, 85, 30, 15, 12
+    PUSHBUTTON      ">", 0x06aa, 190, 30, 15, 12
+    EDITTEXT        0x06ab, 105, 30, 80, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "<", 0x06ac, 370, 30, 15, 12
+    PUSHBUTTON      ">", 0x06ad, 475, 30, 15, 12
+    EDITTEXT        0x06ae, 390, 30, 80, 12, ES_AUTOHSCROLL
+    LTEXT           "Message", 0x06a8, 5, 32, 70, 8
+    LTEXT           "Message", 0x06af, 290, 32, 70, 8
+END
+
+1900 DIALOG 6, 18, 575, 275
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Dialog Title"
+FONT 8, "Verdana"
+BEGIN
+    EDITTEXT        0x06a5, 5, 47, 280, 160, ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        0x06a6, 290, 47, 280, 160, ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        0x06a7, 5, 6, 50, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "<", 0x06a9, 85, 30, 15, 12
+    PUSHBUTTON      ">", 0x06aa, 190, 30, 15, 12
+    EDITTEXT        0x06ab, 105, 30, 80, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "<", 0x06ac, 370, 30, 15, 12
+    PUSHBUTTON      ">", 0x06ad, 475, 30, 15, 12
+    EDITTEXT        0x06ae, 390, 30, 80, 12, ES_AUTOHSCROLL
+    LTEXT           "Message", 0x06a8, 5, 32, 70, 8
+    LTEXT           "Message", 0x06af, 290, 32, 70, 8
+    LTEXT           "Button 1", 0x06b0, 5, 214, 70, 8
+    LTEXT           "Button 2", 0x06b1, 100, 215, 70, 8
+    LTEXT           "Button 3", 0x06b2, 195, 215, 70, 8
+    EDITTEXT        0x06b3, 5, 226, 90, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x06b4, 100, 226, 90, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x06b5, 195, 226, 90, 12, ES_AUTOHSCROLL
+    LTEXT           "Button 1", 0x06b6, 290, 214, 70, 8
+    LTEXT           "Button 2", 0x06b7, 385, 215, 70, 8
+    LTEXT           "Button 3", 0x06b8, 480, 215, 70, 8
+    EDITTEXT        0x06b9, 290, 226, 90, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x06ba, 385, 226, 90, 12, ES_AUTOHSCROLL
+    EDITTEXT        0x06bb, 480, 226, 90, 12, ES_AUTOHSCROLL
+    PUSHBUTTON      "Discard", 0x06bc, 5, 249, 70, 18
+    PUSHBUTTON      "Store", 0x06bd, 80, 249, 70, 18
+    PUSHBUTTON      "Help", 0x06be, 500, 249, 70, 18
+END

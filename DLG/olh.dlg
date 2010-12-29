@@ -1,0 +1,59 @@
+  /*
+  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+  บ                               O n L i n e - H e l p                                บÛ
+  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
+  บ                          *** (C) ST-Open 1979 - 2010 ***                           บÛ
+  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+  ณ OLH                          0032 - 0034 ณÛ
+  ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤูÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  */
+  OLHdlg DIALOG PRELOAD DISCARDABLE     0,   0, 310, 280
+  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+  CAPTION "On-Line Help"
+  FONT 8, "MS Shell Dlg"
+  BEGIN
+   PUSHBUTTON      "Close",   0x0800,   5, 256,  70,  16
+   PUSHBUTTON      "Topic",   0x0801,  80, 256,  70,  16
+   LTEXT           "Title",   0x0802,   5,  10, 300,  10
+   EDITTEXT                   0x0803,   5,  30, 300, 214, ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN
+   EDITTEXT                   0x0804, 155, 258, 150,  13, ES_AUTOHSCROLL
+  END
+  /*
+  ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+  ณ Topics                       0035 - 0036 ณÛ
+  ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤูÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  */
+  TOPdlg DIALOG PRELOAD DISCARDABLE     0,   0, 240, 200
+  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+  CAPTION "Topics"
+  FONT 8, "MS Shell Dlg"
+  BEGIN
+   PUSHBUTTON     " O K ",    0x080A,  80, 174,  80,  18
+   EDITTEXT                   0x0809,   5,   6, 230, 158, ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN
+  END
+  /*
+  ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+  ณ Title                        0037 - 003A ณÛ
+  ณ Topic                        003C - 003F ณÛ
+  ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤูÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  */
+  OLHnew DIALOG PRELOAD DISCARDABLE     0,   0, 240,  75
+  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+  CAPTION "?"
+  FONT 8, "MS Shell Dlg"
+  BEGIN
+   PUSHBUTTON     "",         0x0812,   5,  51, 110,  16
+   PUSHBUTTON     "",         0x0813, 125,  51, 110,  16
+   LTEXT          "",         0x0811,   5,   6, 230,  12
+   EDITTEXT                   0x0814,   5,  25, 230,  14, ES_AUTOHSCROLL
+  END
+  /*
+  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+  */

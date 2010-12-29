@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="ST-Open Tutorial: SecSys intern" />
+ <meta name="Description" content="ST-Open Tutorial: SecSys intern" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, Intelligent Design" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>SecSys intern</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="../../pics/secsys.png" alt="SecSys Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0806.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0F00.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100">
+<h1>SecSys intern</h1>
+Eine ern&uuml;chternde Bemerkung zu Beginn dieser Abhandlung sei mir erlaubt:
+<div class="crlf1"></div>
+<i>Jedes mit einer Maschine verschl&uuml;selte Dokument l&auml;sst mit entsprechendem
+ Aufwand von anderen Maschinen entschl&uuml;sseln.</i>
+<div class="crlf1"></div>
+Diesen Satz sollten Sie im Zusammenhang mit angeblich "sicheren" Algorithmen immer im
+ Hinterkopf behalten. Auch das von ST-Open entwickelte Sicherheitssystem SecSys ist
+ von dieser Regel nicht ausgenommen. Sobald Sie ein mit SecSys verschl&uuml;sseltes
+ Dokument &uuml;ber ein Netzwerk versenden, kann jeder potenzielle Angreifer sich in
+ den Datenstrom einklinken und Kopien der &uuml;bertragenen Pakete auf seinem Rechner
+ speichern, um sich dann beliebig lange damit besch&auml;ftigen zu k&ouml;nnen. Somit
+ ist es nur eine Frage der investierten Zeit und des betriebenen Aufwands, bis dieses
+ vermeintlich "sichere" Dokument ihrem potenziellen Angreifer als Klartext vorliegt.
+<div class="crlf1"></div>
+Andererseits ist SecSys nicht mehr oder weniger sicher als zum Beispiel AES, das mit
+ recht simplen Methoden (siehe "Cache-timing attacks on AES" von Daniel J. Bernstein)
+ geknackt werden kann. Der einzige Unterschied zwischen beiden Methoden ist die zur
+ Ver- und Entschl&uuml;sselung ben&ouml;tigte Zeit. Dieser liegt bei der schnellsten
+ Implementierung von AES bei einem Faktor von etwa tausend. Selbstverst&auml;ndlich
+ ist SecSys bei vergleichbarer Sicherheit mindestens tausend Mal schneller als AES.
+<div class="crlf2"></div>
+<h2>Verschl&uuml;sselung</h2>
+Zur Verschl&uuml;sselung Ihrer Daten kommt die Funktion ssENC() zum Einsatz. Bei der
+ Vorbereitung wird die Adresse des Meisterschl&uuml;ssels nach <i>ESI</i> kopiert und
+ der Inhalt der Variablen <i>SS_NXT</i> zu dieser Adresse addiert. <i>ESI</i> zeigt
+ somit auf das aktuelle Byte im Schl&uuml;ssel, das die Informationen &uuml;ber die
+ bei der Verschl&uuml;sselung des n&auml;chsten Zeichens angewandten Manipulationen
+ enth&auml;lt. Das Register <i>EDI</i> wird mit der als Parameter 1 &uuml;bergebenen
+ Adresse des zu Verschl&uuml;sselung anstehenden Textes geladen. Register <i>EBP</i>
+ wird auf die Anfangsadresse des Schl&uuml;ssels gesetzt. Es dient der Korrektur des
+ Registers <i>ESI</i>, das beim Inkrementieren auch &uuml;ber das Schl&uuml;sselende
+ hinaus geraten kann. Alle anderen Register enthalten tempor&auml;re Daten, die sich
+ bei jedem Schleifendurchlauf &auml;ndern.
+<div class="crlf1"></div>
+Nach dem Laden der Registerinhalte wird nach dem Ende der Zeichenkette gesucht, wobei
+ der Inhalt des Registers <i>EDI</i> automatisch inkrementiert wird. <i>EDI</i> zeigt
+ demnach immer auf das letzte Zeichen der Zeichenkette, wenn die abschliessende Null
+ gefunden wurde. Um schnelle Kopieraktionen zu unterst&uuml;tzen, wird anschliessend
+ die Zeichenkette mit Nullen auf eine durch 16 teilbare Gr&ouml;sse aufgef&uuml;llt.
+<div class="crlf1"></div>
+Zur Verschl&uuml;sselung wird nun jeweils ein Zeichen aus dem Schl&uuml;ssel und ein
+ Zeichen aus der Zeichenkette gelesen, wobei dann das Zeichen aus dem Schl&uuml;ssel
+ bestimmt, welchen Manipulationen das Zeichen der Zeichenkette unterzogen wird. Nach
+ erfolgter Manipulation wird das verschl&uuml;sselte Zeichen dann unter der Adresse
+ <i>08[EDI]</i> abgelegt, da wir f&uuml;r die zum Entschl&uuml;sseln erforderlichen
+ Informationen acht Byte am Anfang der verschl&uuml;sselten Zeichenkette reservieren
+ m&uuml;ssen. F&uuml;r den n&auml;chsten Schleifendurchlauf wird dann <i>ESI</i>
+ inkrementiert, w&auml;hrend <i>EDI</i> und der Schleifenz&auml;hler <i>00[ESP]</i>
+ dekrementiert werden. Ist der Schleifenz&auml;hler auf Null heruntergez&auml;hlt,
+ wird die Anfangsadresse des Schl&uuml;ssels von <i>ESI</i> subtrahiert, das heisst,
+ <i>ESI</i> enth&auml;lt den Abstand des letzten zur Verschl&uuml;sselung benutzten
+ Zeichens. Die L&auml;nge der Zeichenkette und der Inhalt von <i>ESI</i> werden nun
+ in die ersten beiden Doppelworte am Anfang der Zeichenkette geschrieben. Der Inhalt
+ des Registers <i>ESI</i> wird nochmals inkrementiert und in der globalen Variablen
+ <i>SS_NXT</i> gespeichert. Damit ist die Verschl&uuml;sselung abgeschlossen und die
+ Funktion ssENC() kehrt zum Aufrufer zur&uuml;ck.
+<div class="crlf1"></div>
+Die beschriebenen Vorg&auml;nge noch einmal in graphischer Form:
+<div class="crlf1"></div>
+<div class="box100"><img src="../../pics/crypt.png" alt="SecSys" width="400" height="200" border="0" title="SecSys" /></div>
+Alles klar?
+<div class="crlf1"></div>
+Die Entschl&uuml;sselung erfolgt in umgekehrter Reihenfolge, wobei die beiden zur
+ Entschl&uuml;sselung der Zeichenkette erforderlichen Doppelworte entfernt werden.
+<div class="crlf2"></div>
+<h2>Algorithmus</h2>
+In der aktuellen Version kommt ein recht simpler Algorithmus zur Anwendung, der dem
+ urspr&uuml;nglich geplanten Algorithmus in allen Belangen unterlegen ist. Das liegt
+ daran, dass f&uuml;r den eigentlich angedachten Algorithmus der sp&auml;rliche
+ Registersatz der X86-Architektur zu klein ist, um alle erforderlichen Parameter in
+ Registern vorzuhalten. Da ST-Open's SecSys auf Geschwindigkeit optimiert ist, wurde
+ ein Ausweichen auf langsame Speicherzugriffe nicht ernsthaft erwogen, daher steht
+ der bessere Algorithmus erst in der 64 Bit-Version zur Verf&uuml;gung.
+<div class="crlf1"></div>
+Der momentan verwendete Algorithmus liest jeweils ein Zeichen aus dem Schl&uuml;ssel
+ nach <i>BL</i> und kopiert dessen Inhalt nach <i>CL</i> und <i>DL</i>. Das aus der
+ Zeichenkette stammende Zeichen wird in das Register <i>AL</i> eingelesen. Nach dem
+ Setzen der vier Register werden <i>CL</i> per <i>andb $0x07,%cl</i> und <i>DL</i>
+ per <i>shrb $0x05,%dl</i> jeweils auf den Wertebereich von 0x00 bis 0x07 gebracht.
+ Die wirkliche Ver- oder Entschl&uuml;sselung erfolgt &uuml;ber sechs aufeinander
+folgende Manipulationen
+<div class="box100q"><pre>
+Verschluesselung        Entschluesselung
+
+rolb %cl,%al            rorb %cl,%al
+addb %cl,%bl            addb %cl,%bl
+addb %dl,%bl            addb %dl,%bl
+movb %dl,%cl            movb %dl,%cl
+xorb %bl,%al            xorb %bl,%al
+rolb %cl,%al            rorb %cl,%al
+</pre></div>
+die in vier Taktzyklen abgearbeitet werden. Es kommen nur Addition, Rotation und XOR
+ zum Einsatz, da diese reversibel sind. Es bringt nichts, wenn man seine m&uuml;hsam
+ verschl&uuml;sselten Texte nicht mehr entschl&uuml;sseln kann...
+<div class="crlf2"></div>
+<h2>Zur Sicherheit</h2>
+Auch wenn der verwendete Algorithmus reichlich simpel ist, kann die Sicherheit der
+ damit verschl&uuml;sselten Texte jederzeit mit AES konkurrieren. SecSys arbeitet in
+ seiner derzeitigen (und jeder zuk&uuml;nftigen) Implementierung nicht mit Tabellen,
+ sondern mit sequentiellen Speicherzugriffen. Ebenso werden zur Verschl&uuml;sselung
+ ausschliesslich Register-Register-Operationen eingesetzt, die prinzipbedingt immer
+ in vier Taktzyklen - keinem mehr und keinem weniger - ausgef&uuml;hrt werden. Daher
+ ist es unm&ouml;glich, dass die zur Verschl&uuml;sselung ben&ouml;tigte Zeit jemals
+ auf eine bei der Verschl&uuml;sselung angewandte Manipulation r&uuml;ckf&uuml;hrbar
+ ist. Die Verschl&uuml;sselung kann sehr wohl geknackt werden, was jedoch einen sehr
+ grossen Aufwand erfordert.
+<div class="crlf1"></div>
+Der zweite, entscheidende Vorteil ist die Schl&uuml;ssell&auml;nge von 4.096 Byte
+ und die Verwendung dieses Schl&uuml;ssels als eine Art endloser Kette von Zeichen.
+ Die Verwendung als Endloskette sorgt zum Beispiel daf&uuml;r, dass zwei aufeinander
+ folgende Verschl&uuml;sselungsdurchl&auml;ufe mit identischen Zeichenketten niemals
+ identische Ausgaben erzeugen, es sei denn, dass die L&auml;nge dieser Zeichenkette
+ exakt 4.096 Byte (oder ein Vielfaches davon) ist. Selbst wenn einzelne Buchstaben
+ in einer Zeichenkette mehrfach vorkommen, ist es sehr unwahrscheinlich, dass sie
+ nach der Verschl&uuml;sselung noch mit identischen Zeichen dargestellt werden. Ein
+ potenzieller Angreifer hat es mit SecSys demnach etwas schwerer als mit AES.
+<div class="crlf1"></div>
+F&uuml;r alle Sicherheitsfanatiker besteht zudem die M&ouml;glichkeit, jeden ihrer
+ zu verschl&uuml;sselnden Texte vor der Verschl&uuml;sselung durch einen Scrambler
+ laufen zu lassen, der die Buchstaben des Textes nach einer reversiblen Vorschrift
+ vertauscht. Ein derart behandelter Text d&uuml;rfte selbst den allerh&ouml;chsten
+ Anspr&uuml;chen an die Sicherheit gen&uuml;gen.
+<div class="crlf2"></div>
+<h2>Zukunft</h2>
+Der urspr&uuml;glich geplante Algorithmus verwendet zur Verschl&uuml;sselung sowohl
+ die Zeichen des Schl&uuml;ssels als auch die Zeichen des zu verschl&uuml;sselnden
+ Textes. Diese werden, abh&auml;ngig von den Anweisungen im aktuellen Zeichen des
+ Schl&uuml;ssel, zum aktuell zu verschl&uuml;sselnden Zeichen addiert oder davon
+ subtrahiert. Diese Art der Verschl&uuml;sselung ist wesentlich sicherer als die
+ zur Zeit praktizierte, setzt jedoch wesentlich mehr Register voraus. Die leider nur
+ im 64 Bit-Modus verf&uuml;gbaren zus&auml;tzlichen acht Register reichen f&uuml;r
+ diese Aufgabe aus, so dass die f&uuml;r <a href="../../../ideos/index.htm">IDEOS</a>
+ zu erstellende 64 Bit-Version des Sicherheitssystems wesentlich sicherer als AES
+ sein wird.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0806.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0F00.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>
