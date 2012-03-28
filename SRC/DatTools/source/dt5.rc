@@ -1,156 +1,139 @@
   /*
-  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-  º                      R E S O U R C E   D E F I N I T I O N S                       ºÛ
-  ºÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄºÛ
-  º                          *** (C) ST-Open 1979 - 2011 ***                           ºÛ
-  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼Û
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-  ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-  º       THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE        ºÛ
-  ºÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄºÛ
-  º You may copy and distribute this file as often as you want, but recipients are not ºÛ
-  º allowed to pay anything for any copy of this file or its content. It isn't allowed ºÛ
-  º to abuse its copyrighted content or introduced techniques for commercial purposes. ºÛ
-  º Whatever is derived from this file or its content must be freely available without ºÛ
-  º charge.                                                                            ºÛ
-  º                                                                                    ºÛ
-  º You are free to modify the content of this file if you want to. However, derivates ºÛ
-  º of the content of this file or parts of it *still* are subject to the terms of the ºÛ
-  º FT4FP license. Recipients neither are allowed to pay anything for the original nor ºÛ
-  º for altered or derived replica.                                                    ºÛ
-  ºÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄºÛ
-  º       FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!        ºÛ
-  ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼Û
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       D a t T o o l s   M E N U    (C)  ST-Open 2012
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     You may copy and distribute this file as often as you want, but recipients are not
+     allowed to pay anything for any copy of this file or its content. It isn't allowed
+     to abuse its copyrighted content or introduced techniques for commercial purposes.
+     Whatever is derived from this file or its content must be freely available without
+     charge.
+
+     You are free to modify the content of this file if you want to. However, derivates
+     of the content of this file or parts of it *still* are subject to the terms of the
+     FT4FP license. Recipients neither are allowed to pay anything for the original nor
+     for altered or derived replica.
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   #include <windows.h>
   #include <commctrl.h>
   #include "dt5.dlg"
   #include "..\\..\\..\\DLG\\fls.dlg"
   #include "..\\..\\..\\DLG\\msg.dlg"
+  #include "..\\..\\..\\DLG\\mmm.dlg"
   #include "..\\..\\..\\DLG\\olh.dlg"
   /*
-  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-  ³                                     RESOURCES                                      ³Û
-  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                        RESOURCES
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   0x1000 ICON   "..\\auxi\\dtool.ico"
   /*
-  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-  ³                                     MAIN MENU                                      ³Û
-  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-   POPUP      "Language"
-    BEGIN
-     MENUITEM "English",    0x102B
-     MENUITEM "Deutsch",    0x102C
-     MENUITEM "",           0x102D
-     MENUITEM "",           0x102E
-     MENUITEM "",           0x102F
-     MENUITEM "",           0x1030
-     MENUITEM "",           0x1031
-     MENUITEM "",           0x1032
-     MENUITEM "",           0x1033
-     MENUITEM "",           0x1034
-     MENUITEM "",           0x1035
-     MENUITEM "",           0x1036
-     MENUITEM "",           0x1037
-     MENUITEM "",           0x1038
-     MENUITEM "",           0x1039
-     MENUITEM "",           0x103A
-     END
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                        MAIN MENU
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   STmenu MENU PRELOAD DISCARDABLE
-  BEGIN
-   POPUP      "Program"
    BEGIN
-    MENUITEM "Language",    0x102B
-    MENUITEM SEPARATOR
-    MENUITEM  "Sec LogIn",  0x1010
-    MENUITEM SEPARATOR
-    MENUITEM  "Exit\tF3",   0x1011               /* ID 0x1012 is used as "WM_START"... */
-   END
-   POPUP      "Select"
-   BEGIN
-    MENUITEM  "Folder",     0x1013
-    MENUITEM  "Field",      0x1014
-    MENUITEM  "Drives",     0x1015
-    END
-   POPUP      "MakeDat"
-   BEGIN
-    MENUITEM  "New File",   0x1016
-    MENUITEM  "New Field",  0x1017
-    MENUITEM SEPARATOR
-    MENUITEM  "View Field", 0x101A
-    MENUITEM SEPARATOR
-    MENUITEM  "Move Entr.", 0x1018
-    MENUITEM  "Copy Field", 0x1019
-   END
-   POPUP      "Tools"
-   BEGIN
-    MENUITEM  "language",   0x1021
-    MENUITEM SEPARATOR
-    MENUITEM  "OLH",        0x101B
-    MENUITEM  "topics",     0x101C
-    MENUITEM SEPARATOR
-    MENUITEM  "mnu + dlg",  0x101D
-    MENUITEM  "messages",   0x101E
-    MENUITEM SEPARATOR
-    MENUITEM  "sys dlgs",   0x101F
-    MENUITEM  "ErrorMgr",   0x1020
-   END
-   POPUP      "Standard"
-   BEGIN
-    MENUITEM  "create all", 0x1022
-    MENUITEM  "spinbtn",    0x1023
-    MENUITEM  "bitmaps",    0x1024
-    MENUITEM  "notebooks",  0x1025
-    MENUITEM  "?",          0x1026
-    MENUITEM  "?",          0x1027
-   END
-   POPUP      "Help"
-   BEGIN
-    MENUITEM  "OnLineHelp", 0x1028
-    MENUITEM  "DatTools",   0x1029
-    MENUITEM SEPARATOR
-    MENUITEM  "About...",   0x102A
-   END
-  END
+    POPUP      "Program"                            /* 00 > program                     */
+     BEGIN
+      POPUP   "Language"                            /* 01 > language                    */
+       BEGIN
+        MENUITEM "English",    0x102C               /* 02   English                     */
+        MENUITEM "Deutsch",    0x102D               /* 03   Deutsch                     */
+        MENUITEM " ",          0x102E               /* 04   Lang 02                     */
+        MENUITEM " ",          0x102F               /* 05   Lang 03                     */
+        MENUITEM " ",          0x1030               /* 06   Lang 04                     */
+        MENUITEM " ",          0x1031               /* 07   Lang 05                     */
+        MENUITEM " ",          0x1032               /* 08   Lang 06                     */
+        MENUITEM " ",          0x1033               /* 09   Lang 07                     */
+        MENUITEM " ",          0x1034               /* 0A   Lang 08                     */
+        MENUITEM " ",          0x1035               /* 0B   Lang 09                     */
+        MENUITEM " ",          0x1036               /* 0C   Lang 0A                     */
+        MENUITEM " ",          0x1037               /* 0D   Lang 0B                     */
+        MENUITEM " ",          0x1038               /* 0E   Lang 0C                     */
+        MENUITEM " ",          0x1039               /* 0F   Lang 0D                     */
+        MENUITEM " ",          0x103A               /* 10   Lang 0E                     */
+        MENUITEM " ",          0x103B               /* 11   Lang 0F                     */
+       END                                          /* 12 <                             */
+      MENUITEM SEPARATOR                            /* 13   --------                    */
+      MENUITEM  "Sec LogIn",   0x1010               /* 14   SecSys                      */
+      MENUITEM SEPARATOR                            /* 15   --------                    */
+      MENUITEM  "F3 Exit",     0x1011               /* I6   Exit (0x1012 => WM_START)   */
+     END                                            /* 17 <                             */
+    POPUP      "Select"                             /* 18 > Select                      */
+     BEGIN
+      MENUITEM  "Folder",      0x1013               /* 19   Programs                    */
+      MENUITEM  "Field",       0x1014               /* 1A   Fields                      */
+      MENUITEM  "Drives",      0x1015               /* 1B   Drive Mask                  */
+     END                                            /* 1C <                             */
+    POPUP      "MakeDat"                            /* 1D >                             */
+     BEGIN
+      MENUITEM  "New Fi&le",   0x1016               /* 1E   Create File                 */
+      MENUITEM  "New &Field",  0x1017               /* 1F   Create Field                */
+      MENUITEM SEPARATOR                            /* 20   --------                    */
+      MENUITEM  "View Fiel&d", 0x101A               /* 21   Edit Field                  */
+      MENUITEM SEPARATOR                            /* 22   --------                    */
+      MENUITEM  "&Move Entr.", 0x1018               /* 23   Move Entries                */
+      MENUITEM  "Co&py Field", 0x1019               /* 24   Clone Field                 */
+     END                                            /* 25 <                             */
+    POPUP      "Tools"                              /* 26 > Tools                       */
+     BEGIN
+      MENUITEM  "l&anguage",   0x1021               /* 27   Languages                   */
+      MENUITEM SEPARATOR                            /* 28   --------                    */
+      MENUITEM  "&OLH",        0x101B               /* 29   OLH                         */
+      MENUITEM  "&topics",     0x101C               /* 2A   Topics                      */
+      MENUITEM SEPARATOR                            /* 2B   --------                    */
+      MENUITEM  "&mnu + dlg",  0x101D               /* 2C   Menu+Dialogs                */
+      MENUITEM  "m&essages",   0x101E               /* 2D   Messages                    */
+      MENUITEM SEPARATOR                            /* 2E   --------                    */
+      MENUITEM  "&Sys dlgs",   0x101F               /* 2F   System Dialogs              */
+      MENUITEM  "E&rrorMgr",   0x1020               /* 30   ErrorHandler                */
+     END                                            /* 31 <                             */
+    POPUP      "Standard"                           /* 32 > Standard                    */
+     BEGIN
+      MENUITEM  "create all",  0x1022               /* 33   Create All                  */
+      MENUITEM  "spinbtn",     0x1023               /* 34   Spinbuttons                 */
+      MENUITEM  "bitmaps",     0x1024               /* 35   Bitmaps                     */
+      MENUITEM  "notebooks",   0x1025               /* 36   Notebooks                   */
+      MENUITEM  "?",           0x1026               /* 37   reserved                    */
+      MENUITEM  "?",           0x1027               /* 38   reserved                    */
+     END                                            /* 39 <                             */
+    POPUP      "Help"                               /* 3A > Help                        */
+     BEGIN
+      MENUITEM  "F1 OLH",      0x1028               /* 3B   OnLineHelp                  */
+      MENUITEM  "F2 DatTools", 0x1029               /* 3C   DatTools                    */
+      MENUITEM SEPARATOR                            /* 3D   --------                    */
+      MENUITEM  "About...",    0x102A               /* 3E   About                       */
+     END                                            /* 3F <                             */
+   END                                              /* 40 < menu end                    */
   /*
-  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-  ³                                 ACCELERATOR TABLE                                  ³Û
-  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                    ACCELERATOR TABLE
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   STaccl   ACCELERATORS
   BEGIN
-   "a",    0x1016
-   "d",    0x1019
-   "e",    0x1017
-   "f",    0x1014
-   "h",    0x1006
-   "i",    0x1018
-   "l",    0x1002
-   "m",    0x1003
-   "n",    0x1021
-   "o",    0x1004
-   "p",    0x1000
-   "r",    0x1015
-   "s",    0x1005
-   "t",    0x101A
-   "u",    0x1013
-   VK_F1,  0x1028,    VIRTKEY
-   VK_F2,  0x1029,    VIRTKEY
-   VK_F3,  0x1011,    VIRTKEY
-   VK_F4,  0x101B,    VIRTKEY
-   VK_F5,  0x101C,    VIRTKEY
-   VK_F6,  0x101D,    VIRTKEY
-   VK_F7,  0x101E,    VIRTKEY
-   VK_F12, 0x102A,    VIRTKEY
+   "a",    0x1021                # TOOLS     language
+   "d",    0x101A                # MakeDat   view field
+   "e",    0x101E                # TOOLS     messages
+   "f",    0x1017                # MakeDat   new  field
+   "i",    0x1018                # MakeDat   move entries
+   "l",    0x1016                #           new file
+   "o",    0x101B                # TOOLS     OLH
+   "p",    0x1019                # MakeDat   copy field
+   "m",    0x101D                # TOOLS     menu+dialog
+   "r",    0x1020                #           ErrMgr
+   "s",    0x101F                #           SysDlg
+   "t",    0x101C                #           topics
+   "y",    0x1020                #           SysMsg
+   VK_F1,  0x1028,    VIRTKEY    # Help OLH
+   VK_F2,  0x1029,    VIRTKEY    #      DatTools
+   VK_F3,  0x1011,    VIRTKEY    # Exit
   END
   /*
-  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */

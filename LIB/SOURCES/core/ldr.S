@@ -1,1479 +1,1321 @@
           /*
-           Use font 'DOS 850' or 'IBM 850' on non-OS/2 machines to display this file properly!
-          ЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ
-          К                                 S T - L O A D E R                                  Кл
-          КФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФКл
-          К                          *** (C) ST-Open 1979 - 2010 ***                           Кл
-          ШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          ЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ
-          К       THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE        Кл
-          КФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФКл
-          К You may copy and distribute this file as often as you want, but recipients are not Кл
-          К allowed to pay anything for any copy of this file or its content. It isn't allowed Кл
-          К to remove parts of this file or add third party content. It isn't allowed to abuse Кл
-          К the copyrighted content or introduced techniques for commercial purposes. Whatever Кл
-          К is derived from this file and its content must be freely available without charge. Кл
-          К You are free to modify the content of this file if you want to. However, derivates Кл
-          К of the content of this file or parts of it *still* are subject to the terms of the Кл
-          К FT4FP license. Recipients neither are allowed to pay anything for the original nor Кл
-          К for altered or derived replica.                                                    Кл
-          КФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФКл
-          К       FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!        Кл
-          ШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                   S T - L O A D E R   (C) ST-Open 2012
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE!
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            You may copy and distribute this file as often as you want, but recipients are not
+            allowed to pay anything for any copy of this file or its content. It isn't allowed
+            to abuse its copyrighted content or introduced techniques for commercial purposes.
+            Whatever is derived from this file or its content must be freely available without
+            charge.
+
+            You are free to modify the content of this file if you want to. However, derivates
+            of the content of this file or parts of it *still* are subject to the terms of the
+            FT4FP license. Recipients neither are allowed to pay anything for the original nor
+            for altered or derived replica.
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       FREE THOUGHT FOR FREE PEOPLE: KEEP CASH AWAY FROM KNOWLEDGE!
+            ==================================================================================
           */
           .include "..\\..\\..\\include\\yasm.h"
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          SAMPLES   FOR AVX Version
+
+          testl     $0x10000000,         %ecx               # AVX   avail?
+          testl     $0x00000200,         %ecx               # SSSE3 avail?
+          movl      $0x80000001,         %eax               # function 80000001
+          cpuid
+          testl     $0x00100000,         %ecx               # TBM   avail?
+          testl     $0x00010000,         %ecx               # FMA4  avail?
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            VERSION: 8.1.0.
+
+            DATE   : 2012-02-28
+
+            - A distributor for all complex functions was added.
+            - Loader Table (LDT) expanded to 65,536 byte, providing 2,048 MemHandles.
+            - System fields formerly stored in SYST are moved to DATA.
+            - Loaded Files List (LDF) changed from mandatory to obliatory.
+            - Buffer _TST changed from mandatory to obligatory.
+            - The 'dynamic unloading' feature was removed.
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          .section .rdata, "dr"
-          .p2align 4,0x00
-    jtclr:.quad    cl0                       # invalid
-          .quad    cl1                       # byte
-          .quad    cl2                       # word
-          .quad    cl3                       # dword
-          .quad    cl4                       # qword
-          .quad    cl5                       # oword
-          .quad    cl6                       # block
-          .quad    cl3                       # $32
-     LC00:.long    0x2E307973                # FFFFFF00 = sy0.dat
-          .long    0x2E317973                #       01 = sy1.dat
-          .long    0x2E327973                #       02 = sy2.dat
-          .long    0x2E337973                #       03 = sy3.dat
-          .long    0x2E347973                #       04 = sy4.dat
-          .long    0x2E6D736E                #       05 = nsm.dat
-          .long    0x2E6C666C                #       06 = lfl.dat
-          .long    0x2E736C66                #       07 = fls.dat
-          .long    0x2E387973                #       08 = sy8.dat
-          .long    0x2E727265                #       09 = err.dat
-          .long    0x2E706F74                #       0A = top.dat
-          .long    0x2E706C68                #       0B = hlp.dat
-          .long    0x2E727473                #       0C = str.dat
-          .long    0x2E747663                #       0D = cvt.dat
-          .long    0x2E6D756E                #       0E = num.dat
-          .long    0x2E3F3F3F                #       0F = ???.dat = BMM!
-     LC01:.ascii   "..\\syst\\num.dat"
-          .byte    0x00
-     LC02:.ascii   "..\\syst\\cvt.dat"
-          .byte    0x00
-     LC03:.ascii   "..\\syst\\str.dat"
-          .byte    0x00
-     LC04:.ascii   "CPU is too old!"
-          .byte    0x00, 0x00, 0x00
+          .section  .rdata, "dr"
+          .p2align  4,,15
+    jtclr:.quad     cl0                                     # invalid
+          .quad     cl1                                     # byte
+          .quad     cl2                                     # word
+          .quad     cl3                                     # dword
+          .quad     cl4                                     # qword
+          .quad     cl5                                     # oword
+          .quad     cl6                                     # block
+          .quad     cl3                                     # $32
+     LC00:.ascii    "..\\data\\FFFFFFFE"
+          .quad     0x00, 0x00
+     LC03:.ascii    "No SSE2 support!"
+          .quad     0x00, 0x00
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
           .text
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDinit  initialize Loader                                                          Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г->       nothing                                                                    Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- RAX   0000 0000 0000 0000   okay                                                 Гл
-          Г         0000 0000 0000 00XX   terminate program - loader is not available!         Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          .p2align 4,,15
-          .globl   _LDinit
-          .def     _LDinit; .scl 2; .type 32; .endef
-  _LDinit:subq     $0xB8,%rsp
-          nop
-          nop
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9, 0x98(%rsp)
-          movq     %r8, 0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
+          .p2align  4,,15
+          .globl    _LDinit
+          .def      _LDinit; .scl 2; .type 32; .endef
+  _LDinit:movq      $ldINIT,             %rax
+          jmp       0f
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г test CPU capabilities  Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          pushf                              # no direct access to EFLAGS...
-          movl     0x00(%rsp),%eax           # EAX = EFLAGS
-          xorl     $0x00200000,0x00(%rsp)    # toggle ID
-          popf                               # no direct access to EFLAGS...
-          pushf                              # no direct access to EFLAGS...
-          cmpl     %eax,0x00(%rsp)           # ID changed?
-          popq     %rbx                      # no direct access to EFLAGS...
-          je       R07
-          movl     $0x00000001,%eax          # function 00000001
+          .p2align  4,,15
+          .globl    _LDreq
+          .def      _LDreq; .scl 2; .type 32; .endef
+   _LDreq:movq      $ldREQ,              %rax
+          jmp       0f
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+          .globl    _LDchg
+          .def      _LDchg; .scl 2; .type 32; .endef
+   _LDchg:movq      $ldCHG,              %rax
+          jmp       0f
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+          .globl    _LDfre
+          .def      _LDfre; .scl 2; .type 32; .endef
+   _LDfre:movq      $ldFRE,              %rax
+          jmp       0f
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+          .globl    _LDexit
+          .def      _LDexit; .scl 2; .type 32; .endef
+  _LDexit:movq      $ldEXIT,             %rax
+          jmp       0f
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+          .globl    _LDclr
+          .def      _LDclr; .scl 2; .type 32; .endef
+   _LDclr:movq      $ldCLR,              %rax
+          jmp       0f
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            DISTRIBUTOR
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+        0:subq      $0xF8,               %rsp
+          movdqa    %xmm4,               0x60(%rsp)
+          movdqa    %xmm5,               0x70(%rsp)
+          movq      %rbp,                0x88(%rsp)
+          movq      %rsi,                0x90(%rsp)
+          movq      %rdi,                0x98(%rsp)
+          movq      %rbx,                0xA0(%rsp)
+          movq      %r15,                0xA8(%rsp)
+          movq      %r14,                0xB0(%rsp)
+          movq      %r13,                0xB8(%rsp)
+          movq      %r12,                0xC0(%rsp)
+          movq      %r11,                0xC8(%rsp)
+          movq      %r10,                0xD0(%rsp)
+          movq      %r9,                 0xD8(%rsp)
+          movq      %r8,                 0xE0(%rsp)
+          movq      %rdx,                0xE8(%rsp)
+          movq      %rcx,                0xF0(%rsp)
+          movq      _BNR(%rip),          %r14
+          movq      _BMM(%rip),          %r15
+          movq      %rcx,                %r12
+          testq     %r14,                %r14
+          je        1f
+          movl      SYS_FL(%r14),        %r13d
+        1:jmp       *%rax
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDinit   initialize Loader
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            ->       nothing
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   0000 0000   okay
+                     0000 00XX   terminate program - loader is not available!
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+   ldINIT:testq     %r15,                %r15               # BMM present?
+          jne       XIZ
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            test CPU capabilities
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          pushf
+          movq      0x00(%rsp),          %r11               # EAX = EFLAGS
+          xorq      $0x00200000,         0x00(%rsp)         # toggle ID
+          popf
+          pushf
+          popq      %r11                                    # restore RSP
+          cmpq      %r10,                %r11               # ID changed?
+          je        R07
+          movl      $0x00000001,         %eax               # function 00000001
           cpuid
-          testl    $0x04000000,%edx          # SSE2  avail?
-          je       R07
-          testl    $0x00800000,%ecx          # LZCNT avail?
-          je       R07
+          testl     $0x04000000,         %edx               # SSE2  avail?
+          je        R07
+          testl     $0x00800000,         %ecx               # LZCNT avail?
+          je        R07
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г option: allocate TST   Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            allocate BMM
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          negq     _DEBUG(%rip)              # debug option on?
-          je       0f
-          movq     $0x00010000,%rcx          # size
+          movl      $0x00010000,         %ecx               # RBP = 65,536 byte
+          call      _AloMem
+          testq     %rax,                %rax               # ALLOC BMM failed?
+          je        R1B
+          movq      %rax,                _BMM(%rip)         # store BMM
+          movq      %rax,                %r15               # R15 = BMM
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            allocate BBF
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          call      _AloMem
+          testq     %rax,                %rax               # ALLOC BBF failed?
+          je        R1B
+          movq      %rax,                _BBF(%rip)         # store BBF
+          movq      %rax,                %r13               # R13 = BBF
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            allocate OBF
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          call      _AloMem
+          testq     %rax,                %rax               # ALLOC OBF failed?
+          je        R1B
+          movq      %rax,                _OBF(%rip)         # store OBF
+          movq      %rax,                %r12               # R12 = OBF
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            allocate TST
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          call      _AloMem
+          testq     %rax,                %rax               # ALLOC TST failed?
+          je        R1B
+          movq      %rax,                _TST(%rip)         # store TST
+          movq      %rax,                %r11               # R11 = TST
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            allocate and load BNR
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+          call      _AloMem
+          movq      %rax,                %r14               # R14 = BNR
+          testq     %rax,                %rax               # ALLOC BNR failed?
+          je        R1B
+          movq      %rax,                _BNR(%rip)         # store BNR
+          leaq      0x20(%rsp),          %rcx               # RCX = FH
+          xorl      %edx,                %edx               # RDX = entire file
+          movq      $0x02,               %r8                # R08 = open if exists
+          leaq      LC00(%rip),          %r9                # R09 = ..\data\FFFFFFFE
+          call      _Fopen
+          movq      %r14,                FHBASE(%rcx)       # EA SysNum
+          movq      %rax,                FHMOFF(%rcx)       # offset mem
+          movq      $0x0100,             FHFOFF(%rcx)       #        file
+          testl     %eax,                %eax               # PASS Fopen() ERROR
+          jne       XIT
+          movl      $0x7800,             %edx               # byte to read
+          call      _Fread
+          movl      %eax,                %ebx
+          call      _Fclose
+          leaq      LDR__T(%r14),        %r10
+          movl      %ebx,                %eax
+          testl     %ebx,                %ebx               # LOAD BNR FAILED?
+          jne       R1F
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            create LDR table
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          movq      0x08(%r10),          %xmm0
+          movdqa    0x10(%r10),          %xmm1
+          movq      0x28(%r10),          %xmm2
+          movdqa    0x30(%r10),          %xmm3
+          movq      0x48(%r10),          %xmm4
+          movdqa    0x50(%r10),          %xmm5
+          movq      %r15,                0x00(%r15)
+          movq      %xmm0,               0x08(%r15)
+          movdqa    %xmm1,               0x10(%r15)
+          movq      %r14,                0x20(%r15)
+          movq      %xmm2,               0x28(%r15)
+          movdqa    %xmm3,               0x30(%r15)
+          movq      %r13,                0x40(%r15)
+          movq      %xmm4,               0x48(%r15)
+          movdqa    %xmm5,               0x50(%r15)
+          movq      0x68(%r10),          %xmm0
+          movdqa    0x70(%r10),          %xmm1
+          movq      0x88(%r10),          %xmm2
+          movdqa    0x90(%r10),          %xmm3
+          pxor      %xmm4,               %xmm4
+          pxor      %xmm5,               %xmm5
+          movq      %r12,                0x60(%r15)
+          movq      %xmm0,               0x68(%r15)
+          movdqa    %xmm1,               0x70(%r15)
+          movq      %r11,                0x80(%r15)
+          movq      %xmm2,               0x88(%r15)
+          movdqa    %xmm3,               0x90(%r15)
+          movl      $0x06,               MHCNTR(%r14)       # field count = 5 + 1 dummy
+          incl      _LDR_AVAIL(%rip)                        # Loader up and running
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            clear old LD parameters
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          pxor      %xmm0,               %xmm0              # LD structures are stored
+          pxor      %xmm1,               %xmm1              # for debugging purposes -
+          movdqa    %xmm0,               EA__EF(%r14)       # this feature might be
+          movq      %xmm1,               MH__EF(%r14)       # removed in future versions
+          movdqa    %xmm0,               EA__SP(%r14)
+          movq      %xmm1,               MH__SP(%r14)
+          movdqa    %xmm0,               LD__MN(%r14)
+          movq      %xmm1,               MH__MN(%r14)
+          movdqa    %xmm0,               LD__SD(%r14)
+          movq      %xmm1,               MH__SD(%r14)
+          movdqa    %xmm0,               LD__MD(%r14)
+          movq      %xmm1,               MH__MD(%r14)
+          movdqa    %xmm0,               LD__LF(%r14)
+          movq      %xmm1,               MH__LF(%r14)
+          movdqa    %xmm0,               LD__FL(%r14)
+          movq      %xmm1,               MH__FL(%r14)
+          movdqa    %xmm0,               LD__LG(%r14)
+          movq      %xmm1,               MH__LG(%r14)
+          movdqa    %xmm0,               LD__ER(%r14)
+          movq      %xmm1,               MH__ER(%r14)
+          movdqa    %xmm0,               LD__TP(%r14)
+          movq      %xmm1,               MH__TP(%r14)
+          movdqa    %xmm0,               LD__OL(%r14)
+          movq      %xmm1,               MH__OL(%r14)
+          movdqa    %xmm0,               LD__ST(%r14)
+          movq      %xmm1,               MH__ST(%r14)
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            load LFL
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          leaq      LD__LF(%r14),        %rcx               # RCX = LD LFL
+          call      _LDreq
+          movq      LD__LF(%r14),        %r9                # R09 = EA LFL
+          movq      MH__LF(%r14),        %r12               # R13 = MH LFL
+          testl     %eax,                %eax               # PASS LDreq() ERROR
+          jne       XIT
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            load SystemStrings
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+          leaq      LD__ST(%r14),        %rcx               # RCX = LD STR
+          call      _LDreq
+          movq      LD__ST(%r14),        %r10               # R11 = EA BST
+          movq      MH__ST(%r14),        %r11               # R12 = MH BST
+          testl     %eax,                %eax               # failed?
+          jne       R1E
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            corrections (MH, LFL entry)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          movdqa    0x00(%r12),          %xmm0              # copy
+          movdqa    0x10(%r12),          %xmm1
+          movdqa    0x00(%r11),          %xmm2
+          movdqa    0x10(%r11),          %xmm3
+          movl      0x0120(%r9),         %eax               # RAX = offset LFL
+          movl      0x0124(%r9),         %ebx               # RBX = offset STR
+          movdqa    %xmm0,               0xA0(%r15)
+          movdqa    %xmm1,               0xB0(%r15)
+          movdqa    %xmm2,               0xC0(%r15)
+          movdqa    %xmm3,               0xD0(%r15)
+          movdqa    %xmm4,               0x00(%r12)         # clear
+          movdqa    %xmm5,               0x10(%r12)
+          movdqa    %xmm4,               0x00(%r11)
+          movdqa    %xmm5,               0x10(%r11)
+          subq      $0x60,               %r12               # MH correction
+          subq      $0x60,               %r11
+          movl      %eax,                0x0114(%r9)        # OT correction
+          movl      %ebx,                0x0118(%r9)        
+          movdqa    %xmm4,               0x0120(%r9)        # clear old OTs
+          movq      %r12,                MH__LF(%r14)       # MH correction
+          movq      %r11,                MH__ST(%r14)
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            set global variables
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          movq      %r10,                _BST(%rip)         # store _BST
+          movq      %r11,                _MHSTR(%rip)       # MH SystemStrings
+          movq      %r14,                _DVAR(%rip)        # DVAR (BNR defined as DD *)
+          movq      %r14,                _QVAR(%rip)        # QVAR (BNR defined as DQ *)
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            integrated: DRIVES()
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          call      _DrvMap
+          movl      %eax,                DRVMAP(%r14)       # store DRVMAP[BNR]
+          movl      $0x0210,             %ecx               # size
+          movq      %r13,                %rdx               # address path
+          call      _PgPath
+          movq      %r13,                0x20(%rsp)         # address full path
+          movzb      0x00(%r13),         %ebx               # RBX = drive letter
+          movq      %r11,                %rcx               # MHSTR
+          movl      $0x01,               %edx               # entry    01
+          xorq      %r8,                 %r8                # subfield 00
+          movl      $0x02,               %r9d               # FDA_WRITE
+          addq      $0x03,               %r13               # R13 = EA mutilated path
+          call      _FDacc
+          movq      %r13,                0x20(%rsp)         # address full path
+          subl      $0x40,               %ebx               # RBX = drive number
+          andl      $0x1F,               %ebx               # EBX = upper case...
+          incl      %edx                                    # entry    02
+          call      _FDacc
+          movl      %ebx,                CURDRV(%r14)       # store CURDRV[BNR]
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            integrated: ScnInit()
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          movq      $0x30,               %rcx               # SPI_GETWORKAREA
+          xorq      %rdx,                %rdx               # NULL
+          leaq      0x20(%rsp),          %r8                # EA RECT
+          xorq      %r9,                 %r9                # NULL
+          call      _WinPar
+          movl      0x20(%rsp),          %eax               # xLeft
+          movl      0x24(%rsp),          %ebx               # yTop
+          movl      0x28(%rsp),          %ecx               # xRight
+          movl      0x2C(%rsp),          %edx               # yBottom
+          movq      RIS_CX(%r14),        %r8                # R08 = Px,Py
+          movq      RIS_CW(%r14),        %r9                # R09 = Pw,Ph
+          subl      %eax,                %ecx               # ECX = width
+          subl      %ebx,                %edx               # EDX = height
+          movq      %rcx,                SCRN_W(%r14)       # STV_SCREEN_W
+          movq      %rdx,                SCRN_H(%r14)       # STV_SCREEN_H
+          shlq      $0x20,               %rdx               # RDX = hhhh0000
+          movq      $0x000003E8000003E8, %rax               # RAX = default Px,Py
+          movq      $0x00001F4000001F40, %rbx               # RBX = default Pw,Ph
+          addq      %rcx,                %rdx               # RDX = hhhhwwww
+          testq     %r8,                 %r8                # Px,Py = 0?
+          cmove     %rax,                %r8                # use default
+          testq     %r9,                 %r9                # Pw,Ph = 0?
+          cmove     %rbx,                %r9                # use default
+          movq      %rdx,                SCN_W0(%r14)       # write pattern
+          movq      %rdx,                SCN_W1(%r14)
+          movq      %r8,                 RIS_CX(%r14)
+          movq      %r9,                 RIS_CW(%r14)
+          movdqa    %xmm4,               PERC_X(%r14)       # clear RIS area
+          movdqa    %xmm5,               PIXL_X(%r14)
+          xorl      %eax,                %eax
+          jmp       XRS
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDreq    allocate memory, load field or file             |   LD structure
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   address of a LD structure                      |   00   VOID *   MemEA
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|   08   DQ       MemSz
+            <- RAX   0000 0000   ERR_NO_ERROR                       |   10   DD       FldNr
+                     0000 0004   ERR_LDR_BUSY                       |   14   DD       LdCtl
+                     0000 000E   ERR_UNALIGNED                      |   18   DQ       MemMH
+                     0000 000F   ERR_ADDRESS                        |   20   VOID *   FileN
+                     0000 0017   ERR_LDR_CORRUPT                    |   28   DQ       Moffs
+                     0000 001A   ERR_LDR_OUT_OF_MH                  |   30   DQ       Foffs
+                     0000 001B   ERR_LDR_ALLOC                      |   38   DQ       AmtBy
+                     0000 001C   ERR_LDR_FORBIDDEN                  |
+                     0000 001D   ERR_LDR_ZERO                       |
+                     0000 0020   ERR_FILE_OPEN                      |
+                     0000 0022   ERR_FILE_READ                      |
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            FLAGS: LDRMEM overrides all >> LDFILE overrides LDREXT >> LDREXT overrides LDRFLD.
+                   In a worst case scenario with all flags (deliberately) set, LDRMEM wins and
+                   a memory block is allocated. With bit 4 reset and bits 7...5 set, LDFILE is
+                   chosen and a file is loaded (in the hope, that parameter passed as filename
+                   provides a valid address). If only bits 5 and 6 are set, LDREXT wins, and a
+                   valid filename and insertion point must be passed. If only bit 5 is set (or
+                   bit 7...4 are zero), a field from the program's DATA folder will be loaded.
+
+            NOTE:  Before you call LDreq() to load fields from -external- sources, PATH_X must
+                   be set to the full qualified path where those sources are stored. It has to
+                   end with a backslash. The offset relative to BNR of the byte following that
+                   backslash must be stored as PX__IP. Because -any- external field number can
+                   be assigned to an internal field, you can't load an external field with its
+                   real number. To avoid conflicts, you have to assign a unique fake number as
+                   alias for the true number. This faked number is passed as member LD.LDFNUM,
+                   while the true number is passed as member LD.LDSIZE. This parameter only is
+                   used for memory blocks and is ignored otherwise if LDREXT is not set. After
+                   LDreq() returned, you can use external fields like internal fields.
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+    ldREQ:testq     $0x0F,               %r12               # aligned?
+          jne       R0E
+          testq     $0xFFF00000,         %r12               # below 1st MB?
+          je        R0F
+          movl      LDFNUM(%rcx),        %ebx               # RBX = LD.FldNr
+          movl      MHCNTR(%r14),        %ecx               # RCX = loop_cnt
+          movq      %r15,                %r10               # R10 = 0000[BMM]
+          addq      $0x0100,             %r15               # R15 = 0100[BMM]
+          incl      %ebx                                    # loader table?
+          je        R1C
+          decl      %ebx                                    # field zero?
+          je        R1D
+          addl      $0x07,               %ecx               # RCX + 7
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            check flags
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          testq     $0x0A,               %r13               # busy or terminated?
+          jne       R04
+          orb       $0x02,               SYS_FL(%r14)       # set LDR_BUSY
+          movq      %r12,                %r13               # R13 = LD
+          shrl      $0x02,               %ecx               # RCX / 4
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            already loaded?
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+        0:movl      0x18(%r10),          %eax
+          movl      0x38(%r10),          %edx
+          movl      0x58(%r10),          %edi
+          movl      0x78(%r10),          %esi
+          cmpl      %ebx,                %eax
+          je        1f
+          addq      $0x20,               %r10               # next MemHandle
+          cmpl      %ebx,                %edx
+          je        1f
+          addq      $0x20,               %r10               # next MemHandle
+          cmpl      %ebx,                %edi
+          je        1f
+          addq      $0x20,               %r10               # next MemHandle
+          cmpl      %ebx,                %esi
+          je        1f
+          addq      $0x20,               %r10               # next MemHandle
+          decl      %ecx
+          je        2f
+          jmp       0b
+          /*
+            ~~~~~~~~~~~~~~~~~
+            copy parameters
+            ~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15                                   # copy LDT to LD:
+        1:movq      M_H_EA(%r10),        %r8                # R08 = MemEA
+          movl      M_H_FL(%r10),        %ecx               # RCX = LdCtl
+          movl      M_H_IC(%r10),        %edx               # RDX = instances
+          movl      M_H_AL(%r10),        %r9d               # R09 = MemSz
+          xorl      %ebx,                %ebx               # RBX = 0
+          incl      %edx                                    # RDX = instance++
+          testl     $0x0100,             %ecx               # single instance?
+          cmove     %ebx,                %edx               # RDX = 0
+          testl     %edx,                %edx               # overflow?
+          js        R19
+          movl      %edx,                M_H_IC(%r10)       # INSTANCE LDT
+          movq      %r8,                 LDMEMA(%r13)       # LD: MemEA
+          movq      %r9,                 LDSIZE(%r13)       # LD: MemSz
+          movl      %ecx,                LDCNTL(%r13)       # LD: LdCtl
+          movq      %r10,                LDMEMH(%r13)       # LD: MemHd
+          jmp       XIZ
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            search free handle
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+        2:movl      $0x01FE,             %ecx               # ECX = loop_cnt
+        3:movl      0x18(%r15),          %eax
+          movl      0x38(%r15),          %edx
+          movl      0x58(%r15),          %edi
+          movl      0x78(%r15),          %esi
+          testl     %eax,                %eax
+          je        4f
+          addq      $0x20,               %r15               # next handle
+          testl     %edx,                %edx
+          je        4f
+          addq      $0x20,               %r15               # next handle
+          testl     %edi,                %edi
+          je        4f
+          addq      $0x20,               %r15               # next handle
+          testl     %esi,                %esi
+          je        4f
+          addq      $0x20,               %r15               # next handle
+          decl      %ecx
+          jne       3b
+          jmp       R1A
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            prepare
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+        4:movl      LDSIZE(%r13),        %edi               # RDI = requested size
+          movl      LDCNTL(%r13),        %esi               # RSI = flags
+          movq      LDNAME(%r13),        %r12               # R12 = EA filename file
+          movl      LDMOFF(%r13),        %ebp               # RBP = Moffs
+          movl      LDFOFF(%r13),        %r10d              # R10 = Foffs
+          movl      LDCOPY(%r13),        %r11d              # R11 = byte to copy
+          andl      $0x33FF,             %esi               # RSI = valid flags
+          leal      0x0FFF(%edi),        %ecx               # RCX = size + 4,095
+          movl      PX__IP(%r14),        %r8d               # R08 = OF IP_X
+          leaq      PP__IP(%r14),        %rdx               # RDX = EA IP_I
+          leaq      PATH_P(%r14),        %r9                # R09 = EA filename field
+          leaq      PATH_X(%r14),        %rax               # RAX =             extern
+          addq      %r14,                %r8                # R08 = EA IP_X
+          testl     $LDREXT,             %esi
+          cmovne    %rax,                %r9                # => external
+          testl     $LDFILE,             %esi
+          cmovne    %r12,                %r9                # => filename
+          movl      %ebx,                %eax               # RAX = field number
+          testl     $LDRMEM,             %esi
+          je        5f
+          /*
+            ~~~~~~~~~~~~~~~~~
+            memory block
+            ~~~~~~~~~~~~~~~~~
+          */
+          andl      $0xFFFFF000,         %ecx               # RCX = size alloc
+          je        R0A
+          call      _AloMem
+          movl      %ecx,                %ebp               # RBP = size alloc
+          movq      %rax,                %r12               # R12 = EA block
+          movl      $0x01,               %edx               # RDX = entries
+          movl      %ecx,                %r10d              # R10 = true size
+          jmp       7f
+          /*
+            ~~~~~~~~~~~~~~~~~
+            field (int + ext)
+            ~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+        5:movl      %ebx,               %ecx                # RCX = field number
+          testl     $LDFILE,            %esi                # file?
+          jne       6f
+          testl     $LDREXT,            %esi                # external source?
+          cmovne    %edi,               %ecx                # => LDFNUM = LDSIZE
+          cmovne    %r8,                %rdx                # => EA IP  = EA IP_X
+          call      _d2str
+          xorl      %ebp,               %ebp                # RBP = no Moffs
+          xorq      %r10,               %r10                # R10 = no Foffs
+          xorq      %r11,               %r11                # R11 = entire file
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            load
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+        6:leaq      0x20(%rsp),          %rcx               # RCX = FH
+          xorl      %edx,                %edx               # RDX = entire file
+          movq      $0x02,               %r8                # R08 = open if exists
+          call      _Fopen
+          movq      FHSIZE(%rcx),        %r12               # R12 = file size
+          movq      %rbp,                FHMOFF(%rcx)       # Moffs
+          movq      %r10,                FHFOFF(%rcx)       # Foffs
+          leaq      0x0FFF(%r12),        %rcx               # RCX = size + 4,095
+          testl     %eax,                %eax               # open failed?
+          jne       XRS
+          andq      $0xFFFFF000,         %rcx               # RCX = page size
+          movq      $0xFFFFF000,         %rax               # RAX = max size
+          movq      %r12,                %r10               # R10 = true size
+          cmpq      %rax,                %rcx               # beyond max?
+          cmova     %eax,                %ecx               # => reduce to max
+          call      _AloMem
+          movl      %ecx,                %ebp               # RBP = allocated
+          movq      %rax,                0x30(%rsp)         # set   FH.MBASE
+          movq      %rax,                %r12               # R12 = EA block
+          leaq      0x20(%rsp),          %rcx               # RCX = FH
+          movl      %r11d,               %edx               # RDX = byte to read
+          testq     %r12,                %r12               # allocation failed?
+          je        R1B
+          call      _Fread
+          movl      %eax,                %r8d               # R08 = RC read
+          call      _Fclose
+          movl      %r8d,                %eax
+          testq     %r8,                 %r8                # read file failed?
+          jne       XRS
+          movl      $0x01,               %edx               # RDX = entries
+          testl     $0x60,               %esi               # field?
+          je        7f
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            validate header
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          testl     $LDREXT,             %esi               # external?
+          cmove     %ebx,                %edi               # => internal
+          pxor      %xmm0,               %xmm0              # XM0 = 0
+          pxor      %xmm1,               %xmm1              # XM1 = 0
+          movdqa    0x00(%r12),          %xmm2              # XM2 = DO0
+          movdqa    0x10(%r12),          %xmm3              # XM3 = DO1
+          movl      0x2C(%r12),          %ecx               # RCX = field number
+          movl      0x34(%r12),          %r11d              # R11 = size
+          movl      0x3C(%r12),          %edx               # RDX = entries
+          pcmpeqb   %xmm0,               %xmm2              # XM2 = comp 0
+          pcmpeqb   %xmm1,               %xmm3              # XM3 = comp 1
+          pmovmskb  %xmm2,               %eax               # RAX = mask 0
+          pmovmskb  %xmm3,               %r8d               # R08 = mask 1
+          cmpl      %edi,                %ecx               # proper field number?
+          jne       R18
+          cmpq      %r10,                %r11               # proper file size?
+          jne       R18
+          cmpl      $0xFFFF,             %eax               # all zeroes?
+          jne       R18
+          cmpq      $0xFFFF,             %r8                # all zeroes?
+          jne       R18
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            store parameters
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+        7:movq      %r12,                LDMEMA(%r13)       # LD  MemEA
+          movl      %ebp,                LDSIZE(%r13)       #     MemSz
+          movq      %r15,                LDMEMH(%r13)       #     MemMH
+          movq      %r12,                M_H_EA(%r15)       # LDT EA
+          movl      %esi,                M_H_FL(%r15)       #     flags
+          movl      $0x00,               M_H_IC(%r15)       #     instances
+          movl      %ebp,                M_H_AL(%r15)       #     allocated
+          movl      %r10d,               M_H_SZ(%r15)       #     size
+          movl      %ebx,                M_H_FI(%r15)       #     field number
+          movl      %edx,                M_H_ET(%r15)       #     entries
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            add to LFL and exit
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+        7:movq      %r9,                 0x20(%rsp)         # P_5 = EA name
+          movzwl    %r15w,               %edx               # RDX = W0[MH]
+          movq      MH__LF(%r14),        %rcx               # RCX = MH LFL
+          xorq      %r8,                 %r8                # R08 = sub00
+          movq      $0x02,               %r9                # R09 = FDA_WRITE
+          shrl      $0x05,               %edx               # RDX = entry
+          call      _FDacc
+          incl      MHCNTR(%r14)                            # field count + 1
+          jmp       XIZ
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDchg    change allocated size
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   MemHandle (MMoff in LD structure)
+               RDX   new size  (multiple of 4096)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   0000 0000  ok
+                     0000 xxxx  ERROR DosAllocMem()
+                     0000 0004  MM BUSY
+                     0000 0013  INVALID MemHandle
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            CAUTION: If you downsize existing blocks, all data beyond the (now smaller) top of
+                     the new area get lost. There is no way to get them back after LDchg() did
+                     its job.
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+    ldCHG:addl      $0x0FFF,             %edx               # RDX = size + 4,095
+          subq      %r15,                %rcx               # RCX = offset[BMM]
+          js        R13
+          cmpl      $0x0000FFE0,         %ecx               # > max?
+          ja        R13
+          andl      $0xFFFFF000,         %edx               # RDX = page size
+          testl     $0x1F,               %ecx               # 32 byte aligned?
+          jne       R13
+          movq      M_H_EA(%r12),        %r8                # R08 = old EA
+          movl      M_H_AL(%r12),        %r9d               # R09 = old size
+          movl      %edx,                %ecx               # RCX = page size
+          testq     $0x0A,               %r13               # busy or teminated?
+          jne       R04
+          orl       $0x02,               SYS_FL(%r14)       # set LDR_BUSY
+          testq     %r8,                 %r8                # EA valid?
+          je        R14
+          cmpl      %ecx,                %r9d               # old size = new size?
+          je        XIZ
           call     _AloMem
-          testq    %rax,%rax                 # failed if zero
-          je       R02
-          movq     %rax,_TST(%rip)           # store _TST
+          testl     %eax,               %eax                # failed?
+          je        R12
+          cmpl      %ecx,                %r9d               # old size > new size?
+          cmovb     %r9d,                %ecx               # copy old size!
+          movq      %rax,                M_H_EA(%r12)       # write new EA
+          movl      %edx,                M_H_AL(%r12)       #       new allocated
+          shrl      $0x06,               %ecx               # four paragraphs!
+          .p2align  4,,15
+        0:movdqa    0x00(%r8),           %xmm0              # copy old mem
+          movdqa    0x10(%r8),           %xmm1
+          movdqa    0x20(%r8),           %xmm2
+          movdqa    0x30(%r8),           %xmm3
+          movntdq   %xmm0,               0x00(%rax)
+          movntdq   %xmm1,               0x10(%rax)
+          movntdq   %xmm2,               0x20(%rax)
+          movntdq   %xmm3,               0x30(%rax)
+          addq      $0x40,               %r8
+          addq      $0x40,               %rax
+          decl      %ecx
+          jne       0b
+          movq      %r8,                 %rcx               # old EA
+          call      _FreMem
+          jmp       XIZ
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г allocate BMM           Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDfre    free allocated memory
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   MMoff   MemHandle
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   0000 0000   ERR_NO_ERROR
+                     0000 0004   ERR_SYS_LDR_BUSY
+                     0000 0013   ERR_LDR_MH
+                     0000 0014   ERR_LDR_OS2MH
+                     0000 00xx   RC from calls
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDfre() releases the memory block without saving its content if any of these flags
+            [LDR_MEM][LDR_DISCARD][LDR_DIRTY][LDR_CORRUPT] is set or [LDR_WRITE] is not set.
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-        0:movq     $0x2000,%rcx              # size
-          call     _AloMem
-          testq    %rax,%rax                 # failed if zero
-          je       R02
-          movq     %rax,_BMM(%rip)           # store BMM
-          movq     %rax,%rbp                 # RBP = BMM
+          .p2align  4,,15
+    ldFRE:subq      %r15,                %rcx               # < 0000[BMM]?
+          js        R13
+          cmpq      $0xFFE0,             %rcx               # > FFE0[BMM]?
+          ja        R13
+          testl     $0x1F,               %ecx               # 32 byte aligned?
+          jne       R13
+          cmpl      $0xE0,               %ecx               # system area?
+          ja        0f
+          testq     $SFTERM,             %r13               # terminating?
+          je        R1C
+          .p2align  4,,15
+        0:testq     $0x02,               %r13               # LDR_BUSY?
+          jne       R04
+          movl      %ecx,                %ebp               # RBP = offset
+          orl       $0x02,               SYS_FL(%r14)       # set LDR_BUSY
+          movq      LD__LF(%r14),        %r9                # R09 = EA LFL
+          movq      MH__LF(%r14),        %r13               # R13 = MH LFL
+          movq      M_H_EA(%r12),        %r11               # R11 = EA block
+          movl      M_H_SZ(%r12),        %r10d              # R10 = true size
+          movl      M_H_FL(%r12),        %eax               # RAX = flags
+          shrl      $0x05,               %ebp               # RBP = entry
+          movl      0x0100(%r9,%rbp,4),  %ebx
+          testq     %r11,                %r11               # EA block = 0?
+          je        R14
+          xorl      $LWRITE,             %eax               # toggle LDR_WRITE
+          decl      M_H_IC(%r12)                            # INSTANCE--
+          jns       XIZ
+          testl     $0x481A,             %eax               # ro, discard, mem, dirty, corrupt?
+          jne       1f
+          testl     $LDRCHG,             %eax               # changed?
+          je        1f
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г allocate BNR           Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            save changed content
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          movq     $0x3000,%rcx              # size
-          call     _AloMem
-          testq    %rax,%rax                 # failed if zero
-          je       R02
-          movq     %rax,_BNR(%rip)           # store BNR
-          leaq     0x20(%rsp),%rcx           # RCX = FH (unaligned)
-          movq     %rax,%rsi                 # RSI = BNR
+          addq      %rbx,                %r9                # R09 = EA name
+          leaq      0x20(%rsp),          %rcx               # RCX = FH
+          xorl      %edx,                %edx               # RDX = entire file
+          movq      $0x03,               %r8                # R08 = replace if exists
+          call      _Fopen
+          movq      %r10,                FHSIZE(%rcx)       # set FH.Fsize
+          movq      %r11,                FHBASE(%rcx)       #     FH.Mbase
+          movq      %rax,                FHMOFF(%rcx)       #     FH.Moffs
+          movq      %rax,                FHFOFF(%rcx)       #     FH.Foffs
+          testl     %eax,                %eax
+          jne       XRS
+          movq      %r10,                %rdx               # RDX = size
+          call      _Fwrite
+          movl      %eax,                %ebx               # RBX = rc Fwrite()
+          call      _Fclose
+          movl      %ebx,                %eax               # RAX = RC write
+          testl     %ebx,                %ebx               # if write failed:
+          jne       XRS                                     # do not release MH!
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г set LDR table entries  Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          кФФФФФФФФП
-          Г _BMM   Гл
-          РФФФФФФФФйл
-            ллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            free mem, clear MH
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          movq     %rbp,       0x00(%rbp)    # EA BMM
-          movl     $0x00000233,0x08(%rbp)    # r, w, stat, mem, sys
-          movl     $0xFFFFFFFF,0x0C(%rbp)    # time stamp
-          movl     $0x00002000,0x10(%rbp)    # allocated
-          movl     $0x00002000,0x14(%rbp)    # real size
-          movl     $0xFFFFFFFF,0x18(%rbp)    # field number
-          movl     $0x00000100,0x1C(%rbp)    # entries
+          .p2align  4,,15
+        1:movq      %r13,                %rcx               # RCX = MH LFL
+          movl      %ebp,                %edx               # RDX = entry
+          xorq      %r8,                 %r8                # R08 = sub00
+          movq      $0x03,               %r9                # R09 = FDA_DELETE
+          call      _FDacc
+          pxor      %xmm4,               %xmm4              # XM4 = 0
+          pxor      %xmm5,               %xmm5              # XM5 = 0
+          movq      %r11,                %rcx               # RCX = EA
+          call      _FreMem
+          movdqa    %xmm4,               M_H_EA(%r12)       # clear MemHandle
+          movdqa    %xmm5,               M_H_AL(%r12)
+          decl      MHCNTR(%r14)                            # field count - 1
+          jmp       XIZ
           /*
-          кФФФФФФФФП
-          Г _BNR   Гл
-          РФФФФФФФФйл
-            ллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDexit   terminate Loader
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            ->       nothing
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- EAX   always zero
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          movq     %rsi,       0x20(%rbp)    # store BNR
-          movl     $0x00000223,0x28(%rbp)    # r, w, stat, sys
-          movl     $0xFFFFFFFF,0x2C(%rbp)    # time stamp
-          movl     $0x00003000,0x30(%rbp)    # allocated
-          movl     $0x00003000,0x34(%rbp)    # real size
-          movl     $0xFFFFFFFE,0x38(%rbp)    # field number
-          movl     $0x00000400,0x3C(%rbp)    # entries
+          .p2align  4,,15
+   ldEXIT:movl      MHCNTR(%r14),        %r13d              # R13 = field count
+          movl      $0x08,               SYS_FL(%r14)       # SFTERM
+          xorl      %ebx,                %ebx               # RBX = 0
+          movl      $0x07F8,             %edx               # RDX = loop_cnt
+          leaq      0x0100(%r15),        %rcx               # RCX = 1st MH user
+          subq      $0x07,               %r13               # R13 = user fields
           /*
-          кФФФФФФФФП
-          Г _MHSTR Гл
-          РФФФФФФФФйл
-            ллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            free open MemHandles
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          movl     $0x00000223,0x48(%rbp)    # r, w, stat, sys
-          movl     $0xFFFFFFFF,0x4C(%rbp)    # time stamp
-          movl     $0xFFFFFFFC,0x58(%rbp)    # field number
+          .p2align  4,,15
+        0:decl      %edx                                    # loop_cnt--
+          js        2f
+          cmpq      %rbx,                0x00(%rcx)         # MH free?
+          je        1f
+          movl      %ebx,                M_H_IC(%rcx)       # INSTANCE = 0 (force free)
+          call      _LDfre
+          decq      %r13
+          js        2f
+        1:addq      $0x20,               %rcx
+          jmp       0b
+          .p2align  4,,15
+        2:leaq      0xC0(%r15),          %rcx               # RCX = STR
+          movl      $0x23,               0xA8(%r15)         # set LFL flags
+          call      _LDfre
+          movq      %rbx,                _LDR_AVAIL(%rip)   # Loader terminated
+          movq      %rbx,                _BST(%rip)         # clear BST
+          movq      %rbx,                _MHSTR(%rip)       #       MHSTR
           /*
-          кФФФФФФФФП
-          Г _BBF   Гл
-          РФФФФФФФФйл
-            ллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            save NUM
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          movl     $0x00000233,0x68(%rbp)    # r, w, stat, sys
-          movl     $0xFFFFFFFF,0x6C(%rbp)    # time stamp
-          movl     $0x00001000,0x70(%rbp)    # allocated
-          movl     $0x00001000,0x74(%rbp)    # real size
-          movl     $0xFFFFFFC1,0x78(%rbp)    # field number
-          movl     $0x00000001,0x7C(%rbp)    # entries
+          movq      %r14,                0x30(%rsp)         # set   FH.Mbase
+          movq      %rbx,                0x38(%rsp)         #       FH.Moffs
+          movq      $0x0100,             0x40(%rsp)         #       FH.Foffs
+          leaq      0x20(%rsp),          %rcx               # FH
+          xorl      %edx,                %edx               # RDX = entire file
+          movq      $0x02,               %r8                # R08 = open if exists
+          leaq      LC00(%rip),          %r9                # R09 = num.dat
+          call      _Fopen
+          testl     %eax,                %eax               # failed?
+          jne       2f
+          call      _Fwrite
+          call      _Fclose
           /*
-          кФФФФФФФФП
-          Г _LDF   Гл
-          РФФФФФФФФйл
-            ллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            free LDF, buffers, NUM, BMM
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          negl     _USE_LDF(%rip)
-          je       1f
-          movl     $0x00000223,0x88(%rbp)    # r, w, stat, sys
-          movl     $0xFFFFFFFF,0x8C(%rbp)    # time stamp
-          movl     $0x00001000,0x90(%rbp)    # allocated
-          movl     $0x00000500,0x94(%rbp)    # real size = 0x0100 + 0x0400
-          movl     $0xFFFFFFF6,0x98(%rbp)    # field number
-          movl     $0x00000100,0x9C(%rbp)    # entries
+        2:movq      0xA0(%r15),          %rcx               # RCX = EA LDF
+          call      _FreMem
+          movq      0x60(%r15),          %rcx               # RCX = EA TST
+          call      _FreMem
+          movq      0x40(%r15),          %rcx               # RCX = EA OBF
+          movq      %rbx,                _TST(%rip)         # clear TST
+          call      _FreMem
+          movq      0x20(%r15),          %rcx               # RCX = EA BBF
+          movq      %rbx,                _OBF(%rip)         # clear OBF
+          call      _FreMem
+          movq      %rax,                _BBF(%rip)         # clear BBF
+          movq      %rbx,                _BNR(%rip)         # clear BNR
+          movq      %rax,                _DVAR(%rip)        #       DVAR
+          movq      %rbx,                _QVAR(%rip)        #       QVAR
+          movq      %rax,                _BMM(%rip)         # clear BMM
+          movq      %r14,                %rcx               # RCX = BNR
+          call      _FreMem
+          movq      %r15,                %rcx               # RCX = BMM
+          call      _FreMem
+          jmp       XIT
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г set FH structure       Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                        M I S C E L L A N E O U S
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDclr    ERASE FIELD DATA
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   MemHandle
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- EAX   0000 0000  ok
+                     0000 0004  ERR_SYS_LDR_BUSY
+                     0000 0013  ERR_LDR_MH
+                     0000 0014  ERR_LDR_OS2MH
+                     0000 0018  ERR_LDR_NO_FIELD
+                     0000 001C  ERR_DBE_TYPE
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            R12   MH
+            R13   SYS_FL
+            R14   BNR
+            R15   BMM
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-        1:movq     $0x00,  0x08(%rcx)        # fh.Fsize = 0
-          movq     %rsi,   0x10(%rcx)        # fh.Mbase = BNR
-          movq     $0x00,  0x18(%rcx)        # fh.Moffs = 0
-          movq     $0x0100,0x20(%rcx)        # fh.Foffs = 0x0100
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г load num.dat           Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            validate parameters
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          xorq     %rdx,%rdx                 # entire file
-          movq     $0x02,%r8                 # open if exists
-          leaq     LC01(%rip),%r9            # num.dat
-          call     _Fopen
-          testl    %eax,%eax
-          jne      R1E                       # ў fatal: terminate ў
-          movl     $0x1000,%edx              # byte to read
-          call     _Fread
-          movl     %eax,%ebx
-          call     _Fclose
-          movl     %ebx,%eax
-          testl    %ebx,%ebx
-          jne      R1E                       # ў fatal: terminate ў
+          .p2align  4,,15
+    ldCLR:pxor      %xmm0,               %xmm0              # XM0 = 0
+          pxor      %xmm1,               %xmm1              # XM1 = 0
+          subq      %r15,                %rcx               # validate MH
+          js        R13
+          cmpq      $0xFFE0,             %rcx               # beyond?
+          ja        R13
+          testq     $0x1F,               %rcx               # 32 byte aligned?
+          jne       R13
+          movq      0x00(%r12),          %r11               # R11 = EA block
+          testq     $0x02,               %r13               # LDR BUSY?
+          jne       R04
+          testq     %r11,                %r11               # EA block = 0?
+          je        R14
+          movdqa    0x00(%r11),          %xmm2              # XM2 = 1st para
+          movdqa    0x10(%r11),          %xmm3              # XM2 = 2nd para
+          pcmpeqb   %xmm0,               %xmm2              # XM2 = comp 0
+          pcmpeqb   %xmm1,               %xmm3              # XM3 = comp 1
+          pmovmskb  %xmm2,               %eax               # RAX = mask 0
+          pmovmskb  %xmm3,               %ebx               # RBX = mask 1
+          orl       $SFBUSY,             SYS_FL(%r14)       # set SYS_LDR_BUSY
+          pxor      %xmm2,               %xmm2              # XM2 = 0
+          pxor      %xmm3,               %xmm3              # XM3 = 0
+          cmpl      $0xFFFF,             %eax               # all zeroes?
+          jne       R18
+          cmpl      $0xFFFF,             %ebx               # all zeroes?
+          jne       R18
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г load cvt.dat           Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            prepare
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          movq     $0x1000,0x18(%rcx)        # fh.Moffs = 1000
-          xorq     %rdx,%rdx                 # entire file
-          leaq     LC02(%rip),%r9            # cvt.dat
-          call     _Fopen
-          testl    %eax,%eax
-          jne      R1E                       # ў fatal: terminate ў
-          movq     $0x0800,%rdx              # 2048 byte
-          call     _Fread
-          movl     %eax,%ebx                 # close first!
-          call     _Fclose
-          xorl     %edx,%edx                 # entire file
-          testl    %ebx,%ebx
-          jne      R1E                       # ў fatal: terminate ў
+          movl      0x24(%r11),          %r13d              # R13 = type_cnt
+          movl      0x34(%r11),          %ebp               # RBP = old size
+          movl      0x3C(%r11),          %edx               # RDX = entries
+          xorl      %eax,                %eax               # RAX = 0
+          decq      %r13                                    # index - 1
+          orl       $0x0800,             M_H_FL(%r12)       # set dirty flag in BMM
+          subl      $0x0100,             %ebp               # RBP = byte to clear
+          movzb     0x40(%r11, %r13, 1), %ebx               # RBX = last type
+          movl      0x60(%r11, %r13, 4), %ecx               # RCX =      offset
+          cmpl      $0x07,               %ebx               # valid type?
+          cmova     %eax,                %ebx               # invalid!
+          jmp       *jtclr(, %rbx, 8)                       # jump table <jtclr>
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г load str.dat           Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            calculate parameters
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          movq     %rdx,0x18(%rcx)           # fh.Moffs = 0
-          movq     %rdx,0x20(%rcx)           # fh.Foffs = 0
-          leaq     LC03(%rip),%r9            # str.dat
-          call     _Fopen
-          movl     0x08(%rcx),%edi           # RDI = file size
-          testl    %eax,%eax
-          jne      R1E                       # ў fatal: terminate ў
-          movl     %edi,0x54(%rbp)           # LDT: file size BST
-          addl     $0x00000FFF,%edi          # expand to next page
-          andl     $0xFFFFF000,%edi          # fit to page size
-          movq     %rcx,%rdx                 # temp store FH
-          movl     %edi,0x50(%rbp)           # LDT: block size BST
-          movl     %edi,%ecx                 # required block size
-          call     _AloMem
-          testq    %rax,%rax
-          je       2f
-          movq     %rdx,%rcx                 # restore FH
-          movq     %rax,%rbx                 # RBX= EA SystemStrings
-          movq     %rax,0x10(%rcx)           # EA SystemStrings
-          movq     %rax,_BST(%rip)           # store _BST
-          xorq     %rdx,%rdx                 # entire file
-          call     _Fread
-          movl     %eax,%edi                 # should be zero...
-        2:call     _Fclose
-          movq     %rcx,%rdx                 # temp store FH
-          testl    %edi,%edi
-          jne      R1E                       # ў fatal: terminate ў
+          .p2align  4,,15
+      cl0:andl      $0xFFFD,             SYS_FL(%r14)       # reset SYS_DBE_BUSY, SYS_LDR_BUSY
+          orl       $0x4000,             0x30(%r11)         # set   LDR_CORRUPT (field)
+          orl       $0x4000,             0x08(%r12)         #                   (BMM)
+          jmp       R1C
+          .p2align  4,,15
+      cl2:shll      $0x01,               %edx
+          jmp       cl1
+          .p2align  4,,15
+      cl3:shll      $0x02,               %edx
+          jmp       cl1
+          .p2align  4,,15
+      cl4:shll      $0x03,               %edx
+          jmp       cl1
+          .p2align  4,,15
+      cl5:shll      $0x04,               %edx
+          jmp       cl1
+          .p2align  4,,15
+      cl6:movl      0x20(%r11),          %edx               # RDX = block size
+          .p2align  4,,15
+      cl1:movl      %ebp,                %eax               # RAX = old size
+          addl      %edx,                %ecx               # RCX = new size
+          leaq      0x0100(%r11),        %r13               # R13 = EA data area
+          orl       $0x04,               M_H_FL(%r12)       # set changed flag (BMM)
+          andl      $0x30,               %eax               # RAX = odd paragraphs
+          movl      %ecx,                M_H_SZ(%r12)       # write new size > (BMM)
+          movl      %ecx,                0x34(%r11)         #                > (header)
+          shrl      $0x06,               %ebp               # RBP = cache lines
+          shrl      $0x04,               %eax               # RAX = remaining paragraphs
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г allocate FDacc buffer  Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            clear field
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          movl     0x3C(%rbx),%edi           # EDI = entries BST
-          movl     $0x1000,%ecx
-          call     _AloMem
-          testq    %rax,%rax
-          je       R1E                       # ў fatal: terminate ў
-          movq     %rax,_BBF(%rip)           # store _BBF
+          .p2align  4,,15
+        0:decl      %ebp
+          js        1f
+          movntdq   %xmm0,               0x00(%r13)
+          movntdq   %xmm1,               0x10(%r13)
+          movntdq   %xmm2,               0x20(%r13)
+          movntdq   %xmm3,               0x30(%r13)
+          addq      $0x40,               %r13
+          jmp       0b
+          .p2align  4,,15
+        1:decl      %eax
+          js        2f
+          movntdq   %xmm0,               0x00(%r13)
+          addq      $0x10,               %r13
+          jmp       1b
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г update LDR table       Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            update header + BMM
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          movq     %rbx,0x40(%rbp)           # LDT: EA BST
-          movl     %edi,0x5C(%rbp)           # LDT: entries BST
-          movq     %rax,0x60(%rbp)           # LDT: EA BBF
-          xorq     %rax,%rax                 # RAX = 0
+          .p2align  4,,15
+        2:andl      $0x0000F7FF,         0x08(%r12)         # reset dirty flag in BMM
+          jmp       XRS
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г option: load LFL       Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            errors
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          negl     _USE_LDF
-          je       4f
-          movl     $0x1000,%ecx              # initial size = 1088 byte
-          call     _AloMem
-          testq    %rax,%rax
-          je       R1E                       # ў fatal: terminate ў
-          pxor     %xmm0,%xmm0
-          pxor     %xmm1,%xmm1
-          pxor     %xmm2,%xmm2
-          pxor     %xmm3,%xmm3
-          movq     %rax,%rdi                 # RDI = EA LFL
-          movq     %rax,_LDF(%rip)           # store _LFL
-          movq     %rax,0x80(%rbp)           # LDT:  EA LFL
-          movl     $0x40,%ecx                # RCX = clr_cnt
-        3:movntdq  %xmm0,0x00(%rax)          # clear block
-          movntdq  %xmm1,0x10(%rax)
-          movntdq  %xmm2,0x20(%rax)
-          movntdq  %xmm3,0x30(%rax)
-          addq     $0x40,%rax
-          decl     %ecx
-          jne      3b
-          leaq     0x80(%rbp),%rax           # RAX = MH LFL
-          movl     $0x004C464C,0x04(%rdi)    # LFL
-          movl     $0x00010000,0x20(%rdi)    # block size
-          movl     $0x00000001,0x24(%rdi)    # type count
-          movl     $0xFFFFFFF6,0x2C(%rdi)    # field number
-          movl     $0x00000223,0x30(%rdi)    # flags
-          movl     $0x00000500,0x34(%rdi)    # field size
-          movl     $0x00000100,0x38(%rdi)    # max. size
-          movl     $0x00000100,0x3C(%rdi)    #      entries
+          .p2align  4,,15
+      R02:movl      $0x02,               %eax               # ERR_SYS_SERIOUS
+          jmp       XIT
+          .p2align  4,,15
+      R04:movl      $0x04,               %eax               # ERR_LDR_BUSY
+          jmp       XIT
+          .p2align  4,,15
+      R07:xorq      %rcx,                %rcx               # title = 'Error'
+          movq      $LC03,               %rdx               # text  = 'CPU is too old!'
+          movq      $0x40,               %r8                # flags = MB_CUACRITICAL
+          call      _MBox
+          movl      $0x07,               %eax               # ERR_CPU_TOO_OLD
+          jmp       XIT
+          .p2align  4,,15
+      R0A:movl      $0x0A,               %eax               # ERR_PAR_BELOW
+          jmp       XRS
+          .p2align  4,,15
+      R0E:movl      $0x0E,               %eax               # ERR_UNALIGNED
+          jmp       XRS
+          .p2align  4,,15
+      R0F:movl      $0x0F,               %eax               # ERR_ADDRESS
+          jmp       XRS
+          .p2align  4,,15
+      R12:movl      $0x12,               %eax               # ERR_LDR_RESIZE
+          jmp       XRS
+          .p2align  4,,15
+      R13:movl      $0x13,               %eax               # ERR_LDR_MH
+          jmp       XRS
+          .p2align  4,,15
+      R14:movl      $0x14,               %eax               # ERR_LDR_MEMEA
+          jmp       XRS
+          .p2align  4,,15
+      R17:movl      $0x17,               %eax               # ERR_LDR_CORRUPT
+          jmp       XRS
+          .p2align  4,,15
+      R18:movl      $0x18,               %eax               # ERR_LDR_NO_FIELD
+          jmp       XRS
+          .p2align  4,,15
+      R19:movl      $0x19,               %eax               # ERR_LDR_INSTANCE
+          jmp       XRS
+          .p2align  4,,15
+      R1A:movl      $0x1A,               %eax               # ERR_LDR_OUT_OF_MH
+          jmp       XRS
+          .p2align  4,,15
+      R1B:movl      $0x1B,               %eax               # ERR_LDR_ALLOC
+          jmp       XRS
+          .p2align  4,,15
+      R1C:movl      $0x1C,               %eax               # ERR_LDR_FORBIDDEN
+           jmp      XRS
+          .p2align  4,,15
+      R1D:movl      $0x1D,               %eax               # ERR_LDR_ZERO
+          jmp       XRS
+          .p2align  4,,15
+      R1E:movl      $0x1E,               %eax               # ERR_LDR_STR
+          jmp       XIT
+          .p2align  4,,15
+      R1F:movl      $0x1F,               %eax               # ERR_LDR_BNR
+          jmp       XIT
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г set global variables   Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            common exit
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-        4:addq     $0x40,%rbp                # RBP = MHSTR
-          movq     $0x01,_LDR_AVAIL(%rip)    # loader present
-          movq     %rsi,_GVAR(%rip)          # GVAR (BNR defined as DD *)
-          movq     %rax,_LDF(%rip)           # MH loader filelist
-          movq     %rbp,_MHSTR(%rip)         # MH SystemStrings
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г integrated: DRIVES()   Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          movq     _BBF(%rip),%rdi           # RDI = address string
-          call     _GetLogicalDrives
-          movl     %eax,DRVMAP(%rsi)         # store DRVMAP[BNR]
-          movl     $0x0200,%ecx              # size
-          movq     %rdi,%rdx                 # address path
-          call     *__imp__GetCurrentDirectoryA(%rip)
-          movzb     0x00(%rdi),%ebx          # RBX = drive letter
-          movq     %rbp,%rcx                 # MHSTR
-          movl     $0x01,%edx                # entry    01
-          xorq     %r8,%r8                   # subfield 00
-          movl     $0x02,%r9d                # FDA_WRITE
-          movq     %rdi,0x20(%rsp)           # address full path
-          subl     $0x40,%ebx                # RBX = drive number
-          call     _FDacc
-          addq     $0x03,%rdi                # EDI = EA mutilated path
-          andl     $0x1F,%ebx                # EBX = upper case...
-          incl     %edx                      # entry    02
-          movq     %rdi,0x20(%rsp)           # address full path
-          movl     %ebx,CURDRV(%rsi)         # store CURDRV[BNR]
-          call     _FDacc
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г integrated: ScnInit()  Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          movq     $0x30,%rcx                # SPI_GETWORKAREA
-          xorq     %rdx,%rdx                 # NULL
-          leaq     0x20(%rsp),%r8            # EA RECT
-          xorq     %r9,%r9                   # NULL
-          call     *__imp__SystemParametersInfoA(%rip)
-          movl     0x20(%rsp),%eax           # xLeft
-          movl     0x24(%rsp),%ebx           # yTop
-          movl     0x28(%rsp),%ecx           # xRight
-          movl     0x2C(%rsp),%edx           # yBottom
-          movq     RIS_CX(%esi),%r8          # R08 = Px,Py
-          movq     RIS_CW(%esi),%r9          # R09 = Pw,Ph
-          subl     %eax,%ecx                 # ECX = width
-          subl     %ebx,%edx                 # EDX = height
-          movq     %rcx,SCRN_W(%esi)         # STV_SCREEN_W
-          movq     %rdx,SCRN_H(%esi)         # STV_SCREEN_H
-          pxor     %xmm0,%xmm0               # X00 = 0
-          shlq     $0x20,%rdx                # RDX = hhhh0000
-          movq     $0x000003E8000003E8,%rax  # RAX = default Px,Py
-          movq     $0x00001F4000001F40,%rbx  # RDX = default Pw,Ph
-          addq     %rcx,%rdx                 # RDX = hhhhwwww
-          testq    %r8, %r8                  # Px,Py = 0?
-          cmove    %rax,%r8                  # use default
-          testq    %r9, %r9                  # Pw,Ph = 0?
-          cmove    %rbx,%r9                  # use default
-          movq     %rdx,SCN_W0(%rsi)         # write pattern
-          movq     %rdx,SCN_W1(%rsi)
-          movq     %r8,RIS_CX(%rsi)
-          movq     %r9,RIS_CW(%rsi)
-          movdqa   %xmm0,PERC_X(%rsi)        # clear RIS area
-          movdqa   %xmm0,PIXL_X(%rsi)
-          xorl     %eax,%eax
-          jmp      XITC
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФТФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDreq   allocate memory, load file/field                Г   LD structure           Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФХФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> RCX   address of a LD structure                       Г   00   VOID *   MemEA    Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФД   08   DQ       MemSz    Гл
-          Г<- RAX   0000 0000   ERR_NO_ERROR                        Г   10   DD       FldNr    Гл
-          Г         0000 0004   ERR_LDR_BUSY                        Г   14   DD       LdCtl    Гл
-          Г         0000 0017   ERR_LDR_CORRUPT                     Г   18   DQ       LDtea    Гл
-          Г         0000 001A   ERR_LDR_OUT_OF_MH                   Г   20   VOID *   FileN    Гл
-          Г         0000 001B   ERR_LDR_ALLOC                       Г   28   DQ       Moffs    Гл
-          Г         0000 001C   ERR_LDR_FORBIDDEN                   Г   30   DQ       Foffs    Гл
-          Г         0000 0020   ERR_FILE_OPEN                       Г   38   DQ       AmtBy    Гл
-          Г         0000 0022   ERR_FILE_READ                       Г   40   VOID *   FileH    Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФСФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-          .globl   _LDreq
-          .def     _LDreq; .scl 2; .type 32; .endef
-   _LDreq:subq     $0xB8,%rsp
-          nop
-          nop
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9, 0x98(%rsp)
-          movq     %r8, 0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          movq     _BMM,%rdi                 # RDI = BMM
-          movq     _BNR,%rsi                 # RSI = BNR
-          movq     %rcx,%rbp                 # RBP = LD
-          addq     $0x80,%rdi                # RDI = 80[BMM]
-          movl     0x10(%rbp),%ebx           # RBX = LD.FldNr
-          movl     $0xFC,%ecx                # RCX = loop counter
-          movq     %rdi,%rdx                 # RDX = 80[BMM]
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г check flags            Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          testl    $0x0A,SYS_FL(%rsi)        # busy or terminated?
-          jne      R04
-          xorl     %eax,%eax                 # RAX = 0
-          orb      $0x02,SYS_FL(%rsi)        # set LDR_BUSY
-          testl    %ebx,%ebx                 # field number = 0?
-          je       R1D
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г already loaded?        Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        0:cmpl     %ebx,0x18(%rdx)
-          je       1f
-          addq     $0x20,%rdx                # next MemHandle
-          decl     %ecx
-          jne      0b
-          jmp      2f                        # copy LDT to LD:
-        1:movl     $0x1F,%eax                # ў ERR_INSTANCE ў
-          movq     0x00(%rdx),%r8            # R08 = MemEA
-          movzwl   0x08(%rdx),%ecx           # ECX = LdCtl
-          movl     0x10(%rdx),%r9d           # R09 = MemSz
-          incw     0x0A(%rdx)                # INSTANCE++
-          je       9f
-          movq     %r8, 0x00(%rbp)           # LD: MemEA
-          movq     %r9, 0x08(%rbp)           # LD: MemSz
-          movl     %ecx,0x14(%rbp)           # LD: LdCtl
-          movq     %rdx,0x18(%rbp)           # LD: MemHd
-          jmp      XITZ
-        9:decw     0x0A(%rdx)                # restore
-          jmp      XITC
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г search free handle     Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        2:movl     $0xFC,%ecx                # ECX = loop counter
-        3:cmpq     %rax,0x00(%rdi)           # free?
-          je       4f
-          addq     $0x20,%rdi                # next handle
-          decl     %ecx
-          jne      3b
-          jmp      R1A
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г prepare                Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        4:movq     0x08(%rbp),%rax           # RAX = MemSz
-          movl     0x10(%rbp),%ebx           # RBX = FldNr
-          movzwl   0x14(%rbp),%ecx           # RCX = LdCtl
-          addl     $0x0FFF,%eax
-          andl     $0xFFFFF000,%eax
-          movl     %ecx,0x08(%rdi)           # LDT: flags
-          movl     %eax,0x10(%rdi)           # LDT: MemSz
-          movl     %eax,0x14(%rdi)           # LDT: real size
-          movl     %ebx,0x18(%rdi)           # LDT: FldNr
-          movq     %rax,0x08(%rbp)           # LD : MemSz
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г file to load?          Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          testl    $0x10,%ecx                # LDR_MEM?
-          jne      7f
-          testl    $0x80,%ecx                # LDR_NO_FIELD?
-          jne      5f
-          movq     %rbx,%rcx                 # field number
-          leaq     0x50(%rsp),%rdx           # RDX = EA name
-          call     _FnDat
-          movq     %rdx,%rbx                 # RBX = EA name
-          jmp      6f
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г add filename to LFL    Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        5:movq     %rdi,%rdx                 # RDX = MemHandle
-          movq     0x20(%rbp),%rbx           # RBX = EA name
-          testl    $0x40,%ecx                # LDR_LFLIST?
-          je       6f
-          andq     $0xFFFF,%rdx
-          negl     _USE_LDF(%rip)            # option avail?
-          je       6f
-          movq     _LDF(%rip),%rcx           # MH
-          shrl     $0x05,%edx                # entry
-          xorq     %r8,%r8                   # subfield
-          movq     $0x02,%r9                 # FDA_WRITE
-          movq     %rbx,0x20(%rsp)           # EA name
-          call     _FDacc
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г try to open file       Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        6:leaq     0x20(%rsp),%rcx           # FH
-          xorl     %edx,%edx                 # entire file
-          movl     $0x02,%r8d                # open if exists
-          movq     %rbx,%r9                  # R09 = EA name
-          call     _Fopen                    # OPEN FILE
-          testl    %eax,%eax
-          jne      L00                       # ў ERR_FILE_OPEN ў
-          movl     0x28(%rsp),%eax           # RBX = filesize
-          movl     %eax,0x14(%rdi)           # LDT: real size
-          addl     $0x1FFF,%eax
-          andl     $0xFFFFF000,%eax
-          movl     %eax,0x10(%rdi)           # LDT: block size
-          movq     %rax,0x08(%rbp)           # LD : MemSz
-          movl     %eax,%r9d                 # R09 = block size
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г allocate memory        Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        7:movl     %eax,%ecx                 # ECX = block size
-          call     _AloMem
-          movq     %rax,%rbx                 # RBX = MemEA
-          leaq     0x20(%rsp),%rcx           # RCX = FH
-          testq    %rax,%rax                 # ERR_LDR_ALLOC?
-          je       L01
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г set LDT + LD params    Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          xorl     %eax,%eax
-          movq     %rbx,0x00(%rbp)           # LD : MemEA
-          movl     %edi,0x18(%rbp)           # LD : MMoff
-          movq     %rbx,0x00(%rdi)           # LDT: block EA
-          decl     %eax                      # EAX = infinite
-          movl     $0x01,0x1C(%rdi)          # LDT: entries = 1 
-          testb    $0x20,0x14(%rbp)          # LDR_STATIC?
-          jne      8f
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г create time stamp      Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-          call     _GetTime
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г copy file to memory    Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        8:movl     %eax,0x0C(%rdi)           # LDT: TimeStamp
-          testb    $0x10,0x14(%rbp)          # LDR_MEM?
-          jne      XITZ
-          movq     0x28(%rbp),%rax           # RAX = Moffs
-          movq     0x30(%rbp),%r8            # R08 = Foffs
-          xorq     %rdx,%rdx                 # RDX = entire file
-          movq     %rbx,0x30(%rsp)           # FH : Mbase
-          movq     %rax,0x38(%rsp)           # FH : Moffs
-          movq     %r8,0x40(%rsp)            # FH : Foffs
-          call     _Fread
-          testq    %rax,%rax                 # read error?
-          jne      L02
-          testb    $0x08,0x0C(%rbp)          # LDR_LEAVE_OPEN?
-          jne      9f
-          call     _Fclose                   # CLOSE FILE
-        9:movq     0x40(%rbp),%rax           # RAX = LD.FileH
-          movdqa   0x20(%rsp),%xmm0          # XM0 = WINfh + Fsize
-          testb    $0x08,0x14(%rbp)          # LDR_LEAVE_OPEN?
-          je       0f
-          testl    %eax,%eax                 # FH passed?
-          je       0f
-          movdqa   %xmm0,0x00(%rax)          # FH : WINfh + Fsize
-          movq     %rbx,0x10(%rax)           # FH : Mbase
-        0:testb    $0x80,0x14(%rbp)          # LDR_NO_FIELD?
-          jne      XITZ
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г validate field header  Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          movl     0x14(%rdi),%eax           # EAX = real size
-          movw     0x30(%rbx),%cx            #  CX = Header status
-          movl     0x10(%rbp),%edx           # EDX = field number
-          movl     0x3C(%rbx),%r8d           # EDX = max. amount
-          cmpl     $0x00,0x00(%rbx)          # Header 1st DD = 0?
-          jne      1f
-          cmpl     0x2C(%rbx),%edx           # Header field number = LD.FldNr?
-          jne      1f
-          cmpl     0x34(%rbx),%eax           # Header size = FH.Fsize?
-          jne      1f
-          orw      %cx,0x08(%rdi)            # override LDT flags
-          movl     %r8d,0x1C(%rdi)           # LDT: max. entries
-          jmp      XITZ
-          .p2align 4,,15
-        1:movq     %rbx,%rcx                 # RCX = EA
-          movq     %r9,%rdx                  # RDX = size
-          call     _FreMem
-          movl     $0x17,%eax                # ў ERR_LDR_CORRUPT ў
-      L00:pxor     %xmm0,%xmm0
-          movq     %xmm0,0x00(%rbp)          # clear LD
-          movq     %xmm0,0x18(%rbp)
-          movdqa   %xmm0,0x00(%rdi)          # clear LDT
-          movdqa   %xmm0,0x10(%rdi)
-          jmp      XITC
-          .p2align 4,,15
-      L01:call     _Fclose                   # close opened file
-          movl     $0x1B,%eax                # ў ERR_LDR_ALLOC ў
-          jmp      L00
-          .p2align 4,,15
-      L02:movq     %rbx,%rcx                 # EA
-          movq     %r9,%rdx                  # size
-          call     _FreMem
-          call     _Fclose                   # close opened file
-          movl     $0x16,%eax                # ў ERR_LDR_FILE  ў
-          jmp      L00
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDchg   change allocated size                                                      Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> RCX   MemHandle (MMoff in LD structure)                                          Гл
-          Г   RDX   new size  (multiple of 4096)                                               Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- RAX   0000 0000  ok                                                              Гл
-          Г         0000 xxxx  ERROR DosAllocMem()                                             Гл
-          Г         0000 0004  MM BUSY                                                         Гл
-          Г         0000 0013  INVALID MemHandle                                               Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-          .globl   _LDchg
-          .def     _LDchg; .scl 2; .type 32; .endef
-   _LDchg:subq     $0xB8,%rsp
-          movq     _BMM,%rax                 # RAX = BMM
-          nop
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9, 0x98(%rsp)
-          movq     %r8, 0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          addl     $0x0FFF,%edx              # RDX = match to page
-          movq     %rcx,%rbp                 # RBP = MH
-          movq     _BNR,%rsi                 # RSI = BNR
-          andl     $0xFFFFF000,%edx          # RDX = matching size
-          movq     0x00(%rbp),%r8            # R08 = old EA
-          movl     0x10(%rbp),%r9d           # R09 = old size
-          subq     %rax,%rcx                 # validate MH
-          js       R13
-          cmpq     $0x1FE0,%rcx
-          ja       R13
-          testq    %r8,%r8                   # EA valid?
-          je       R14
-          testl    $0x02,SYS_FL(%rsi)        # LDR BUSY?
-          jne      R04
-          orl      $0x02,SYS_FL(%rsi)        # set LDR_BUSY
-          movq     %rdx,%rcx                 # new size (pages)
-          call    _AloMem
-          testl     %eax,%eax
-          je       R12
-          cmpl     %ecx,%r9d                 # old size > new size?
-          cmovb    %r9d,%ecx                 # copy old size!
-          movq     %r8,%rbx                  # EBX = old EA
-          movq     %rax,0x00(%rbp)           # write new EA
-          movl     %edx,0x10(%rbp)           #       new size
-          shrl     $0x06,%ecx                # four paragraphs!
-        0:movdqa   0x00(%rbx),%xmm0          # copy old mem
-          movdqa   0x10(%rbx),%xmm1
-          movdqa   0x20(%rbx),%xmm2
-          movdqa   0x30(%rbx),%xmm3
-          movntdq  %xmm0,0x00(%rax)
-          movntdq  %xmm1,0x10(%rax)
-          movntdq  %xmm2,0x20(%rax)
-          movntdq  %xmm3,0x30(%rax)
-          addq     $0x40,%rbx
-          addq     $0x40,%rax
-          decl     %ecx
-          jne      0b
-          movq     %r8,%rcx                  # old EA
-          movq     %r9,%rdx                  #     size
-          call     _FreMem
-          jmp      XITZ
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDfre   free allocated memory                                                      Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> RCX   MMoff   MemHandle                                                          Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- RAX   0000 0000   ERR_NO_ERROR                                                   Гл
-          Г         0000 0004   ERR_SYS_LDR_BUSY                                               Гл
-          Г         0000 0013   ERR_LDR_MH                                                     Гл
-          Г         0000 0014   ERR_LDR_OS2MH                                                  Гл
-          Г         0000 00xx   RC from calls                                                  Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-          .globl   _LDfre
-          .def     _LDfre; .scl 2; .type 32; .endef
-   _LDfre:subq     $0xB8,%rsp
-          movq     %rcx,%rax                 # RAX = MemHandle
-          nop
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9, 0x98(%rsp)
-          movq     %r8, 0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          movq     _BNR(%rip),%rsi           # RSI = BNR
-          movq     %rcx,%rdi                 # RDI = MemHandle
-          subq     _BMM(%rip),%rax           # MH < 0000[BMM]?
-          js       R13
-          cmpq     $0x1FE0,%rax              # MH > 1FE0[BMM]?
-          ja       R13
-          movl     0x08(%rcx),%r8d           # R08 = flags
-          movl     SYS_FL(%rsi),%eax         # EAX = SYS_FL
-          movq     0x00(%rcx),%rbp           # RBP = EA block
-          movl     %r8d,%r9d                 # R09 = flags
-          xorl     %ebx,%ebx                 # RBX = 0
-          shrq     $0x05,%rax                # RAX = entry number
-          andl     $0xFFFF,%r8d              # R08 = flags, only
-          shrl     $0x10,%r9d                # R09 = instance count
-          testq    %rbp,%rbp                 # EA block = 0?
-          je       R14
-          testl    $0x02,%eax                # LDR_BUSY?
-          jne      R04
-          orl      $0x02,SYS_FL(%rsi)        # set LDR_BUSY
-          decl     %r9d                      # INSTANCE--
-          jns      XITZ
-          testl    $0x02,%r8d                # read only?
-          je       3f
-          testl    $0x04,%r8d                # changed?
-          je       3f
-          testl    $0x40,%r8d                # LFL entry?
-          je       0f
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LFL handling           Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          negl     _USE_LDF
-          je       3f
-          movq     _LDF,%rcx                 # LDF
-          movq     %rax,%rdx                 # entry number
-          xorq     %r8,%r8                   # subfield 0
-          movq     $0x07,%r9                 # FDA_ADDRESS
-          call     _FDacc
-          movq     %rax,%r9
-          jmp      2f
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г save changed content   Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        0:testl    $0x4890,%r8d              # corrupted, dirty, file, memory?
-          jne      3f
-          movl     0x18(%rdi),%ecx           # field number
-          leaq     0x50(%rsp),%rdx           # EA filename
-          call     _FnDat
-          movq     %rdx,%r9                  # R09 = filename
-        2:movq     %rbp,0x30(%rsp)           # fh.Mbase
-          movq     %rbx,0x38(%rsp)           # fh.Moffs = 0
-          movq     %rbx,0x40(%rsp)           # fh.Foffs = 0
-          movl     0x14(%rdi),%ebx           # RBX = real size (BMM)
-          leaq     0x20(%rsp),%rcx           # FH
-          xorq     %rdx,%rdx                 # entire file
-          movq     $0x02,%r8                 # open if exist
-          call     _Fopen
-          testl    %eax,%eax
-          jne      XITC
-          movq     %rbx,0x28(%rsp)           # fh.Fsize
-          movq     %rbx,%rdx                 # size
-          call    _Fwrite
-          movl     %eax,%ebx                 # RBX = rc Fwrite()
-          call    _Fclose
-          testl    %ebx,%ebx
-          jne      3f                        # if write failed:
-          movl     %ebx,%eax                 # do not clear table entry
-          jmp      XITC                      # do not free memory
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г free mem, clear MH     Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        3:movq     %rbp,%rcx                 # RCX = EA
-          movl     0x10(%rdi),%edx           # RDX = size (BMM)
-          call     _FreMem
-          pxor     %xmm0,%xmm0               # XM0 = 0
-          movdqa   %xmm0,0x00(%rdi)          # clear MemHandle
-          movdqa   %xmm0,0x10(%rdi)
-          jmp      XITZ
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDexit  terminate Loader                                                           Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г->       nothing                                                                    Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- EAX   always zero                                                                Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-          .globl   _LDexit
-          .def     _LDexit; .scl 2; .type 32; .endef
-  _LDexit:subq     $0xB8,%rsp
-          movq     _BMM,%rax                 # RAX = BMM
-          nop
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9,0x98(%rsp)
-          movq     %r8,0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          xorl     %ebx,%ebx                 # RBX = 0
-          leaq     0x1FE0(%rax),%rcx         # RCX = last MemHandle
-          movl     $0xFE,%edx                # RDX = loop counter
-          movq     _BNR,%rsi                 # RSI = BNR
-          movq     %rax,%rbp                 # RBP = BMM
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г free open MemHandles   Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        0:cmpq     %rbx,0x00(%rcx)           # MH free?
-          je       1f
-          movw     $0x00,0x0A(%rcx)          # INSTANCE = 1 (force free)
-          call     _LDfre
-        1:subq     $0x20,%rcx
-          decl     %edx
-          jne      0b
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г save system numerics   Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          movq     %rbx,0x28(%rsp)           # fh.Fsize
-          movq     %rsi,0x30(%rsp)           # fh.Mbase
-          movq     %rbx,0x38(%rsp)           # fh.Moffs
-          movq     $0x0100,0x40(%rsp)        # fh.Foffs
-          leaq     0x20(%rsp),%rcx           # FH
-          movq     $0x02,%r8                 # open or create
-          movq     $LC01,%r9                 # num.dat
-          call     _Fopen
-          testl    %eax,%eax
-          jne      3f
-          movq     $0x1100,0x28(%rsp)        # fh.Fsize
-          movq     $0x1000,%rdx
-          call     _Fwrite
-          movq     $0x1100,%rdx              # size
-          call     _Fsize
-          call     _Fclose
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г free BNR and BMM       Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        3:movq     %rsi,%rcx                 # BNR
-          movq     $0x3000,%rdx
-          call     _FreMem
-          movq     %rbp,%rcx                 # BMM
-          movq     $0x2000,%rdx
-          call     _FreMem
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г clear globals          Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          movq     %rbx,_BBF(%rip)           # clear globals
-          movq     %rbx,_BST(%rip)
-          movq     %rbx,_BNR(%rip)
-          movq     %rbx,_BMM(%rip)
-          movq     %rbx,_GVAR(%rip)
-          movq     %rbx,_LDR_AVAIL(%rip)
-          jmp      XIT8
-          /*
-          ЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ
-          К                                   C H E C K E R                                    Кл
-          ШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDchk   CHECKER-THREAD MAIN FUNCTION                                               Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> RCX   CHK_REMOVE - time in HMSh                                                  Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- RAX   always zero                                                                Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-          .globl   _LDchk
-          .def     _LDchk; .scl 2; .type 32; .endef
-   _LDchk:subq     $0xB8,%rsp
-          movq     _BNR(%rip),%rax           # RAX = BNR
-          nop
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9,0x98(%rsp)
-          movq     %r8,0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          movq     %rcx,%rbx                 # RBX = CHK_REMOVE
-          movq     %rax,%rsi                 # RSI = BNR
-          movq     _BMM(%rip),%rdi           # RDI = BMM
-          movl     $0x7E,%ebp                # EBP = loop_count
-          movq     HW_MHM(%rax),%rcx         # RCX = HW_MHM
-          testl    $0x06,SYS_FL(%rsi)        # LDR BUSY?
-          jne      R04
-          orl      $0x06,SYS_FL(%rsi)        # set SYS_MM_BUSY, SYS_CHK_ACT
-          addq     $0x80,%rdi
-          testq    %rcx,%rcx                 # MH monitor running?
-          je       0f
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г post message           Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          movl     $0x2000,%edx              # WM_MHM0000
-          xorq     %r8,%r8                   # NULL
-          xorq     %r9,%r9                   # NULL
-          call     _PostM
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г calculate timestamp    Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        0:call     _GetTime
-          cmpl     %ebx,%eax                 # crossing 00:mm:ss:hh?
-          jae      1f
-          addl     $0x18000000,%eax          # 24:mm:ss:hh!
-        1:movq     %rax,%rcx                 # current time
-          movq     %rbx,%rdx                 # CHK_REMOVE
-          call     _tDiff
-          movq     %rdi,%rcx                 # RCX = MH
-          movl     %eax,%ebx                 # time stamp maximum
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г free unused blocks     Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        2:movq     0x00(%rcx),%rdi           # RDI = EA block 1
-          movl     0x0C(%rcx),%ebp           # RBP = time stamp 1
-          movq     0x20(%rcx),%r8            # R08 = EA block 2
-          movl     0x2C(%rcx),%r9d           # R09 = time stamp 2
-          testq    %rdi,%rdi                 # 1 allocated?
-          je       3f
-          cmpl     $0xFFFFFFFF,%ebp          # 1 static?
-          je       3f
-          cmpl     %ebp,%ebx                 # 1 time stamp expired?
-          jbe      3f
-          call     _LDfre
-        3:addq     $0x20,%rcx                # MH 2
-          testq    %r8,%r8                   # 2 allocated?
-          je       4f
-          cmpl     $0xFFFFFFFF,%r9d          # 2 static?
-          je       4f
-          cmpl     %r9d,%ebx                 # 2 time stamp expired?
-          jbe      4f
-          call     _LDfre
-        4:addq     $0x20,%rcx                # next MHs
-          decl     %ebp                      # loop_count--
-          jne      2b
-          jmp      XITZ
-          /*
-          ЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ
-          К                         C R E A T E   F I E L D   N A M E                          Кл
-          ШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г FnDat   assemble filename from field #                                             Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> RCX   field number                                                               Гл
-          Г   RDX   EA buffer (minmum size = 17 byte!)                                         Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- RAX   always zero                                                                Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г String is set to  ..\data\xxxxxxxx                                                 Гл
-          Г               or  ..\syst\xxx.dat                                                  Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-          .globl   _FnDat
-          .def     _FnDat; .scl 2; .type 32; .endef
-   _FnDat:movq     %rcx,%rax
-          subl     $0xFFFFFFF0,%eax
-          cmpl     $0x0F,%eax
-          jbe      0f
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г ..\data\xxxxxxxx       Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          movl     $0x645C2E2E,0x00(%rdx)
-          movl     $0x5C617461,0x04(%rdx)
-          addq     $0x08,%rdx
-          call     _d2str
-          subq     $0x08,%rdx
+          .p2align  4,,15
+      XIZ:xorl      %eax,                %eax               # ERR_NO_ERROR
+      XRS:andl      $0xFFF9,             SYS_FL(%r14)       # reset CHK_ACT / LDR_BUSY
+      XIT:movdqa    0x60(%rsp),          %xmm4
+          movdqa    0x70(%rsp),          %xmm5
+          movq      0x88(%rsp),          %rbp
+          movq      0x90(%rsp),          %rsi
+          movq      0x98(%rsp),          %rdi
+          movq      0xA0(%rsp),          %rbx
+          movq      0xA8(%rsp),          %r15
+          movq      0xB0(%rsp),          %r14
+          movq      0xB8(%rsp),          %r13
+          movq      0xC0(%rsp),          %r12
+          movq      0xC8(%rsp),          %r11
+          movq      0xD0(%rsp),          %r10
+          movq      0xD8(%rsp),          %r9
+          movq      0xE0(%rsp),          %r8
+          movq      0xE8(%rsp),          %rdx
+          movq      0xF0(%rsp),          %rcx
+          addq      $0xF8,               %rsp
           ret
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г ..\syst\xxx.dat        Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                               F n D a t ()
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            FnDat() is integrated in LDreq() - use d2str() as replacement for FnDat().
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-        0:movl     LC00(, %rax, 4),%eax
-          movl     $0x735C2E2E,0x00(%rdx)
-          movl     $0x5C747379,0x04(%rdx)
-          movl     %eax,0x08(%rdx)
-          movl     $0x00746164,0x0C(%rdx)
-          xorq     %rax,%rax
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                  M e m H a n d l e   F U N C T I O N S
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            getMH    get MemHandle from field #
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   field number
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   0000 0000 0000 0000   not found
+                     ???? ???? ???? ????   MemHandle
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align  4,,15
+          .globl    _getMH
+          .def      _getMH; .scl 2; .type 32; .endef
+   _getMH:movq      _BMM,                %rax
+          subq      $0x38,               %rsp
+          addq      $0x0100,             %rax
+          movq      %rdx,                0x30(%rsp)
+          movl      $0x07F8,             %edx               # RDX = loop_cnt
+        0:cmpl      %ecx,                0x18(%rax)
+          je        1f
+          addq      $0x20,               %rax
+          decl      %edx
+          jne       0b
+          xorl      %eax,                %eax
+        1:movq      0x30(%rsp),          %rdx
+          addq      $0x38,               %rsp
           ret
           /*
-          ЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ
-          К                             M I S C E L L A N E O U S                              Кл
-          ШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDclr   ERASE FIELD DATA                                                           Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> RCX   MemHandle                                                                  Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- EAX   0000 0000  ok                                                              Гл
-          Г         0000 0004  ERR_SYS_LDR_BUSY                                                Гл
-          Г         0000 0013  ERR_LDR_MH                                                      Гл
-          Г         0000 0014  ERR_LDR_OS2MH                                                   Гл
-          Г         0000 0018  ERR_LDR_NO_FIELD                                                Гл
-          Г         0000 001C  ERR_DBE_TYPE                                                    Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDupd    update LD structure
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   address LD structure
+               RDX   MemHandle
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- EAX   0000 0000   okay
+                     0000 0013   ERR_LDR_MH
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          .p2align 4,,15
-          .globl   _LDclr
-          .def     _LDclr; .scl 2; .type 32; .endef
-   _LDclr:subq     $0xB8,%rsp
-          movq     _BMM,%rax                 # RAX = BMM
-          nop
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9,0x98(%rsp)
-          movq     %r8,0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
+          .p2align  4,,15
+          .globl    _LDupd
+          .def      _LDupd; .scl 2; .type 32; .endef
+   _LDupd:subq      $0x38,               %rsp
+          movq      %rdx,                %rax
+          movq      %rbx,                0x20(%esp)
+          movq      %rdi,                0x28(%esp)
+          movq      %rsi,                0x30(%esp)
+          subq      _BMM,                %rax               # validate MH
+          js        1f
+          cmpl      $0xFFE0,             %eax
+          ja        1f
+          movq      0x00(%rdx),          %rbx               # RBX = EA block
+          movl      0x08(%rdx),          %esi               # RSI = flags
+          movl      0x18(%rdx),          %edi               # RDI = field number
+          xorl      %eax,                %eax
+          movq      %rbx,                0x00(%rcx)         # LD.MemEA
+          movl      %edi,                0x10(%rcx)         # LD.FldNr
+          movl      %esi,                0x14(%rcx)         # LD.LdCtl
+        0:movq      0x20(%esp),          %rbx
+          movq      0x28(%esp),          %rdi
+          movq      0x30(%esp),          %rsi
+          addq      $0x38,               %rsp
+          ret
+          .p2align  4,,15
+        1:movl      $0x13,               %eax               # ERR_LDR_MH
+          jmp       0b
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г set registers          Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDunc    reset CHANGED flag
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> PAR1  MemHandle
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   always zero
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          movq     _BNR,%rsi                 # RSI = BNR
-          movq     %rcx,%rdi                 # RDI = EA MemHandle
-          movq     0x00(%rcx),%rbp           # RBP = EA block
-          movl     0x18(%rcx),%edx           # RDX = field number in BMM
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г validate with care...  Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          subq     %rax,%rcx                 # validate MH
-          js       R13
-          cmpq     $0x1FE0,%rcx
-          ja       R13
-          testq    %rbp,%rbp                 # EA block = 0?
-          je       R14
-          testl    $0x02,SYS_FL(%rsi)        # LDR BUSY?
-          jne      R04
-          cmpl     $0x00,0x00(%rbp)          # starts with 4 zeroes?
-          jne      R18
-          cmpl     %edx,0x2C(%rbp)           # field number at 0x2C?
-          jne      R18
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г prepare                Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          movl     0x24(%rbp),%eax           # RAX = types
-          movl     0x3C(%rbp),%edx           # RDX = entries
-          orl      $0x02,SYS_FL(%rsi)        # set SYS_LDR_BUSY
-          decl     %eax                      # RAX = index!
-          orb      $0x08,0x09(%rdi)          # set dirty flag in BMM
-          movzb    0x40(%rbp, %rax, 1),%ebx  # RBX = last type
-          movl     0x60(%rbp, %rax, 4),%ecx  # RCX =      offset
-          pxor     %xmm0,%xmm0
-          pxor     %xmm1,%xmm1
-          pxor     %xmm2,%xmm2
-          pxor     %xmm3,%xmm3
-          xorq     %rax,%rax                 # RAX = 0
-          cmpl     $0x07,%ebx                # valid type?
-          cmova    %rax,%rbx                 # invalid!
-          movq     %rcx,%rax                 # RAX = last offset
-          jmp      *jtclr(, %rbx, 8)         # jump table <jtclr>
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г calculate parameters   Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-      cl0:andl     $0xFD,SYS_FL(%rsi)        # reset SYS_DBE_BUSY, SYS_LDR_BUSY
-          orl      $0x4000,0x30(%rbp)        # set   LDR_CORRUPT (field)
-          orl      $0x4000,0x08(%rdi)        #                   (BMM)
-          jmp      R1C
-      cl2:shll     $0x01,%edx
-          jmp      cl1
-      cl3:shll     $0x02,%edx
-          jmp      cl1
-      cl4:shll     $0x03,%edx
-          jmp      cl1
-      cl5:shll     $0x04,%edx
-          jmp      cl1
-      cl6:movl     0x20(%rbp),%edx           # RDX = block size
-      cl1:leaq     0x0100(%rbp),%rbx         # RBX = EA data area
-          addq     %rdx,%rax                 # RAX = offset 1st free
-          addq     %rdx,%rcx                 # RCX =        1st free
-          subq     $0x0100,%rax              # RAX = byte to clear
-          orl      $0x04,0x08(%rdi)          # set changed flag (BMM)
-          movl     %ecx,0x14(%rdi)           # write new size > (BMM)
-          movl     %ecx,0x34(%rbp)           #                > (header)
-          andq     $0x30,%rax                # extract odd paragraphs
-          subq     $0x0100,%rcx              # RCX = byte to clear
-          shrq     $0x06,%rcx                # RCX = cache lines
-          shrq     $0x04,%rax                # RAX = remaining paragraphs
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г clear field            Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-          testl    %ecx,%ecx
-          je       1f
-        0:movntdq  %xmm0,0x00(%rbx)
-          movntdq  %xmm1,0x10(%rbx)
-          movntdq  %xmm2,0x20(%rbx)
-          movntdq  %xmm3,0x30(%rbx)
-          addq     $0x40,%rbx
-          decl     %ecx
-          jne      0b
-        1:sfence
-          testl    %eax,%eax
-          je       3f
-        2:movdqa   %xmm0,0x00(%rbx)
-          addq     $0x10,%rbx
-          decl     %eax
-          jne      2b
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г update header + BMM    Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллл
-          */
-        3:andb     $0xF7,0x09(%rdi)          # reset dirty flag in BMM
-          jmp      XITC
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г errors                                     Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-      R02:movl     $0x02,%eax                # ERR_SYS_SERIOUS
-          jmp      XIT8
-          .p2align 4,,15
-      R04:movl     $0x04,%eax                # ERR_LDR_BUSY
-          jmp      XIT8
-          .p2align 4,,15
-      R07:addq     $0x08,%rsp                # undo PUSHF
-          xorq     %rcx,%rcx                 # title = 'Error'
-          movq     $LC04,%rdx                # text  = 'CPU is too old!'
-          movq     $0x40,%r8                 # flags = MB_CUACRITICAL
-          call     _MBox
-          movl     $0x07,%eax                # ERR_CPU_TOO_OLD
-          jmp      XIT8
-          .p2align 4,,15
-      R12:movl     $0x12,%eax                # ERR_LDR_RESIZE
-          jmp      XITC
-          .p2align 4,,15
-      R13:movl     $0x13,%eax                # ERR_LDR_MH
-          jmp      XITC
-          .p2align 4,,15
-      R14:movl     $0x14,%eax                # ERR_LDR_OS2MH
-          jmp      XITC
-          .p2align 4,,15
-      R18:movl     $0x18,%eax                # ERR_LDR_NO_FIELD
-          jmp      XITC
-          .p2align 4,,15
-      R1A:movl     $0x1A,%eax                # ERR_LDR_OUT_OF_MH
-          jmp      XITC
-          .p2align 4,,15
-      R1C:movl     $0x1C,%eax                # ERR_LDR_FORBIDDEN
-           jmp     XITC
-          .p2align 4,,15
-      R1D:movl     $0x1D,%eax                # ERR_LDR_ZERO
-          jmp      XITC
-          .p2align 4,,15
-      R1E:movl     $0x1E,%eax                # ERR_LDR_INIT
-          jmp      XIT8
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г common exit                                Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-     XITZ:xorq     %rax,%rax                 # ERR_NO_ERROR
-     XITC:andl     $0xFFF9,SYS_FL(%rsi)      # reset CHK_ACT / LDR_BUSY
-     XIT8:movq     0x78(%rsp),%rbp
-          movq     0x80(%rsp),%rsi
-          movq     0x88(%rsp),%rdi
-          movq     0x90(%rsp),%rbx
-          movq     0x98(%rsp),%r9
-          movq     0xA0(%rsp),%r8
-          movq     0xA8(%rsp),%rdx           # FnDat
-          movq     0xB0(%rsp),%rcx
-          addq     $0xB8,%rsp
+          .p2align  4,,15
+          .globl    _LDunc
+          .def      _LDunc; .scl 2; .type 32; .endef
+   _LDunc:pushq     $0x00                                   # align stack
+          andb      $0xFB,               0x08(%rcx)
+          popq      %rax                                    # RAX = 0
           ret
           /*
-          ЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ
-          К                       m e m H a n d l e   F U N C T I O N S                        Кл
-          ШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г getMH   get MemHandle from field #                                                 Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> RCX   field number                                                               Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- RAX   0000 0000 0000 0000   not found                                            Гл
-          Г         ???? ???? ???? ????   MemHandle                                            Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDstc    set CHANGED flag
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> PAR1  MemHandle
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   always zero
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          .p2align 4,,15
-          .globl   _getMH
-          .def     _getMH; .scl 2; .type 32; .endef
-   _getMH:subq     $0x38,%rsp
-          movl     _BMM,%eax
-          nop
-          movq     %rdx,0x30(%rsp)
-          movl     $0x0100,%edx              # RDX = loop counter
-        0:cmpl     %ecx,0x18(%rax)
-          je       1f
-          addq     $0x20,%rax
-          decl     %edx
-          jne      0b
-          xorq     %rax,%rax
-        1:movq     0x30(%rsp),%rdx
-          addq     $0x38,%rsp
+          .p2align  4,,15
+          .globl    _LDstc
+          .def      _LDstc; .scl 2; .type 32; .endef
+   _LDstc:pushq     $0x00                                   # align stack
+          orb       $0x04,               0x08(%rcx)
+          popq      %rax                                    # RAX = 0
           ret
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDupd   update LD structure                                                        Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> PAR1  address LD structure                                                       Гл
-          Г   PAR2  MemHandle                                                                  Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- EAX   0000 0000   okay                                                           Гл
-          Г         0000 0013   ERR_LDR_MH                                                     Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            LDsts    set CHANGED flag and real size
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   MemHandle
+               RDX   new size
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   always zero
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          .p2align 4,,15
-          .globl   _LDupd
-          .def     _LDupd; .scl 2; .type 32; .endef
-   _LDupd:subq     $0x38,%rsp
-          movq     %rdx,%rax
-          nop
-          movq     %rbx,0x20(%esp)
-          movq     %rdi,0x28(%esp)
-          movq     %rsi,0x30(%esp)
-          subq     _BMM,%rax                 # validate MH
-          js       1f
-          cmpl     $0x1FE0,%eax
-          ja       1f
-          movq     0x00(%rdx),%rbx           # RBX = EA block
-          movl     0x18(%rdx),%edi           # RDI = field number
-          movzwl   0x08(%rdx),%esi           # RSI = flags
-          movq     %rbx,0x00(%rcx)           # LD.MemEA
-          movl     %edi,0x10(%rcx)           # LD.FldNr
-          movl     %esi,0x14(%rcx)           # LD.LdCtl
-          xorq     %rax,%rax
-        0:movq     0x20(%esp),%rbx
-          movq     0x28(%esp),%rdi
-          movq     0x30(%esp),%rsi
-          addq     $0x38,%rsp
-          ret
-        1:movq     $0x13,%rax                # ERR_LDR_MH
-          jmp      0b
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDunc   reset CHANGED flag                                                         Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> PAR1  MemHandle                                                                  Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- RAX   always zero                                                                Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-          .globl   _LDunc
-          .def     _LDunc; .scl 2; .type 32; .endef
-   _LDunc:andb     $0xFB,0x08(%rcx)
-          xorq     %rax,%rax
+          .p2align  4,,15
+          .globl    _LDsts
+          .def      _LDsts; .scl 2; .type 32; .endef
+   _LDsts:pushq     $0x00                                   # align stack
+          orb       $0x04,               0x08(%rcx)
+          movq      %rdx,                0x14(%rcx)
+          popq      %rax                                    # RAX = 0
           ret
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDstc   set CHANGED flag                                                           Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> PAR1  MemHandle                                                                  Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- RAX   always zero                                                                Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            MHxcg    exchange two MemHandles
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   MemHandle 1
+               RDX   MemHandle 2
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   always zero
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          .p2align 4,,15
-          .globl   _LDstc
-          .def     _LDstc; .scl 2; .type 32; .endef
-   _LDstc:orb      $0x04,0x08(%rcx)
-          xorq     %rax,%rax
+          .p2align  4,,15
+          .globl    _MHxcg
+          .def      _MHxch; .scl 2; .type 32; .endef
+   _MHxcg:pushq     $0x00                                   # align stack
+          movdqa    0x00(%rcx),          %xmm0
+          movdqa    0x10(%rcx),          %xmm1
+          movdqa    0x00(%rdx),          %xmm2
+          movdqa    0x10(%rdx),          %xmm3
+          movdqa    %xmm2,               0x00(%rcx)
+          movdqa    %xmm3,               0x10(%rcx)
+          movdqa    %xmm0,               0x00(%rdx)
+          movdqa    %xmm1,               0x10(%rdx)
+          popq      %rax                                    # RAX = 0
           ret
           /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г LDsts   set CHANGED flag and real size                                             Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> RCX   MemHandle                                                                  Гл
-          Г   RDX   new size                                                                   Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- RAX   always zero                                                                Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          .p2align 4,,15
-          .globl   _LDsts
-          .def     _LDsts; .scl 2; .type 32; .endef
-   _LDsts:orb      $0x04,0x08(%rcx)
-          movq     %rdx,0x14(%rcx)
-          xorq     %rax,%rax
-          ret
-          /*
-          кФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФП
-          Г MHxcg   exchange two MemHandles                                                    Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г-> RCX   MemHandle 1                                                                Гл
-          Г   RDX   MemHandle 2                                                                Гл
-          УФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФДл
-          Г<- RAX   always zero                                                                Гл
-          РФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФйл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .p2align 4,,15
-          .globl   _MHxcg
-          .def     _MHxch; .scl 2; .type 32; .endef
-   _MHxcg:movdqa   0x00(%rcx),%xmm0
-          movdqa   0x10(%rcx),%xmm1
-          movdqa   0x00(%rdx),%xmm2
-          movdqa   0x10(%rdx),%xmm3
-          xorq     %rax,%rax
-          movdqa   %xmm2,0x00(%rcx)
-          movdqa   %xmm3,0x10(%rcx)
-          movdqa   %xmm0,0x00(%rdx)
-          movdqa   %xmm1,0x10(%rdx)
-          ret
-          /*
-          ЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ
-          ШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМл
-            ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
-          */
-          .comm    _BMM,       8, 3
-          .comm    _BNR,       8, 3
-          .comm    _BST,       8, 3
-          .comm    _BBF,       8, 3
-          .comm    _TST,       8, 3
-          .comm    _LDF,       8, 3
-          .comm    _GVAR,      8, 3
-          .comm    _MHSTR,     8, 3
-          .comm    _LDR_AVAIL, 8, 3
-          .comm    _DEBUG,     8, 3
-          .comm    _USE_LDF,   8, 3
+          .comm     _LDR_AVAIL,          8, 3
+          .comm     _BMM,                8, 3
+          .comm     _BNR,                8, 3
+          .comm     _DVAR,               8, 3
+          .comm     _QVAR,               8, 3
+          .comm     _BBF,                8, 3
+          .comm     _OBF,                8, 3
+          .comm     _TST,                8, 3
+          .comm     _BST,                8, 3
+          .comm     _MHSTR,              8, 3

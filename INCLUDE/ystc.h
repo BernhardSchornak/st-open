@@ -1,49 +1,39 @@
   /*
-    Use font 'DOS 850' or 'IBM 850' on non-OS/2 machines to display the file properly!
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                                S T R U C T U R E S                                 บÛ
-  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
-  บ                          *** (C) ST-Open 1979 - 2010 ***                           บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ       THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE        บÛ
-  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
-  บ You may copy and distribute this file as often as you want, but recipients are not บÛ
-  บ allowed to pay anything for any copy of this file or its content. It isn't allowed บÛ
-  บ to remove parts of this file or add third party content. It isn't allowed to abuse บÛ
-  บ the copyrighted content or introduced techniques for commercial purposes. Whatever บÛ
-  บ is derived from this file and its content must be freely available without charge. บÛ
-  บ You are free to modify the content of this file if you want to. However, derivates บÛ
-  บ of the content of this file or parts of it *still* are subject to the terms of the บÛ
-  บ FT4FP license. Recipients neither are allowed to pay anything for the original nor บÛ
-  บ for altered or derived replica.                                                    บÛ
-  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
-  บ       FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!        บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                                    L E G E N D                                     บÛ
-  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
-  บ <     parameter   set by called function                                           บÛ
-  บ >     required    required input                                                   บÛ
-  บ x     internal    read only - do not alter!                                        บÛ
-  บ X     obsolete    obsolete parameters are ignored by default                       บÛ
-  บ [opt] optional    if not used, optional parameters -must- be set to zero           บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ==================================================================================
+                      S T R U C T U R E S    (C) ST-Open 1979 - 2012
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE!
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    You may copy and distribute this file as often as you want, but recipients are not
+    allowed to pay anything for any copy of this file or its content. It isn't allowed
+    to abuse its copyrighted content or introduced techniques for commercial purposes.
+    Whatever is derived from this file or its content must be freely available without
+    charge.
+
+    You are free to modify the content of this file if you want to. However, derivates
+    of the content of this file or parts of it *still* are subject to the terms of the
+    FT4FP license. Recipients neither are allowed to pay anything for the original nor
+    for altered or derived replica.
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               FREE THOUGHT FOR FREE PEOPLE: KEEP CASH AWAY FROM KNOWLEDGE!
+    ==================================================================================
+                                       L E G E N D
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    <     parameter   set by called function
+    >     required    required input
+    x     internal    read only - do not alter!
+    X     obsolete    obsolete parameters are ignored by default
+    [opt] optional    if not used, optional parameters -must- be set to zero
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
 #ifndef __ystc__
 #define __ystc__
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                           C O R E   S T R U C T U R E S                            บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-  ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
-  ณ Files                       size = 0x30 ณÛ
-  ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤูÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                              C O R E    S T R U C T U R E S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Files                     size = 0x30
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   typedef struct    _FH{
                         DQ    WINfh;     /* <  00       Windows file handle            */
@@ -52,13 +42,12 @@
                         DQ    Moffs;     /*  > 18 [opt] mem  offset                    */
                         DQ    Foffs;     /*  > 20 [opt] file offset                    */
                         DQ    Fstat;     /* <  28       file status                    */
-                       } FH;             /* struct size 0x30                           */
+                       } FH;
   typedef FH *PFH;
   /*
-  ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
-  ณ Loader                      size = 0x48 ณÛ
-  ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤูÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Loader                    size = 0x48
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   typedef struct    _LD{
                         VOID *MemEA;     /* <  00       address memory block           */
@@ -70,89 +59,136 @@
                         DQ    Moffs;     /*  > 28 [opt] offset in memory               */
                         DQ    Foffs;     /*  > 30 [opt]           file                 */
                         DQ    AmtBy;     /*  > 38 [opt] amount bytes to copy           */
-                        VOID *FileH;     /*  > 40 [opt] FH (LDR_LEAVE_OPEN, only)      */
-                       } LD;             /* struct size 0x48                           */
+                       } LD;
   typedef LD *PLD;
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                        L I B R A R Y   S T R U C T U R E S                         บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-  ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
-  ณ bitmaps                   size = 0x0100 ณÛ
-  ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤูÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                          L O W   L E V E L   S T R U C T U R E S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    CHS                       size = 0x10
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  typedef struct   _STB{
-                        DD    BMPw;      /*  > 00 bitmap width                         */
-                        DD    BMPh;      /*  > 04        height                        */
-                        DQ    BMPea;     /*  > 08        EA mem block (begins at 0x02) */
-                        DQ    BMPr;      /*  > 10        ratio w:h                     */
-                        DD    BWx;       /*  > 18 window x (left)                      */
-                        DD    BWy;       /* <  1C        y (bottom)                    */
-                        DD    BWw;       /* <  20        width                         */
-                        DD    BWh;       /* <  24        height                        */
-                        DQ    BWhwnd;    /*  > 28        HWND                          */
-                        DQ    BWhps;     /* <  30        HPS                           */
-                        DQ    BWhbmp;    /* <  38        HBITMAP                       */
-                        DB    file[192]; /*  > 40 string filename (192 byte)           */
-                       } STB;            /* struct size  0x0100                        */
-  typedef STB *PSTB;
+  typedef struct   _CHS{
+                        DQ cylinder
+                        DD head
+                        DD sector
+                       };
+  typedef CHS *PCHS;
   /*
-  ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
-  ณ Spinbuttons                 size = 0x40 ณÛ
-  ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤูÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            L I B R A R Y   S T R U C T U R E S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Spinbuttons               size = 0x40
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   typedef struct   _SPN{
-                        DQ    Shwnd;     /*  x 00       HWND spin                      */
-                        DQ    Min;       /*  > 08       lower limit                    */
-                        DQ    Max;       /*  > 10       upper limit                    */
-                        DQ    Cur;       /* <> 18       current value or entry         */
-                        DD    ResID;     /*  > 20       resource ID spinbutton         */
-                        DB    Type;      /*  > 24       spinbutton type                */
-                        DB    Flag;      /*  > 25       busy flag                      */
-                        DB    Idig;      /*  > 26       integer digits or format       */
-                        DB    Fdig;      /*  > 27       pseudo floating point digits   */
-                        DQ    Field;     /*  > 28 [opt] MemHandle                      */
-                        DD    SubFd;     /*  > 30 [opt] subfield number                */
-                        DD    AccCt;     /*  x 34       internal accelerator counter   */
-                        DQ    AccVa;     /*  x 38                            current   */
-                       } SPN;            /* struct size 0x40                           */
+                        DQ    Min;       /*  > 00       lower limit                    */
+                        DQ    Max;       /*  > 08       upper limit                    */
+                        DQ    Cur;       /* <> 10       current value or entry         */
+                        DD    Ehwnd;     /*  > 18       HWND entryfield                */
+                        DB    EFid;      /*  > 20       ID   entryfield                */
+                        DB    UDid;      /*  > 24            up/down control           */
+                        DB    Fmh;       /*  > 28       MemHandle for strings          */
+                        DB    Type;      /*  > 30       spinbutton type                */
+                        DQ    Flags;     /*  > 34                  flags               */
+                        DD    TypeD;     /*  > 38 [opt] type data                      */
+                        DD    SubFd;     /*  x 3C [opt] subfield number                */
+                       } SPN;
   typedef SPN *PSPN;
   /*
-  ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
-  ณ Commands             ณÛ
-  ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤูÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~
+    Spinbutton Types
+    ~~~~~~~~~~~~~~~~~~~~~~~
   */
-  #define SPN_SET             0x08       /*    04 set new value                        */
-  #define SPN_GETCUR          0x07       /*    07 get current value                    */
-  #define SPN_GETID           0x06       /*    06 get resource ID from entry           */
-  #define SPN_GETSTRUC        0x05       /*    05 get structure address                */
-  #define SPN_QUERY           0x04       /*    03 query current value                  */
-  #define SPN_END             0x03       /*    08 arrow released                       */
-  #define SPN_DN              0x02       /*    02 spin one unit down                   */
-  #define SPN_UP              0x01       /*    01 spin one unit up                     */
-  #define SPN_INIT            0x00       /*    00 initialize spinbutton (incl. set)    */
-  /*
-  ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
-  ณ Spinbutton Types     ณÛ
-  ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤูÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-  */
-  #define SPN_STR_FIELD       0x08       /*    08           field                      */
-  #define SPN_DATE            0x07       /*    07 formatted date                       */
-  #define SPN_TIME            0x06       /*    06           time                       */
-  #define SPN_HEX64           0x05       /*    05           64 bit hex                 */
-  #define SPN_HEX32           0x04       /*    04           32 bit hex                 */
-  #define SPN_HEX16           0x03       /*    03           16 bit hex                 */
-  #define SPN_HEX08           0x02       /*    02            8 bit hex                 */
+  #define SPN_DEC32           0x00       /*    00 formatted 32 bit decimal             */
   #define SPN_DEC64           0x01       /*    01           64 bit decimal             */
-  #define SPN_DEC32           0x00       /*    00           32 bit decimal             */
+  #define SPN_HEX08           0x02       /*    02            8 bit hex                 */
+  #define SPN_HEX16           0x03       /*    03           16 bit hex                 */
+  #define SPN_HEX32           0x04       /*    04           32 bit hex                 */
+  #define SPN_HEX64           0x05       /*    05           64 bit hex                 */
+  #define SPN_DATE_ISO        0x06       /*    06           date YYYY-MM-DD            */
+  #define SPN_DATE_EU         0x07       /*    07                DD.MM.YYYY            */
+  #define SPN_TIME_00         0x08       /*    08           time       SS.hh           */
+  #define SPN_TIME_01         0x09       /*    09           time    MM:SS.hh           */
+  #define SPN_TIME_02         0x0A       /*    0A           time HH:MM:SS.hh           */
+  #define SPN_TIME_03         0x0B       /*    0B           time HH:MM:SS              */
+  #define SPN_TIME_04         0x0C       /*    0C           time HH:MM                 */
+  #define SPN_STRINGS         0x0D       /*    0D as is...  data field array           */
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~
+    Spinbutton Commands
+    ~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  #define SPN_INIT            0x00       /*    00 initialize spinbutton (incl. set)    */
+  #define SPN_NOTIFY          0x01       /*    01 process WM_NOTIFY  message           */
+  #define SPN_EDITED          0x02       /*    02         WM_COMMAND message           */
+  #define SPN_SET             0x03       /*    08 set current content                  */
+  #define SPN_QUERY           0x04       /*    03 get current content                  */
+  #define SPN_GETSTRUC        0x05       /*    05 copy 64 byte block to buffer         */
+  #define SPN_SETSTRUC        0x06       /*    06      buffer to 64 byte block         */
+  #define SPN_SETTYPE         0x07       /*    07 set type, tflags, tdata              */
+  #define SPN_SETLIMITS       0x08       /*    08     min and max                      */
+  #define SPN_SETTFLAGS       0x09       /*    09     type flags                       */
+  #define SPN_SETMH           0x0A       /*    0A     MemHandle (field, only)          */
+  #define SPN_SETSUB          0x0B       /*    0B     subfield  (type data)            */
+  #define SPN_STRAIGHT        0x0C       /*    0C     step in -1 or +1 steps           */
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Entryfields               size = 0x80
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  typedef struct   _EFD{
+                        DQ    EfdHw;     /*  > 00 EFld   HWND (set by STefd)           */
+                        DD    EfdId;     /*  > 08        ID                            */
+                        DD    Etype;     /*  > 0C Type   (0x00...0x0F)                 */
+                        DD    Tflgs;     /*  > 10        flags                         */
+                        DD    Tdata;     /*  > 14        data                          */
+                        DD    MaxCh;     /* <  18 EFld   maximum chars (strings, only) */
+                        DD    Eflgs;     /* <  1C        flags (do not touch!)         */
+                        DD    Min;       /* <  20        lower limit (0...5, 7...D)    */
+                        DQ    Max;       /*  > 28        upper limit (0...5, 7...D)    */
+                        DO    Cur;       /* <  30        current     (0...D)           */
+                        DB    Cont[64];  /*  > 40 string content     (64 byte)         */
+                       } EFD;            /* struct size  0x80                          */
+  typedef EFD *PEFD;
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~
+    Entryfield Types
+    ~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  #define EF_DEC32            0x00       /*    00 formatted 32 bit decimal             */
+  #define EF_DEC64            0x01       /*    01           64 bit decimal             */
+  #define EF_HEX08            0x02       /*    02            8 bit hexadecimal         */
+  #define EF_HEX16            0x03       /*    03           16 bit hexadecimal         */
+  #define EF_HEX32            0x04       /*    04           32 bit hexadecimal         */
+  #define EF_HEX64            0x05       /*    05           64 bit hexadecimal         */
+  #define EF_HX128            0x06       /*    06          128 bit hexadecimal         */
+  #define EF_DATEI            0x07       /*    07 date YYYY-MM-DD                      */
+  #define EF_DATEE            0x08       /*    08      DD.MM.YYYY                      */
+  #define EF_TIME0            0x09       /*    09 time       SS.hh                     */
+  #define EF_TIME1            0x0A       /*    0A         MM:SS.hh                     */
+  #define EF_TIME2            0x0B       /*    0B      HH:MM:SS.hh                     */
+  #define EF_TIME3            0x0C       /*    0C      HH:MM:SS                        */
+  #define EF_TIME4            0x0D       /*    0D      HH:MM                           */
+  #define EF_PLAIN            0x0E       /*    0E strings plain                        */
+  #define EF_FIELD            0x0F       /*    0F         datafield                    */
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~
+    Entryfield Commands
+    ~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  #define EFD_INIT            0x00       /*    00 initialise (retrieves EFld HWND)     */
+  #define EFD_SET             0x01       /*    01 set content                          */
+  #define EFD_GET             0x02       /*    02 get content                          */
+  #define EFD_RDSTRCT         0x03       /*    03 copy 128 byte block to buffer        */
+  #define EFD_WRSTRCT         0x04       /*    04      buffer to 128 byte block        */
+  #define EFD_RESET           0x05       /*    05 reset (clear) content                */
+  #define EFD_MESSAGE         0x06       /*    06 handle WM_COMMAND messages           */
+  #define EFD_SETTYPE         0x07       /*    07 set type, tflags, tdata, max chars   */
+  #define EFD_SETMH           0x08       /*    08     MemHandle (fields, only)         */
+  #define EFD_SETMIN          0x09       /*    09     minimum (lower limit)            */
+  #define EFD_SETMAX          0x0A       /*    0A     maximum (upper limit)            */
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
 #endif

@@ -1,6 +1,6 @@
 
           S T  -  O n L i n e - H e l p   N u m b e r s
-          อออออออออออออออออออออออออออออออออออออออออออออ
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
           This file contains all numbers defined for internal help texts in the system.
 
@@ -10,12 +10,13 @@
           dialog displays help written for a system dialog.
 
 
+
           00   ST-OnLineHelp
           01   general help for the program   <===   this is YOUR job!
           02   file list
           03   loader monitor
           04   SecSys log in
-          05   RESERVED FOR FUTURE USE
+          05   Hex Editor
           06   RESERVED FOR FUTURE USE
           07   RESERVED FOR FUTURE USE
 
@@ -28,8 +29,11 @@
           0E   USER 06
           0F   USER 07
 
-          ..   USER xx
+          ..   USER xx   (expanded help fields, only)
 
-          Expand field HLP.DAT to suit your needs. DatTools automatically copy the help
-          strings from their own HLP.DAT to newly created HLP.DAT fields. It might be a
-          good idea to update DatTools whenever a new release is published.
+
+
+          Expand field FFFFFFFB if you need more than seven help texts. DatTools copies
+          all system help texts from its own FFFFFFFB to the newly created FFFFFFFB. It
+          is recommended to update DatTools' DATA folder whenever new system fields are
+          published!

@@ -1,24 +1,24 @@
 
 MinGW's 'winuse.h' in human readable format.
 
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MNGO_NOINTERFACE                                         0x00000000
 #define MNGO_NOERROR                                             0x00000001
 #define MNGOF_TOPGAP                                             0x00000001
 #define MNGOF_BOTTOMGAP                                          0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WC_DIALOG MAKEINTATOM(0x00008002)
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define FVIRTKEY                                                 0x00000001
 #define FNOINVERT                                                0x00000002
 #define FSHIFT                                                   0x00000004
 #define FCONTROL                                                 0x00000008
 #define FALT                                                     0x00000010
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ATF_TIMEOUTON                                            0x00000001
 #define ATF_ONOFFFEEDBACK                                        0x00000002
 #define ATF_AVAILABLE                                            0x00000004           /* May be obsolete. Not in recent MS docs. */
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WH_JOURNALRECORD                                         0x00000000
 #define WH_JOURNALPLAYBACK                                       0x00000001
 #define WH_KEYBOARD                                              0x00000002
@@ -39,7 +39,7 @@ MinGW's 'winuse.h' in human readable format.
 #define WH_MINHOOK                                               0xFFFFFFFF
 #define WH_MIN                                                   0xFFFFFFFF
 #define WH_MSGFILTER                                             0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HC_ACTION                                                0x00000000
 #define HC_GETNEXT                                               0x00000001
 #define HC_SKIP                                                  0x00000002
@@ -47,7 +47,7 @@ MinGW's 'winuse.h' in human readable format.
 #define HC_NOREM                                                 0x00000003
 #define HC_SYSMODALON                                            0x00000004
 #define HC_SYSMODALOFF                                           0x00000005
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HCBT_MOVESIZE                                            0x00000000
 #define HCBT_MINMAX                                              0x00000001
 #define HCBT_QS                                                  0x00000002
@@ -58,7 +58,7 @@ MinGW's 'winuse.h' in human readable format.
 #define HCBT_KEYSKIPPED                                          0x00000007
 #define HCBT_SYSCOMMAND                                          0x00000008
 #define HCBT_SETFOCUS                                            0x00000009
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CF_TEXT                                                  0x00000001
 #define CF_BITMAP                                                0x00000002
 #define CF_METAFILEPICT                                          0x00000003
@@ -85,10 +85,10 @@ MinGW's 'winuse.h' in human readable format.
 #define CF_PRIVATELAST                                           0x000002FF
 #define CF_GDIOBJFIRST                                           0x00000300
 #define CF_GDIOBJLAST                                            0x000003FF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HKL_PREV                                                 0x00000000
 #define HKL_NEXT                                                 0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define KLF_ACTIVATE                                             0x00000001
 #define KLF_SUBSTITUTE_OK                                        0x00000002
 #define KLF_UNLOADPREVIOUS                                       0x00000004
@@ -96,9 +96,9 @@ MinGW's 'winuse.h' in human readable format.
 #define KLF_REPLACELANG                                          0x00000010
 #define KLF_NOTELLSHELL                                          0x00000080
 #define KLF_SETFORPROCESS                                        0x00000100
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define KL_NAMELENGTH                                            0x00000009
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MF_ENABLED                                               0x00000000
 #define MF_STRING                                                0x00000000
 #define MF_INSERT                                                0x00000000
@@ -125,14 +125,14 @@ MinGW's 'winuse.h' in human readable format.
 #define MF_HELP                                                  0x00004000
 #define MF_RIGHTJUSTIFY                                          0x00004000
 #define MF_MOUSESELECT                                           0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define BSM_ALLCOMPONENTS                                        0x00000000
 #define BSM_VXDS                                                 0x00000001
 #define BSM_NETDRIVER                                            0x00000002
 #define BSM_INSTALLABLEDRIVERS                                   0x00000004
 #define BSM_APPLICATIONS                                         0x00000008
 #define BSM_ALLDESKTOPS                                          0x00000010
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define BSF_QUERY                                                0x00000001
 #define BSF_IGNORECURRENTTASK                                    0x00000002
 #define BSF_FLUSHDISK                                            0x00000004
@@ -144,12 +144,12 @@ MinGW's 'winuse.h' in human readable format.
 #define BSF_SENDNOTIFYMESSAGE                                    0x00000100
 #define BSF_RETURNHDESK                                          0x00000200
 #define BSF_LUID                                                 0x00000400
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define BROADCAST_QUERY_DENY                                     0x424D5144        /* 'BMQD' */
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ENUM_CURRENT_SETTINGS                                    0xFFFFFFFF
 #define ENUM_REGISTRY_SETTINGS                                   0xFFFFFFFE
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CDS_UPDATEREGISTRY                                       0x00000001
 #define CDS_TEST                                                 0x00000002
 #define CDS_FULLSCREEN                                           0x00000004
@@ -158,7 +158,7 @@ MinGW's 'winuse.h' in human readable format.
 #define CDS_NORESET                                              0x10000000
 #define CDS_SETRECT                                              0x20000000
 #define CDS_RESET                                                0x40000000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DISP_CHANGE_SUCCESSFUL                                   0x00000000
 #define DISP_CHANGE_RESTART                                      0x00000001
 #define DISP_CHANGE_FAILED                                       0xFFFFFFFF
@@ -167,31 +167,31 @@ MinGW's 'winuse.h' in human readable format.
 #define DISP_CHANGE_BADFLAGS                                     0xFFFFFFFC
 #define DISP_CHANGE_BADPARAM                                     0xFFFFFFFB
 #define DISP_CHANGE_BADDUALVIEW                                  0xFFFFFFFA
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define BST_UNCHECKED                                            0x00000000
 #define BST_CHECKED                                              0x00000001
 #define BST_INDETERMINATE                                        0x00000002
 #define BST_PUSHED                                               0x00000004
 #define BST_FOCUS                                                0x00000008
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MF_BYCOMMAND                                             0x00000000
 #define MF_UNCHECKED                                             0x00000000
 #define MF_UNHILITE                                              0x00000000
 #define MF_HILITE                                                0x00000080
 #define MF_BYPOSITION                                            0x00000400
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CWP_ALL                                                  0x00000000
 #define CWP_SKIPINVISIBLE                                        0x00000001
 #define CWP_SKIPDISABLED                                         0x00000002
 #define CWP_SKIPTRANSPARENT                                      0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define IMAGE_BITMAP                                             0x00000000
 #define IMAGE_ICON                                               0x00000001
 #define IMAGE_CURSOR                                             0x00000002
 #define IMAGE_ENHMETAFIL                                         0x00000003
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DF_ALLOWOTHERACCOUNTHOOK                                 0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DESKTOP_READOBJECTS                                      0x00000001
 #define DESKTOP_CREATEWINDOW                                     0x00000002
 #define DESKTOP_CREATEMENU                                       0x00000004
@@ -201,9 +201,9 @@ MinGW's 'winuse.h' in human readable format.
 #define DESKTOP_ENUMERATE                                        0x00000040
 #define DESKTOP_WRITEOBJECTS                                     0x00000080
 #define DESKTOP_SWITCHDESKTOP                                    0x00000100
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CW_USEDEFAULT                                            0x80000000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WS_POPUPWINDOW                                           0x80880000
 #define WS_POPUP                                                 0x80000000
 #define WS_CHILD                                                 0x40000000
@@ -231,9 +231,9 @@ MinGW's 'winuse.h' in human readable format.
 #define WS_TABSTOP                                               0x00010000
 #define WS_TILED                                                 0x00000000
 #define WS_OVERLAPPED                                            0x00000000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MDIS_ALLCHILDSTYLES                                      0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define BS_TEXT                                                  0x00000000
 #define BS_PUSHBUTTON                                            0x00000000
 #define BS_DEFPUSHBUTTON                                         0x00000001
@@ -260,7 +260,7 @@ MinGW's 'winuse.h' in human readable format.
 #define BS_MULTILINE                                             0x00002000
 #define BS_NOTIFY                                                0x00004000
 #define BS_FLAT                                                  0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CBS_SIMPLE                                               0x00000001
 #define CBS_DROPDOWN                                             0x00000002
 #define CBS_DROPDOWNLIST                                         0x00000003
@@ -274,7 +274,7 @@ MinGW's 'winuse.h' in human readable format.
 #define CBS_DISABLENOSCROLL                                      0x00000800
 #define CBS_UPPERCASE                                            0x00002000
 #define CBS_LOWERCASE                                            0x00004000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ES_LEFT                                                  0x00000000
 #define ES_CENTER                                                0x00000001
 #define ES_RIGHT                                                 0x00000002
@@ -289,7 +289,7 @@ MinGW's 'winuse.h' in human readable format.
 #define ES_READONLY                                              0x00000800
 #define ES_WANTRETURN                                            0x00001000
 #define ES_NUMBER                                                0x00002000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define LBS_NOTIFY                                               0x00000001
 #define LBS_SORT                                                 0x00000002
 #define LBS_NOREDRAW                                             0x00000004
@@ -303,7 +303,7 @@ MinGW's 'winuse.h' in human readable format.
 #define LBS_DISABLENOSCROLL                                      0x00001000
 #define LBS_NODATA                                               0x00002000
 #define LBS_NOSEL                                                0x00004000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SBS_HORZ                                                 0x00000000
 #define SBS_VERT                                                 0x00000001
 #define SBS_LEFTALIGN                                            0x00000002
@@ -317,7 +317,7 @@ MinGW's 'winuse.h' in human readable format.
 #define LBS_USETABSTOPS                                          0x00000080
 #define LBS_WANTKEYBOARDINPUT                                    0x00000400
 #define LBS_STANDARD                                             0x00A00003
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SS_LEFT                                                  0x00000000
 #define SS_CENTER                                                0x00000001
 #define SS_RIGHT                                                 0x00000002
@@ -348,7 +348,7 @@ MinGW's 'winuse.h' in human readable format.
 #define SS_PATHELLIPSIS                                          0x00008000
 #define SS_WORDELLIPSIS                                          0x0000C000
 #define SS_ELLIPSISMASK                                          0x0000C000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DS_ABSALIGN                                              0x00000001
 #define DS_SYSMODAL                                              0x00000002
 #define DS_3DLOOK                                                0x00000004
@@ -364,7 +364,7 @@ MinGW's 'winuse.h' in human readable format.
 #define DS_CENTER                                                0x00000800
 #define DS_CENTERMOUSE                                           0x00001000
 #define DS_CONTEXTHELP                                           0x00002000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WS_EX_LTRREADING                                         0x00000000
 #define WS_EX_LEFT                                               0x00000000
 #define WS_EX_RIGHTSCROLLBAR                                     0x00000000
@@ -391,7 +391,7 @@ MinGW's 'winuse.h' in human readable format.
 #define WS_EX_LAYOUTRTL                                          0x00400000        /* w98, w2k */
 #define WS_EX_COMPOSITED                                         0x02000000        /* XP */
 #define WS_EX_NOACTIVATE                                         0x08000000        /* w2k */
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WINSTA_ENUMDESKTOPS                                      0x00000001
 #define WINSTA_READATTRIBUTES                                    0x00000002
 #define WINSTA_ACCESSCLIPBOARD                                   0x00000004
@@ -402,7 +402,7 @@ MinGW's 'winuse.h' in human readable format.
 #define WINSTA_ENUMERATE                                         0x00000100
 #define WINSTA_READSCREEN                                        0x00000200
 #define WINSTA_ALL_ACCESS                                        0x0000037F
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DDL_READWRITE                                            0x00000000
 #define DDL_READONLY                                             0x00000001
 #define DDL_HIDDEN                                               0x00000002
@@ -412,7 +412,7 @@ MinGW's 'winuse.h' in human readable format.
 #define DDL_POSTMSGS                                             0x00002000
 #define DDL_DRIVES                                               0x00004000
 #define DDL_EXCLUSIVE                                            0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DC_ACTIVE                                                0x00000001
 #define DC_SMALLCAP                                              0x00000002
 #define DC_ICON                                                  0x00000004
@@ -421,7 +421,7 @@ MinGW's 'winuse.h' in human readable format.
 #define DC_GRADIENT                                              0x00000020
 #define DC_BUTTONS                                               0x00001000
 #define DC_CAPTION                                               0x0000100C
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define BDR_RAISEDOUTER                                          0x00000001
 #define BDR_SUNKENOUTER                                          0x00000002
 #define BDR_OUTER                                                0x00000003
@@ -430,12 +430,12 @@ MinGW's 'winuse.h' in human readable format.
 #define BDR_SUNKENINNER                                          0x00000008
 #define BDR_SUNKEN                                               0x0000000A
 #define BDR_INNER                                                0x0000000C
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define EDGE_RAISED                                              0x00000005
 #define EDGE_ETCHED                                              0x00000006
 #define EDGE_BUMP                                                0x00000009
 #define EDGE_SUNKEN                                              0x0000000A
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define BF_LEFT                                                  0x00000001
 #define BF_TOP                                                   0x00000002
 #define BF_TOPLEFT                                               0x00000003
@@ -455,13 +455,13 @@ MinGW's 'winuse.h' in human readable format.
 #define BF_ADJUST                                                0x00002000
 #define BF_FLAT                                                  0x00004000
 #define BF_MONO                                                  0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DFC_CAPTION                                              0x00000001
 #define DFC_MENU                                                 0x00000002
 #define DFC_SCROLL                                               0x00000003
 #define DFC_BUTTON                                               0x00000004
 #define DFC_POPUPMENU                                            0x00000005
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DFCS_CAPTIONCLOSE                                        0x00000000
 #define DFCS_MENUARROW                                           0x00000000
 #define DFCS_SCROLLUP                                            0x00000000
@@ -492,19 +492,19 @@ MinGW's 'winuse.h' in human readable format.
 #define DFCS_ADJUSTRECT                                          0x00002000
 #define DFCS_FLAT                                                0x00004000
 #define DFCS_MONO                                                0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DST_COMPLEX                                              0x00000000
 #define DST_TEXT                                                 0x00000001
 #define DST_PREFIXTEXT                                           0x00000002
 #define DST_ICON                                                 0x00000003
 #define DST_BITMAP                                               0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DSS_NORMAL                                               0x00000000
 #define DSS_UNION                                                0x00000010
 #define DSS_DISABLED                                             0x00000020
 #define DSS_MONO                                                 0x00000080
 #define DSS_RIGHT                                                0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DT_LEFT                                                  0x00000000
 #define DT_TOP                                                   0x00000000
 #define DT_CENTER                                                0x00000001
@@ -526,11 +526,11 @@ MinGW's 'winuse.h' in human readable format.
 #define DT_MODIFYSTRING                                          0x00010000
 #define DT_RTLREADING                                            0x00020000
 #define DT_WORD_ELLIPSIS                                         0x00040000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WB_LEFT                                                  0x00000000
 #define WB_RIGHT                                                 0x00000001
 #define WB_ISDELIMITER                                           0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SB_HORZ                                                  0x00000000
 #define SB_LINELEFT                                              0x00000000
 #define SB_LINEUP                                                0x00000000
@@ -550,7 +550,7 @@ MinGW's 'winuse.h' in human readable format.
 #define SB_RIGHT                                                 0x00000007
 #define SB_BOTTOM                                                0x00000007
 #define SB_ENDSCROLL                                             0x00000008
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ESB_ENABLE_BOTH                                          0x00000000
 #define ESB_DISABLE_LEFT                                         0x00000001
 #define ESB_DISABLE_LTUP                                         0x00000001
@@ -559,11 +559,11 @@ MinGW's 'winuse.h' in human readable format.
 #define ESB_DISABLE_RIGHT                                        0x00000002
 #define ESB_DISABLE_RTDN                                         0x00000002
 #define ESB_DISABLE_BOTH                                         0x00000003
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define IS_INTRESOURCE(i)   (((ULONG_PTR)(i) >> 16) == 0)
 #define MAKEINTRESOURCEA(i) (LPSTR)((DWORD)((WORD)(i)))
 #define MAKEINTRESOURCEW(i) (LPWSTR)((DWORD)((WORD)(i)))
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define RT_CURSOR                                                0x00000001
 #define RT_BITMAP                                                0x00000002
 #define RT_ICON                                                  0x00000003
@@ -585,18 +585,18 @@ MinGW's 'winuse.h' in human readable format.
 #define RT_ANIICON                                               0x00000016
 #define RT_HTML                                                  0x00000017
 #define RT_MANIFEST                                              0x00000018
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CREATEPROCESS_MANIFEST_RESOURCE_ID                       0x00000001
 #define ISOLATIONAWARE_MANIFEST_RESOURCE_ID                      0x00000002
 #define ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID       0x00000003
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define EWX_LOGOFF                                               0x00000000
 #define EWX_SHUTDOWN                                             0x00000001
 #define EWX_REBOOT                                               0x00000002
 #define EWX_FORCE                                                0x00000004
 #define EWX_POWEROFF                                             0x00000008
 #define EWX_FORCEIFHUNG                                          0x00000010
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CS_VREDRAW                                               0x00000001
 #define CS_HREDRAW                                               0x00000002
 #define CS_KEYCVTWINDOW                                          0x00000004
@@ -612,9 +612,9 @@ MinGW's 'winuse.h' in human readable format.
 #define CS_GLOBALCLASS                                           0x00004000
 #define CS_IME                                                   0x00010000
 #define CS_DROPSHADOW                                            0x00020000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define GCW_ATOM                                                 0xFFFFFFE0
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define GCL_MENUNAME                                             0xFFFFFFF8
 #define GCL_HBRBACKGROUND                                        0xFFFFFFF6
 #define GCL_HCURSOR                                              0xFFFFFFF4
@@ -625,7 +625,7 @@ MinGW's 'winuse.h' in human readable format.
 #define GCL_WNDPROC                                              0xFFFFFFE8
 #define GCL_STYLE                                                0xFFFFFFE6
 #define GCL_HICONSM                                              0xFFFFFFDE
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define GCLP_MENUNAME                                            0xFFFFFFF8
 #define GCLP_HBRBACKGROUND                                       0xFFFFFFF6
 #define GCLP_HCURSOR                                             0xFFFFFFF4
@@ -633,7 +633,7 @@ MinGW's 'winuse.h' in human readable format.
 #define GCLP_HMODULE                                             0xFFFFFFF0
 #define GCLP_WNDPROC                                             0xFFFFFFE8
 #define GCLP_HICONSM                                             0xFFFFFFDE
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #if 0
     /* This is supposed to be defined by the program using it not defined
        in the w32api headers.  I've left it here for documentation purposes.
@@ -642,7 +642,7 @@ MinGW's 'winuse.h' in human readable format.
 #define IDC_STATIC                                               0xFFFFFFFF
 #endif
 #endif
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define IDC_ARROW                                                0x00007F00
 #define IDC_IBEAM                                                0x00007F01
 #define IDC_WAIT                                                 0x00007F02
@@ -659,7 +659,7 @@ MinGW's 'winuse.h' in human readable format.
 #define IDC_HAND                                                 0x00007F89
 #define IDC_APPSTARTING                                          0x00007F8A
 #define IDC_HELP                                                 0x00007F8B
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define IDI_APPLICATION                                          0x00007F00
 #define IDI_HAND                                                 0x00007F01
 #define IDI_ERROR                                                0x00007F01
@@ -669,7 +669,7 @@ MinGW's 'winuse.h' in human readable format.
 #define IDI_ASTERISK                                             0x00007F04
 #define IDI_INFORMATION                                          0x00007F04
 #define IDI_WINLOGO                                              0x00007F05
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MIIM_STATE                                               0x00000001
 #define MIIM_ID                                                  0x00000002
 #define MIIM_SUBMENU                                             0x00000004
@@ -679,21 +679,21 @@ MinGW's 'winuse.h' in human readable format.
 #define MIIM_STRING                                              0x00000040
 #define MIIM_BITMAP                                              0x00000080
 #define MIIM_FTYPE                                               0x00000100
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MIM_MAXHEIGHT                                            0x00000001
 #define MIM_BACKGROUND                                           0x00000002
 #define MIM_HELPID                                               0x00000004
 #define MIM_MENUDATA                                             0x00000008
 #define MIM_STYLE                                                0x00000010
 #define MIM_APPLYTOSUBMENUS                                      0x80000000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MNS_CHECKORBMP                                           0x04000000
 #define MNS_NOTIFYBYPOS                                          0x08000000
 #define MNS_AUTODISMISS                                          0x10000000
 #define MNS_DRAGDROP                                             0x20000000
 #define MNS_MODELESS                                             0x40000000
 #define MNS_NOCHECK                                              0x80000000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MFT_STRING                                               0x00000000
 #define MFT_BITMAP                                               0x00000004
 #define MFT_MENUBARBREAK                                         0x00000020
@@ -703,7 +703,7 @@ MinGW's 'winuse.h' in human readable format.
 #define MFT_SEPARATOR                                            0x00000800
 #define MFT_RIGHTORDER                                           0x00002000
 #define MFT_RIGHTJUSTIFY                                         0x00004000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MFS_ENABLED                                              0x00000000
 #define MFS_UNCHECKED                                            0x00000000
 #define MFS_UNHILITE                                             0x00000000
@@ -712,14 +712,14 @@ MinGW's 'winuse.h' in human readable format.
 #define MFS_CHECKED                                              0x00000008
 #define MFS_HILITE                                               0x00000080
 #define MFS_DEFAULT                                              0x00001000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define GW_HWNDFIRST                                             0x00000000
 #define GW_HWNDLAST                                              0x00000001
 #define GW_HWNDNEXT                                              0x00000002
 #define GW_HWNDPREV                                              0x00000003
 #define GW_OWNER                                                 0x00000004
 #define GW_CHILD                                                 0x00000005
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SW_HIDE                                                  0x00000000
 #define SW_NORMAL                                                0x00000001
 #define SW_SHOWNORMAL                                            0x00000001
@@ -735,7 +735,7 @@ MinGW's 'winuse.h' in human readable format.
 #define SW_SHOWDEFAULT                                           0x00000010
 #define SW_FORCEMINIMIZE                                         0x00000011
 #define SW_MAX                                                   0x00000011
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MB_OK                                                    0x00000000
 #define MB_APPLMODAL                                             0x00000000
 #define MB_DEFBUTTON1                                            0x00000000
@@ -774,7 +774,7 @@ MinGW's 'winuse.h' in human readable format.
 #define MB_RIGHT                                                 0x00080000
 #define MB_RTLREADING                                            0x00100000
 #define MB_SERVICE_NOTIFICATION                                  0x00200000     /* NT >=      0x0400 */
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define IDOK                                                     0x00000001
 #define IDCANCEL                                                 0x00000002
 #define IDABORT                                                  0x00000003
@@ -786,7 +786,7 @@ MinGW's 'winuse.h' in human readable format.
 #define IDHELP                                                   0x00000009
 #define IDTRYAGAIN                                               0x0000000A
 #define IDCONTINUE                                               0x0000000B
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define GWL_WNDPROC                                              0xFFFFFFFC
 #define GWLP_WNDPROC                                             0xFFFFFFFC
 #define GWL_HINSTANCE                                            0xFFFFFFFA
@@ -799,14 +799,14 @@ MinGW's 'winuse.h' in human readable format.
 #define GWL_EXSTYLE                                              0xFFFFFFEC
 #define GWL_USERDATA                                             0xFFFFFFEB
 #define GWLP_USERDATA                                            0xFFFFFFEB
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DWL_MSGRESULT                                            0x00000000
 #define DWLP_MSGRESULT                                           0x00000000
 #define DWL_DLGPROC                                              0x00000004
 #define DWLP_DLGPROC                                             0x00000004
 #define DWL_USER                                                 0x00000008
 #define DWLP_USER                                                0x00000008
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define QS_KEY                                                   0x00000001
 #define QS_MOUSEMOVE                                             0x00000002
 #define QS_MOUSEBUTTON                                           0x00000004
@@ -824,11 +824,11 @@ MinGW's 'winuse.h' in human readable format.
 #define QS_INPUT                                                 0x00000407     /* NT      0x0501 -> */
 #define QS_ALLEVENTS                                             0x000004BF     /* NT      0x0501 -> */
 #define QS_ALLINPUT                                              0x000004FF     /* NT      0x0501 -> */
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MWMO_WAITALL                                             0x00000001
 #define MWMO_ALERTABLE                                           0x00000002
 #define MWMO_INPUTAVAILABLE                                      0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define COLOR_SCROLLBAR                                          0x00000000
 #define COLOR_BACKGROUND                                         0x00000001
 #define COLOR_DESKTOP                                            0x00000001
@@ -863,7 +863,7 @@ MinGW's 'winuse.h' in human readable format.
 #define COLOR_HOTLIGHT                                           0x0000001A
 #define COLOR_GRADIENTACTIVECAPTION                              0x0000001B
 #define COLOR_GRADIENTINACTIVECAPTION                            0x0000001C
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CTLCOLOR_MSGBOX                                          0x00000000
 #define CTLCOLOR_EDIT                                            0x00000001
 #define CTLCOLOR_LISTBOX                                         0x00000002
@@ -872,7 +872,7 @@ MinGW's 'winuse.h' in human readable format.
 #define CTLCOLOR_SCROLLBAR                                       0x00000005
 #define CTLCOLOR_STATIC                                          0x00000006
 #define CTLCOLOR_MAX                                             0x00000007
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SM_CXSCREEN                                              0x00000000
 #define SM_CYSCREEN                                              0x00000001
 #define SM_CXVSCROLL                                             0x00000002
@@ -966,7 +966,7 @@ MinGW's 'winuse.h' in human readable format.
 #define SM_CMETRICS                                              0x00000058     /* NT      0x0401 -> */
 #define SM_SERVERR2                                              0x00000059
 #define SM_REMOTESESSION                                    0X00001000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ARW_BOTTOMLEFT                                           0x00000000
 #define ARW_LEFT                                                 0x00000000
 #define ARW_RIGHT                                                0x00000000
@@ -976,12 +976,12 @@ MinGW's 'winuse.h' in human readable format.
 #define ARW_DOWN                                                 0x00000004
 #define ARW_UP                                                   0x00000004
 #define ARW_HIDE                                                 0x00000008
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define UOI_FLAGS                                                0x00000001
 #define UOI_NAME                                                 0x00000002
 #define UOI_TYPE                                                 0x00000003
 #define UOI_USER_SID                                             0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define LR_DEFAULTCOLOR                                          0x00000000
 #define LR_MONOCHROME                                            0x00000001
 #define LR_COLOR                                                 0x00000002
@@ -996,12 +996,12 @@ MinGW's 'winuse.h' in human readable format.
 #define LR_CREATEDIBSECTION                                      0x00002000
 #define LR_COPYFROMRESOURCE                                      0x00004000
 #define LR_SHARED                                                0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define KEYEVENTF_EXTENDEDKEY                                    0x00000001
 #define KEYEVENTF_KEYUP                                     0000000002
 #define KEYEVENTF_UNICODE                                        0x00000004
 #define KEYEVENTF_SCANCODE                                       0x00000008
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define OBM_LFARROWI                                             0x00007FDE
 #define OBM_RGARROWI                                             0x00007FDF
 #define OBM_DNARROWI                                             0x00007FE0
@@ -1036,7 +1036,7 @@ MinGW's 'winuse.h' in human readable format.
 #define OBM_OLD_UPARROW                                          0x00007FFD
 #define OBM_SIZE                                                 0x00007FFE
 #define OBM_OLD_CLOSE                                            0x00007FFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define OCR_NORMAL                                               0x00007F00
 #define OCR_IBEAM                                                0x00007F01
 #define OCR_WAIT                                                 0x00007F02
@@ -1051,7 +1051,7 @@ MinGW's 'winuse.h' in human readable format.
 #define OCR_SIZEALL                                              0x00007F86
 #define OCR_NO                                                   0x00007F88
 #define OCR_APPSTARTING                                          0x00007F8A
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define OIC_SAMPLE                                               0x00007F00
 #define OIC_HAND                                                 0x00007F01
 #define OIC_ERROR                                                0x00007F01
@@ -1061,10 +1061,10 @@ MinGW's 'winuse.h' in human readable format.
 #define OIC_NOTE                                                 0x00007F04
 #define OIC_INFORMATION                                          0x00007F04
 #define OIC_WINLOGO                                              0x00007F05
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HELPINFO_WINDOW                                          0x00000001
 #define HELPINFO_MENUITEM                                        0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MSGF_DIALOGBOX                                           0x00000000
 #define MSGF_MESSAGEBOX                                          0x00000001
 #define MSGF_MENU                                                0x00000002
@@ -1074,7 +1074,7 @@ MinGW's 'winuse.h' in human readable format.
 #define MSGF_NEXTWINDOW                                          0x00000006
 #define MSGF_MAINLOOP                                            0x00000008
 #define MSGF_USER                                                0x00001000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MOUSEEVENTF_MOVE                                         0x00000001
 #define MOUSEEVENTF_LEFTDOWN                                     0x00000002
 #define MOUSEEVENTF_LEFTUP                                       0x00000004
@@ -1086,7 +1086,7 @@ MinGW's 'winuse.h' in human readable format.
 #define MOUSEEVENTF_XUP                                          0x00000100
 #define MOUSEEVENTF_WHEEL                                        0x00000800
 #define MOUSEEVENTF_ABSOLUTE                                     0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define PBT_APMQUERYSUSPEND                                      0x00000000
 #define PBT_APMQUERYSTANDBY                                      0x00000001
 #define PBT_APMQUERYSUSPENDFAILED                                0x00000002
@@ -1102,18 +1102,18 @@ MinGW's 'winuse.h' in human readable format.
 #define PBT_APMRESUMEAUTOMATIC                                   0x00000012
 #define PBT_POWERSETTINGCHANGE                                   0x00008013
 #define PBTF_APMRESUMEFROMFAILURE                                0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define PM_NOREMOVE                                              0x00000000
 #define PM_REMOVE                                                0x00000001
 #define PM_NOYIELD                                               0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                NT >=         0x0500
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # define PM_QS_INPUT (QS_INPUT << 16)
 # define PM_QS_POSTMESSAGE ((QS_POSTMESSAGE|QS_HOTKEY|QS_TIMER) << 16)
 # define PM_QS_PAINT (QS_PAINT << 16)
 # define PM_QS_SENDMESSAGE (QS_SENDMESSAGE << 16)
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HWND_DESKTOP                                             0x00000000
 #define HWND_TOP                                                 0x00000000
 #define HWND_BOTTOM                                              0x00000001
@@ -1121,7 +1121,7 @@ MinGW's 'winuse.h' in human readable format.
 #define HWND_NOTOPMOST                                           0xFFFFFFFE
 #define HWND_BROADCAST                                           0x0000FFFF
 #define HWND_TOPMOST                                             0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define RDW_INVALIDATE                                           0x00000001
 #define RDW_INTERNALPAINT                                        0x00000002
 #define RDW_ERASE                                                0x00000004
@@ -1134,19 +1134,19 @@ MinGW's 'winuse.h' in human readable format.
 #define RDW_ERASENOW                                             0x00000200
 #define RDW_FRAME                                                0x00000400
 #define RDW_NOFRAME                                              0x00000800
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SMTO_NORMAL                                              0x00000000
 #define SMTO_BLOCK                                               0x00000001
 #define SMTO_ABORTIFHUNG                                         0x00000002
 #define SMTO_NOTIMEOUTIFNOTHUNG                                  0x00000008
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SIF_RANGE                                                0x00000001
 #define SIF_PAGE                                                 0x00000002
 #define SIF_POS                                                  0x00000004
 #define SIF_DISABLENOSCROLL                                      0x00000008
 #define SIF_TRACKPOS                                             0x00000010
 #define SIF_ALL                                                  0x00000017
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SWP_NOSIZE                                               0x00000001
 #define SWP_NOMOVE                                               0x00000002
 #define SWP_NOZORDER                                             0x00000004
@@ -1162,7 +1162,7 @@ MinGW's 'winuse.h' in human readable format.
 #define SWP_NOSENDCHANGING                                       0x00000400
 #define SWP_DEFERERASE                                           0x00002000
 #define SWP_ASYNCWINDOWPOS                                       0x00004000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HSHELL_WINDOWCREATED                                     0x00000001
 #define HSHELL_WINDOWDESTROYED                                   0x00000002
 #define HSHELL_ACTIVATESHELLWINDOW                               0x00000003
@@ -1178,7 +1178,7 @@ MinGW's 'winuse.h' in human readable format.
 #define HSHELL_WINDOWREPLACING                                   0x0000000E
 #define HSHELL_RUDEAPPACTIVATED                                  0x00008004
 #define HSHELL_FLASH                                             0x00008006
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SPI_GETBEEP                                              0x00000001
 #define SPI_SETBEEP                                              0x00000002
 #define SPI_GETMOUSE                                             0x00000003
@@ -1347,14 +1347,14 @@ MinGW's 'winuse.h' in human readable format.
 #define SPI_SETFOCUSBORDERWIDTH                                  0x0000200F
 #define SPI_GETFOCUSBORDERHEIGHT                                 0x00002010
 #define SPI_SETFOCUSBORDERHEIGHT                                 0x00002011
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SPIF_UPDATEINIFILE                                       0x00000001
 #define SPIF_SENDCHANGE                                          0x00000002
 #define SPIF_SENDWININICHANGE                                    0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ATF_TIMEOUTON                                            0x00000001
 #define ATF_ONOFFFEEDBACK                                        0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WM_NULL                                                  0x00000000
 #define WM_CREATE                                                0x00000001
 #define WM_DESTROY                                               0x00000002
@@ -1559,13 +1559,13 @@ MinGW's 'winuse.h' in human readable format.
 #define WM_PENWINLAST                                            0x0000038F
 #define WM_USER                                                  0x00000400
 #define WM_APP                                                   0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                 NT >=         0x0400
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WHEEL_DELTA                                              0x00000078
 #define GET_WHEEL_DELTA_WPARAM(wparam) ((short)HIWORD (wparam))
 #define WHEEL_PAGESCROLL                                         0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define BM_GETCHECK                                              0x000000F0
 #define BM_SETCHECK                                              0x000000F1
 #define BM_GETSTATE                                              0x000000F2
@@ -1574,7 +1574,7 @@ MinGW's 'winuse.h' in human readable format.
 #define BM_CLICK                                                 0x000000F5
 #define BM_GETIMAGE                                              0x000000F6
 #define BM_SETIMAGE                                              0x000000F7
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define BN_CLICKED                                               0x00000000
 #define BN_PAINT                                                 0x00000001
 #define BN_HILITE                                                0x00000002
@@ -1586,7 +1586,7 @@ MinGW's 'winuse.h' in human readable format.
 #define BN_DOUBLECLICKED                                         0x00000005
 #define BN_SETFOCUS                                              0x00000006
 #define BN_KILLFOCUS                                             0x00000007
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CB_GETEDITSEL                                            0x00000140
 #define CB_LIMITTEXT                                             0x00000141
 #define CB_SETEDITSEL                                            0x00000142
@@ -1623,7 +1623,7 @@ MinGW's 'winuse.h' in human readable format.
 #define CB_INITSTORAGE                                           0x00000161
 #define CB_SETMINVISIBLE                                         0x00001701
 #define CB_GETMINVISIBLE                                         0x00001702
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CBN_SELCHANGE                                            0x00000001
 #define CBN_DBLCLK                                               0x00000002
 #define CBN_SETFOCUS                                             0x00000003
@@ -1635,7 +1635,7 @@ MinGW's 'winuse.h' in human readable format.
 #define CBN_SELENDOK                                             0x00000009
 #define CBN_SELENDCANCEL                                         0x0000000A
 #define CBN_ERRSPACE                                             0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define EM_GETSEL                                                0x000000B0
 #define EM_SETSEL                                                0x000000B1
 #define EM_GETRECT                                               0x000000B2
@@ -1675,7 +1675,7 @@ MinGW's 'winuse.h' in human readable format.
 #define EM_CHARFROMPOS                                           0x000000D7
 #define EM_SETIMESTATUS                                          0x000000D8
 #define EM_GETIMESTATUS                                          0x000000D9
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define EN_SETFOCUS                                              0x00000100
 #define EN_KILLFOCUS                                             0x00000200
 #define EN_CHANGE                                                0x00000300
@@ -1684,7 +1684,7 @@ MinGW's 'winuse.h' in human readable format.
 #define EN_MAXTEXT                                               0x00000501
 #define EN_HSCROLL                                               0x00000601
 #define EN_VSCROLL                                               0x00000602
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define LB_ADDSTRING                                             0x00000180
 #define LB_INSERTSTRING                                          0x00000181
 #define LB_DELETESTRING                                          0x00000182
@@ -1725,14 +1725,14 @@ MinGW's 'winuse.h' in human readable format.
 #define LB_SETCOUNT                                              0x000001A7
 #define LB_INITSTORAGE                                           0x000001A8
 #define LB_ITEMFROMPOINT                                         0x000001A9
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define LBN_SELCHANGE                                            0x00000001
 #define LBN_DBLCLK                                               0x00000002
 #define LBN_SELCANCEL                                            0x00000003
 #define LBN_SETFOCUS                                             0x00000004
 #define LBN_KILLFOCUS                                            0x00000005
 #define LBN_ERRSPACE                                             0xFFFFFFFE
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SBM_SETPOS                                               0x000000E0
 #define SBM_GETPOS                                               0x000000E1
 #define SBM_SETRANGE                                             0x000000E2
@@ -1741,24 +1741,24 @@ MinGW's 'winuse.h' in human readable format.
 #define SBM_SETRANGEREDRAW                                       0x000000E6
 #define SBM_SETSCROLLINFO                                        0x000000E9
 #define SBM_GETSCROLLINFO                                        0x000000EA
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define STM_SETICON                                              0x00000170
 #define STM_GETICON                                              0x00000171
 #define STM_SETIMAGE                                             0x00000172
 #define STM_GETIMAGE                                             0x00000173
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define STN_CLICKED                                              0x00000000
 #define STN_DBLCLK                                               0x00000001
 #define STN_ENABLE                                               0x00000002
 #define STN_DISABLE                                              0x00000003
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DM_GETDEFID                                              0x00000400
 #define DM_SETDEFID                                              0x00000401
 #define DM_REPOSITION                                            0x00000402
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define PSM_PAGEINFO                                             0x00000500
 #define PSM_SHEETINFO                                            0x00000501
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define PSI_SETACTIVE                                            0x00000001
 #define PSI_CHANGED                                              0x00000001
 #define PSI_KILLACTIVE                                           0x00000002
@@ -1769,7 +1769,7 @@ MinGW's 'winuse.h' in human readable format.
 #define PSI_GETSIBLINGS                                          0x00000004
 #define PSI_HASHELP                                              0x00000005
 #define PSI_HELP                                                 0x00000006
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DCX_WINDOW                                               0x00000001
 #define DCX_CACHE                                                0x00000002
 #define DCX_NORESETATTRS                                         0x00000004
@@ -1781,10 +1781,10 @@ MinGW's 'winuse.h' in human readable format.
 #define DCX_INTERSECTUPDATE                                      0x00000200
 #define DCX_LOCKWINDOWUPDATE                                     0x00000400
 #define DCX_VALIDATE                                             0x00002000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define GMDI_USEDISABLED                                         0x00000001
 #define GMDI_GOINTOPOPUPS                                        0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define FKF_FILTERKEYSON                                         0x00000001
 #define FKF_AVAILABLE                                            0x00000002
 #define FKF_HOTKEYACTIVE                                         0x00000004
@@ -1792,7 +1792,7 @@ MinGW's 'winuse.h' in human readable format.
 #define FKF_HOTKEYSOUND                                          0x00000010
 #define FKF_INDICATOR                                            0x00000020
 #define FKF_CLICKON                                              0x00000040
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HCF_HIGHCONTRASTON                                       0x00000001
 #define HCF_AVAILABLE                                            0x00000002
 #define HCF_HOTKEYACTIVE                                         0x00000004
@@ -1800,7 +1800,7 @@ MinGW's 'winuse.h' in human readable format.
 #define HCF_HOTKEYSOUND                                          0x00000010
 #define HCF_INDICATOR                                            0x00000020
 #define HCF_HOTKEYAVAILABLE                                      0x00000040
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MKF_MOUSEKEYSON                                          0x00000001
 #define MKF_AVAILABLE                                            0x00000002
 #define MKF_HOTKEYACTIVE                                         0x00000004
@@ -1809,29 +1809,29 @@ MinGW's 'winuse.h' in human readable format.
 #define MKF_INDICATOR                                            0x00000020
 #define MKF_MODIFIERS                                            0x00000040
 #define MKF_REPLACENUMBERS                                       0x00000080
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SERKF_SERIALKEYSON                                       0x00000001
 #define SERKF_AVAILABLE                                          0x00000002
 #define SERKF_INDICATOR                                          0x00000004
 #define SERKF_ACTIVE                                             0x00000008           /* May be obsolete. Not in recent MS docs. */
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SSF_SOUNDSENTRYON                                        0x00000001
 #define SSF_AVAILABLE                                            0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SSTF_NONE                                                0x00000000
 #define SSTF_CHARS                                               0x00000001
 #define SSTF_BORDER                                              0x00000002
 #define SSTF_DISPLAY                                             0x00000003
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SSGF_NONE                                                0x00000000
 #define SSGF_DISPLAY                                             0x00000003
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SSWF_NONE                                                0x00000000
 #define SSWF_TITLE                                               0x00000001
 #define SSWF_WINDOW                                              0x00000002
 #define SSWF_DISPLAY                                             0x00000003
 #define SSWF_CUSTOM                                              0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SKF_STICKYKEYSON                                         0x00000001
 #define SKF_AVAILABLE                                            0x00000002
 #define SKF_HOTKEYACTIVE                                         0x00000004
@@ -1841,17 +1841,17 @@ MinGW's 'winuse.h' in human readable format.
 #define SKF_AUDIBLEFEEDBACK                                      0x00000040
 #define SKF_TRISTATE                                             0x00000080
 #define SKF_TWOKEYSOFF                                           0x00000100
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define TKF_TOGGLEKEYSON                                         0x00000001
 #define TKF_AVAILABLE                                            0x00000002
 #define TKF_HOTKEYACTIVE                                         0x00000004
 #define TKF_CONFIRMHOTKEY                                        0x00000008
 #define TKF_HOTKEYSOUND                                          0x00000010
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MDITILE_VERTICAL                                         0x00000000
 #define MDITILE_HORIZONTAL                                       0x00000001
 #define MDITILE_SKIPDISABLED                                     0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define VK_LBUTTON                                               0x00000001
 #define VK_RBUTTON                                               0x00000002
 #define VK_CANCEL                                                0x00000003
@@ -1989,14 +1989,14 @@ MinGW's 'winuse.h' in human readable format.
 #define VK_NONAME                                                0x000000FC
 #define VK_PA1                                                   0x000000FD
 #define VK_OEM_CLEAR                                             0x000000FE
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define TME_HOVER                                                0x00000001
 #define TME_LEAVE                                                0x00000002
 #define TME_QUERY                                                0x40000000
 #define TME_CANCEL                                               0x80000000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HOVER_DEFAULT                                            0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MK_LBUTTON                                               0x00000001
 #define MK_RBUTTON                                               0x00000002
 #define MK_SHIFT                                                 0x00000004
@@ -2004,7 +2004,7 @@ MinGW's 'winuse.h' in human readable format.
 #define MK_MBUTTON                                               0x00000010
 #define MK_XBUTTON1                                              0x00000020
 #define MK_XBUTTON2                                              0x00000040
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define TPM_LEFTALIGN                                            0x00000000
 #define TPM_LEFTBUTTON                                           0x00000000
 #define TPM_HORIZONTAL                                           0x00000000
@@ -2018,7 +2018,7 @@ MinGW's 'winuse.h' in human readable format.
 #define TPM_VERTICAL                                             0x00000040
 #define TPM_NONOTIFY                                             0x00000080
 #define TPM_RETURNCMD                                            0x00000100
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HELP_CONTEXT                                             0x00000001
 #define HELP_QUIT                                                0x00000002
 #define HELP_CONTENTS                                            0x00000003
@@ -2039,58 +2039,58 @@ MinGW's 'winuse.h' in human readable format.
 #define HELP_MULTIKEY                                            0x00000201
 #define HELP_SETWINPOS                                           0x00000203
 #define HELP_TCARD                                               0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define IDH_NO_HELP                                              0x00006F18
 #define IDH_MISSING_CONTEXT                                      0x00006F19
 #define IDH_GENERIC_HELP_BUTTON                                  0x00006F1A
 #define IDH_OK                                                   0x00006F1B
 #define IDH_CANCEL                                               0x00006F1C
 #define IDH_HELP                                                 0x00006F1D
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define LB_CTLCODE                                               0x00000000
 #define LB_OKAY                                                  0x00000000
 #define LB_ERRSPACE                                              0xFFFFFFFE
 #define LB_ERR                                                   0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CB_OKAY                                                  0x00000000
 #define CB_ERRSPACE                                              0xFFFFFFFE
 #define CB_ERR                                                   0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HIDE_WINDOW                                              0x00000000
 #define SHOW_OPENWINDOW                                          0x00000001
 #define SHOW_ICONWINDOW                                          0x00000002
 #define SHOW_FULLSCREEN                                          0x00000003
 #define SHOW_OPENNOACTIVATE                                      0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SW_PARENTCLOSING                                         0x00000001
 #define SW_OTHERZOOM                                             0x00000002
 #define SW_PARENTOPENING                                         0x00000003
 #define SW_OTHERUNZOOM                                           0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define KF_EXTENDED                                              0x00000100
 #define KF_DLGMODE                                               0x00000800
 #define KF_MENUMODE                                              0x00001000
 #define KF_ALTDOWN                                               0x00002000
 #define KF_REPEAT                                                0x00004000
 #define KF_UP                                                    0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WSF_VISIBLE                                              0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define PWR_OK                                                   0x00000001
 #define PWR_SUSPENDREQUEST                                       0x00000001
 #define PWR_SUSPENDRESUME                                        0x00000002
 #define PWR_CRITICALRESUME                                       0x00000003
 #define PWR_FAIL                                                 0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define NFR_ANSI                                                 0x00000001
 #define NFR_UNICODE                                              0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define NF_QUERY                                                 0x00000003
 #define NF_REQUERY                                               0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MENULOOP_WINDOW                                          0x00000000
 #define MENULOOP_POPUP                                           0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WMSZ_LEFT                                                0x00000001
 #define WMSZ_RIGHT                                               0x00000002
 #define WMSZ_TOP                                                 0x00000003
@@ -2099,7 +2099,7 @@ MinGW's 'winuse.h' in human readable format.
 #define WMSZ_BOTTOM                                              0x00000006
 #define WMSZ_BOTTOMLEFT                                          0x00000007
 #define WMSZ_BOTTOMRIGHT                                         0x00000008
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HTNOWHERE                                                0x00000000
 #define HTCLIENT                                                 0x00000001
 #define HTCAPTION                                                0x00000002
@@ -2129,24 +2129,24 @@ MinGW's 'winuse.h' in human readable format.
 #define HTHELP                                                   0x00000015
 #define HTERROR                                                  0xFFFFFFFE
 #define HTTRANSPARENT                                            0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MA_ACTIVATE                                              0x00000001
 #define MA_ACTIVATEANDEAT                                        0x00000002
 #define MA_NOACTIVATE                                            0x00000003
 #define MA_NOACTIVATEANDEAT                                      0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SIZE_RESTORED                                            0x00000000
 #define SIZE_MINIMIZED                                           0x00000001
 #define SIZE_MAXIMIZED                                           0x00000002
 #define SIZE_MAXSHOW                                             0x00000003
 #define SIZE_MAXHIDE                                             0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SIZENORMAL                                               0x00000000
 #define SIZEICONIC                                               0x00000001
 #define SIZEFULLSCREEN                                           0x00000002
 #define SIZEZOOMSHOW                                             0x00000003
 #define SIZEZOOMHIDE                                             0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WVR_ALIGNTOP                                             0x00000010
 #define WVR_ALIGNLEFT                                            0x00000020
 #define WVR_ALIGNBOTTOM                                          0x00000040
@@ -2155,31 +2155,31 @@ MinGW's 'winuse.h' in human readable format.
 #define WVR_VREDRAW                                              0x00000200
 #define WVR_REDRAW                                               0x00000300
 #define WVR_VALIDRECTS                                           0x00000400
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define PRF_CHECKVISIBLE                                         0x00000001
 #define PRF_NONCLIENT                                            0x00000002
 #define PRF_CLIENT                                               0x00000004
 #define PRF_ERASEBKGND                                           0x00000008
 #define PRF_CHILDREN                                             0x00000010
 #define PRF_OWNED                                                0x00000020
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define IDANI_OPEN                                               0x00000001
 #define IDANI_CLOSE                                              0x00000002
 #define IDANI_CAPTION                                            0x00000003
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WPF_SETMINPOSITION                                       0x00000001
 #define WPF_RESTORETOMAXIMIZED                                   0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ODT_MENU                                                 0x00000001
 #define ODT_LISTBOX                                              0x00000002
 #define ODT_COMBOBOX                                             0x00000003
 #define ODT_BUTTON                                               0x00000004
 #define ODT_STATIC                                               0x00000005
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ODA_DRAWENTIRE                                           0x00000001
 #define ODA_SELECT                                               0x00000002
 #define ODA_FOCUS                                                0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ODS_SELECTED                                             0x00000001
 #define ODS_GRAYED                                               0x00000002
 #define ODS_DISABLED                                             0x00000004
@@ -2187,34 +2187,34 @@ MinGW's 'winuse.h' in human readable format.
 #define ODS_FOCUS                                                0x00000010
 #define ODS_DEFAULT                                              0x00000020
 #define ODS_COMBOBOXEDIT                                         0x00001000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define IDHOT_SNAPWINDOW                                         0xFFFFFFFF
 #define IDHOT_SNAPDESKTOP                                        0xFFFFFFFE
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DBWF_LPARAMPOINTER                                       0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DLGWINDOWEXTRA                                           0x0000001E
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MNC_IGNORE                                               0x00000000
 #define MNC_CLOSE                                                0x00000001
 #define MNC_EXECUTE                                              0x00000002
 #define MNC_SELECT                                               0x00000003
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DOF_PROGMAN                                              0x00000001
 #define DOF_SHELLDATA                                            0x00000002
 #define DOF_EXECUTABLE                                           0x00008001
 #define DOF_DOCUMENT                                             0x00008002
 #define DOF_DIRECTORY                                            0x00008003
 #define DOF_MULTIPLE                                             0x00008004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DO_DROPFILE                                              0x454C4946
 #define DO_PRINTFILE                                             0x544E5250
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SW_SCROLLCHILDREN                                        0x00000001
 #define SW_INVALIDATE                                            0x00000002
 #define SW_ERASE                                                 0x00000004
 #define SW_SMOOTHSCROLL                                          0x00000010
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define SC_SIZE                                                  0x0000F000
 #define SC_SEPARATOR                                             0x0000F00F
 #define SC_MOVE                                                  0x0000F010
@@ -2237,13 +2237,13 @@ MinGW's 'winuse.h' in human readable format.
 #define SC_DEFAULT                                               0x0000F160
 #define SC_MONITORPOWER                                          0x0000F170
 #define SC_CONTEXTHELP                                           0x0000F180
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define EC_LEFTMARGIN                                            0x00000001
 #define EC_RIGHTMARGIN                                           0x00000002
 #define EC_USEFONTINFO                                           0x0000FFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DC_HASDEFID                                              0x0000534B
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DLGC_WANTARROWS                                          0x00000001
 #define DLGC_WANTTAB                                             0x00000002
 #define DLGC_WANTALLKEYS                                         0x00000004
@@ -2255,17 +2255,17 @@ MinGW's 'winuse.h' in human readable format.
 #define DLGC_WANTCHARS                                           0x00000080
 #define DLGC_STATIC                                              0x00000100
 #define DLGC_BUTTON                                              0x00002000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define LB_CTLCODE                                               0x00000000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WA_INACTIVE                                              0x00000000
 #define WA_ACTIVE                                                0x00000001
 #define WA_CLICKACTIVE                                           0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ICON_SMALL                                               0x00000000
 #define ICON_BIG                                                 0x00000001
 #define ICON_SMALL2                                              0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define HBMMENU_SYSTEM                                           0x00000001
 #define HBMMENU_MBAR_RESTORE                                     0x00000002
 #define HBMMENU_MBAR_MINIMIZE                                    0x00000003
@@ -2277,7 +2277,7 @@ MinGW's 'winuse.h' in human readable format.
 #define HBMMENU_POPUP_MAXIMIZE                                   0x0000000A
 #define HBMMENU_POPUP_MINIMIZE                                   0x0000000B
 #define HBMMENU_CALLBACK                                         0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MOD_ALT                                                  0x00000001
 #define MOD_CONTROL                                              0x00000002
 #define MOD_SHIFT                                                0x00000004
@@ -2286,29 +2286,29 @@ MinGW's 'winuse.h' in human readable format.
 #define MOD_ON_KEYUP                                             0x00000800
 #define MOD_RIGHT                                                0x00004000
 #define MOD_LEFT                                                 0x00008000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define LLKHF_EXTENDED                                           0x00000001
 #define LLKHF_INJECTED                                           0x00000010
 #define LLKHF_ALTDOWN                                            0x00000020
 #define LLKHF_UP                                                 0x00000080
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define FLASHW_STOP                                              0x00000000
 #define FLASHW_CAPTION                                           0x00000001
 #define FLASHW_TRAY                                              0x00000002
 #define FLASHW_ALL                                               0x00000003
 #define FLASHW_TIMER                                             0x00000004
 #define FLASHW_TIMERNOFG                                         0x0000000C
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CURSOR_SHOWING                                           0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WS_ACTIVECAPTION                                         0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define INPUT_MOUSE                                              0x00000000
 #define INPUT_KEYBOARD                                           0x00000001
 #define INPUT_HARDWARE                                           0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ENDSESSION_LOGOFF                                        0x80000000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CHILDID_SELF                                             0x00000000
 #define OBJID_WINDOW                                             0x00000000
 #define OBJID_SOUND                                              0xFFFFFFF5
@@ -2322,19 +2322,19 @@ MinGW's 'winuse.h' in human readable format.
 #define OBJID_MENU                                               0xFFFFFFFD
 #define OBJID_TITLEBAR                                           0xFFFFFFFE
 #define OBJID_SYSMENU                                            0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define GUI_CARETBLINKING                                        0x00000001
 #define GUI_INMOVESIZE                                           0x00000002
 #define GUI_INMENUMODE                                           0x00000004
 #define GUI_SYSTEMMENUMODE                                       0x00000008
 #define GUI_POPUPMENUMODE                                        0x00000010
 #define GUI_16BITTASK                                            0x00000020
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define WINEVENT_OUTOFCONTEXT                                    0x00000000
 #define WINEVENT_SKIPOWNTHREAD                                   0x00000001
 #define WINEVENT_SKIPOWNPROCESS                                  0x00000002
 #define WINEVENT_INCONTEXT                                       0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define AW_HOR_POSITIVE                                          0x00000001
 #define AW_HOR_NEGATIVE                                          0x00000002
 #define AW_VER_POSITIVE                                          0x00000004
@@ -2344,11 +2344,11 @@ MinGW's 'winuse.h' in human readable format.
 #define AW_ACTIVATE                                              0x00020000
 #define AW_SLIDE                                                 0x00040000
 #define AW_BLEND                                                 0x00080000
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define DEVICE_NOTIFY_WINDOW_HANDLE                              0x00000000
 #define DEVICE_NOTIFY_SERVICE_HANDLE                             0x00000001
 #define DEVICE_NOTIFY_ALL_INTERFACE_CLASSES                      0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define EVENT_MIN                                                0x00000001
 #define EVENT_SYSTEM_SOUND                                       0x00000001
 #define EVENT_SYSTEM_ALERT                                       0x00000002
@@ -2400,66 +2400,66 @@ MinGW's 'winuse.h' in human readable format.
 #define EVENT_OBJECT_DEFACTIONCHANGE                             0x00008011
 #define EVENT_OBJECT_ACCELERATORCHANGE                           0x00008012
 #define EVENT_MAX                                                0x7FFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CONSOLE_CARET_SELECTION                                  0x00000001
 #define CONSOLE_APPLICATION_16BIT                                0x00000001
 #define CONSOLE_CARET_VISIBLE                                    0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define LSFW_LOCK                                                0x00000001
 #define LSFW_UNLOCK                                              0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ASFW_ANY                                                 0xFFFFFFFF
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define LWA_COLORKEY                                             0x00000001
 #define LWA_ALPHA                                                0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ULW_COLORKEY                                             0x00000001
 #define ULW_ALPHA                                                0x00000002
 #define ULW_OPAQUE                                               0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define GA_PARENT                                                0x00000001
 #define GA_ROOT                                                  0x00000002
 #define GA_ROOTOWNER                                             0x00000003
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MONITOR_DEFAULTTONULL                                    0x00000000
 #define MONITOR_DEFAULTTOPRIMARY                                 0x00000001
 #define MONITOR_DEFAULTTONEAREST                                 0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MONITORINFOF_PRIMARY                                     0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define EDS_RAWMODE                                              0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define ISMEX_NOSEND                                             0x00000000
 #define ISMEX_SEND                                               0x00000001
 #define ISMEX_NOTIFY                                             0x00000002
 #define ISMEX_CALLBACK                                           0x00000004
 #define ISMEX_REPLIED                                            0x00000008
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define GR_GDIOBJECTS                                            0x00000000
 #define GR_USEROBJECTS                                           0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define GMMP_USE_DISPLAY_POINTS                                  0x00000001
 #define GMMP_USE_HIGH_RESOLUTION_POINTS                          0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define XBUTTON1                                                 0x00000001
 #define XBUTTON2                                                 0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define FE_FONTSMOOTHINGSTANDARD                                 0x00000001
 #define FE_FONTSMOOTHINGCLEARTYPE                                0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define PW_CLIENTONLY                                            0x00000001
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define RIM_INPUT                                                0x00000000
 #define RIM_TYPEMOUSE                                            0x00000000
 #define RIM_INPUTSINK                                            0x00000001
 #define RIM_TYPEKEYBOARD                                         0x00000001
 #define RIM_TYPEHID                                              0x00000002
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define MOUSE_MOVE_RELATIVE                                      0x00000000
 #define MOUSE_MOVE_ABSOLUTE                                      0x00000001
 #define MOUSE_VIRTUAL_DESKTOP                                    0x00000002
 #define MOUSE_ATTRIBUTES_CHANGED                                 0x00000004
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define RI_KEY_MAKE                                              0x00000000
 #define RI_KEY_BREAK                                             0x00000001
 #define RI_MOUSE_LEFT_BUTTON_DOWN                                0x00000001
@@ -2484,14 +2484,14 @@ MinGW's 'winuse.h' in human readable format.
 #define RI_MOUSE_BUTTON_5_DOWN                                   0x00000100
 #define RI_MOUSE_BUTTON_5_UP                                     0x00000200
 #define RI_MOUSE_WHEEL                                           0x00000400
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define RID_INPUT                                                0x10000003
 #define RID_HEADER                                               0x10000005
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define RIDI_PREPARSEDDATA                                       0x20000005
 #define RIDI_DEVICENAME                                          0x20000007
 #define RIDI_DEVICEINFO                                          0x2000000B
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define RIDEV_REMOVE                                             0x00000001
 #define RIDEV_EXCLUDE                                            0x00000010
 #define RIDEV_PAGEONLY                                           0x00000020
@@ -2500,7 +2500,7 @@ MinGW's 'winuse.h' in human readable format.
 #define RIDEV_CAPTUREMOUSE                                       0x00000200
 #define RIDEV_NOHOTKEYS                                          0x00000200
 #define RIDEV_APPKEYS                                            0x00000400
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 typedef BOOL(CALLBACK *DLGPROC)(HWND,UINT,WPARAM,LPARAM);
 typedef VOID(CALLBACK *TIMERPROC)(HWND,UINT,UINT,DWORD);
 typedef BOOL(CALLBACK *GRAYSTRINGPROC)(HDC,LPARAM,int);
@@ -2523,11 +2523,11 @@ typedef NAMEENUMPROCW DESKTOPENUMPROCW;
 typedef NAMEENUMPROCA WINSTAENUMPROCA;
 typedef NAMEENUMPROCW WINSTAENUMPROCW;
 typedef void(CALLBACK *SENDASYNCPROC)(HWND,UINT,DWORD,LRESULT);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 DECLARE_HANDLE(HHOOK);
 DECLARE_HANDLE(HDWP);
 DECLARE_HANDLE(HDEVNOTIFY);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MENUGETOBJECTINFO
    {
     DWORD           dwFlags;
@@ -2537,7 +2537,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     PVOID           pvObj;
    }
    MENUGETOBJECTINFO, *PMENUGETOBJECTINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    ACCEL
    {
     BYTE            fVirt;
@@ -2545,7 +2545,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     WORD             cmd;
    }
    ACCEL,*LPACCEL;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    ACCESSTIMEOUT
    {
     UINT            cbSize;
@@ -2553,14 +2553,14 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           iTimeOutMSec;
    }
    ACCESSTIMEOUT, *LPACCESSTIMEOUT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    ANIMATIONINFO
    {
     UINT            cbSize;
     int             iMinAnimate;
    }
    ANIMATIONINFO,*LPANIMATIONINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CREATESTRUCTA
    {
     LPVOID          lpCreateParams;
@@ -2577,7 +2577,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           dwExStyle;
    }
    CREATESTRUCTA,*LPCREATESTRUCTA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CREATESTRUCTW
    {
     LPVOID          lpCreateParams;
@@ -2594,35 +2594,35 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           dwExStyle;
    }
    CREATESTRUCTW,*LPCREATESTRUCTW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CBT_CREATEWNDA
    {
     LPCREATESTRUCTA lpcs;
     HWND            hwndInsertAfter;
    }
    CBT_CREATEWNDA, *LPCBT_CREATEWNDA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CBT_CREATEWNDW
    {
     LPCREATESTRUCTW lpcs;
     HWND            hwndInsertAfter;
    }
    CBT_CREATEWNDW, *LPCBT_CREATEWNDW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CBTACTIVATESTRUCT
    {
     BOOL            fMouse;
     HWND            hWndActive;
    }
    CBTACTIVATESTRUCT,*LPCBTACTIVATESTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CLIENTCREATESTRUCT
    {
     HANDLE          hWindowMenu;
     UINT            idFirstChild;
    }
    CLIENTCREATESTRUCT,*LPCLIENTCREATESTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    COMPAREITEMSTRUCT
    {
     UINT            CtlType;
@@ -2635,7 +2635,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           dwLocaleId;
    }
    COMPAREITEMSTRUCT,*LPCOMPAREITEMSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    COPYDATASTRUCT
    {
     DWORD           dwData;
@@ -2643,7 +2643,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     PVOID           lpData;
    }
    COPYDATASTRUCT,*PCOPYDATASTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CURSORSHAPE
    {
     int             xHotSpot;
@@ -2655,7 +2655,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     BYTE            BitsPixel;
    }
    CURSORSHAPE,*LPCURSORSHAPE;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CWPRETSTRUCT
    {
     LRESULT         lResult;
@@ -2665,7 +2665,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     HWND            hwnd;
    }
    CWPRETSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CWPSTRUCT
    {
     LPARAM          lParam;
@@ -2674,7 +2674,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     HWND            hwnd;
    }
    CWPSTRUCT,*PCWPSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    DEBUGHOOKINFO
    {
     DWORD           idThread;
@@ -2684,7 +2684,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     int             code;
    }
    DEBUGHOOKINFO,*PDEBUGHOOKINFO,*LPDEBUGHOOKINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   DELETEITEMSTRUCT
   {
    UINT            CtlType;
@@ -2694,9 +2694,9 @@ DECLARE_HANDLE(HDEVNOTIFY);
    UINT            itemData;
   }
   DELETEITEMSTRUCT,*PDELETEITEMSTRUCT,*LPDELETEITEMSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #pragma pack(push,2)
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   struct
   {
    DWORD            style;
@@ -2708,7 +2708,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
    WORD             id;
   }
   DLGITEMTEMPLATE,*LPDLGITEMTEMPLATE;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   struct
   {
    DWORD            style;
@@ -2721,9 +2721,9 @@ DECLARE_HANDLE(HDEVNOTIFY);
   }
   DLGTEMPLATE,*LPDLGTEMPLATE,*LPDLGTEMPLATEA,*LPDLGTEMPLATEW;
   typedef const DLGTEMPLATE *LPCDLGTEMPLATE;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #pragma pack(pop)
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   DRAWITEMSTRUCT
   {
    UINT             CtlType;
@@ -2737,7 +2737,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
    DWORD            itemData;
   }
   DRAWITEMSTRUCT,*LPDRAWITEMSTRUCT,*PDRAWITEMSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   struct
   {
    UINT             cbSize;
@@ -2747,7 +2747,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
    UINT             uiLengthDrawn;
   }
   DRAWTEXTPARAMS,*LPDRAWTEXTPARAMS;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    PAINTSTRUCT
    {
     HDC             hdc;
@@ -2758,7 +2758,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     BYTE            rgbReserved[32];
    }
    PAINTSTRUCT,*LPPAINTSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MSG
    {
     HWND            hwnd;
@@ -2769,7 +2769,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     POINT           pt;
    }
    MSG,*LPMSG,*PMSG;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _ICONINFO
    {
     BOOL            fIcon;
@@ -2779,7 +2779,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     HBITMAP         hbmColor;
    }
    ICONINFO,*PICONINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    NMHDR
    {
     HWND            hwndFrom;
@@ -2787,7 +2787,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     UINT            code;
    }
    NMHDR,*LPNMHDR;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WNDCLASSA
    {
     UINT            style;
@@ -2802,7 +2802,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     LPCSTR          lpszClassName;
    }
    WNDCLASSA,*LPWNDCLASSA,*PWNDCLASSA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WNDCLASSW
    {
     UINT            style;
@@ -2817,7 +2817,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     LPCWSTR         lpszClassName;
    }
    WNDCLASSW,*LPWNDCLASSW,*PWNDCLASSW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WNDCLASSEXA
    {
     UINT            cbSize;
@@ -2834,7 +2834,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     HICON           hIconSm;
    }
    WNDCLASSEXA,*LPWNDCLASSEXA,*PWNDCLASSEXA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WNDCLASSEXW
    {
     UINT            cbSize;
@@ -2851,7 +2851,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     HICON           hIconSm;
    }
    WNDCLASSEXW,*LPWNDCLASSEXW,*PWNDCLASSEXW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MENUITEMINFOA
    {
     UINT            cbSize;
@@ -2869,7 +2869,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
    }
    MENUITEMINFOA,*LPMENUITEMINFOA;
    typedef const MENUITEMINFOA *LPCMENUITEMINFOA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MENUITEMINFOW
    {
     UINT            cbSize;
@@ -2887,7 +2887,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
    }
    MENUITEMINFOW,*LPMENUITEMINFOW;
    typedef const MENUITEMINFOW *LPCMENUITEMINFOW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SCROLLINFO
    {
     UINT            cbSize;
@@ -2900,7 +2900,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
    }
    SCROLLINFO,*LPSCROLLINFO;
    typedef const SCROLLINFO *LPCSCROLLINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WINDOWPLACEMENT
    {
     UINT            length;
@@ -2911,14 +2911,14 @@ DECLARE_HANDLE(HDEVNOTIFY);
     RECT            rcNormalPosition;
    }
    WINDOWPLACEMENT,*LPWINDOWPLACEMENT,*PWINDOWPLACEMENT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    struct
    {
     WORD            versionNumber;
     WORD            offset;
    }
    MENUITEMTEMPLATEHEADER;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    struct
    {
     WORD            mtOption;
@@ -2928,7 +2928,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
    MENUITEMTEMPLATE;
    MENUTEMPLATE,MENUTEMPLATEA,MENUTEMPLATEW,*LPMENUTEMPLATEA,
    *LPMENUTEMPLATEW,*LPMENUTEMPLATE;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    HELPINFO
    {
     UINT            cbSize;
@@ -2939,9 +2939,9 @@ DECLARE_HANDLE(HDEVNOTIFY);
     POINT           MousePos;
    }
    HELPINFO,*LPHELPINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    typedef void(CALLBACK *MSGBOXCALLBACK)(LPHELPINFO);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    struct
    {
     UINT            cbSize;
@@ -2956,7 +2956,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           dwLanguageId;
    }
    MSGBOXPARAMSA,*PMSGBOXPARAMSA,*LPMSGBOXPARAMSA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    struct
    {
     UINT            cbSize;
@@ -2971,7 +2971,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           dwLanguageId;
    }
    MSGBOXPARAMSW,*PMSGBOXPARAMSW,*LPMSGBOXPARAMSW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    USEROBJECTFLAGS
    {
     BOOL            fInherit;
@@ -2979,7 +2979,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           dwFlags;
    }
    USEROBJECTFLAGS;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    FILTERKEYS
    {
     UINT            cbSize;
@@ -2990,7 +2990,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           iBounceMSec;
    }
    FILTERKEYS;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    HIGHCONTRASTA
    {
     UINT            cbSize;
@@ -2998,7 +2998,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     LPSTR           lpszDefaultScheme;
    }
    HIGHCONTRASTA,*LPHIGHCONTRASTA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    HIGHCONTRASTW
    {
     UINT            cbSize;
@@ -3006,9 +3006,9 @@ DECLARE_HANDLE(HDEVNOTIFY);
     LPWSTR          lpszDefaultScheme;
    }
    HIGHCONTRASTW,*LPHIGHCONTRASTW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifndef NOGDI
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    ICONMETRICSA
    {
     UINT            cbSize;
@@ -3018,7 +3018,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     LOGFONTA        lfFont;
    }
    ICONMETRICSA,*LPICONMETRICSA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    ICONMETRICSW
    {
     UINT            cbSize;
@@ -3028,9 +3028,9 @@ DECLARE_HANDLE(HDEVNOTIFY);
     LOGFONTW        lfFont;
    }
    ICONMETRICSW,*LPICONMETRICSW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #endif /*  NOGDI */
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MINIMIZEDMETRICS
    {
     UINT            cbSize;
@@ -3040,7 +3040,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     int             iArrange;
    }
    MINIMIZEDMETRICS,*LPMINIMIZEDMETRICS;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MOUSEKEYS
    {
     UINT            cbSize;
@@ -3052,9 +3052,9 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           dwReserved2;
    }
    MOUSEKEYS,*LPMOUSEKEYS;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifndef NOGDI
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    NONCLIENTMETRICSA
    {
     UINT            cbSize;
@@ -3074,7 +3074,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     LOGFONTA        lfMessageFont;
    }
    NONCLIENTMETRICSA,*LPNONCLIENTMETRICSA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    NONCLIENTMETRICSW
    {
     UINT            cbSize;
@@ -3094,9 +3094,9 @@ DECLARE_HANDLE(HDEVNOTIFY);
     LOGFONTW        lfMessageFont;
    }
    NONCLIENTMETRICSW,*LPNONCLIENTMETRICSW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #endif
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SERIALKEYSA
    {
     UINT            cbSize;
@@ -3108,7 +3108,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     UINT            iActive;
    }
    SERIALKEYSA,*LPSERIALKEYSA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SERIALKEYSW
    {
     UINT            cbSize;
@@ -3120,7 +3120,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     UINT            iActive;
    }
    SERIALKEYSW,*LPSERIALKEYSW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SOUNDSENTRYA
    {
     UINT            cbSize;
@@ -3137,7 +3137,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           iWindowsEffectOrdinal;
    }
    SOUNDSENTRYA,*LPSOUNDSENTRYA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SOUNDSENTRYW
    {
     UINT            cbSize;
@@ -3154,21 +3154,21 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           iWindowsEffectOrdinal;
    }
    SOUNDSENTRYW,*LPSOUNDSENTRYW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    STICKYKEYS
    {
     DWORD           cbSize;
     DWORD           dwFlags;
    }
    STICKYKEYS,*LPSTICKYKEYS;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    TOGGLEKEYS
    {
     DWORD           cbSize;
     DWORD           dwFlags;
    }
    TOGGLEKEYS;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MOUSEHOOKSTRUCT
    {
     POINT           pt;
@@ -3177,7 +3177,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           dwExtraInfo;
    }
    MOUSEHOOKSTRUCT,*LPMOUSEHOOKSTRUCT,*PMOUSEHOOKSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    TRACKMOUSEEVENT
    {
     DWORD           cbSize;
@@ -3186,14 +3186,14 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           dwHoverTime;
    }
    TRACKMOUSEEVENT,*LPTRACKMOUSEEVENT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    TPMPARAMS
    {
     UINT            cbSize;
     RECT            rcExclude;
    }
    TPMPARAMS,*LPTPMPARAMS;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    EVENTMSG
    {
     UINT            message;
@@ -3203,7 +3203,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     HWND            hwnd;
    }
    EVENTMSG,*PEVENTMSGMSG,*LPEVENTMSGMSG,*PEVENTMSG,*LPEVENTMSG;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WINDOWPOS
    {
     HWND            hwnd;
@@ -3215,14 +3215,14 @@ DECLARE_HANDLE(HDEVNOTIFY);
     UINT            flags;
    }
    WINDOWPOS,*PWINDOWPOS,*LPWINDOWPOS;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    NCCALCSIZE_PARAMS
    {
     RECT            rgrc[3];
     PWINDOWPOS      lppos;
    }
    NCCALCSIZE_PARAMS, *LPNCCALCSIZE_PARAMS;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MDICREATESTRUCTA
    {
     LPCSTR          szClass;
@@ -3236,7 +3236,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     LPARAM          lParam;
    }
    MDICREATESTRUCTA,*LPMDICREATESTRUCTA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MDICREATESTRUCTW
    {
     LPCWSTR         szClass;
@@ -3250,7 +3250,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     LPARAM          lParam;
    }
    MDICREATESTRUCTW,*LPMDICREATESTRUCTW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MINMAXINFO
    {
     POINT           ptReserved;
@@ -3260,7 +3260,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     POINT           ptMaxTrackSize;
    }
    MINMAXINFO,*PMINMAXINFO,*LPMINMAXINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MDINEXTMENU
    {
     HMENU           hmenuIn;
@@ -3268,7 +3268,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     HWND            hwndNext;
    }
    MDINEXTMENU,*PMDINEXTMENU,*LPMDINEXTMENU;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MEASUREITEMSTRUCT
    {
     UINT            CtlType;
@@ -3279,7 +3279,7 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           itemData;
    }
    MEASUREITEMSTRUCT,*PMEASUREITEMSTRUCT,*LPMEASUREITEMSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    DROPSTRUCT
    {
     HWND            hwndSource;
@@ -3290,9 +3290,9 @@ DECLARE_HANDLE(HDEVNOTIFY);
     DWORD           dwControlData;
    }
    DROPSTRUCT,*PDROPSTRUCT,*LPDROPSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 typedef DWORD HELPPOLY;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MULTIKEYHELPA
    {
     DWORD           mkSize;
@@ -3300,7 +3300,7 @@ typedef DWORD HELPPOLY;
     CHAR            szKeyphrase[1];
    }
    MULTIKEYHELPA,*PMULTIKEYHELPA,*LPMULTIKEYHELPA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MULTIKEYHELPW
    {
     DWORD           mkSize;
@@ -3308,7 +3308,7 @@ typedef DWORD HELPPOLY;
     WCHAR           szKeyphrase[1];
    }
    MULTIKEYHELPW,*PMULTIKEYHELPW,*LPMULTIKEYHELPW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    HELPWININFOA
    {
     int             wStructSize;
@@ -3320,7 +3320,7 @@ typedef DWORD HELPPOLY;
     CHAR            rgchMember[2];
    }
    HELPWININFOA,*PHELPWININFOA,*LPHELPWININFOA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    HELPWININFOW
    {
     int             wStructSize;
@@ -3332,14 +3332,14 @@ typedef DWORD HELPPOLY;
     WCHAR           rgchMember[2];
    }
    HELPWININFOW,*PHELPWININFOW,*LPHELPWININFOW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    STYLESTRUCT
    { 
     DWORD           styleOld;
     DWORD           styleNew;
    }
    STYLESTRUCT,*LPSTYLESTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    ALTTABINFO
    {
     DWORD           cbSize;
@@ -3353,7 +3353,7 @@ typedef DWORD HELPPOLY;
     POINT           ptStart;
    }
    ALTTABINFO,*PALTTABINFO,*LPALTTABINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    COMBOBOXINFO
    {
     DWORD           cbSize;
@@ -3365,7 +3365,7 @@ typedef DWORD HELPPOLY;
     HWND            hwndList;
    }
    COMBOBOXINFO,*PCOMBOBOXINFO,*LPCOMBOBOXINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CURSORINFO
    {
     DWORD           cbSize;
@@ -3374,7 +3374,7 @@ typedef DWORD HELPPOLY;
     POINT           ptScreenPos;
    }
    CURSORINFO,*PCURSORINFO,*LPCURSORINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MENUBARINFO
    {
     DWORD           cbSize;
@@ -3385,7 +3385,7 @@ typedef DWORD HELPPOLY;
     BOOL            fFocused:1;
    }
    MENUBARINFO,*PMENUBARINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MENUINFO
    {
     DWORD           cbSize;
@@ -3397,7 +3397,7 @@ typedef DWORD HELPPOLY;
     ULONG_PTR       dwMenuData;
    }
    MENUINFO,*LPMENUINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    typedef MENUINFO CONST *LPCMENUINFO;
    #define CCHILDREN_SCROLLBAR 5
    SCROLLBARINFO
@@ -3411,9 +3411,9 @@ typedef DWORD HELPPOLY;
     DWORD           rgstate[CCHILDREN_SCROLLBAR+1];
    }
    SCROLLBARINFO,*PSCROLLBARINFO,*LPSCROLLBARINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    #define CCHILDREN_TITLEBAR 5                           /* WIN >= 0410 */
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    TITLEBARINFO
    {
     DWORD           cbSize;
@@ -3421,7 +3421,7 @@ typedef DWORD HELPPOLY;
     DWORD           rgstate[CCHILDREN_TITLEBAR+1];
    }
    TITLEBARINFO,*PTITLEBARINFO,*LPTITLEBARINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    WINDOWINFO
    {
     DWORD           cbSize;
@@ -3436,14 +3436,14 @@ typedef DWORD HELPPOLY;
     WORD            wCreatorVersion;
    }
    WINDOWINFO,*PWINDOWINFO,*LPWINDOWINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    LASTINPUTINFO
    {
     UINT            cbSize;
     DWORD           dwTime;
    }
    LASTINPUTINFO,*PLASTINPUTINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MONITORINFO
    {
     DWORD           cbSize;
@@ -3452,11 +3452,11 @@ typedef DWORD HELPPOLY;
     DWORD           dwFlags;
    }
    MONITORINFO,*LPMONITORINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    #define CCHDEVICENAME 32
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    #ifdef __cplusplus
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MONITORINFOEXA : public tagMONITORINFO
    {
     CHAR            szDevice[CCHDEVICENAME];
@@ -3467,9 +3467,9 @@ typedef DWORD HELPPOLY;
     WCHAR           szDevice[CCHDEVICENAME];
    }
    MONITORINFOEXW, *LPMONITORINFOEXW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #else
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MONITORINFOEXA
    {
     DWORD           cbSize;
@@ -3488,7 +3488,7 @@ typedef DWORD HELPPOLY;
     WCHAR           szDevice[CCHDEVICENAME];
    }
    MONITORINFOEXW,*LPMONITORINFOEXW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    KBDLLHOOKSTRUCT
    {
     DWORD           vkCode;
@@ -3498,9 +3498,9 @@ typedef DWORD HELPPOLY;
     DWORD           dwExtraInfo;
    }
    KBDLLHOOKSTRUCT,*LPKBDLLHOOKSTRUCT,*PKBDLLHOOKSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                         NT >= 0500 or WIN >= 0410
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    struct
    {
     UINT            cbSize;
@@ -3510,9 +3510,9 @@ typedef DWORD HELPPOLY;
     DWORD           dwTimeout;
    }
    FLASHWINFO,*PFLASHWINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                         NT >=         0x0500 or WIN >=         0x0490
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MOUSEMOVEPOINT
    {
     int             x;
@@ -3521,7 +3521,7 @@ typedef DWORD HELPPOLY;
     ULONG_PTR       dwExtraInfo;
    }
    MOUSEMOVEPOINT,*PMOUSEMOVEPOINT,*LPMOUSEMOVEPOINT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MOUSEINPUT
    {
     LONG            dx;
@@ -3532,7 +3532,7 @@ typedef DWORD HELPPOLY;
     ULONG_PTR       dwExtraInfo;
    }
    MOUSEINPUT,*PMOUSEINPUT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    KEYBDINPUT
    {
     WORD            wVk;
@@ -3542,7 +3542,7 @@ typedef DWORD HELPPOLY;
     ULONG_PTR       dwExtraInfo;
    }
    KEYBDINPUT,*PKEYBDINPUT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    HARDWAREINPUT
    {
     DWORD           uMsg;
@@ -3550,7 +3550,7 @@ typedef DWORD HELPPOLY;
     WORD            wParamH;
    }
    HARDWAREINPUT,*PHARDWAREINPUT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    INPUT
    {
     DWORD           type;
@@ -3563,7 +3563,7 @@ typedef DWORD HELPPOLY;
     DUMMYUNIONNAME;
    }
    INPUT,*PINPUT,*LPINPUT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    GUITHREADINFO
    {
     DWORD           cbSize;
@@ -3577,10 +3577,10 @@ typedef DWORD HELPPOLY;
     RECT            rcCaret;
    }
    GUITHREADINFO,*PGUITHREADINFO,*LPGUITHREADINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    typedef VOID (*WINEVENTPROC)
    (HWINEVENTHOOK,DWORD,HWND,LONG,LONG,DWORD,DWORD);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    struct
    {
     UINT            cbSize;
@@ -3589,9 +3589,9 @@ typedef DWORD HELPPOLY;
     LUID            luid;
    }
    BSMINFO,*PBSMINFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    DECLARE_HANDLE(HRAWINPUT);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RAWINPUTHEADER
    {
     DWORD           dwType;
@@ -3600,7 +3600,7 @@ typedef DWORD HELPPOLY;
     WPARAM          wParam;
    }
    RAWINPUTHEADER,*PRAWINPUTHEADER;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RAWMOUSE
    {
     USHORT          usFlags;
@@ -3619,7 +3619,7 @@ typedef DWORD HELPPOLY;
     ULONG           ulExtraInformation;
    }
    RAWMOUSE,*PRAWMOUSE,*LPRAWMOUSE;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RAWKEYBOARD
    {
     USHORT          MakeCode;
@@ -3630,7 +3630,7 @@ typedef DWORD HELPPOLY;
     ULONG           ExtraInformation;
    }
    RAWKEYBOARD,*PRAWKEYBOARD,*LPRAWKEYBOARD;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RAWHID
    {
     DWORD           dwSizeHid;
@@ -3638,7 +3638,7 @@ typedef DWORD HELPPOLY;
     BYTE            bRawData;
    }
    RAWHID,*PRAWHID,*LPRAWHID;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RAWINPUT
    {
     RAWINPUTHEADER  header;
@@ -3651,7 +3651,7 @@ typedef DWORD HELPPOLY;
     data;
    }
    RAWINPUT,*PRAWINPUT,*LPRAWINPUT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RAWINPUTDEVICE
    {
     USHORT          usUsagePage;
@@ -3660,16 +3660,16 @@ typedef DWORD HELPPOLY;
     HWND            hwndTarget;
    }
    RAWINPUTDEVICE,*PRAWINPUTDEVICE,*LPRAWINPUTDEVICE;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    typedef const RAWINPUTDEVICE *PCRAWINPUTDEVICE;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RAWINPUTDEVICELIST
    {
     HANDLE          hDevice;
     DWORD           dwType;
    }
    RAWINPUTDEVICELIST,*PRAWINPUTDEVICELIST;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RID_DEVICE_INFO_MOUSE
    {
     DWORD           dwId;
@@ -3678,7 +3678,7 @@ typedef DWORD HELPPOLY;
     BOOL            fHasHorizontalWheel;
    }
    RID_DEVICE_INFO_MOUSE, *PRID_DEVICE_INFO_MOUSE;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RID_DEVICE_INFO_KEYBOARD
    {
     DWORD           dwType;
@@ -3689,7 +3689,7 @@ typedef DWORD HELPPOLY;
     DWORD           dwNumberOfKeysTotal;
    }
    RID_DEVICE_INFO_KEYBOARD, *PRID_DEVICE_INFO_KEYBOARD;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RID_DEVICE_INFO_HID
    {
     DWORD           dwVendorId;
@@ -3699,7 +3699,7 @@ typedef DWORD HELPPOLY;
     USHORT          usUsage;
    }
    RID_DEVICE_INFO_HID, *PRID_DEVICE_INFO_HID;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RID_DEVICE_INFO
    { 
     DWORD           cbSize; 
@@ -3713,7 +3713,7 @@ typedef DWORD HELPPOLY;
     DUMMYUNIONNAME;
    }
    RID_DEVICE_INFO, *PRID_DEVICE_INFO, *LPRID_DEVICE_INFO;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    struct
    {
     POINT           pt;
@@ -3723,7 +3723,7 @@ typedef DWORD HELPPOLY;
     ULONG_PTR       dwExtraInfo;
    }
    MSLLHOOKSTRUCT, *PMSLLHOOKSTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define AnsiToOem CharToOemA
 #define OemToAnsi OemToCharA
 #define AnsiToOemBuff CharToOemBuffA
@@ -3742,10 +3742,10 @@ typedef DWORD HELPPOLY;
   (p).y=HIWORD(*(DWORD *)&ps); \
 }
 #define POINTTOPOINTS(p) ((POINTS)MAKELONG((p).x,(p).y))
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    typedef const GUID *LPCGUID;
    typedef HANDLE HPOWERNOTIFY;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    struct
    {
     GUID            PowerSetting;
@@ -3753,7 +3753,7 @@ typedef DWORD HELPPOLY;
     UCHAR           Data[1];
    }
    POWERBROADCAST_SETTING, *PPOWERBROADCAST_SETTING;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 extern const GUID GUID_POWERSCHEME_PERSONALITY;
 extern const GUID GUID_MIN_POWER_SAVINGS;
 extern const GUID GUID_MAX_POWER_SAVINGS;
@@ -3763,7 +3763,7 @@ extern const GUID GUID_BATTERY_PERCENTAGE_REMAINING;
 extern const GUID GUID_IDLE_BACKGROUND_TASK;
 extern const GUID GUID_SYSTEM_AWAYMODE;
 extern const GUID GUID_MONITOR_POWER_ON;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define CopyCursor(c) ((HCURSOR)CopyIcon((HICON)(c)))
 #define CreateDialogA(h,n,w,f) CreateDialogParamA(h,n,w,f,0)
 #define CreateDialogW(h,n,w,f) CreateDialogParamW(h,n,w,f,0)
@@ -3784,7 +3784,7 @@ extern const GUID GUID_MONITOR_POWER_ON;
 #define PostAppMessageW(t,m,w,l) PostThreadMessageW((DWORD)t,m,w,l)
 #define GetSysModalWindow() (NULL)
 #define SetSysModalWindow(h) (NULL)
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WINUSERAPI HKL           WINAPI   ActivateKeyboardLayout(HKL,UINT);
 WINUSERAPI BOOL          WINAPI   AdjustWindowRect(LPRECT,DWORD,BOOL);
 WINUSERAPI BOOL          WINAPI   AdjustWindowRectEx(LPRECT,DWORD,BOOL,DWORD);
@@ -3809,14 +3809,14 @@ WINUSERAPI LRESULT       WINAPI   CallWindowProcA(WNDPROC,HWND,UINT,WPARAM,LPARA
 WINUSERAPI LRESULT       WINAPI   CallWindowProcW(WNDPROC,HWND,UINT,WPARAM,LPARAM);
 WINUSERAPI WORD          WINAPI   CascadeWindows(HWND,UINT,LPCRECT,UINT,const HWND*);
 WINUSERAPI BOOL          WINAPI   ChangeClipboardChain(HWND,HWND);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifndef NOGDI
 WINUSERAPI LONG          WINAPI   ChangeDisplaySettingsA(PDEVMODEA,DWORD);
 WINUSERAPI LONG          WINAPI   ChangeDisplaySettingsW(PDEVMODEW,DWORD);
 WINUSERAPI LONG          WINAPI   ChangeDisplaySettingsExA(LPCSTR,LPDEVMODEA,HWND,DWORD,LPVOID);
 WINUSERAPI LONG          WINAPI   ChangeDisplaySettingsExW(LPCWSTR,LPDEVMODEW,HWND,DWORD,LPVOID);
 #endif
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WINUSERAPI BOOL          WINAPI   ChangeMenuA(HMENU,UINT,LPCSTR,UINT,UINT);
 WINUSERAPI BOOL          WINAPI   ChangeMenuW(HMENU,UINT,LPCWSTR,UINT,UINT);
 WINUSERAPI LPSTR         WINAPI   CharLowerA(LPSTR);
@@ -3859,12 +3859,12 @@ WINUSERAPI HACCEL        WINAPI   CreateAcceleratorTableA(LPACCEL,int);
 WINUSERAPI HACCEL        WINAPI   CreateAcceleratorTableW(LPACCEL,int);
 WINUSERAPI BOOL          WINAPI   CreateCaret(HWND,HBITMAP,int,int);
 WINUSERAPI HCURSOR       WINAPI   CreateCursor(HINSTANCE,int,int,int,int,PCVOID,PCVOID);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifndef NOGDI
 WINUSERAPI HDESK         WINAPI   CreateDesktopA(LPCSTR,LPCSTR,LPDEVMODEA,DWORD,ACCESS_MASK,LPSECURITY_ATTRIBUTES);
 WINUSERAPI HDESK         WINAPI   CreateDesktopW(LPCWSTR,LPCWSTR,LPDEVMODEW,DWORD,ACCESS_MASK,LPSECURITY_ATTRIBUTES);
 #endif
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WINUSERAPI HWND          WINAPI   CreateDialogIndirectParamA(HINSTANCE,LPCDLGTEMPLATE,HWND,DLGPROC,LPARAM);
 WINUSERAPI HWND          WINAPI   CreateDialogIndirectParamW(HINSTANCE,LPCDLGTEMPLATE,HWND,DLGPROC,LPARAM);
 WINUSERAPI HWND          WINAPI   CreateDialogParamA(HINSTANCE,LPCSTR,HWND,DLGPROC,LPARAM);
@@ -3901,7 +3901,7 @@ WINUSERAPI BOOL          WINAPI   DestroyMenu(HMENU);
 WINUSERAPI BOOL          WINAPI   DestroyWindow(HWND);
 WINUSERAPI int           WINAPI   DialogBoxIndirectParamA(HINSTANCE,LPCDLGTEMPLATE,HWND,DLGPROC,LPARAM);
 WINUSERAPI int           WINAPI   DialogBoxIndirectParamW(HINSTANCE,LPCDLGTEMPLATE,HWND,DLGPROC,LPARAM);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifdef _WIN32_WCE
 extern     int                  DialogBoxParamA(HINSTANCE,LPCSTR,HWND,DLGPROC,LPARAM);
 extern     int                  DialogBoxParamW(HINSTANCE,LPCWSTR,HWND,DLGPROC,LPARAM);
@@ -3909,7 +3909,7 @@ extern     int                  DialogBoxParamW(HINSTANCE,LPCWSTR,HWND,DLGPROC,L
 WINUSERAPI int           WINAPI   DialogBoxParamA(HINSTANCE,LPCSTR,HWND,DLGPROC,LPARAM);
 WINUSERAPI int           WINAPI   DialogBoxParamW(HINSTANCE,LPCWSTR,HWND,DLGPROC,LPARAM);
 #endif
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WINUSERAPI LONG          WINAPI   DispatchMessageA(const MSG*);
 WINUSERAPI LONG          WINAPI   DispatchMessageW(const MSG*);
 WINUSERAPI int           WINAPI   DlgDirListA(HWND,LPSTR,int,int,UINT);
@@ -3951,7 +3951,7 @@ WINUSERAPI BOOL          WINAPI   EnumDesktopsA(HWINSTA,DESKTOPENUMPROCA,LPARAM)
 WINUSERAPI BOOL          WINAPI   EnumDesktopsW(HWINSTA,DESKTOPENUMPROCW,LPARAM);
 WINUSERAPI BOOL          WINAPI   EnumDesktopWindows(HDESK,ENUMWINDOWSPROC,LPARAM);
 WINUSERAPI BOOL          WINAPI   EnumDisplayMonitors(HDC,LPCRECT,MONITORENUMPROC,LPARAM);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifndef NOGDI
 WINUSERAPI BOOL          WINAPI   EnumDisplaySettingsA(LPCSTR,DWORD,PDEVMODEA);
 WINUSERAPI BOOL          WINAPI   EnumDisplaySettingsW(LPCWSTR,DWORD,PDEVMODEW);
@@ -3960,7 +3960,7 @@ WINUSERAPI BOOL          WINAPI   EnumDisplaySettingsExW(LPCWSTR,DWORD,LPDEVMODE
 WINUSERAPI BOOL          WINAPI   EnumDisplayDevicesA(LPCSTR,DWORD,PDISPLAY_DEVICEA,DWORD);
 WINUSERAPI BOOL          WINAPI   EnumDisplayDevicesW(LPCWSTR,DWORD,PDISPLAY_DEVICEW,DWORD);
 #endif
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WINUSERAPI int           WINAPI   EnumPropsA(HWND,PROPENUMPROCA);
 WINUSERAPI int           WINAPI   EnumPropsW(HWND,PROPENUMPROCW);
 WINUSERAPI int           WINAPI   EnumPropsExA(HWND,PROPENUMPROCEXA,LPARAM);
@@ -3991,7 +3991,7 @@ WINUSERAPI BOOL          WINAPI   GetClassInfoW(HINSTANCE,LPCWSTR,LPWNDCLASSW);
 WINUSERAPI BOOL          WINAPI   GetClassInfoExW(HINSTANCE,LPCWSTR,LPWNDCLASSEXW);
 WINUSERAPI DWORD         WINAPI   GetClassLongA(HWND,int);
 WINUSERAPI DWORD         WINAPI   GetClassLongW(HWND,int);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifdef _WIN64
 WINUSERAPI ULONG_PTR     WINAPI   GetClassLongPtrA(HWND,int);
 WINUSERAPI ULONG_PTR     WINAPI   GetClassLongPtrW(HWND,int);
@@ -3999,7 +3999,7 @@ WINUSERAPI ULONG_PTR     WINAPI   GetClassLongPtrW(HWND,int);
 #define GetClassLongPtrA GetClassLongA
 #define GetClassLongPtrW GetClassLongW
 #endif
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WINUSERAPI int           WINAPI   GetClassNameA(HWND,LPSTR,int);
 WINUSERAPI int           WINAPI   GetClassNameW(HWND,LPWSTR,int);
 WINUSERAPI WORD          WINAPI   GetClassWord(HWND,int);
@@ -4083,7 +4083,7 @@ WINUSERAPI DWORD         WINAPI   GetTabbedTextExtentA(HDC,LPCSTR,int,int,LPINT)
 WINUSERAPI DWORD         WINAPI   GetTabbedTextExtentW(HDC,LPCWSTR,int,int,LPINT);
 WINUSERAPI LONG          WINAPI   GetWindowLongA(HWND,int);
 WINUSERAPI LONG          WINAPI   GetWindowLongW(HWND,int);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifdef _WIN64
 WINUSERAPI LONG_PTR      WINAPI   GetWindowLongPtrA(HWND,int);
 WINUSERAPI LONG_PTR      WINAPI   GetWindowLongPtrW(HWND,int);
@@ -4091,7 +4091,7 @@ WINUSERAPI LONG_PTR      WINAPI   GetWindowLongPtrW(HWND,int);
 #define GetWindowLongPtrA GetWindowLongA
 #define GetWindowLongPtrW GetWindowLongW
 #endif
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WINUSERAPI HDESK         WINAPI   GetThreadDesktop(DWORD);
 WINUSERAPI HWND          WINAPI   GetTopWindow(HWND);
 WINUSERAPI BOOL          WINAPI   GetUpdateRect(HWND,LPRECT,BOOL);
@@ -4284,7 +4284,7 @@ WINUSERAPI BOOL          WINAPI   SetCaretBlinkTime(UINT);
 WINUSERAPI BOOL          WINAPI   SetCaretPos(int,int);
 WINUSERAPI DWORD         WINAPI   SetClassLongA(HWND,int,LONG);
 WINUSERAPI DWORD         WINAPI   SetClassLongW(HWND,int,LONG);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifdef _WIN64
 WINUSERAPI ULONG_PTR     WINAPI   SetClassLongPtrA(HWND,int,LONG_PTR);
 WINUSERAPI ULONG_PTR     WINAPI   SetClassLongPtrW(HWND,int,LONG_PTR);
@@ -4292,7 +4292,7 @@ WINUSERAPI ULONG_PTR     WINAPI   SetClassLongPtrW(HWND,int,LONG_PTR);
 #define SetClassLongPtrA SetClassLongA
 #define SetClassLongPtrW SetClassLongW
 #endif
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WINUSERAPI WORD          WINAPI   SetClassWord(HWND,int,WORD);
 WINUSERAPI HANDLE        WINAPI   SetClipboardData(UINT,HANDLE);
 WINUSERAPI HWND          WINAPI   SetClipboardViewer(HWND);
@@ -4336,7 +4336,7 @@ WINUSERAPI HWINEVENTHOOK WINAPI   SetWinEventHook(UINT,UINT,HMODULE,WINEVENTPROC
 WINUSERAPI BOOL          WINAPI   SetWindowContextHelpId(HWND,DWORD);
 WINUSERAPI LONG          WINAPI   SetWindowLongA(HWND,int,LONG);
 WINUSERAPI LONG          WINAPI   SetWindowLongW(HWND,int,LONG);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifdef _WIN64
 WINUSERAPI LONG_PTR      WINAPI   SetWindowLongPtrA(HWND,int,LONG_PTR);
 WINUSERAPI LONG_PTR      WINAPI   SetWindowLongPtrW(HWND,int,LONG_PTR);
@@ -4344,7 +4344,7 @@ WINUSERAPI LONG_PTR      WINAPI   SetWindowLongPtrW(HWND,int,LONG_PTR);
 #define SetWindowLongPtrA SetWindowLongA
 #define SetWindowLongPtrW SetWindowLongW
 #endif
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WINUSERAPI BOOL          WINAPI   SetWindowPlacement(HWND hWnd,const WINDOWPLACEMENT*);
 WINUSERAPI BOOL          WINAPI   SetWindowPos(HWND,HWND,int,int,int,int,UINT);
 WINUSERAPI int           WINAPI   SetWindowRgn(HWND,HRGN,BOOL);
@@ -4413,13 +4413,13 @@ WINUSERAPI int           WINAPI   wvsprintfW(LPWSTR,LPCWSTR,va_list arglist);
 WINUSERAPI BOOL          WINAPI   AllowSetForegroundWindow(DWORD);
 WINUSERAPI BOOL          WINAPI   LockSetForegroundWindow(UINT);
 WINUSERAPI BOOL          WINAPI   SetLayeredWindowAttributes(HWND,COLORREF,BYTE,DWORD);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifndef NOGDI
 WINUSERAPI BOOL          WINAPI   UpdateLayeredWindow(HWND,HDC,POINT*,SIZE*,HDC,POINT*,COLORREF,BLENDFUNCTION*,DWORD);
 WINUSERAPI BOOL          WINAPI   GetLayeredWindowAttributes(HWND,COLORREF*,BYTE*,DWORD*);
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #ifdef UNICODE
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define EDITWORDBREAKPROC EDITWORDBREAKPROCW
 #define PROPENUMPROC PROPENUMPROCW
 #define PROPENUMPROCEX PROPENUMPROCEXW
@@ -4583,9 +4583,9 @@ typedef NONCLIENTMETRICSW NONCLIENTMETRICS,*LPNONCLIENTMETRICS;
 #define EnumDisplaySettings EnumDisplaySettingsW
 #define EnumDisplaySettingsEx EnumDisplaySettingsExW
 #define EnumDisplayDevices EnumDisplayDevicesW
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #else /* UNICODE */
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #define EDITWORDBREAKPROC EDITWORDBREAKPROCA
 #define PROPENUMPROC PROPENUMPROCA
 #define PROPENUMPROCEX PROPENUMPROCEXA
@@ -4749,4 +4749,4 @@ typedef NONCLIENTMETRICSA NONCLIENTMETRICS,*LPNONCLIENTMETRICS;
 #define EnumDisplaySettings EnumDisplaySettingsA
 #define EnumDisplaySettingsEx EnumDisplaySettingsExA
 #define EnumDisplayDevices EnumDisplayDevicesA
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

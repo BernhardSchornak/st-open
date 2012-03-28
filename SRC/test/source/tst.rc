@@ -69,23 +69,23 @@
   BEGIN
    PUSHBUTTON      "Dismiss",    0x1100,  60, 292, 100,  20
    PUSHBUTTON      "Run",        0x1101, 340, 294,  95,  17
-   RTEXT           "        16", 0x1110,   5,  34,  50,   8
-   RTEXT           "        32", 0x1111,   5,  49,  50,   8
-   RTEXT           "        64", 0x1112,   5,  64,  50,   8
-   RTEXT           "       128", 0x1113,   5,  79,  50,   8
-   RTEXT           "       256", 0x1114,   5,  94,  50,   8
-   RTEXT           "       512", 0x1115,   5, 109,  50,   8
-   RTEXT           "     1 024", 0x1116,   5, 124,  50,   8
-   RTEXT           "     2 048", 0x1117,   5, 139,  50,   8
-   RTEXT           "     4 096", 0x1118,   5, 154,  50,   8
-   RTEXT           "     8 192", 0x1119,   5, 169,  50,   8
-   RTEXT           "    16 384", 0x111A,   5, 184,  50,   8
-   RTEXT           "    32 768", 0x111B,   5, 199,  50,   8
-   RTEXT           "    65 536", 0x111C,   5, 214,  50,   8
-   RTEXT           "   131 072", 0x011D,   5, 229,  50,   8
-   RTEXT           "   262 144", 0x011E,   5, 244,  50,   8
-   RTEXT           "   524 288", 0x011F,   5, 259,  50,   8
-   LTEXT           "Uncached",   0x1102,  60,   6,  60,   8
+   RTEXT           "01",         0x1110,   5,  34,  50,   8
+   RTEXT           "02",         0x1111,   5,  49,  50,   8
+   RTEXT           "03",         0x1112,   5,  64,  50,   8
+   RTEXT           "04",         0x1113,   5,  79,  50,   8
+   RTEXT           "05",         0x1114,   5,  94,  50,   8
+   RTEXT           "06",         0x1115,   5, 109,  50,   8
+   RTEXT           "07",         0x1116,   5, 124,  50,   8
+   RTEXT           "08",         0x1117,   5, 139,  50,   8
+   RTEXT           "09",         0x1118,   5, 154,  50,   8
+   RTEXT           "10",         0x1119,   5, 169,  50,   8
+   RTEXT           "11",         0x111A,   5, 184,  50,   8
+   RTEXT           "12",         0x111B,   5, 199,  50,   8
+   RTEXT           "13",         0x111C,   5, 214,  50,   8
+   RTEXT           "14",         0x011D,   5, 229,  50,   8
+   RTEXT           "15",         0x011E,   5, 244,  50,   8
+   RTEXT           "16",         0x011F,   5, 259,  50,   8
+   LTEXT           "1st Run",    0x1102,  60,   6,  60,   8
    LTEXT           "Testee 00",  0x1103,  60,  19,  60,   8
    EDITTEXT                      0x1120,  60,  32,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
    EDITTEXT                      0x1121,  60,  47,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
@@ -154,7 +154,7 @@
    EDITTEXT                      0x115D, 255, 227,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
    EDITTEXT                      0x115E, 255, 242,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
    EDITTEXT                      0x115F, 255, 257,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
-   LTEXT           "Cached",     0x1107, 325,   6,  60,   8
+   LTEXT           "2nd run",    0x1107, 325,   6,  60,   8
    LTEXT           "Testee 00",  0x1108, 325,  19,  60,   8
    EDITTEXT                      0x1160, 325,  32,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
    EDITTEXT                      0x1161, 325,  47,  60,  12, ES_AUTOHSCROLL | ES_RIGHT

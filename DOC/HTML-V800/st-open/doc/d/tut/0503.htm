@@ -5,7 +5,7 @@
  <meta name="Page-topic" content="ST-Open Tutorials: Grundlagen" />
  <meta name="Description" content="ST-Open Tutorials: Grundlagen" />
  <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="date" content="2012-01-01T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
@@ -24,7 +24,7 @@
  <li><a href="../fct.htm">nach Funktion</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
+<div class="update">[2012-01-01]</div>
 <div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
 </div>
 <div class="crlf1"></div>
@@ -48,9 +48,9 @@ Nach der Definition des Feldkopfes widmen wir uns nun den Grundlagen der Datenba
  werden.
 <div class="crlf1"></div>
 Der Feldkopf enth&auml;lt alle Informationen, die die DBE zur Erledigung aller anfallenden
- Aufgaben ben&ouml;tigt. 00[MemEA] jedes Datenfeldes enth&auml;lt immer ein Doppelwort mit
- dem Inhalt Null. Es ist einerseits die Adresse einer leeren Zeichenkette, wird von einigen
- Systemfunktionen aber auch zu Pr&uuml;fzwecken abgefragt. Steht hier eine Null, und die
+ Aufgaben ben&ouml;tigt. 00[MemEA] jedes Datenfeldes enth&auml;lt immer 32 Byte mit einem
+ Inhalt von Null. Es ist einerseits die Adresse einer leeren Zeichenkette, wird von einigen
+ Systemfunktionen aber auch zu Pr&uuml;fzwecken abgefragt. Stehen hier 32 Nullen, und die
  Feldnummer auf Abstand 2C entspricht der im Speicherhenkel stehenden Feldnummer, handelt
  es sich mit gr&ouml;sster Wahrscheinlichkeit um ein g&uuml;ltiges Datenfeld. Es folgt der
  optionale Feldname, der in unserem Beispiel freigelassen wurde. 20[MemEA] stellt f&uuml;r
@@ -86,17 +86,18 @@ Betrachten wir den Feldaufbau von einer anderen Perspektive, f&auml;llt schnell 
  und schreiben. Bei gr&ouml;sseren Bitbreiten gen&uuml;gt eine einzige Multiplikation, um
  den Abstand jedes Eintrags zu ermitteln. Einzig die dynamischen Zeichenketten erfordern
  eine zeitintensivere Behandlung bei Schreibzugriffen, da die DBE bestehende Eintr&auml;ge
- aus dem Feld l&ouml;scht und eine M&uuml;llsortierung (garbage collection) ausf&uuml;hrt,
- bevor die zu schreibende Zeichenkette an das Feldende angeh&auml;ngt wird. Somit wird das
- Feld immer auf dem kleinstm&ouml;glichen Stand gehalten, es enth&auml;lt auch niemals die
- "Leichen" alter Zeichenketten, die irgendwann einmal in das Feld geschrieben wurden. Ist
- h&ouml;chste Geschwindigkeit gefragt, kann man auf Festl&auml;ngenblocks ausweichen, die
- dann ausschliesslich &uuml;ber ihre Adresse angesprochen werden, um mehrfaches Umkopieren
- von Zeichenketten bei Lese- <i>und</i> Schreiboperationen zu umgehen. Mit den dynamischen
- Zeichenketten ist das wegen variabler Gr&ouml;sse und M&uuml;llsortierung <i>nur</i> bei
- Lesezugriffen angeraten, da unautorisierte Schreibzugriffe schnell zu Inkonsistenzen des
- Feldes und defekten Zeichenketten f&uuml;hren. Ist das einmal geschehen, k&ouml;nnen Sie
- das Feld getrost auf den Reisswolf ziehen, der erste Absturz ist nur eine Frage der Zeit.
+ gegebenenfalls aus dem Feld l&ouml;scht und eine M&uuml;llsortierung (garbage collection)
+ ausf&uuml;hrt, bevor die zu schreibende Zeichenkette an das Feldende angeh&auml;ngt wird.
+ Somit wird das Feld immer auf dem kleinstm&ouml;glichen Stand gehalten, es enth&auml;lt
+ auch niemals "Leichen" alter Zeichenketten, die irgendwann einmal in das Feld geschrieben
+ wurden. Ist h&ouml;chste Geschwindigkeit gefragt, kann man auch auf Festl&auml;ngenblocks
+ ausweichen, die dann ausschliesslich &uuml;ber ihre Adresse angesprochen werden, um das
+ mehrfache Umkopieren von Zeichenketten bei Lese- <i>und</i> Schreiboperationen zu umgehen.
+ Mit den dynamischen Zeichenketten ist das wegen ihrer variablen Gr&ouml;sse und der
+ M&uuml;llsortierung <i>nur</i> bei Lesezugriffen angeraten, da durch den Programmierer
+ vorgenommene Schreibzugriffe schnell zu Inkonsistenz des Feldes und defekten Zeichenketten
+ f&uuml;hren d&uuml;rften. Ist das einmal geschehen, k&ouml;nnen Sie das Feld getrost auf
+ den Reisswolf ziehen - der n&auml;chste Absturz ist nur eine Frage der Zeit.
 <div class="crlf1"></div>
 <h2>Zusammenh&auml;nge</h2>
 <div class="limage"><img src="../../pics/doc0004.png" alt="Feldaufbau" width="300" height="300" border="0" /></div>
@@ -108,31 +109,34 @@ Die Graphik veranschaulicht die Zusammenh&auml;nge zwischen den im Feldkopf fest
  Zeichenketten. Das Unterfeld selbst enth&auml;lt hierbei nur eine Abstandstabelle, die der
  DBE angibt, ab welchem Abstand im Feld die Zeichenkette gespeichert ist. Wurde in einem
  Eintrag noch keine Zeichenkette abgelegt, oder die Zeichenkette wurde gel&ouml;scht, ist
- der Abstand Null. Wie bereits besprochen, ist auf Abstand Null ein Doppelwort mit dem Wert
- Null (eine leere Zeichenkette) gespeichert. Wird eine Zeichenkette in einen bisher leeren
- Eintrag geschrieben, wird sie an das Feldende angeh&auml;ngt, und die neue Feldgr&ouml;sse
- wird im Doppelwort 34[MemEA] festgehalten. Existiert schon eine Zeichenkette, wird diese
- durch Verschieben des gesamten dar&uuml;berliegenden Feldinhaltes an den alten Abstand
- gel&ouml;scht und der Abstand wird auf Null gesetzt. Alle Abst&auml;nde werden korrigiert,
- wenn sie oberhalb des alten Abstands lagen. Erst nach dieser M&uuml;llsortierung wird die
- neue Zeichenkette an das Feldende geschrieben. Zum Abschluss der Aktion erfolgt noch die
- notwendige Korrektur der Feldgr&ouml;sse. Bevor die DBE mit der Aktion beginnt, setzt sie
- das "schmutzig"-F&auml;hnchen (dirty flag) im Statuswort. Es wird von der DBE erst dann
- zur&uuml;ckgesetzt, wenn der Schreibvorgang fehlerfrei beendet wurde. So lange dieses
- F&auml;hnchen gesetzt ist, verweigert die DBE alle weiteren Schreibzugriffe, und der Lader
- schliesst das Feld bei der Freigabe, ohne seinen Inhalt zu sichern. In den zwei oder drei
- Jahren, die seit Einf&uuml;hrung dieser Sicherung vergangen sind, ist noch keines meiner
- Felder diesem Mechanismus anheim gefallen. Das heisst nicht, dass er aus Versehen nicht
- doch einmal gewaltig zuschlagen k&ouml;nnte.
+ der Abstand Null. Wie bereits besprochen, ist auf Abstand Null ein Block mit 32 Nullen,
+ auch als leere Zeichenkette bekannt, gespeichert. Wird eine Zeichenkette in einen bisher
+ leeren Eintrag geschrieben, wird diese an das Feldende angeh&auml;ngt, und die neue
+ Feldgr&ouml;sse wird im Doppelwort 34[MemEA] festgehalten. Ist bereits eine Zeichenkette
+ unter der Eintragsnummer gespeichert (Offset ungleich Null), wird sie &uuml;berschrieben,
+ sofern sie (einschliesslich der abschliessenden Null) in den f&uuml;r diesen Eintrag
+ reservierten Bereich passt. Ist die neue Zeichenkette zu gross, wird sie durch Verschieben
+ des gesamten dar&uuml;berliegenden Feldinhaltes an den alten Abstand gel&ouml;scht und ihr
+ Abstand wird auf Null gesetzt. Alle Abst&auml;nde werden korrigiert, wenn sie oberhalb des
+ alten Abstands lagen. Erst nach dieser M&uuml;llsortierung wird die neue Zeichenkette an
+ das Feldende geschrieben. Zum Abschluss der Aktion erfolgt noch die notwendige Korrektur
+ der Feldgr&ouml;sse und das Sichern des neuen Abstands in der Abstandstabelle. Bevor die
+ DBE mit einer Schreiboperation beginnt, setzt sie das "schmutzig"-F&auml;hnchen (dirty
+ flag) im Statuswort. Es wird von erst dann zur&uuml;ckgesetzt, wenn der Schreibvorgang
+ fehlerfrei beendet wurde. So lange dieses F&auml;hnchen gesetzt ist, verweigert die DBE
+ alle weiteren Schreibzugriffe, und der Lader schliesst das Feld bei der Freigabe, ohne
+ seinen Inhalt zu sichern. In den sechs Jahren, die seit Einf&uuml;hrung dieser Sicherung
+ vergangen sind, ist noch keines meiner Felder diesem Mechanismus anheim gefallen. Das
+ heisst nicht, dass er aus Versehen nicht doch einmal gewaltig zuschlagen k&ouml;nnte.
 <div class="crlf1"></div>
 &Uuml;bersteigt die Gr&ouml;sse einer zum Schreiben &uuml;bergebenen Zeichenkette die in
  38[MemEA] festgelegte Gr&ouml;sse, wird die Zeichenkette so abgeschnitten, dass sie mit
  der terminierenden Null zusammen genau die maximale Gr&ouml;sse hat. In unserem Beispiel
  w&uuml;rde eine 40 Byte grosse Zeichenkette auf 31 Byte plus Null = 32 Byte gek&uuml;rzt,
  bevor sie an das Feldende angeh&auml;ngt wird. Zeichenketten werden prinzipiell auf eine
- L&auml;nge erweitert, die einem ganzzahligen Vielfachen von Vier entspricht. Durch diese
- Anpassung kann die DBE Doppelworte statt Byte kopieren, was alle Kopiervorg&auml;nge um
- mindestens 400 Prozent beschleunigt.
+ L&auml;nge erweitert, die einem ganzzahligen Vielfachen von 16 entspricht. Durch diese
+ Anpassung kann die DBE Oktoworte statt Byte kopieren, was alle Kopiervorg&auml;nge um ein
+ Vielfaches beschleunigt (SSE- oder AVX-Zugriffe).
 <div class="crlf1"></div>
 <h2>Anwendung</h2>
 Die DBE ist ein Funktionsverteiler mit Unterfunktionen, der mit dem Aufruf
@@ -155,10 +159,10 @@ FDvpt() ist keine zweite Funktion, sondern nur eine zus&auml;tzliche Deklaration
 <div class="crlf1"></div>
 <h3>Parameter</h3>
 <h4>Ausgabe: Ergebnis</h4>
-Ein Ergebnis wird nur f&uuml;r die Typen 01 bis 03, respektive von der Unterfunktion
+Ein Ergebnis wird nur f&uuml;r die Typen 01 bis 04, respektive von der Unterfunktion
  FDA_OFFSET, zur&uuml;ckgeliefert. F&uuml;r alle anderen Datentypen ist dieses Ergebnis
- irrelevant, da sich Daten mit einer Breite jenseits von 32 Bit nicht in einem 32 Bit
- breiten Register darstellen lassen. Nichtsdestotrotz wird das Ergebnis der Typen 04 bis
+ irrelevant, da sich Daten mit einer Breite jenseits von 64 Bit nicht in einem 64 Bit
+ breiten Register darstellen lassen. Nichtsdestotrotz wird das Ergebnis der Typen 05 bis
  07 generell auf Null gesetzt. Sollte das nicht der Fall sein, w&auml;re ich sehr erfreut,
  wenn Sie mir eine kurze Mitteilung schicken, da das auf Fehler in der entsprechenden
  Unterfunktion hinweist.
@@ -168,10 +172,10 @@ FDvpt() gibt immer die Adresse des spezifizierten Eintrags zur&uuml;ck. Ist eine
  FDvpt() &uuml;bergebenen Parameter ung&uuml;ltig, dann liefert FDvpt() die Feldadresse an
  den Aufrufer zur&uuml;ck, um Abst&uuml;rze wegen ung&uuml;ltiger Adressen zu vermeiden.
  Wie bereits besprochen, liegt am Feldanfang ein Doppelwort mit dem Inhalt Null. F&uuml;r
- die Datentypen 01 bis 03 und 07 ist das ein g&uuml;ltiger R&uuml;ckgabewert. Bei anderen
- Datentypen sollte man immer vergleichen, ob die zur&uuml;ckgelieferte Adresse identisch
- mit der Feldadresse ist. Schreiboperationen in den Feldkopf vermindern zwangsl&auml;ufig
- die Konsistenz des Feldes.
+ die Datentypen 01 bis 05 und 07 ist das ein g&uuml;ltiger R&uuml;ckgabewert. Beim Typ 06
+ (Festl&auml;ngenblock) sollte man generell pr&uuml;fen, ob die zur&uuml;ckgelieferte
+ Adresse identisch mit der Feldadresse ist. Schreiboperationen in den Feldkopf vermindern
+ zwangsl&auml;ufig die Konsistenz des Feldes.
 <div class="crlf1"></div>
 <h4>Eingabe: Speicherhenkel</h4>
 Der Speicherhenkel des Feldes. Dies ist das Mitglied <b>MMoff</b> der LD-Struktur, die sie
@@ -194,9 +198,9 @@ Dieser Parameter ist optional. Er wird generell nur f&uuml;r Datentypen ben&ouml
  breiter als 32 Bit sind.
 <div class="crlf1"></div>
 <h4>Eingabe: Zahl</h4>
-F&uuml;r FDA_WRITE wird hier der Wert des zu schreibenden Bytes, Wortes oder Doppelwortes
- &uuml;bergeben. Bei einigen anderen Unterfunktionen &uuml;bergibt man in diesem Parameter
- die Nummer des Quelleintrages.
+F&uuml;r FDA_WRITE wird hier der Wert des zu schreibenden Bytes, Wortes, Doppelwortes oder
+ Vierfachwortes &uuml;bergeben. Bei einigen anderen Unterfunktionen &uuml;bergibt man in
+ diesem Parameter die Nummer des Quelleintrages.
 <div class="crlf2"></div>
 Soviel zu den Grundlagen der Datenbankmaschine. Es g&auml;be bestimmt noch einige Dinge zu
  erg&auml;nzen. Das Tutorial soll aber nicht zum ausgewachsenen Buch mutieren, so dass ich

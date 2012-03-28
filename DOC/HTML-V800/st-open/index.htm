@@ -3,9 +3,9 @@
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
  <meta name="Page-topic" content="ST-Open's Weichwaren" />
- <meta name="Description" content="ST-Open's Weichwaren - Open Source Weichwaren f&uuml;r OS/2 und eCS" />
- <meta name="Keywords" content="ST-Open, software, open, source, weichware, bibliothek, frei, assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="Description" content="ST-Open's Weichwaren - Open Source Weichwaren f&uuml;r 64 Bit Windows" />
+ <meta name="Keywords" content="ST-Open, software, open, source, weichware, bibliothek, frei, assembler, C, 64 Bit" />
+ <meta name="date" content="2012-03-01T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
@@ -17,13 +17,13 @@
 <div class="pagehd">
 <div id="menu">
 <ul>
- <li><a href="./st8/d/800.htm">Version 8.0.0.</a></li>
+ <li><a href="./st8/d/800.htm">Version 8.1.0.</a></li>
  <li><a href="./doc/d/index.htm">Dokumentation</a></li>
  <li><a href="indexe.htm">English</a></li>
  <li><a href="./doc/d/tut/FFFF.htm">Glossar</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
+<div class="update">[2012-03-01]</div>
 <div class="headpc"><img src="../pics/pgm.png" alt="ST-Software Logo" width="200" height="100" border="0" /></div>
 </div>
 <div class="crlf1"></div>
@@ -33,49 +33,39 @@
 <div class="text100">
 <h1>ST-Open Bibliotheken</h1>
 <div class="crlf1"></div>
-<h2>Version 8.0.0.</h2>
-Version 8.0.0. der Bibliotheken ist ausschliesslich für Windows (64 Bit) entwickelt und erfordert
- zur Ausf&uuml;hrung der Programme zwingend eine 64 Bit Version von Windows. Da die Bibliotheken
- sich immer noch im Stadium der Portierung von OS/2 (eCS) nach Windows (64 Bit) befinden, ist die
- vorliegende Dokumentation nur eingeschr&auml;nkt g&uuml;ltig. Die auf Google bereitgestellten
- Quelldateien sind gr&ouml;sstenteils noch nicht getestet und werden daher als Betaversionen zur
- Verfügung gestellt. Da die Fertigstellung der Bibliotheken und Hilfsprogramme absoluten Vorrang
- hat, ist mit der Korrektur der HTML-Dokumentation erst nach Beendigung der vollst&auml;ndigen
- Portierung zu rechnen. Im Zweifelsfall sind ausschliesslich die im Quellcode angegebenen Ein- und
- Ausgabeparameter g&uuml;ltig.
+<h2>Version 8.1.0.</h2>
+Version 8.1.0. der Bibliotheken ist ausschliesslich für Windows (64 Bit) entwickelt und erfordert
+ zur Ausf&uuml;hrung der Programme zwingend eine 64 Bit Version von Windows. Alle Funktionen der
+ Bibliothek sind mittlerweile gepr&uuml;ft und auf dem neuesten Stand.
 <div class="crlf1"></div>
 <h2>Was bietet ST-Open an?</h2>
 <h3>Bibliotheken</h3>
-Die Hauptbibliothek (Systembibliothek) enth&auml;lt ST-Open's Datenbankmaschine nebst einer eigenen
- Speicherverwaltung mit Bereitstellung von 896 statischen und 1024 Laufzeitvariablen (nat&uuml;rlich
- global verf&uuml;gbar), Datenumwandlungsfunktionen, Sandk&auml;sten f&uuml;r die am h&auml;ufigsten
- aufgerufenen API Funktionen, Unterst&uuml;tzung f&uuml;r eine vereinfachte Programmierung diverser
- PM-Kontrollelemente (z.B. Men&uuml;s, Listen- und Kombinationsk&auml;stchen, Drehkn&ouml;pfe, etc.),
- Zeichenkettenmanipulationen, Zeit- und schaltjahrbewusste Datumsfunktionen, sowie viele weitere
- n&uuml;tzliche Helferlein. Die Zusatzbibliotheken enthalten unter anderem ST-Open's Dateiliste, ein
- DBE-gesteuertes, einfach programmierbares Notizbuchskelett, Bitmapfunktionen via DBE und GPI, den
- Speicherhenkelmonitor, der die von der Speicherverwaltung belegten Speicherbl&ouml;cke anzeigt,
- einen simplen Registermonitor f&uuml;r Assemblerfanatiker, die multilinguale Onlinehilfe und SecSys,
- ST-Open's Sicherheitssystem, das Zugriffskontrolle &uuml;ber Men&uuml;s, Programmfunktionen und
- Datenfelder bietet. Die Verwaltung der durch SecSys gesch&uuml;tzten Felder, einschliesslich der
- Ver- und Entschl&uuml;sselung von Zeichenketten, ist, f&uuml;r den Benutzer vollst&auml;ndig
- transparent, in der Datenbankmaschine integriert.
+Die Systembibliothek enth&auml;lt ST-Open's Datenbankmaschine (DBE), einen Speicherverwalter, der
+ 1.920 statische und 8.192 Laufzeitvariablen (nat&uuml;rlich global verf&uuml;gbar) bereit stellt,
+ diverse Datenumwandlungsfunktionen, Sandk&auml;sten f&uuml;r die am h&auml;ufigsten aufgerufenen
+ API Funktionen, diverse automatisierte Kontrollelemente (z.B. mittels Datenfeldern gesteuerte
+ Men&uuml; und Dialogtexte, Drehkn&ouml;pfe, Eingabefelder, Listen- und Kombinationsk&auml;stchen,
+ etc.), Zeichenkettenmanipulationen, Zeit- und schaltjahrbewusste Datumsfunktionen, sowie viele
+ weitere n&uuml;tzliche Helferlein. Die Zusatzbibliotheken enthalten unter anderem ST-Open's
+ Dateiliste, ein DBE-gesteuertes, einfach programmierbares Notizbuchskelett, Bitmapfunktionen via
+ DBE und GPI, den Speicherhenkelmonitor, der den Inhalt der Speicherverwaltungstabelle anzeigt,
+ einen simplen Registermonitor f&uuml;r Assemblerfanatiker, die multilinguale Onlinehilfe und
+ SecSys, ST-Open's Sicherheitssystem, das Zugriffskontrolle &uuml;ber Men&uuml;s, Programmfunktionen
+ und Datenfelder bietet. Die Verwaltung der durch SecSys gesch&uuml;tzten Felder, einschliesslich
+ der Ver- und Entschl&uuml;sselung von Zeichenketten, ist, f&uuml;r den Benutzer vollst&auml;ndig
+ transparent, in die Datenbankmaschine integriert.
 <div class="crlf1"></div>
 <h3>Programme</h3>
 Die folgenden Programme werden momentan portiert:
 <div class="crlf1"></div>
-<a href="./st8/d/calc.htm" title="Rechner f&uuml;r Programmierer">Calc</a> - ein etwas anderer Rechner
+<a href="./st8/d/calc.htm" title="Rechner f&uuml;r Programmierer">PTB</a> - ein Werkzeugkasten
  f&uuml;r Assemblerprogrammierer.
 <div class="crlf1"></div>
-<a href="./st8/d/hddrum.htm" title="Der Festplattentrommler">HDdrum</a> - Der Festplattentrommler.
- Spielt auch 7/4 und 9/8...
-<div class="crlf1"></div>
-<a href="./st8/d/hdrec.htm" title="Das Festplattenstudio">HDrec</a> - Das Festplattenstudio. Ein etwas
- anderer Ansatz zum Mischen von Tonquellen.
-<div class="crlf1"></div>
-<a href="./st8/d/md5.htm" title="MakeDat 5">MakeDat 5</a> - ST-Open's Werkzeugkasten f&uuml;r die
- Datenfelder der Datenbankmaschine. Enth&auml;lt alle Werkzeuge f&uuml;r die Erstellung und
- &Uuml;bersetzung multilingualer Men&uuml;s, Dialoge, Hilfetexte und Systemnachrichten.
+<a href="./st8/d/md5.htm" title="MakeDat 5">MakeDat 5</a> - ST-Open's Werkzeugkasten zur Verwaltung
+ der Datenfelder f&uuml;r die Datenbankmaschine. Enth&auml;lt alle Werkzeuge f&uuml;r die Erstellung
+ von Datenfeldern, &Uuml;bersetzungswerkzeuge f&uuml;r mehrsprachiger Men&uuml;s, Dialoge, Hilfetexte
+ und Systemnachrichten und Werkzeuge zur Verwaltung automatisierter Kontrollelemente (Drehkn&ouml;pfe
+ und Eingabefelder).
 <div class="crlf1"></div>
 <a href="./st8/d/sre.htm" title="Der Suchen- und Ersetzen-Editor">SRE</a> - Der etwas andere Editor.
  Mit bis zu 32 gleichzeitig geladenen Dateien. Teilt grosse Dateien (bis zu 4 GB) in verarbeitbare
@@ -99,7 +89,7 @@ Die folgenden Programme werden momentan portiert:
  braucht. Nur die Beispiele m&uuml;ssen Sie noch durch Ihren Code ersetzen... ;)
 <div class="crlf1"></div>
 <h2>In eigener Sache...</h2>
-Bitte beachten Sie, dass ausschliesslich die aktuelle Version 8.0.0. und die in der V800-Distribution
+Bitte beachten Sie, dass ausschliesslich die aktuelle Version 8.1.0. und die in der V810-Distribution
  enthaltenen Programme weiterentwickelt und unterst&uuml;tzt werden - ich arbeite bereits zwischen 18
  und 24 Stunden t&auml;glich an der Weiterentwicklung der Bibliotheken, der Pflege meiner aktuellen
  Programme, der Pflege dieser Heimatseite und allen m&ouml;glichen anderen Dingen. Wenn jemand meint,

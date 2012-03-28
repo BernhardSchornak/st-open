@@ -1,7 +1,7 @@
 
 
      ST-Open Database Engine
-     อออออออออออออออออออออออ
+     ~~~~~~~~~~~~~~~~~~~~~~~
 
      This file contains all types defined for the ST-System. FDacc() doesn't recognise
      other types because it does not know anything about them.
@@ -10,9 +10,17 @@
      drop me a note. I might consider to expand the DBE if you can convince me why the
      data type you need is *that* important.
 
+     The DBE does not distinguish between signed and unsigned data types. -Any- stored
+     data are treated as unsigned integers, including dynamic strings. If you use math
+     functions FDA_INC, FDA_DEC, FDA_ADD, FDA_SUB, you have to validate the results on
+     your own - the DBE neither cares about overflows nor does it perform range tests.
+     All math operations are precise within the valid range, but the MSB gets lost for
+     all operations throwing  2e(n+1) bit  results for  2e(n) bit  data.
 
-     DATA TYPES (8.0.0.)
-     ฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤ
+
+
+     DATA TYPES (8.1.0.)
+     ~~~~~~~~~~~~~~~~~~~
 
      00   none              undefined (no type assigned)
      01   DB       8 bit    byte
@@ -20,7 +28,7 @@
      03   DD      32 bit    doubleword
      04   DQ      64 bit    quadword
      05   DO     128 bit    octoword
-     06   FIX    static     block with octowords (32, 64, 128, 256, 256 * n)
+     06   FIX    static     block with hexawords (32, 64, 128, 256, 256 * n)
      07   $32    dynamic    32 bit offset table
      08   ---
      09   ---

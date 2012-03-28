@@ -5,7 +5,7 @@
  <meta name="Page-topic" content="ST-Open Tutorial: Systemspeicher" />
  <meta name="Description" content="ST-Open Tutorial: Systemspeicher" />
  <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="date" content="2012-02-22T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
@@ -24,7 +24,7 @@
  <li><a href="../fct.htm">nach Funktion</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
+<div class="update">[2012-02-22]</div>
 <div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
 </div>
 <div class="crlf1"></div>
@@ -35,63 +35,55 @@
 <div class="crlf1"></div>
 <div class="text100">
 <h1>Systemspeicher</h1>
-Das System ben&ouml;tigt f&uuml;r seine Tabellen, Puffer und Variablen insgesamt f&uuml;nf
- Speicherseiten zu jeweils 4.096 Byte. Die zwei Seiten mit den globalen Variablen sind in
- diesem Wert bereits enthalten.
+Das System ben&ouml;tigt f&uuml;r seine Tabellen, Puffer und Variablen insgesamt sechs
+ Speicherseiten zu jeweils 4.096 Byte. Die Seiten mit globalen Variablen sind in diesem
+ Wert bereits enthalten.
 <div class="crlf1"></div>
 <h2>Die Ladertabelle (LDT)</h2>
 Die Ladertabelle LDT - nicht mit der lokalen Deskriptorentabelle der CPU zu verwechseln! -
- enth&auml;lt 256 Eintr&auml;ge mit jeweils acht Doppelworten (32 Byte). Die Ladertabelle
+ enth&auml;lt 2.048 Eintr&auml;ge mit jeweils acht Doppelworten (32 Byte). Die Ladertabelle
  kann bei Bedarf nach Belieben erweitert werden. Jeder Eintrag in der Tabelle enth&auml;lt
  Verwaltungsdaten eines allozierten Speicherblocks, momentan ungenutzte Eintr&auml;ge sind
  mit Nullwerten aufgef&uuml;llt:
 <div class="crlf1"></div>
 <table width="100%">
-<tr><th width="25%">.0</th><th width="25%">.4</th><th width="12.5%">.8</a></th><th width="12.5%">.A</th><th width="25%">.C</th></tr>
-<tr><td colspan="2">Adresse</td><td><a href="0103.htm">Status</a></td><td>Instanzen</td><td>Zeitmarke</td></tr>
-<tr><td>allozierte Gr&ouml;sse</td><td>Feldgr&ouml;sse</td><td colspan="2">Feldnummer</td><td>Anzahl Eintr&auml;ge</td></tr>
+<tr><th width="25%">.0</th><th width="25%">.4</th><th width="25%">.8</a></th><th width="25%">.C</th></tr>
+<tr><td colspan="2">Adresse</td><td><a href="0103.htm">Status</a></td><td>Instanzen</td></tr>
+<tr><td>allozierte Gr&ouml;sse</td><td>Feldgr&ouml;sse</td><td>Feldnummer</td><td>Anzahl Eintr&auml;ge</td></tr>
 </table>
 <div class="crlf1"></div>
 Die Adressen, ab denen die Eintr&auml;ge mit den Verwaltungsdaten abgelegt sind, werden im
- ST-Open Vokabular als Speicherhenkel oder MemHandle bezeichnet. Beachten Sie bitte, dass
- Speicherhenkel als Doppelwort deklariert werden, um C+*.net-Programmierern die Arbeit mit
- ihrem C+*.net-Kompilierer etwas zu erleichtern. Sehen Sie daher bitte von Manipulationen
- der Speicherhenkel ab, da das zu unvorhergesehenen Reaktionen f&uuml;hren kann, von denen
- ein Systemabsturz vielleicht das geringste aller &Uuml;bel darstellen mag. N&auml;heres
- zum Umgang mit dem Lader finden Sie im Tutorial <a href="0400.htm">Speicherverwaltung</a>.
+ ST-Open Vokabular als Speicherhenkel (MemHandle) bezeichnet. Beachten Sie bitte, dass
+ Speicherhenkel als Vierfachworte deklariert werden, um C+*.net-Programmierern die Arbeit
+ mit ihrem C+*.net-Kompilierer etwas zu erleichtern. Sehen Sie bitte von mathematischen
+ Operationen mit Speicherhenkeln ab, da das zu unvorhergesehenen Reaktionen f&uuml;hren
+ kann (von denen ein Systemabsturz vielleicht das geringste aller &Uuml;bel darstellen mag).
+ N&auml;heres zum Umgang mit dem Lader finden Sie im Tutorial
+ <a href="0400.htm">Speicherverwaltung</a>.
 <div class="crlf1"></div>
 <h2>Systemvariablen, Tabellen und Puffer</h2>
-Der Systemspeicherblock (BNR/GVAR) ist ab Version 7.0.0. neu organisiert, daher stehen 384
- zus&auml;tzliche Anwendervariablen zur Verf&uuml;gung. Der Aufbau ist wie folgt:
+Der Systemspeicherblock (BNR/DVAR/QVAR) ist ab Version 8.1.0. neu organisiert, daher stehen
+ 9.216 zus&auml;tzliche Anwendervariablen zur Verf&uuml;gung. Der Aufbau ist wie folgt:
 <div class="crlf2"></div>
-In <i>num.dat</i> gespeichert:
+In <i>FFFFFFFE</i> gespeichert:
 <div class="crlf1"></div>
-<div class="inner">128 Systemvariablen</div><div class="outer">0x0000 - 0x01FF</div><div class="crlf0"></div>
-<div class="inner">896 Anwendervariablen</div><div class="outer">0x0200 - 0x0FFF</div><div class="crlf0"></div>
-<div class="crlf1"></div>
-In <i>cvt.dat</i> gespeichert:
-<div class="crlf1"></div>
-<div class="inner">8 Umwandlungstabellen mit je 256 Byte</div><div class="outer">0x1000 - 0x17FF</div><div class="crlf0"></div>
+<div class="inner">&nbsp;&nbsp;128 Systemvariablen</div><div class="outer">0x0000 - 0x01FF</div><div class="crlf0"></div>
+<div class="inner">1.920 Anwendervariablen</div><div class="outer">0x0200 - 0x1FFF</div><div class="crlf0"></div>
+<div class="inner">Umwandlungstabellen</div><div class="outer">0x2000 - 0x3FFF</div><div class="crlf0"></div>
+<div class="inner">System-Arbeitsbereich</div><div class="outer">0x4000 - 0x77FF</div><div class="crlf0"></div>
 <div class="crlf1"></div>
 Bei Programmende <b>nicht</b> gespeicherte Laufzeitvariablen:
 <div class="crlf1"></div>
-<div class="inner">2048 Byte Systemspeicher</div><div class="outer">0x1800 - 0x1FFF</div><div class="crlf0"></div>
-<div class="inner">1024 Anwendervariablen</div><div class="outer">0x2000 - 0x2FFF</div><div class="crlf0"></div>
+<div class="inner">2.048 Byte Systemspeicher</div><div class="outer">0x7800 - 0x7FFF</div><div class="crlf0"></div>
+<div class="inner">8.192 Anwendervariablen</div><div class="outer">0x8000 - 0xFFFF</div><div class="crlf0"></div>
 <div class="crlf2"></div>
-Auf den Systembereich 0x1800 bis 0x1FFF sollten Sie ausschliesslich lesend zugreifen, da
- die Stabilit&auml;t des gesamten Systems von der Integrit&auml;t der dort abgelegten Daten
- abh&auml;ngt.
+Auf die Systembereiche sollten Sie ausschliesslich lesend zugreifen, da die Stabilit&auml;t
+ des gesamten Systems von der Integrit&auml;t der dort abgelegten Daten abh&auml;ngt.
 <div class="crlf1"></div>
-Die letzte der acht Umwandlungstabellen (0x1700-0x17FF) ist f&uuml;r Anwender freigegeben.
+Die letzte der acht Umwandlungstabellen (0x3E00-0x3FFF) ist f&uuml;r Anwender freigegeben.
  Alle anderen Umwandlungstabellen sollten Sie im urspr&uuml;nglichen Zustand belassen, da
  einige Funktionen der Bibliotheken sie zur ordnungsgem&auml;ssen Verrichtung ihrer Arbeit
- ben&ouml;tigen. Wollen Sie die 256 Byte Ihrer Benutzertabelle nicht auf die m&uuml;hsame
- Art mit den <a href="../../../st7/d/sre.htm">DatTools</a> eingeben, die f&uuml;r derlei
- Arbeiten kaum geeignet sind, empfehle ich den in <a href="../../../st7/d/sre.htm">SRE</a>
- integrierten Hexeditor. Die Benutzertabelle f&auml;ngt bei 0x0740 an und reicht bis zum
- Ende der Datei. Bitte &uuml;berschreiben Sie nur die einzelnen <b>00</b>-Werte mit Ihren
- gew&uuml;nschten Werten. &Auml;ndern Sie die Formatierung der Datei dabei nicht, sonst
- produziert SRE Datenm&uuml;ll und der Lader weist das Feld als korrupt zur&uuml;ck.
+ ben&ouml;tigen.
 <div class="crlf2"></div>
 N&auml;heres zu den globalen Variablen finden sie im n&auml;chsten Tutorial.
 </div>
@@ -99,9 +91,6 @@ N&auml;heres zu den globalen Variablen finden sie im n&auml;chsten Tutorial.
 &#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="0103.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
 &#160;&#160;&#160;<a href="0300.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
-<div class="crlf1"></div>
-&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0200.htm">
-<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
 <div class="crlf1"></div>
 </body>
 </html>

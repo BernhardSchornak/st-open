@@ -1,6 +1,6 @@
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    control messages      (sent or posted)
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CB_GETEDITSEL               0x00000140
    CB_LIMITTEXT                0x00000141
    CB_SETEDITSEL               0x00000142
@@ -37,9 +37,9 @@
    CB_INITSTORAGE              0x00000161
    CB_SETMINVISIBLE            0x00001701
    CB_GETMINVISIBLE            0x00001702
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    notification messages (received)
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CBN_SELCHANGE               0x00000001
    CBN_DBLCLK                  0x00000002
    CBN_SETFOCUS                0x00000003
@@ -51,9 +51,9 @@
    CBN_SELENDOK                0x00000009
    CBN_SELENDCANCEL            0x0000000A
    CBN_ERRSPACE                0xFFFFFFFF
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    combination box styles
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CBS_SIMPLE                  0x00000001
    CBS_DROPDOWN                0x00000002
    CBS_DROPDOWNLIST            0x00000003
@@ -67,9 +67,9 @@
    CBS_DISABLENOSCROLL         0x00000800
    CBS_UPPERCASE               0x00002000
    CBS_LOWERCASE               0x00004000
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    DELETEITEMSTRUCT
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    DELETEITEMSTRUCT            /* 0x14 */
    {
     0x00   DD   CtlType;
@@ -80,4 +80,4 @@
    }
    DELETEITEMSTRUCT,*PDELETEITEMSTRUCT,
    *LPDELETEITEMSTRUCT;
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

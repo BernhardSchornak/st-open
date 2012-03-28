@@ -2,16 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
- <meta name="Page-topic" content="Q2str()" />
- <meta name="Description" content="ST-Open Bibliotheken: Q2str()" />
+ <meta name="Page-topic" content="Q2dec()" />
+ <meta name="Description" content="ST-Open Bibliotheken: Q2dec()" />
  <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="date" content="2012-02-25T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
  <style type="text/css"><!--@import "../../st.css";--></style>
  <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
- <title>Q2str()</title>
+ <title>Q2dec()</title>
 </head>
 <body id="top">
 <div class="pagehd">
@@ -24,7 +24,7 @@
  <li><a href="../fct.htm">nach Funktion</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
+<div class="update">[2012-02-25]</div>
 <div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
 </div>
 <div class="crlf1"></div>
@@ -35,41 +35,74 @@
 <div class="crlf1"></div>
 <div class="text100"><div class="inner">..\st7\lib\sources\core\cvt.S</div><div class="outer"><big>sys.lib</big></div></div>
 <div class="crlf1"></div>
-<div class="text100"><div class="inner"><b>Q2str</b></div><div class="outer">Funktion</div></div><div class="crlf0"></div>
-<div class="text100"><div class="inner">rc = Q2str(quelle, ziel);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner"><b>Q2dec</b></div><div class="outer">Funktion</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = Q2dec(qwort, ziel, format);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
-<div class="inners">VOID *</div>
-<div class="inners">quelle</div>
-<div class="innerl">Adresse, an der das QWort abgelegt ist</div>
+<div class="inners">RCX</div>
+<div class="inners">qwort</div>
+<div class="innerl">Umzuwandelndes Vierfachwort</div>
 <div class="crlf0"></div>
-<div class="inners">VOID *</div>
+<div class="inners">RDX</div>
 <div class="inners">ziel</div>
-<div class="innerl">Adresse der Zielzeichenkette</div>
+<div class="innerl">Adresse des Ziels</div>
+<div class="crlf0"></div>
+<div class="inners">R08</div>
+<div class="inners">format</div>
+<div class="innerl">Siehe <b>Formatierung</b></div>
 </div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
-<div class="inners">DD</div>
+<div class="inners">RAX</div>
 <div class="inners">rc</div>
 <div class="innerl">immer Null</div>
 </div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
-Q2str() wandelt das Vierfachwort ab der Adresse [quelle] in eine ASCII-Zeichenkette um, die in vier Gruppen zu je 4 Digit formatiert ist.
+Die Umwandlung mittels D2dec() und Q2dec() beinhaltet <i>immer</i> eine ordentliche Formatierung
+ der Ausgabezeichenkette. Verwenden Sie bitte d2dec(), um unleserlichen Zahlensalat in variablen
+ Schriftbreiten auf den Bildschirm zu w&uuml;rgen!
+<div class="crlf1"></div>
+Die Formatanweisung wird im dritten Parameter (R08) &uuml;bergeben:
+<div class="crlf1"></div>
+<div class="inners">Bit 31...24</div>
+<div class="inners">Format</div>
+<div class="innerl">00 = 9 999.999<div class="crlf0"></div>2C = 9,999.999<div class="crlf0"></div>2E = 9.999,999</div>
+<div class="crlf1"></div>
+<div class="inners">Bit 23...16</div>
+<div class="inners">Vorzeichen</div>
+<div class="innerl">00 = ohne<div class="crlf0"></div>?? = mit</div>
+<div class="crlf1"></div>
+<div class="inners">Bit 15...08</div>
+<div class="inners">Fliesskomma</div>
+<div class="innerl">00 = keins<div class="crlf0"></div>1...20 = Stellen</div>
+<div class="crlf1"></div>
+<div class="inners">Bit 07...00</div>
+<div class="inners">Stellen</div>
+<div class="innerl">00 = 20<div class="crlf0"></div>1...20</div>
+<div class="crlf1"></div>
+&Uuml;bergeben Sie Null im dritten Parameter, wird eine vorzeichenlose zwanzigstellige Zahl
+ zwischen 0 (mit 25 f&uuml;hrenden Leerzeichen) und 18 446 744 073 709 551 615 ausgegeben. Die
+ Funktion erzeugt im Zusammenspiel mit Festbreiten-Zeichens&auml;tzen perfekt formatierte Tabellen.
+</div><div class="outer">Formatierung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+Q2dec() wandelt [qwort] in eine Zeichenkette ab Adresse [ziel] um. Der dritte Parameter legt fest,
+ ob und wie die Zeichenkette formatiert werden soll. Die Pseudofliesskommastellenanzahl darf nicht
+ gr&ouml;sser als 20 sein!
+<div class="crlf1"></div>
+<b>ACHTUNG:</b> Der Ausgabepuffer muss mindestens 32 Byte gross sein!
 </div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
 <pre>
 {
- DB s[16];
- Q2str(s, "12345678");
+ DQ q = 0x1234567890123;
+ DB s[32];
+ Q2dec(&amp;q, s, 771817984);    // 0x2E010200
 }
 </pre>
-Die Zeichenkette s enth&auml;lt nun "3132 3334 3536 3738".
+Die Zeichenkette s enth&auml;lt nun "&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3.202.559.734.582,11" (8 f&uuml;hrende Leerzeichen).
 </div><div class="outer">Beispiel</div></div><div class="crlf0"></div>
 <div class="crlf2"></div>
 &#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="cvt08.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
 &#160;&#160;&#160;<a href="cvt0A.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
-<div class="crlf1"></div>
-&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fsys%2Fcvt09.htm">
-<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
 <div class="crlf1"></div>
 </body>
 </html>

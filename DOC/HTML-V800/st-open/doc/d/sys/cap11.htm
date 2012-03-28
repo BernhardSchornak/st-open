@@ -2,16 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
- <meta name="Page-topic" content="WQPos()" />
- <meta name="Description" content="ST-Open Bibliotheken: WQPos()" />
- <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="Page-topic" content="SnDIM()" />
+ <meta name="Description" content="ST-Open Bibliotheken: SnDIM()" />
+ <meta name="Keywords" content="ST-Open, Weichwaren, Open, offen, Quelle, ST-Open, Bibliothek, frei, Assembler, C" />
+ <meta name="date" content="2012-02-08T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
  <style type="text/css"><!--@import "../../st.css";--></style>
  <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
- <title>WQPos()</title>
+ <title>SnDIM()</title>
 </head>
 <body id="top">
 <div class="pagehd">
@@ -24,8 +24,8 @@
  <li><a href="../fct.htm">nach Funktion</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
-<div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
+<div class="update">[2012-02-08]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuellenDoku Logo" width="75" height="75" border="0" /></div>
 </div>
 <div class="crlf1"></div>
 &#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
@@ -33,47 +33,67 @@
 &#160;&#160;&#160;<a href="cap12.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
 <div class="crlf1"></div>
-<div class="text100"><div class="inner">..\st7\lib\sources\core\cap.S
+<div class="text100"><div class="inner">..\st8\lib\sources\core\cap.S
 </div><div class="outer"><big>sys.lib</big></div></div>
 <div class="crlf1"></div>
-<div class="text100"><div class="inner"><b>WQPos</b></div><div class="outer">Sandkasten</div></div><div class="crlf0"></div>
-<div class="text100"><div class="inner">WQPos(hwnd, pswp);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner"><b>SnDIM</b></div><div class="outer">Sandkasten</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = SnDIM(hwnd, id, msg, wpar, lpar);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
-<div class="inners">HWND</div>
+<div class="inners">RCX</div>
 <div class="inners">hwnd</div>
-<div class="innerl">Henkel des Fensters</div>
-<div class="inners">PSWP</div>
-<div class="inners">pswp</div>
-<div class="innerl">Adresse einer SWP-Struktur</div>
-</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="innerl">Fensterhenkel</div>
+<div class="inners">RDX</div>
+<div class="inners">id</div>
+<div class="innerl">Resource-ID des Dialogelements</div>
+<div class="inners">R08</div>
+<div class="inners">msg</div>
+<div class="innerl">Nachricht</div>
+<div class="inners">R09</div>
+<div class="inners">wpar</div>
+<div class="innerl">WPARAM genanntes Vierfachwort</div>
+<div class="inners">20[RSP]</div>
+<div class="inners">lpar</div>
+<div class="innerl">LPARAM genanntes Vierfachwort</div>
+</div><div class="outer">Eingabe</div></div>
+<div class="crlf0"></div>
 <div class="text100"><div class="inner">
-<div class="inners">VOID</div>
-<div class="inners">-</div>
-<div class="innerl">nichts</div>
+<div class="inners">RAX</div>
+<div class="inners">rc</div>
+<div class="innerl">R&uuml;ckgabewert der Nachrichtenprozedur</div>
 </div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
-WQPos() ruft WinQueryWindowPos() auf und stellt anschliessend den vom API zerst&ouml;rten Inhalt der Register ECX und EDX wieder her.
+SnDIM() ruft SendDlgItemMessageA() auf, und stellt anschliessend die von
+ der API &uuml;berschriebenen Register ECX, EDX, R08, R09, R10, R11, XMM4
+ und XMM5 wieder her.
 <div class="crlf1"></div>
-Rufen Sie diesen Sandkasten nicht von C aus auf. Schlampige Programmierumgebungen profitieren nicht von wiederhergestellten Registern.
- Sie verschwenden etliche Taktzyklen f&uuml;r das unn&ouml;tige Wiederherstellen von Registerinhalten, die sofort wieder mit aus dem
- Speicher geladenen Parametern &uuml;berschrieben werden.
+Verwenden Sie Sandk&auml;sten nicht in <i>Hochsprachen</i>. Mit schlampigen
+ Konventionen arbeitende Kompilierer und API-Funktionen &uuml;berschreiben
+ die m&uuml;hsam wiederhergestellten Register sofort wieder mit ihrem gerade
+ anfallenden temporären Datenm&uuml;ll. Nur <b>saubere</b> Programmierung
+ profitiert von Registern, deren Inhalt auch &uuml;ber Funktionsaufrufe
+ hinweg unver&auml;ndert bleibt.
 </div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
 <pre>
-{
- SWP swp;
- WQPos(hwnd, &swp);
-}
+ ...
+ movq  [HWND],      %rcx        # RCX = HWND
+ movl  $ID,         %edx        # RCX = ID
+ movq  [MSG],       %r08        # RCX = message
+ movq  [WPARAM],    %r09        # R08 = 64 Bit Wert, WPARAM genannt
+ movq  [LPARAM],    0x20(%rsp)  # P_5 = 64 Bit Wert, LPARAM genannt
+ call  _SnDIM
+ ...
 </pre>
-Fragt die Fensterposition des Fensters mit dem Henkel hwnd ab. Das Ergebnis wird in der SWP-Struktur zur&uuml;ckgegeben.
+Sendet die Nachricht an das mit der Resource-ID festgelegte Element eines
+ Dialogs. Die Parameter sind von der aufgerufenen Nachricht abh&auml;ngig.
+ Die Resource-ID muss selbstverst&auml;ndlich einem im Dialog vorhandenen,
+ das heisst einem in dessen Resource-Vorlage definierten Kontrollelement,
+ zugeordnet sein.
 </div><div class="outer">Beispiel</div></div><div class="crlf0"></div>
 <div class="crlf2"></div>
 &#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="cap10.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
 &#160;&#160;&#160;<a href="cap12.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
-<div class="crlf1"></div>
-&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fsys%2Fcap11.htm">
-<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
 <div class="crlf1"></div>
 </body>
 </html>

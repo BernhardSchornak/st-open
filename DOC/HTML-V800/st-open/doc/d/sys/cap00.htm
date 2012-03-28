@@ -49,35 +49,39 @@
 <div class="crlf0"></div>
 <div class="text100"><div class="inner">
 RegClass() ruft RegisterClassA() auf und stellt anschliessend die von der
- API &uuml;berschriebenen Register ECX, EDX, R08, R09, R10 und R11 wieder her.
+ &uuml;berschriebenen Register ECX, EDX, R08, R09, R10, R11, XMM4 und XMM5
+ wieder her.
 <div class="crlf1"></div>
 Mit RegClass() kann die <i>kleine Ikone</i> nicht gesetzt werden. Verwenden
  Sie RegClssX(), um auch die <i>kleine Ikone</i> setzen zu k&ouml;nnen.
 <div class="crlf1"></div>
-Verwenden Sie Sandk&auml;sten nicht in C-Code. Mit schlampigen Konventionen
- arbeitende Compiler &uuml;berschreiben die m&uuml;hsam wiederhergestellten
- Register sofort wieder mit gerade anfallendem M&uuml;ll.
+Verwenden Sie Sandk&auml;sten nicht in <i>Hochsprachen</i>. Mit schlampigen
+ Konventionen arbeitende Kompilierer und API-Funktionen &uuml;berschreiben
+ die m&uuml;hsam wiederhergestellten Register sofort wieder mit ihrem gerade
+ anfallenden temporären Datenm&uuml;ll. Nur <b>saubere</b> Programmierung
+ profitiert von Registern, deren Inhalt auch &uuml;ber Funktionsaufrufe
+ hinweg unver&auml;ndert bleibt.
 </div><div class="outer">Beschreibung</div></div>
 <div class="crlf0"></div>
 <div class="text100"><div class="inner"><pre>
  ...
- pxor  %xmm0,%xmm0                # XM0 = 0
- leaq  _MainWndProc(%rip), %r9    # R09 = EA Fensterprozedur
- leaq  0x60(%rsp), %rcx           # RCX = EA WC
- leaq  LC00(%rip), %rdx           # RDX = EA Menuename
- leaq  LC01(%rip), %r8            # R08 = EA Klassenname
- movq  %xmm0, 0x60(%rsp)          # 0x00[WC] = 0
- movq  %r9, 0x68(%rsp)            # 0x08[WC] = EA Fensterprozedur
- movq  %xmm0, 0x70(%rsp)          # 0x10[WC] = 0, 0x14[WC] = 0
- movq  %rsi, 0x78(%rsp)           # 0x18[WC] = Hinstance
- movq  %rbp, 0x80(%rsp)           # 0x20[WC] = Hicon
- movq  %rdi, 0x88(%rsp)           # 0x28[WC] = Hcursor
- movq  %rax, 0x90(%rsp)           # 0x30[WC] = Hintergrundfarbe
- movq  %rdx, 0x98(%rsp)           # 0x38[WC] = EA Menuename
- movq  %r8, 0xA0(%rsp)            # 0x40[WC] = EA Klassenname
- leaq  0x60(%rsp), %rcx           # RCX = EA WC
+ pxor  %xmm0,              %xmm0        # XM0 = 0
+ leaq  _MainWndProc(%rip), %r9          # R09 = EA Fensterprozedur
+ leaq  0x60(%rsp),         %rcx         # RCX = EA WC
+ leaq  LC00(%rip),         %rdx         # RDX = EA Menuename
+ leaq  LC01(%rip),         %r8          # R08 = EA Klassenname
+ movq  %xmm0,              0x60(%rsp)   # 0x00[WC] = 0
+ movq  %r9,                0x68(%rsp)   # 0x08[WC] = EA Fensterprozedur
+ movq  %xmm0,              0x70(%rsp)   # 0x10[WC] = 0, 0x14[WC] = 0
+ movq  %rsi,               0x78(%rsp)   # 0x18[WC] = Hinstance
+ movq  %rbp,               0x80(%rsp)   # 0x20[WC] = Hicon
+ movq  %rdi,               0x88(%rsp)   # 0x28[WC] = Hcursor
+ movq  %rax,               0x90(%rsp)   # 0x30[WC] = Hintergrundfarbe
+ movq  %rdx,               0x98(%rsp)   # 0x38[WC] = EA Menuename
+ movq  %r8,                0xA0(%rsp)   # 0x40[WC] = EA Klassenname
+ leaq  0x60(%rsp),         %rcx         # RCX = EA WC
  call  _RegClass
- testl %eax, %eax                 # registriert?
+ testl %eax,               %eax         # registriert?
  je    L00
  ...
 </pre>

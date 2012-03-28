@@ -1,71 +1,70 @@
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                            C O M M O N   D I A L O G S                             บÛ
-  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
-  บ                          *** (C) ST-Open 1979 - 2011 ***                           บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ       THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE        บÛ
-  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
-  บ You may copy and distribute it as often as you want, but recipients aren't allowed บÛ
-  บ to pay *anything* for any copy of this file.                                       บÛ
-  บ                                                                                    บÛ
-  บ You are free to modify the content of this file if you want to. However, derivates บÛ
-  บ of the content of this file *still* are subject to the terms of the FT4FP license. บÛ
-  บ Recipients neither are allowed to pay *anything* for original work nor for altered บÛ
-  บ or derived replica.                                                                บÛ
-  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
-  บ       FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!        บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    D a t T o o l s   D I A L O G S    (C)  ST-Open 2012
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     You may copy and distribute this file as often as you want, but recipients are not
+     allowed to pay anything for any copy of this file or its content. It isn't allowed
+     to abuse its copyrighted content or introduced techniques for commercial purposes.
+     Whatever is derived from this file or its content must be freely available without
+     charge.
 
-about    ABOUT BOX             1200 - 1207
-drvmsk   DRIVE MASK            1220 - 1240
-dfsel    DIR+FILE SELECT       1260 - 1265
-crfile   CREATE NEW FILE       1280 - 1286
-movent   MOVE ENTRIES          12A0 - 12BA
-cpyfld   COPY FIELD            12C0 - 12C8
-selang   SELECT LANGUAGE       12E0 - 12F2
-create   MakeDat create        1300 - 1346
-viewer   manage fields         1380 - 1393
-stdfld   standard fields       13A0 - 13DC
-stdolh   manage OLH            1400 - 1417
-stdtop          Topics         1420 - 1437
-stdmnu          menu+dlg text  1440 - 1455
-stdmsg          messages       1460 - 1479
-stdspn          spinbuttons    1480 - 
-stdnbk          notebooks      14A0 - 
-stdbmp          bitmaps        14C0 - 
-
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                                 A B O U T - B O X                                  บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+     You are free to modify the content of this file if you want to. However, derivates
+     of the content of this file or parts of it *still* are subject to the terms of the
+     FT4FP license. Recipients neither are allowed to pay anything for the original nor
+     for altered or derived replica.
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    10C0   1200 - 1207     about    ABOUT BOX                         00C0   00C1...00C4
+    10C1   1220 - 1240     DRIVE MASK                                 00D0   00D1...00D7
+    10C2   1260 - 1265     DIR   SELECT                               00E0\__00E2...00E6
+              `------>     FIELD SELECT                               00E1/  
+    10C3   1280 - 1286     CREATE NEW FILE                            00C8   00C9...00CD
+    10C4   12A0 - 12BA     MOVE ENTRIES                               00F0   00F1...00FC
+    10C5   12C0 - 12C8     COPY FIELD                                 0100   0101...0107
+    10C6   1300 - 1346     MakeDat create                             0080   0081...009C
+    10C7   1380 - 1393     manage fields                              0070   0071...007B
+    10C8   13A0 - 13D4     standard fields                            0140   0141...015C
+    10C9   1400 - 1414     OLH                                        0160   0161...0167
+    10CA   1420 - 1434     Topics                                     0170   0171...0177
+    10CB   1440 - 1456     system dialog   texts                      00A0\__00A2...00A5
+              `------>     user   menu+dlg texts                      00A1/  
+              `------>     LANGUAGE STRINGS                           00A8   00A9...00AB
+    10CC   1460 - 1479     system messages                            00B0\__00B2...00BC
+              `------>     user   messages                            00B1/
+    10CD   14A0 - 14A1     notebooks                                  0180   0181...0182
+    10CE   14C0 - 14C1     bitmaps                                    0188   0189...018A
+    10CF   1500 - 152D     spinbuttons                                0110   0111...0133
+    10D0   1540 - 1571     entryfields                                0190   0191...01B7
+    secsys                                         
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                    A B O U T - B O X
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  about DIALOG                                                      0,   0, 200, 125
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "About..."
-  FONT 10, "Verdana"
+  0x10C0 DIALOG PRELOAD DISCARDABLE                                 0,   0, 200, 125
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
    ICON              0x1000,      0x1200,                          93,   7,  14,  16
    CONTROL           "",          0x1201, "Static", SS_GRAYFRAME,   5,  36, 190,  33
-   CTEXT             "DatTools",  0x1202,                          13,  42, 180,   8
-   CTEXT             "Descript.", 0x1203,                          10,  54, 180,   8
+   CTEXT             "",          0x1202,                          13,  42, 180,   8
+   CTEXT             "",          0x1203,                          10,  54, 180,   8
    CONTROL           "",          0x1204, "Static", SS_GRAYFRAME,   5,  74, 190,  17
-   CTEXT             "(C)",       0x1205,                          10,  78, 180,   8
-   PUSHBUTTON        "OK",        0x1207,                          70,  99,  60,  18
+   CTEXT             "",          0x1205,                          10,  78, 180,   8
+   PUSHBUTTON        "",          0x1207,                          70,  99,  60,  18
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                                D R I V E   M A S K                                 บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                   D R I V E   M A S K
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  drvmsk DIALOG                             0,   0, 200, 140
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Drive Selection"
-  FONT 8, "Verdana"
+  0x10C1 DIALOG PRELOAD DISCARDABLE         0,   0, 200, 140
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
    LTEXT             "",          0x1240,  10,   7, 180,   8
    AUTOCHECKBOX      " A:",       0x1220,  10,  25,  30,  10
@@ -102,15 +101,14 @@ stdbmp          bitmaps        14C0 -
    PUSHBUTTON        "Help",      0x123F, 135, 120,  60,  14
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                        D I R + F I L E   S E L E C T I O N                         บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                           D I R + F I L E   S E L E C T I O N
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  dfsel DIALOG                              0,   0, 300, 230
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Select Source Folder / Field"
-  FONT 8, "Verdana"
+  0x10C2 DIALOG PRELOAD DISCARDABLE         0,   0, 300, 230
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
    LTEXT             "Select...", 0x1260,   5,   5, 290,   8
    PUSHBUTTON        "Abort",     0x1261,   5, 205,  70,  18
@@ -120,458 +118,521 @@ stdbmp          bitmaps        14C0 -
    LISTBOX                        0x1265,   5,  20, 290, 175, LBS_NOTIFY | WS_VSCROLL | WS_GROUP | WS_TABSTOP
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                               C R E A T E   F I L E                                บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                  C R E A T E   F I L E
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  crfile DIALOG                             0,   0, 300,  80
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Create File"
-  FONT 8, "Verdana"
+  0x10C3 DIALOG PRELOAD DISCARDABLE         0,   0, 300,  80
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   PUSHBUTTON      "Abort",       0x1280,   5,  56,  80,  18
-   PUSHBUTTON      "Create",      0x1281,  90,  56,  80,  18
-   PUSHBUTTON      "Help",        0x1282, 215,  56,  80,  18
-   LTEXT           "Name",        0x1285,   5,   6,  50,   8
-   EDITTEXT                       0x1283,  60,   5, 235,  12, ES_RIGHT | ES_AUTOHSCROLL
-   LTEXT           "Size",        0x1286,   5,  26,  50,   8
-   EDITTEXT                       0x1284,  60,  25, 235,  12, ES_RIGHT | ES_AUTOHSCROLL
+   PUSHBUTTON      "",            0x1280,   5,  56,  80,  18
+   PUSHBUTTON      "",            0x1281,  90,  56,  80,  18
+   PUSHBUTTON      "",            0x1282, 215,  56,  80,  18
+   LTEXT           "",            0x1285,   5,   6,  50,   8
+   EDITTEXT                       0x1283,  60,   5, 235,  12
+   LTEXT           "",            0x1286,   5,  26,  50,   8
+   EDITTEXT                       0x1284,  60,  25, 235,  12, ES_RIGHT
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                              M O V E   E N T R I E S                               บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                 M O V E   E N T R I E S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  movent DIALOG                               0,   0, 350, 100
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Move Entries"
-  FONT 8, "Verdana"
+  0x10C4 DIALOG PRELOAD DISCARDABLE           0,   0, 350, 100
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   PUSHBUTTON      "Abort",         0x12B0,   5,  75,  80,  18
-   PUSHBUTTON      "Move",          0x12B1,  95,  75,  80,  18
-   PUSHBUTTON      "Help",          0x12B2, 265,  75,  80,  18
-   LTEXT           "From entry",    0x12A0,   5,  10,  50,   8
-   EDITTEXT                         0x12B3,  60,   8,  70,  12, ES_AUTOHSCROLL | ES_RIGHT
-   LTEXT           "To entry",      0x12A1,   5,  27,  50,   8
-   EDITTEXT                         0x12B4,  60,  25,  70,  12, ES_AUTOHSCROLL | ES_RIGHT
-   LTEXT           "Amount",        0x12A2,   5,  50,  50,   8
-   EDITTEXT                         0x12B5,  60,  48,  70,  12, ES_AUTOHSCROLL | ES_RIGHT
-   AUTORADIOBUTTON "Single sub",    0x12B6, 150,   9, 100,  10, WS_GROUP | WS_TABSTOP
-   AUTORADIOBUTTON "Sub range",     0x12B7, 150,  26, 100,  10, WS_TABSTOP
-   AUTORADIOBUTTON "All subfield",  0x12B8, 150,  50, 100,  10, WS_TABSTOP
-   EDITTEXT                         0x12A3, 315,   8,  30,  12, ES_AUTOHSCROLL | ES_RIGHT
-   LTEXT           "number",        0x12A4, 255,  10,  55,   8
-   EDITTEXT                         0x12B9, 315,  24,  30,  12, ES_AUTOHSCROLL | ES_RIGHT
-   LTEXT           "from",          0x12A5, 255,  26,  55,   8
-   EDITTEXT                         0x12BA, 315,  39,  30,  12, ES_AUTOHSCROLL | ES_RIGHT
-   LTEXT           "to",            0x12A6, 255,  41,  55,   8
+   PUSHBUTTON      "",              0x12B0,   5,  75,  80,  18
+   PUSHBUTTON      "",              0x12B1,  95,  75,  80,  18
+   PUSHBUTTON      "",              0x12B2, 265,  75,  80,  18
+   LTEXT           "",              0x12A0,   5,  10,  50,   8
+   EDITTEXT                         0x12B3,  60,   8,  70,  12, ES_RIGHT
+   LTEXT           "",              0x12A1,   5,  27,  50,   8
+   EDITTEXT                         0x12B4,  60,  25,  70,  12, ES_RIGHT
+   LTEXT           "",              0x12A2,   5,  50,  50,   8
+   EDITTEXT                         0x12B5,  60,  48,  70,  12, ES_RIGHT
+   AUTORADIOBUTTON "",              0x12B6, 150,   9, 100,  10, WS_GROUP | WS_TABSTOP
+   AUTORADIOBUTTON "",              0x12B7, 150,  26, 100,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x12B8, 150,  50, 100,  10, WS_TABSTOP
+   EDITTEXT                         0x12A3, 315,   8,  30,  12, ES_RIGHT
+   LTEXT           "",              0x12A4, 255,  10,  55,   8
+   EDITTEXT                         0x12B9, 315,  24,  30,  12, ES_RIGHT
+   LTEXT           "",              0x12A5, 255,  26,  55,   8
+   EDITTEXT                         0x12BA, 315,  39,  30,  12, ES_RIGHT
+   LTEXT           "",              0x12A6, 255,  41,  55,   8
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                                C O P Y   F I E L D                                 บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                   C O P Y   F I E L D
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  cpyfld DIALOG                               0,   0, 300,  85
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Copy Field Content"
-  FONT 8, "Verdana"
+  0x10C5 DIALOG PRELOAD DISCARDABLE           0,   0, 300,  85
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   PUSHBUTTON        "Abort",       0x12C0,   5,  58,  80,  18
-   PUSHBUTTON        "Copy",        0x12C1,  95,  58,  80,  18
-   PUSHBUTTON        "Help",        0x12C2, 215,  58,  80,  18
-   LTEXT             "Source",      0x12C7,   5,   9,  70,   8
-   PUSHBUTTON        "Select",      0x12C3,  80,   6,  50,  15
-   EDITTEXT                         0x12C4, 135,   8, 160,  12, ES_AUTOHSCROLL
-   LTEXT             "Target",      0x12C8,   5,  33,  70,   8
-   PUSHBUTTON        "Select",      0x12C5,  80,  30,  50,  15
-   EDITTEXT                         0x12C6, 135,  32, 160,  12, ES_AUTOHSCROLL
+   PUSHBUTTON        "",            0x12C0,   5,  58,  80,  18
+   PUSHBUTTON        "",            0x12C1,  95,  58,  80,  18
+   PUSHBUTTON        "",            0x12C2, 215,  58,  80,  18
+   LTEXT             "",            0x12C7,   5,   9,  70,   8
+   PUSHBUTTON        "",            0x12C3,  80,   6,  50,  15
+   EDITTEXT                         0x12C4, 135,   8, 160,  12
+   LTEXT             "",            0x12C8,   5,  33,  70,   8
+   PUSHBUTTON        "",            0x12C5,  80,  30,  50,  15
+   EDITTEXT                         0x12C6, 135,  32, 160,  12
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                        L A N G U A G E   S E L E C T I O N                         บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                 C R E A T E   F I E L D
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  selang DIALOG                               0,   0, 180, 140
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Language Selection"
-  FONT 10, "Verdana"
+  0x10C6 DIALOG PRELOAD DISCARDABLE           0,   0, 325, 320
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   PUSHBUTTON        "Abort",       0x12F0,   5, 120,  55,  14
-   PUSHBUTTON        "More...",     0x12F1,  65, 120,  55,  14
-   LTEXT             "Available",   0x12F2,   5,   5, 170,   8
-   AUTORADIOBUTTON   "English",     0x12E0,  10,  23,  70,  10, WS_GROUP | WS_TABSTOP
-   AUTORADIOBUTTON   "Deutsch",     0x12E1,  10,  34,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12E2,  10,  45,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12E3,  10,  56,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12E4,  10,  67,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12E5,  10,  78,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12E6,  10,  89,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12E7,  10, 100,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12E8, 100,  23,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12E9, 100,  34,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12EA, 100,  45,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12EB, 100,  56,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12EC, 100,  67,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12ED, 100,  78,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12EE, 100,  89,  70,  10, WS_TABSTOP
-   AUTORADIOBUTTON   "?",           0x12EF, 100, 100,  70,  10, WS_TABSTOP
+   PUSHBUTTON        "",            0x1342,   5, 293,  75,  18
+   PUSHBUTTON        "",            0x1343,  85, 293,  75,  18
+   PUSHBUTTON        "",            0x1344, 165, 293,  75,  18
+   PUSHBUTTON        "",            0x1345, 245, 293,  75,  18
+   GROUPBOX          "",            0x1300,   5,   8, 315,  55
+   LTEXT             "",            0x1301,  10,  22,  60,   8
+   EDITTEXT                         0x1330,  75,  21,  80,  12, ES_RIGHT
+   PUSHBUTTON        "",            0x1331, 170,  20,  70,  14
+   LTEXT             "",            0x1302,  10,  42,  60,   8
+   EDITTEXT                         0x1332,  75,  41, 240,  12
+   GROUPBOX          "",            0x1303,   5,  67, 315,  35
+   RTEXT             "",            0x1304,  10,  82,  60,   8
+   EDITTEXT                         0x1333,  75,  80,  80,  12, ES_RIGHT
+   RTEXT             "",            0x1305, 170,  82,  60,   8
+   EDITTEXT                         0x1334, 235,  80,  80,  12, ES_RIGHT
+   GROUPBOX          "",            0x1306,   5, 107, 315,  31
+   AUTOCHECKBOX      "",            0x1335,  25, 120, 110,  10
+   AUTOCHECKBOX      "",            0x1336, 160, 120, 110,  10
+   GROUPBOX          "",            0x1307,   5, 143, 315,  98
+   PUSHBUTTON        "",            0x1337,  10, 156,  30,  14
+   PUSHBUTTON        "",            0x1338,  45, 156,  30,  14
+   PUSHBUTTON        "",            0x1339,  80, 156,  30,  14
+   PUSHBUTTON        "",            0x133A, 115, 156,  30,  14
+   PUSHBUTTON        "",            0x133B, 150, 156,  30,  14
+   PUSHBUTTON        "",            0x133C, 185, 156,  30,  14
+   PUSHBUTTON        "",            0x133D, 220, 156,  30,  14
+   PUSHBUTTON        "",            0x133E, 255, 156,  60,  14
+   PUSHBUTTON        "",            0x133F, 255, 175,  60,  14
+   CTEXT             "",            0x1310,  10, 178,  30,   8
+   CTEXT             "",            0x1311,  40, 178,  30,   8
+   CTEXT             "",            0x1312,  70, 178,  30,   8
+   CTEXT             "",            0x1313, 100, 178,  30,   8
+   CTEXT             "",            0x1314, 130, 178,  30,   8
+   CTEXT             "",            0x1315, 160, 178,  30,   8
+   CTEXT             "",            0x1316, 190, 178,  30,   8
+   CTEXT             "",            0x1317, 220, 178,  30,   8
+   CTEXT             "",            0x1318,  10, 193,  30,   8
+   CTEXT             "",            0x1319,  40, 193,  30,   8
+   CTEXT             "",            0x131A,  70, 193,  30,   8
+   CTEXT             "",            0x131B, 100, 193,  30,   8
+   CTEXT             "",            0x131C, 130, 193,  30,   8
+   CTEXT             "",            0x131D, 160, 193,  30,   8
+   CTEXT             "",            0x131E, 190, 193,  30,   8
+   CTEXT             "",            0x131F, 220, 193,  30,   8
+   CTEXT             "",            0x1320,  10, 208,  30,   8
+   CTEXT             "",            0x1321,  40, 208,  30,   8
+   CTEXT             "",            0x1322,  70, 208,  30,   8
+   CTEXT             "",            0x1323, 100, 208,  30,   8
+   CTEXT             "",            0x1324, 130, 208,  30,   8
+   CTEXT             "",            0x1325, 160, 208,  30,   8
+   CTEXT             "",            0x1326, 190, 208,  30,   8
+   CTEXT             "",            0x1327, 220, 208,  30,   8
+   CTEXT             "",            0x1328,  10, 223,  30,   8
+   CTEXT             "",            0x1329,  40, 223,  30,   8
+   CTEXT             "",            0x132A,  70, 223,  30,   8
+   CTEXT             "",            0x132B, 100, 223,  30,   8
+   CTEXT             "",            0x132C, 130, 223,  30,   8
+   CTEXT             "",            0x132D, 160, 223,  30,   8
+   CTEXT             "",            0x132E, 190, 223,  30,   8
+   CTEXT             "",            0x132F, 220, 223,  30,   8
+   GROUPBOX          "",            0x1308,   5, 246, 315,  33
+   RTEXT             "",            0x1309,  10, 260,  60,   8
+   EDITTEXT                         0x1340,  75, 258,  80,  12, ES_RIGHT
+   RTEXT             "",            0x130A, 170, 260,  60,   8
+   EDITTEXT                         0x1341, 235, 258,  80,  12, ES_RIGHT
+   AUTOCHECKBOX      "",            0x1346,   5, 282,  75,  10
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                              C R E A T E   F I E L D                               บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                 F I E L D   V I E W E R
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  create DIALOG                               0,   0, 325, 320
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Create Field"
-  FONT 8, "Verdana"
+  0x10C7 DIALOG PRELOAD DISCARDABLE           0,   0, 330, 413
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   PUSHBUTTON        "Close",       0x1342,   5, 293,  75,  18
-   PUSHBUTTON        "Create",      0x1343,  85, 293,  75,  18
-   PUSHBUTTON        "View",        0x1344, 165, 293,  75,  18
-   PUSHBUTTON        "Help",        0x1345, 245, 293,  75,  18
-   GROUPBOX          " Field ",     0x1300,   5,   8, 315,  55
-   LTEXT             "Number",      0x1301,  10,  22,  60,   8
-   EDITTEXT                         0x1330,  75,  21,  80,  12, ES_AUTOHSCROLL | ES_RIGHT
-   PUSHBUTTON        "Search",      0x1331, 170,  20,  70,  14
-   LTEXT             "Name",        0x1302,  10,  42,  60,   8
-   EDITTEXT                         0x1332,  75,  41, 240,  12, ES_AUTOHSCROLL | ES_RIGHT
-   GROUPBOX          " Entries ",   0x1303,   5,  67, 315,  35
-   RTEXT             "Amount",      0x1304,  10,  82,  60,   8
-   EDITTEXT                         0x1333,  75,  80,  80,  12, ES_AUTOHSCROLL | ES_RIGHT
-   RTEXT             "Size",        0x1305, 170,  82,  60,   8
-   EDITTEXT                         0x1334, 235,  80,  80,  12, ES_AUTOHSCROLL | ES_RIGHT
-   GROUPBOX          " Flags ",     0x1306,   5, 107, 315,  31
-   AUTOCHECKBOX      "Read Only",   0x1335,  25, 120, 110,  10
-   AUTOCHECKBOX      "Encrypted",   0x1336, 160, 120, 110,  10
-   GROUPBOX          " Data Types ",0x1307,   5, 143, 315,  98
-   PUSHBUTTON        "DB",          0x1337,  10, 156,  30,  14
-   PUSHBUTTON        "DW",          0x1338,  45, 156,  30,  14
-   PUSHBUTTON        "DD",          0x1339,  80, 156,  30,  14
-   PUSHBUTTON        "DQ",          0x133A, 115, 156,  30,  14
-   PUSHBUTTON        "DO",          0x133B, 150, 156,  30,  14
-   PUSHBUTTON        "FIX",         0x133C, 185, 156,  30,  14
-   PUSHBUTTON        "$32",         0x133D, 220, 156,  30,  14
-   PUSHBUTTON        "clear last",  0x133E, 255, 156,  60,  14
-   PUSHBUTTON        "clear all",   0x133F, 255, 175,  60,  14
-   CTEXT             "---",         0x1310,  10, 178,  30,   8
-   CTEXT             "---",         0x1311,  40, 178,  30,   8
-   CTEXT             "---",         0x1312,  70, 178,  30,   8
-   CTEXT             "---",         0x1313, 100, 178,  30,   8
-   CTEXT             "---",         0x1314, 130, 178,  30,   8
-   CTEXT             "---",         0x1315, 160, 178,  30,   8
-   CTEXT             "---",         0x1316, 190, 178,  30,   8
-   CTEXT             "---",         0x1317, 220, 178,  30,   8
-   CTEXT             "---",         0x1318,  10, 193,  30,   8
-   CTEXT             "---",         0x1319,  40, 193,  30,   8
-   CTEXT             "---",         0x131A,  70, 193,  30,   8
-   CTEXT             "---",         0x131B, 100, 193,  30,   8
-   CTEXT             "---",         0x131C, 130, 193,  30,   8
-   CTEXT             "---",         0x131D, 160, 193,  30,   8
-   CTEXT             "---",         0x131E, 190, 193,  30,   8
-   CTEXT             "---",         0x131F, 220, 193,  30,   8
-   CTEXT             "---",         0x1320,  10, 208,  30,   8
-   CTEXT             "---",         0x1321,  40, 208,  30,   8
-   CTEXT             "---",         0x1322,  70, 208,  30,   8
-   CTEXT             "---",         0x1323, 100, 208,  30,   8
-   CTEXT             "---",         0x1324, 130, 208,  30,   8
-   CTEXT             "---",         0x1325, 160, 208,  30,   8
-   CTEXT             "---",         0x1326, 190, 208,  30,   8
-   CTEXT             "---",         0x1327, 220, 208,  30,   8
-   CTEXT             "---",         0x1328,  10, 223,  30,   8
-   CTEXT             "---",         0x1329,  40, 223,  30,   8
-   CTEXT             "---",         0x132A,  70, 223,  30,   8
-   CTEXT             "---",         0x132B, 100, 223,  30,   8
-   CTEXT             "---",         0x132C, 130, 223,  30,   8
-   CTEXT             "---",         0x132D, 160, 223,  30,   8
-   CTEXT             "---",         0x132E, 190, 223,  30,   8
-   CTEXT             "---",         0x132F, 220, 223,  30,   8
-   GROUPBOX          " Field Size ",0x1308,   5, 246, 315,  33
-   RTEXT             "minimum",     0x1309,  10, 260,  60,   8
-   EDITTEXT                         0x1340,  75, 258,  80,  12, ES_AUTOHSCROLL | ES_RIGHT
-   RTEXT             "maximum",     0x130A, 170, 260,  60,   8
-   EDITTEXT                         0x1341, 235, 258,  80,  12, ES_AUTOHSCROLL | ES_RIGHT
-   AUTOCHECKBOX      "decimal",     0x1346,   5, 283,  75,  10
-  END
-  /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                              F I E L D   V I E W E R                               บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-  */
-  viewer DIALOG                               0,   0, 330, 413
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Field Manager"
-  FONT 8, "Lucida Console"
-  BEGIN
-   PUSHBUTTON        "Discard",     0x1388,   5, 387,  70,  18
-   PUSHBUTTON        "Store",       0x1389,  80, 387,  70,  18
-   PUSHBUTTON        "Help",        0x138A, 255, 387,  70,  18
-   GROUPBOX          " Entry ",     0x1390,   5,   6, 100,  33
-   EDITTEXT                         0x1380,  15,  18,  68,  12, ES_AUTOHSCROLL | ES_RIGHT
+   PUSHBUTTON        "",            0x1388,   5, 387,  70,  18
+   PUSHBUTTON        "",            0x1389,  80, 387,  70,  18
+   PUSHBUTTON        "",            0x138A, 255, 387,  70,  18
+   GROUPBOX          "",            0x1390,   5,   6, 100,  33
+   EDITTEXT                         0x1380,  15,  18,  68,  12, ES_RIGHT
    CONTROL           "",            0x138B, "msctls_updown32", 0x50010045,  85,  18,  15,  12
-   GROUPBOX          " Subfield ",  0x1391, 110,   6, 100,  33
-   EDITTEXT                         0x1381, 115,  18,  68,  12, ES_AUTOHSCROLL | ES_RIGHT
+   GROUPBOX          "",            0x1391, 110,   6, 100,  33
+   EDITTEXT                         0x1381, 115,  18,  68,  12, ES_RIGHT
    CONTROL           "",            0x138C, "msctls_updown32", 0x50010045, 190,  18,  15,  12
-   AUTOCHECKBOX      "decimal",     0x1382, 220,  19, 100,  10
-   GROUPBOX          " Numeric ",   0x1392,   5,  47, 320,  33
-   EDITTEXT                         0x1383,  10,  59, 140,  12, ES_AUTOHSCROLL | ES_RIGHT
-   PUSHBUTTON        "zero",        0x1384, 155,  59,  40,  12
-   PUSHBUTTON        "max",         0x1385, 200,  59,  40,  12
-   GROUPBOX          " Complex ",   0x1393,   5,  88, 320, 288
-   PUSHBUTTON        "clear",       0x1386,  10, 101,  70,  12
-   EDITTEXT                         0x1387,  10, 120, 310, 246, ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN
+   AUTOCHECKBOX      "",            0x1382, 220,  19, 100,  10
+   GROUPBOX          "",            0x1392,   5,  47, 320,  33
+   EDITTEXT                         0x1383,  10,  59, 140,  12, ES_RIGHT
+   PUSHBUTTON        "",            0x1384, 155,  59,  40,  12
+   PUSHBUTTON        "",            0x1385, 200,  59,  40,  12
+   GROUPBOX          "",            0x1393,   5,  88, 320, 288
+   PUSHBUTTON        "",            0x1386,  10, 101,  70,  12
+   EDITTEXT                         0x1387,  10, 120, 310, 246, ES_MULTILINE | WS_VSCROLL | ES_WANTRETURN
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                           S T A N D A R D   F I E L D S                            บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                              S T A N D A R D   F I E L D S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  stdfld DIALOG                               0,   0, 320, 290
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Standard Fields"
-  FONT 8, "Verdana"
+  0x10C8 DIALOG PRELOAD DISCARDABLE           0,   0, 320, 245
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   GROUPBOX          " Mnu + Dlg ", 0x13D0,   5,   7, 310,  45
-   AUTOCHECKBOX      "FFFFFF12",    0x13A0,  10,  20, 100,  10
-   LTEXT           "Amount",        0x13DC, 160,  21,  50,   8
-   EDITTEXT                         0x13A3, 215,  19,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
-   PUSHBUTTON        "<",           0x13A1, 280,  19,  12,  12
-   PUSHBUTTON        ">",           0x13A2, 295,  19,  12,  12
-   AUTOCHECKBOX      "FFFFFF13",    0x13A4,  10,  35, 100,  10
-   GROUPBOX          " Messages ",  0x13D1,   5,  57, 310,  45
-   AUTOCHECKBOX      "nsm.dat",     0x13A5,  10,  70, 100,  10
-   LTEXT           "Messages",      0x13DB, 160,  71,  50,   8
-   EDITTEXT                         0x13A8, 215,  69,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
-   PUSHBUTTON        "<",           0x13A6, 280,  69,  12,  12
-   PUSHBUTTON        ">",           0x13A7, 295,  69,  12,  12
-   AUTOCHECKBOX      "err.dat",     0x13A9,  10,  85, 100,  10
-   GROUPBOX          " OLH ",       0x13D2,   5, 107, 310,  45
-   AUTOCHECKBOX      "olh.dat",     0x13AA,  10, 120, 100,  10
-   LTEXT           "Texts",         0x13DA, 160, 120,  50,   8
-   EDITTEXT                         0x13AD, 215, 119,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
-   PUSHBUTTON        "<",           0x13AB, 280, 119,  12,  12
-   PUSHBUTTON        ">",           0x13AC, 295, 119,  12,  12
-   AUTOCHECKBOX      "top.dat",     0x13AE,  10, 135, 100,  10
-   LTEXT           "Topics",        0x13D9, 160, 136,  50,   8
-   EDITTEXT                         0x13AF, 215, 134,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
-   PUSHBUTTON        "<",           0x13B0, 280, 134,  12,  12
-   PUSHBUTTON        ">",           0x13B1, 295, 134,  12,  12
-   GROUPBOX          " Spin ",      0x13D3,   5, 157, 310,  30
-   AUTOCHECKBOX      "FFFFFF01",    0x13B2,  10, 169, 100,  10
-   LTEXT           "Amount",        0x13D8, 160, 170,  50,   8
-   EDITTEXT                         0x13B5, 215, 168,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
-   PUSHBUTTON        "<",           0x13B3, 280, 168,  12,  12
-   PUSHBUTTON        ">",           0x13B4, 295, 168,  12,  12
-   GROUPBOX          " Notebook ",  0x13D4,   5, 192, 310,  30
-   AUTOCHECKBOX      "FFFFFF00",    0x13B6,  10, 204, 100,  10
-   EDITTEXT                         0x13BE, 115, 203,  40,  12, ES_AUTOHSCROLL | ES_RIGHT
-   LTEXT           "Pages",         0x13D6, 160, 204,  50,   8
-   EDITTEXT                         0x13B9, 215, 203,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
-   PUSHBUTTON        "<",           0x13B7, 280, 203,  12,  12
-   PUSHBUTTON        ">",           0x13B8, 295, 203,  12,  12
-   GROUPBOX          " Bitmaps ",   0x13D5,   5, 227, 310,  30
-   AUTOCHECKBOX      "FFFFFF10",    0x13BA,  10, 239, 100,  10
-   LTEXT           "Amount",        0x13D7, 160, 240,  50,   8
-   EDITTEXT                         0x13BD, 215, 238,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
-   PUSHBUTTON        "<",           0x13BB, 280, 238,  12,  12
-   PUSHBUTTON        ">",           0x13BC, 295, 238,  12,  12
-   PUSHBUTTON      "Abort",         0x13BF,   5, 266,  70,  18
-   PUSHBUTTON      "Create",        0x13C0,  80, 266,  70,  18
-   PUSHBUTTON      "Help",          0x13C1, 245, 266,  70,  18
+   GROUPBOX        "Obligatory",  0x13C3,   5,   7, 310, 146
+
+   AUTOCHECKBOX    "SysVar",      0x13A6,  15,  21, 100,  10
+   LTEXT           "Size",        0x13D3, 120,  22,  90,   8
+   EDITTEXT                       0x13AE, 215,  20,  60,  12, ES_RIGHT
+
+   AUTOCHECKBOX    "SysStr",      0x13A7,  15,  36, 100,  10
+   LTEXT           "Strings",     0x13D4, 120,  37,  90,   8
+   EDITTEXT                       0x13AF, 215,  35,  60,  12, ES_RIGHT
+   PUSHBUTTON      "<",           0x13BC, 280,  35,  12,  12
+   PUSHBUTTON      ">",           0x13BD, 295,  35,  12,  12
+
+   AUTOCHECKBOX    "Menu + Dlg",  0x13A0,  15,  51, 100,  10
+   LTEXT           "Amount",      0x13C4, 120,  52,  90,   8
+   EDITTEXT                       0x13A8, 215,  50,  60,  12, ES_RIGHT
+   PUSHBUTTON      "<",           0x13B0, 280,  50,  12,  12
+   PUSHBUTTON      ">",           0x13B1, 295,  50,  12,  12
+
+   AUTOCHECKBOX    "Pgm Msgs",    0x13A1,  15,  66, 100,  10
+   LTEXT           "Messages",    0x13C5, 120,  67,  90,   8
+   EDITTEXT                       0x13A9, 215,  65,  60,  12, ES_RIGHT
+   PUSHBUTTON      "<",           0x13B2, 280,  65,  12,  12
+   PUSHBUTTON      ">",           0x13B3, 295,  65,  12,  12
+
+   AUTOCHECKBOX    "OnLine Help", 0x13A2,  15,  81, 100,  10
+   LTEXT           "Texts",       0x13C6, 120,  82,  90,   8
+   EDITTEXT                       0x13AA, 215,  80,  60,  12, ES_RIGHT
+   PUSHBUTTON      "<",           0x13B4, 280,  80,  12,  12
+   PUSHBUTTON      ">",           0x13B5, 295,  80,  12,  12
+
+   AUTOCHECKBOX    "OLH Topics",  0x13A3,  15,  96, 100,  10
+   LTEXT           "Topics",      0x13C7, 120,  97,  90,   8
+   EDITTEXT                       0x13AB, 215,  95,  60,  12, ES_RIGHT
+   PUSHBUTTON      "<",           0x13B6, 280,  95,  12,  12
+   PUSHBUTTON      ">",           0x13B7, 295,  95,  12,  12
+
+   LTEXT           "Copy DTool",  0x13C8,  22, 113,  90,   8
+
+   LTEXT           "Sys Dlgs",    0x13C9, 120, 114, 120,   8
+   RTEXT           "512",         0x13CA, 254, 114,  20,   8
+
+   LTEXT           "Sys Err",     0x13CB, 120, 125, 120,   8
+   RTEXT           "128",         0x13CC, 254, 125,  20,   8
+
+   LTEXT           "OLH",         0x13CD, 120, 135, 120,   8
+   RTEXT           "6",           0x13CE, 254, 135,  20,   8
+
+   GROUPBOX        "Recomm",      0x13CF,   5, 160, 310,  51
+
+   AUTOCHECKBOX    "Spinbuttons", 0x13A4,  15, 174, 100,  10
+   LTEXT           "Amount",      0x13D0, 120, 175,  50,   8
+   EDITTEXT                       0x13AC, 215, 173,  60,  12, ES_RIGHT
+   PUSHBUTTON      "<",           0x13B8, 280, 173,  12,  12
+   PUSHBUTTON      ">",           0x13B9, 295, 173,  12,  12
+
+   AUTOCHECKBOX    "Eflds",       0x13A5,  15, 190, 100,  10
+   LTEXT           "Amount",      0x13D1, 120, 191,  50,   8
+   EDITTEXT                       0x13AD, 215, 189,  60,  12, ES_RIGHT
+   PUSHBUTTON      "<",           0x13BA, 280, 189,  12,  12
+   PUSHBUTTON      ">",           0x13BB, 295, 189,  12,  12
+
+   PUSHBUTTON      "Abort",       0x13C0,   5, 220,  70,  18
+   PUSHBUTTON      "Create",      0x13C1,  80, 220,  70,  18
+   PUSHBUTTON      "Help",        0x13C2, 245, 220,  70,  18
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                   O n L i n e - H e l p   T R A N S L A T I O N                    บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      O n L i n e - H e l p   T R A N S L A T I O N
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  stdolh DIALOG                             0,   0, 615, 340
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "OnLine Help"
-  FONT 8, "Verdana"
+  0x10C9 DIALOG PRELOAD DISCARDABLE         0,   0, 635, 360
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   PUSHBUTTON        "<",         0x1400,  75,   8,  12,  12
-   PUSHBUTTON        ">",         0x1401,  90,   8,  12,  12
-   EDITTEXT                       0x1410, 105,   8, 130,  12, ES_AUTOHSCROLL
-   PUSHBUTTON        "<",         0x1402, 380,   8,  12,  12
-   PUSHBUTTON        ">",         0x1403, 395,   8,  12,  12
-   EDITTEXT                       0x1411, 410,   8, 130,  12, ES_AUTOHSCROLL
-   LTEXT             "Title",     0x1412,   5,  37,  60,   8
-   PUSHBUTTON        "copy =>",   0x1404,  75,  35,  70,  12
-   LTEXT             "Title",     0x1413, 310,  37,  60,   8
-   EDITTEXT                       0x1405,   5,  51, 300,  12, ES_AUTOHSCROLL
-   EDITTEXT                       0x1406, 310,  51, 300,  12, ES_AUTOHSCROLL
-   LTEXT             "Text",      0x1414,   5,  72,  60,   8
-   PUSHBUTTON        "copy =>",   0x1407,  75,  70,  70,  12
-   LTEXT             "Text",      0x1415, 310,  72,  60,   8
-   EDITTEXT                       0x1408,   5,  86, 300, 214, ES_AUTOHSCROLL
-   EDITTEXT                       0x1409, 310,  86, 300, 214, ES_AUTOHSCROLL
-   PUSHBUTTON        "Abort",     0x140A,   5, 312,  70,  17
-   PUSHBUTTON        "Store",     0x140B,  80, 312,  70,  17
-   PUSHBUTTON        "<",         0x140C, 168, 315,  12,  12
-   PUSHBUTTON        ">",         0x140D, 183, 315,  12,  12
-   EDITTEXT                       0x1416, 198, 315,  32,  12, ES_AUTOHSCROLL | ES_CENTER
-   LTEXT             "Number",    0x1417, 235, 317,  70,   8
+   LTEXT             "",          0x1410,   5,  12,  60,   8
+   EDITTEXT                       0x1406,  70,  10,  30,  12, ES_CENTER
+   CONTROL           "",          0x140A, "msctls_updown32", 0x50010045, 102,  10,  15,  12
+   LTEXT             "",          0x1411,   5,  44,  60,   8
+   EDITTEXT                       0x1408,  70,  42, 230,  12, ES_READONLY
+   CONTROL           "",          0x140B, "msctls_updown32", 0x50010045, 300,  10,  15,  12
+   LTEXT             "",          0x1412, 320,  44,  60,   8
+   EDITTEXT                       0x1409, 385,  42, 230,  12, ES_READONLY
+   CONTROL           "",          0x140C, "msctls_updown32", 0x50010045, 615,  10,  15,  12
+   LTEXT             "",          0x1413,   5,  62,  60,   8
+   EDITTEXT                       0x1400,  70,  60, 245,  12
+   LTEXT             "",          0x1414, 320,  62,  60,   8
+   EDITTEXT                       0x1401, 385,  60, 245,  12
+   EDITTEXT                       0x1402,   5,  78, 310, 244, ES_MULTILINE | WS_VSCROLL | ES_WANTRETURN
+   EDITTEXT                       0x1403, 320,  78, 310, 244, ES_MULTILINE | WS_VSCROLL | ES_WANTRETURN
+   PUSHBUTTON        "",          0x1404,   5, 335,  75,  18
+   PUSHBUTTON        "",          0x1405,  90, 335,  75,  18
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                    O L H - T O P I C S   T R A N S L A T I O N                     บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       O L H - T O P I C S   T R A N S L A T I O N
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  stdtop DIALOG 6, 18, 475, 285
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "OLH Topics"
-  FONT 8, "Verdana"
+  0x10CA DIALOG PRELOAD DISCARDABLE         0,   0, 495, 280
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   PUSHBUTTON        "<",         0x1420,  40,   8,  12,  12
-   PUSHBUTTON        ">",         0x1421,  55,   8,  12,  12
-   EDITTEXT                       0x1430,  70,   8, 130,  12, ES_AUTOHSCROLL
-   PUSHBUTTON        "<",         0x1422, 275,   8,  12,  12
-   PUSHBUTTON        ">",         0x1423, 290,   8,  12,  12
-   EDITTEXT                       0x1431, 305,   8, 130,  12, ES_AUTOHSCROLL
-   LTEXT             "Topic",     0x1432,   5,  37,  60,   8
-   PUSHBUTTON        "copy =>",   0x1424,  70,  35,  70,  12
-   LTEXT             "Topic",     0x1433, 240,  37,  60,   8
-   EDITTEXT                       0x1425,   5,  51, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                       0x1426, 240,  51, 230,  12, ES_AUTOHSCROLL
-   LTEXT             "Text",      0x1434,   5,  72,  60,   8
-   PUSHBUTTON        "copy =>",   0x1427,  70,  70,  70,  12
-   LTEXT             "Text",      0x1435, 240,  73,  60,   8
-   EDITTEXT                       0x1428,   5,  86, 230, 158, ES_AUTOHSCROLL
-   EDITTEXT                       0x1429, 240,  86, 230, 158, ES_AUTOHSCROLL
-   PUSHBUTTON        "Abort",     0x142A,   5, 257,  70,  17
-   PUSHBUTTON        "Close",     0x142B,  80, 257,  70,  17
-   PUSHBUTTON        "<",         0x142C, 173, 260,  12,  12
-   PUSHBUTTON        ">",         0x142D, 188, 260,  12,  12
-   EDITTEXT                       0x1436, 203, 260,  32,  12, ES_AUTOHSCROLL | ES_CENTER
-   LTEXT             "Number",    0x1437, 240, 262,  70,   8
+   LTEXT             "",          0x1430,   5,  12,  60,   8
+   EDITTEXT                       0x1426,  70,  10,  30,  12, ES_CENTER
+   CONTROL           "",          0x142A, "msctls_updown32", 0x50010045, 101,  10,  15,  12
+   LTEXT             "",          0x1431,   5,  43,  60,   8
+   EDITTEXT                       0x1428,  70,  41, 160,  12, ES_READONLY
+   CONTROL           "",          0x142B, "msctls_updown32", 0x50010045, 230,  41,  15,  12
+   LTEXT             "",          0x1432, 250,  43,  60,   8
+   EDITTEXT                       0x1429, 315,  41, 160,  12, ES_READONLY
+   CONTROL           "",          0x142C, "msctls_updown32", 0x50010045, 475,  41,  15,  12
+   LTEXT             "",          0x1433,   5,  64,  60,   8
+   EDITTEXT                       0x1420,  70,  62, 175,  12
+   LTEXT             "",          0x1434, 250,  64,  60,   8
+   EDITTEXT                       0x1421, 315,  62, 175,  12
+   EDITTEXT                       0x1422,   5,  80, 240, 164, ES_MULTILINE | WS_VSCROLL | ES_WANTRETURN
+   EDITTEXT                       0x1423, 250,  80, 240, 164, ES_MULTILINE | WS_VSCROLL | ES_WANTRETURN
+   PUSHBUTTON        "",          0x1424,   5, 255,  75,  18
+   PUSHBUTTON        "",          0x1425,  90, 255,  75,  18
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                         M E N U + W I N D O W   T E X T S                          บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            M E N U + W I N D O W   T E X T S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  stdmnu DIALOG                               0,   0, 240, 315
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Menu + Dialog Texts"
-  FONT 8, "Verdana"
+  0x10CB DIALOG PRELOAD DISCARDABLE           0,   0, 240, 315
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   PUSHBUTTON        "Discard",     0x1450,   5, 291,  70,  16
-   PUSHBUTTON        "Store",       0x1451,  80, 291,  70,  16
-   PUSHBUTTON        "Help",        0x1452, 165, 291,  70,  16
-   EDITTEXT                         0x1453,   5,   7,  60,  12, ES_AUTOHSCROLL | ES_RIGHT
+   PUSHBUTTON        "",            0x1450,   5, 291,  70,  16
+   PUSHBUTTON        "",            0x1451,  80, 291,  70,  16
+   PUSHBUTTON        "",            0x1452, 165, 291,  70,  16
+   EDITTEXT                         0x1453,   5,   7,  60,  12, ES_RIGHT
    CONTROL           "",            0x1455, "msctls_updown32", 0x50010045,  70,   7,  15,  12
-   LTEXT             "ID:",         0x1456,  90,   9,  20,   8
-   EDITTEXT                         0x1454, 115,   7,  30,  12, ES_AUTOHSCROLL | ES_CENTER
-   EDITTEXT                         0x1440,   5,  30, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x1441,   5,  46, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x1442,   5,  62, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x1443,   5,  78, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x1444,   5,  94, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x1445,   5, 110, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x1446,   5, 126, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x1447,   5, 142, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x1448,   5, 158, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x1449,   5, 174, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x144A,   5, 190, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x144B,   5, 206, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x144C,   5, 222, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x144D,   5, 238, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x144E,   5, 254, 230,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x144F,   5, 270, 230,  12, ES_AUTOHSCROLL
+   LTEXT             "",            0x1456,  90,   9,  20,   8
+   EDITTEXT                         0x1454, 115,   7,  30,  12, ES_CENTER
+   EDITTEXT                         0x1440,   5,  30, 230,  12
+   EDITTEXT                         0x1441,   5,  46, 230,  12
+   EDITTEXT                         0x1442,   5,  62, 230,  12
+   EDITTEXT                         0x1443,   5,  78, 230,  12
+   EDITTEXT                         0x1444,   5,  94, 230,  12
+   EDITTEXT                         0x1445,   5, 110, 230,  12
+   EDITTEXT                         0x1446,   5, 126, 230,  12
+   EDITTEXT                         0x1447,   5, 142, 230,  12
+   EDITTEXT                         0x1448,   5, 158, 230,  12
+   EDITTEXT                         0x1449,   5, 174, 230,  12
+   EDITTEXT                         0x144A,   5, 190, 230,  12
+   EDITTEXT                         0x144B,   5, 206, 230,  12
+   EDITTEXT                         0x144C,   5, 222, 230,  12
+   EDITTEXT                         0x144D,   5, 238, 230,  12
+   EDITTEXT                         0x144E,   5, 254, 230,  12
+   EDITTEXT                         0x144F,   5, 270, 230,  12
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                    S y s M e s s a g e   T R A N S L A T I O N                     บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       S y s M e s s a g e   T R A N S L A T I O N
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  stdmsg DIALOG                               0,   0, 575, 275
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Messages + Errors"
-  FONT 8, "Verdana"
+  0x10CC DIALOG PRELOAD DISCARDABLE           0,   0, 575, 275
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   PUSHBUTTON        "Discard",     0x146F,   5, 249,  70,  18
-   PUSHBUTTON        "Store",       0x1470,  80, 249,  70,  18
-   PUSHBUTTON        "Help",        0x1471, 500, 249,  70,  18
-   EDITTEXT                         0x1460,   5,   6,  50,  12, ES_AUTOHSCROLL | ES_RIGHT
+   PUSHBUTTON        "",            0x146F,   5, 249,  70,  18
+   PUSHBUTTON        "",            0x1470,  80, 249,  70,  18
+   PUSHBUTTON        "",            0x1471, 500, 249,  70,  18
+   EDITTEXT                         0x1460,   5,   6,  50,  12, ES_RIGHT
    CONTROL           "",            0x1472, "msctls_updown32", 0x50010045,  60,   5,  15,  12
-   LTEXT             "Message",     0x1478,   5,  32,  70,   8
+   LTEXT             "",            0x1478,   5,  32,  70,   8
    PUSHBUTTON        "<",           0x1461,  85,  30,  15,  12
    PUSHBUTTON        ">",           0x1462, 190,  30,  15,  12
-   EDITTEXT                         0x1463, 105,  30,  80,  12, ES_AUTOHSCROLL
-   LTEXT             "Message",     0x1479, 290,  32,  70,   8
-   PUSHBUTTON        "<",           0x1464, 370,  30,  15,  12
-   PUSHBUTTON        ">",           0x1465, 475,  30,  15,  12
-   EDITTEXT                         0x1466, 390,  30,  80,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x1467,   5,  47, 280, 160, ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN
-   EDITTEXT                         0x1468, 290,  47, 280, 160, ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN
-   LTEXT             "Button 1",    0x147A,   5, 214,  70,   8
-   LTEXT             "Button 2",    0x147B, 100, 215,  70,   8
-   LTEXT             "Button 3",    0x147C, 195, 215,  70,   8
-   EDITTEXT                         0x1469,   5, 226,  90,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x146A, 100, 226,  90,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x146B, 195, 226,  90,  12, ES_AUTOHSCROLL
-   LTEXT             "Button 1",    0x147D, 290, 214,  70,   8
-   LTEXT             "Button 2",    0x147E, 385, 215,  70,   8
-   LTEXT             "Button 3",    0x147F, 480, 215,  70,   8
-   EDITTEXT                         0x146C, 290, 226,  90,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x146D, 385, 226,  90,  12, ES_AUTOHSCROLL
-   EDITTEXT                         0x146E, 480, 226,  90,  12, ES_AUTOHSCROLL
+   EDITTEXT                         0x1467, 105,  30,  80,  12, ES_CENTER
+   LTEXT             "",            0x1479, 290,  32,  70,   8
+   PUSHBUTTON        "<",           0x1463, 370,  30,  15,  12
+   PUSHBUTTON        ">",           0x1464, 475,  30,  15,  12
+   EDITTEXT                         0x1468, 390,  30,  80,  12, ES_CENTER
+   EDITTEXT                         0x1465,   5,  47, 280, 160, ES_MULTILINE | WS_VSCROLL | ES_WANTRETURN
+   EDITTEXT                         0x1466, 290,  47, 280, 160, ES_MULTILINE | WS_VSCROLL | ES_WANTRETURN
+   LTEXT             "",            0x147A,   5, 214,  70,   8
+   LTEXT             "",            0x147B, 100, 215,  70,   8
+   LTEXT             "",            0x147C, 195, 215,  70,   8
+   EDITTEXT                         0x1469,   5, 226,  90,  12, ES_CENTER
+   EDITTEXT                         0x146A, 100, 226,  90,  12, ES_CENTER
+   EDITTEXT                         0x146B, 195, 226,  90,  12, ES_CENTER
+   LTEXT             "",            0x147D, 290, 214,  70,   8
+   LTEXT             "",            0x147E, 385, 215,  70,   8
+   LTEXT             "",            0x147F, 480, 215,  70,   8
+   EDITTEXT                         0x146C, 290, 226,  90,  12, ES_CENTER
+   EDITTEXT                         0x146D, 385, 226,  90,  12, ES_CENTER
+   EDITTEXT                         0x146E, 480, 226,  90,  12, ES_CENTER
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                               S P I N B U T T O N S                                บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                     N O T E B O O K S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  stdspn DIALOG                               0,   0, 160, 100
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Spinbuttons"
-  FONT 8, "Verdana"
+  0x10CD DIALOG PRELOAD DISCARDABLE           0,   0, 160, 100
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   LTEXT             "To be done",  0x1481,   5,   7, 150,   8
-   PUSHBUTTON        "OK",          0x1480,  60,  81,  40,  14
+   LTEXT             "",            0x14A1,   5,   7, 150,   8
+   PUSHBUTTON        "",            0x14A0,  60,  81,  40,  14
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                                 N O T E B O O K S                                  บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                      B I T M A P S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  stdnbk DIALOG                               0,   0, 160, 100
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Notebooks"
-  FONT 8, "Verdana"
+  0x10CE DIALOG PRELOAD DISCARDABLE           0,   0, 160, 100
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   LTEXT             "To be done",  0x14A1,   5,   7, 150,   8
-   PUSHBUTTON        "OK",          0x14A0,  60,  81,  40,  14
+   LTEXT             "",            0x14C1,   5,   7, 150,   8
+   PUSHBUTTON        "",            0x14C0,  60,  81,  40,  14
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                                   B I T M A P S                                    บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                  S P I N B U T T O N S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  stdbmp DIALOG                               0,   0, 160, 100
-  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
-  CAPTION "Bitmaps"
-  FONT 8, "Verdana"
+  0x10CF DIALOG PRELOAD DISCARDABLE           0,   0, 340, 315
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
   BEGIN
-   LTEXT             "To be done",  0x14C1,   5,   7, 150,   8
-   PUSHBUTTON        "OK",          0x14C0,  60,  81,  40,  14
+   LTEXT           "Spinbutton",    0x1520,   5,   9,  70,   8
+   EDITTEXT                         0x1510,  80,   7,  65,  12, ES_RIGHT
+   CONTROL           "",            0x151E, "msctls_updown32", 0x50010045, 145,   7,  15,  12
+   LTEXT           "Up/Down ID",    0x1522,   5,  35,  70,   8
+   EDITTEXT                         0x150F,  80,  33,  35,  12, ES_RIGHT
+   LTEXT           "Edit Field ID", 0x1521,   5,  51,  70,   8
+   EDITTEXT                         0x150E,  80,  49,  35,  12, ES_RIGHT
+   LTEXT           "minimum",       0x1523, 160,  35,  40,   8
+   EDITTEXT                         0x1511, 205,  33, 130,  12, ES_RIGHT
+   LTEXT           "maximum",       0x1524, 160,  51,  40,   8
+   EDITTEXT                         0x1512, 205,  49, 130,  12, ES_RIGHT
+   GROUPBOX        " Type ",        0x1525,   5,  68, 330, 214
+   GROUPBOX        " Decimal ",     0x1526,  10,  79, 320,  47
+   GROUPBOX        " Hexadecimal ", 0x1527,  10, 132, 320,  30
+   GROUPBOX        " Date ",        0x1528,  10, 169, 320,  30
+   GROUPBOX        " Time ",        0x1529,  10, 206, 320,  30
+   GROUPBOX        " Text ",        0x152A,  10, 243, 320,  30
+   AUTORADIOBUTTON "32 bit",        0x1500,  20,  92,  50,  10, WS_GROUP | WS_TABSTOP
+   AUTORADIOBUTTON "64 bit",        0x1501,  20, 108,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "8 bit",         0x1502,  20, 145,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "16 bit",        0x1503,  80, 145,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "32 bit",        0x1504, 140, 145,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "64 bit",        0x1505, 200, 145,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "YYYY-MM-DD",    0x1506,  20, 181,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "DD.MM.YYYY",    0x1507,  80, 181,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "SS.hh",         0x1508,  20, 218,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "MM:SS.hh",      0x1509,  80, 218,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "HH:MM:SS.hh",   0x150A, 140, 218,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "HH:MM:SS",      0x150B, 200, 218,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "HH:MM",         0x150C, 260, 218,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "Data Field",    0x150D,  20, 255,  55,  10, WS_TABSTOP
+   LTEXT           "Digits",        0x152B,  80,  92,  55,   8
+   EDITTEXT                         0x1513, 140,  90,  40,  12, ES_RIGHT
+   LTEXT           "FP Digits",     0x152C,  80, 108,  55,   8
+   EDITTEXT                         0x1514, 140, 106,  40,  12, ES_RIGHT
+   AUTORADIOBUTTON "9 999.99",      0x1515, 200,  92,  50,  10, WS_GROUP | WS_TABSTOP
+   AUTORADIOBUTTON "9,999.99",      0x1516, 200, 108,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "9.999,99",      0x1517, 260,  92,  50,  10, WS_TABSTOP
+   AUTOCHECKBOX    "signed",        0x1518, 260, 108,  60,  10
+   LTEXT           "Subfield",      0x152D,  80, 256,  40,   8
+   EDITTEXT                         0x1519, 140, 254,  20,  12, ES_RIGHT
+   PUSHBUTTON      "Discard",       0x151A,   5, 291,  80,  16
+   PUSHBUTTON      "Store",         0x151B,  95, 291,  80,  16
+   PUSHBUTTON      "Help",          0x151C, 255, 291,  80,  16
   END
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                   E N T R Y F I E L D S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  0x10D0 DIALOG PRELOAD DISCARDABLE           0,   0, 340, 315
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
+  BEGIN
+   LTEXT           "",              0x1562,   5,   9,  70,   8
+   EDITTEXT                         0x1550,  80,   7,  50,  12, ES_RIGHT
+   CONTROL         "",              0x1560, "msctls_updown32", 0x50010045, 131,   6,  15,  12
+   LTEXT           "",              0x1563,   5,  26,  70,   8
+   EDITTEXT                         0x1551,  80,  24,  50,  12, ES_RIGHT
+   LTEXT           "",              0x1564, 160,   9,  40,   8
+   EDITTEXT                         0x1552, 205,   7, 130,  12, ES_RIGHT
+   LTEXT           "",              0x1565, 160,  26,  40,   8
+   EDITTEXT                         0x1553, 205,  24, 130,  12, ES_RIGHT
+   GROUPBOX        "",              0x1566,   5,  44, 330, 236
+   GROUPBOX        "",              0x1567,  10,  55, 320,  47
+   GROUPBOX        "",              0x1568,  10, 108, 320,  32
+   GROUPBOX        "",              0x1569,  10, 147, 320,  32
+   GROUPBOX        "",              0x156A,  10, 185, 320,  32
+   GROUPBOX        "",              0x156B,  10, 223, 320,  50
+   AUTORADIOBUTTON "",              0x1540,  20,  67,  50,  10, WS_GROUP | WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1541,  20,  82,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1542,  20, 121,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1543,  80, 121,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1544, 140, 121,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1545, 200, 121,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1546, 260, 121,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1547,  20, 160,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1548,  80, 160,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1549,  20, 198,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x154A,  80, 198,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x154B, 140, 198,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x154C, 200, 198,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x154D, 260, 198,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x154E,  20, 236,  55,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x154F,  20, 252,  55,  10, WS_TABSTOP
+   LTEXT           "",              0x156C,  80,  68,  55,   8
+   EDITTEXT                         0x1554, 140,  66,  40,  12, ES_RIGHT
+   LTEXT           "",              0x156D,  80,  83,  55,   8
+   EDITTEXT                         0x1555, 140,  81,  40,  12, ES_RIGHT
+   AUTORADIOBUTTON "",              0x1556, 200,  67,  50,  10, WS_GROUP | WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1557, 200,  82,  50,  10, WS_TABSTOP
+   AUTORADIOBUTTON "",              0x1558, 260,  67,  50,  10, WS_TABSTOP
+   AUTOCHECKBOX    "",              0x1559, 260,  82,  60,  10
+   RTEXT           "",              0x156E,  80, 237,  55,   8
+   EDITTEXT                         0x155A, 140, 236,  25,  12, ES_RIGHT
+   LTEXT           "",              0x156F, 170, 238, 160,   8
+   RTEXT           "",              0x1570,  80, 253,  55,   8
+   EDITTEXT                         0x155B, 140, 251,  70,  12, ES_RIGHT
+   RTEXT           "",              0x1571, 215, 253,  40,   8
+   EDITTEXT                         0x155C, 260, 251,  20,  12, ES_RIGHT
+   PUSHBUTTON      "",              0x155D,   5, 291,  80,  16
+   PUSHBUTTON      "",              0x155E,  95, 291,  80,  16
+   PUSHBUTTON      "",              0x155F, 255, 291,  80,  16
+  END
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */

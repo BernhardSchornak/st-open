@@ -5,7 +5,7 @@
  <meta name="Page-topic" content="LdCursor()" />
  <meta name="Description" content="ST-Open Bibliotheken: LdCursor()" />
  <meta name="Keywords" content="ST-Open, Weichwaren, Open, offen, Quelle, ST-Open, Bibliothek, frei, Assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="date" content="2012-02-08T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
@@ -24,7 +24,7 @@
  <li><a href="../fct.htm">nach Funktion</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
+<div class="update">[2012-02-08]</div>
 <div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
 </div>
 <div class="crlf1"></div>
@@ -60,19 +60,23 @@ hcursor = LdCursor(hinst, (LPCTSTR)id);</div><div class="outer">Aufruf</div></di
 </div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
 LdCursor() ruft LoadCursorA() auf, und stellt anschliessend die von der API
- &uuml;berschriebenen Register ECX, EDX, R08, R09, R10 und R11 wieder her.
+ &uuml;berschriebenen Register ECX, EDX, R08, R09, R10, R11, XMM4 und XMM5
+ wieder her.
 <div class="crlf1"></div>
-Verwenden Sie Sandk&auml;sten nicht in C-Code. Mit schlampigen Konventionen
- arbeitende Compiler &uuml;berschreiben die m&uuml;hsam wiederhergestellten
- Register sofort wieder mit gerade anfallendem M&uuml;ll.
+Verwenden Sie Sandk&auml;sten nicht in <i>Hochsprachen</i>. Mit schlampigen
+ Konventionen arbeitende Kompilierer und API-Funktionen &uuml;berschreiben
+ die m&uuml;hsam wiederhergestellten Register sofort wieder mit ihrem gerade
+ anfallenden temporären Datenm&uuml;ll. Nur <b>saubere</b> Programmierung
+ profitiert von Registern, deren Inhalt auch &uuml;ber Funktionsaufrufe
+ hinweg unver&auml;ndert bleibt.
 </div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
 <pre>
  ...
- xorl  %ecx, %ecx        # RCX = NULLHANDLE
+ xorl  %ecx,    %ecx     # RCX = NULLHANDLE
  movl  $0x7F00, %edx     # RDX = IDC_ARROW
  call  _LdCursor
- movq  %rax, %rdi        # RDI = Hcursor
+ movq  %rax,    %rdi     # RDI = Hcursor
  ...
 </pre>
 Ermittelt den Zeigerhenkel des Systemzeigers. Die Resource-ID ist hier 

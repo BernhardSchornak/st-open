@@ -5,7 +5,7 @@
  <meta name="Page-topic" content="FDacc()" />
  <meta name="Description" content="ST-Open Bibliotheken: FDacc()" />
  <meta name="Keywords" content="ST-Open, Weichwaren, Open, offen, Quelle, ST-Open, Bibliothek, frei, Assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="date" content="2012-02-08T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
@@ -24,7 +24,7 @@
  <li><a href="../fct.htm">nach Funktion</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
+<div class="update">[2012-02-08]</div>
 <div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
 </div>
 <div class="crlf1"></div>
@@ -50,7 +50,7 @@
 <div class="crlf0"></div>
 <div class="inners">R08</div>
 <div class="inners">UntFeld</div>
-<div class="innerl">Nummer des UnterfeldesR08 </div>
+<div class="innerl">Nummer des Unterfeldes</div>
 <div class="crlf0"></div>
 <div class="inners">R09</div>
 <div class="inners">FDA_*</div>
@@ -77,11 +77,13 @@ FDacc() ist der Funktionsverteiler von ST-Open's Datenbankmaschine. Mit der <a h
 <div class="crlf1"></div>
 Fehler werden prinzipiell in der globalen Variablen <b>FIA_ERROR</b> (0x1FCC[BNR]) &uuml;bergeben. Der
  R&uuml;ckgabewert <b>rc</b> wird auf Null gesetzt, wenn ein Fehler aufgetreten ist. Die einzige Ausnahme ist
- FDA_ADDRESS, das aus naheliegenden Gr&uuml;nden die Adresse des Feldes zur&uuml;ckgibt. Das erste Doppelwort
- im Feld ist Null, was f&uuml;r Bytes, Worte, Doppelworte und Zeichenketten innerhalb des zul&auml;ssigen
- Bereichs liegt. Bei Datentypen mit einer Breite von mehr als 32 Bit ist der Feldname Bestandteil des Vier-
- oder Achtfachwortes, respektive des Blocks, die Adresse weist also auf ung&uuml;ltige Daten. FIA_ERROR ist
- bei diesen Datentypen auf Null zu pr&uuml;fen, um die G&uuml;ltigkeit der Adresse sicherzustellen.
+ FDA_ADDRESS, das aus naheliegenden Gr&uuml;nden die Adresse des Feldes zur&uuml;ckgibt. Die ersten 32 Byte
+ im Feld sind Null, was f&uuml;r 8 bis 256 Bit breite Datentypen sowie f&uuml;r Zeichenketten innerhalb des
+ zul&auml;ssigen Bereichs liegt. Bei Datentypen mit einer Breite von mehr als 32 Byte wird der Feldinhalt zum
+ Bestandteil des Datenblocks, die zur&uuml;ckgegebene Adresse weist also auf ung&uuml;ltige Daten. FIA_ERROR
+ sollte bei Datenbl&ouml;cken auf Null gepr&uuml;ft werden, um die G&uuml;ltigkeit der zur&uuml;ckgelieferten
+ Blockadresse sicherzustellen. Schreibzugriffe auf Bereiche des Feldkopfes zerst&ouml;ren die dort abgelegten
+ Kontrolldaten und machen das Feld unbrauchbar.
 </div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
 <pre>
@@ -92,12 +94,14 @@ Fehler werden prinzipiell in der globalen Variablen <b>FIA_ERROR</b> (0x1FCC[BNR
  FDacc(*MEIN_FELD, 2, 0, FDA_INC, 0, 0);
 }
 </pre>
-Der erste Zugriff liest den Wert des ersten Eintrags (Eintrag Nummer Null!) im Feld mh, die Unterfeldnummer ist Null. Der zweite Aufruf von FDacc()
- schreibt diesen Wert in den zweiten Eintrag. Mit dem dritten Zugriff wird der dritte Eintrag inkrementiert.</div>
-<div class="outer">Beispiel</div></div><div class="crlf0"></div>
+Der erste Zugriff liest den Wert des ersten Eintrags (Eintrag Nummer Null!) im Feld <i>MeinFeld</i>, die
+ Unterfeldnummer ist Null. Der zweite Aufruf von FDacc() schreibt diesen Wert in den zweiten Eintrag. Mit
+ dem dritten Zugriff wird der dritte Eintrag inkrementiert.
+</div><div class="outer">Beispiel</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
-Die meisten Funktionen der Datenbankmaschine ben&ouml;tigen Parameter 5 oder 6 nicht. Nicht ben&ouml;tigte Parameter werden von der DBE niemals
- gelesen und k&ouml;nnen daher problemlos weggelassen werden. Das spart ein oder zwei &uuml;berfl&uuml;ssige <b>mov</b>-Anweisungen ein.
+Die meisten Funktionen der Datenbankmaschine ben&ouml;tigen Parameter 5 oder 6 nicht. Nicht ben&ouml;tigte
+ Parameter werden von der DBE niemals gelesen und k&ouml;nnen daher problemlos weggelassen werden. Das spart
+ ein oder zwei &uuml;berfl&uuml;ssige <b>mov</b>-Anweisungen ein.
 </div><div class="outer">Intelligent Design</div></div>
 <div class="crlf2"></div>
 &#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>

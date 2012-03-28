@@ -1,6 +1,6 @@
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    control messages      (sent or posted)
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    LB_ADDSTRING                0x00000180
    LB_INSERTSTRING             0x00000181
    LB_DELETESTRING             0x00000182
@@ -41,18 +41,18 @@
    LB_SETCOUNT                 0x000001A7
    LB_INITSTORAGE              0x000001A8
    LB_ITEMFROMPOINT            0x000001A9
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    notification messages (received)
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    LBN_SELCHANGE               0x00000001
    LBN_DBLCLK                  0x00000002
    LBN_SELCANCEL               0x00000003
    LBN_SETFOCUS                0x00000004
    LBN_KILLFOCUS               0x00000005
    LBN_ERRSPACE                0xFFFFFFFE
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    listbox styles
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    LBS_NOTIFY                  0x00000001
    LBS_SORT                    0x00000002
    LBS_NOREDRAW                0x00000004
@@ -69,9 +69,9 @@
    LBS_NODATA                  0x00002000
    LBS_NOSEL                   0x00004000
    LBS_STANDARD                0x00A00003
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    DELETEITEMSTRUCT
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    DELETEITEMSTRUCT            /* 0x14 */
    {
     0x00   DD   CtlType;
@@ -82,4 +82,4 @@
    }
    DELETEITEMSTRUCT,*PDELETEITEMSTRUCT,
    *LPDELETEITEMSTRUCT;
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

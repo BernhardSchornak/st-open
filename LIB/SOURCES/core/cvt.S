@@ -1,1035 +1,1422 @@
           /*
-           Use font 'DOS 850' or 'IBM 850' on non-OS/2 machines to display this file properly!
-          ЙНННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННН»
-          є                                C O N V E R S I O N                                 єЫ
-          єДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДєЫ
-          є                          *** (C) ST-Open 1979 - 2010 ***                           єЫ
-          ИННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННјЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          ЙНННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННН»
-          є       THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE        єЫ
-          єДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДєЫ
-          є You may copy and distribute this file as often as you want, but recipients are not єЫ
-          є allowed to pay anything for any copy of this file or its content. It isn't allowed єЫ
-          є to remove parts of this file or add third party content. It isn't allowed to abuse єЫ
-          є the copyrighted content or introduced techniques for commercial purposes. Whatever єЫ
-          є is derived from this file and its content must be freely available without charge. єЫ
-          є You are free to modify the content of this file if you want to. However, derivates єЫ
-          є of the content of this file or parts of it *still* are subject to the terms of the єЫ
-          є FT4FP license. Recipients neither are allowed to pay anything for the original nor єЫ
-          є for altered or derived replica.                                                    єЫ
-          єДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДєЫ
-          є       FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!        єЫ
-          ИННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННННјЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                             D A T A   C O N V E R S I O N   (C) ST-Open 2012
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE!
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            You may copy and distribute this file as often as you want, but recipients are not
+            allowed to pay anything for any copy of this file or its content. It isn't allowed
+            to abuse its copyrighted content or introduced techniques for commercial purposes.
+            Whatever is derived from this file or its content must be freely available without
+            charge.
+
+            You are free to modify the content of this file if you want to. However, derivates
+            of the content of this file or parts of it *still* are subject to the terms of the
+            FT4FP license. Recipients neither are allowed to pay anything for the original nor
+            for altered or derived replica.
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       FREE THOUGHT FOR FREE PEOPLE: KEEP CASH AWAY FROM KNOWLEDGE!
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
           .include "..\\..\\..\\include\\yasm.h"
-          .section .rdata, "dr"
           /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і                              L O O K U P   T A B L E                               іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+            L O O K U P
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          .p2align 4, 0x00
-     tHEX:.word 0x3030, 0x3130, 0x3230, 0x3330, 0x3430, 0x3530, 0x3630, 0x3730, 0x3830, 0x3930, 0x4130, 0x4230, 0x4330, 0x4430, 0x4530, 0x4630
-          .word 0x3031, 0x3131, 0x3231, 0x3331, 0x3431, 0x3531, 0x3631, 0x3731, 0x3831, 0x3931, 0x4131, 0x4231, 0x4331, 0x4431, 0x4531, 0x4631
-          .word 0x3032, 0x3132, 0x3232, 0x3332, 0x3432, 0x3532, 0x3632, 0x3732, 0x3832, 0x3932, 0x4132, 0x4232, 0x4332, 0x4432, 0x4532, 0x4632
-          .word 0x3033, 0x3133, 0x3233, 0x3333, 0x3433, 0x3533, 0x3633, 0x3733, 0x3833, 0x3933, 0x4133, 0x4233, 0x4333, 0x4433, 0x4533, 0x4633
-          .word 0x3034, 0x3134, 0x3234, 0x3334, 0x3434, 0x3534, 0x3634, 0x3734, 0x3834, 0x3934, 0x4134, 0x4234, 0x4334, 0x4434, 0x4534, 0x4634
-          .word 0x3035, 0x3135, 0x3235, 0x3335, 0x3435, 0x3535, 0x3635, 0x3735, 0x3835, 0x3935, 0x4135, 0x4235, 0x4335, 0x4435, 0x4535, 0x4635
-          .word 0x3036, 0x3136, 0x3236, 0x3336, 0x3436, 0x3536, 0x3636, 0x3736, 0x3836, 0x3936, 0x4136, 0x4236, 0x4336, 0x4436, 0x4536, 0x4636
-          .word 0x3037, 0x3137, 0x3237, 0x3337, 0x3437, 0x3537, 0x3637, 0x3737, 0x3837, 0x3937, 0x4137, 0x4237, 0x4337, 0x4437, 0x4537, 0x4637
-          .word 0x3038, 0x3138, 0x3238, 0x3338, 0x3438, 0x3538, 0x3638, 0x3738, 0x3838, 0x3938, 0x4138, 0x4238, 0x4338, 0x4438, 0x4538, 0x4638
-          .word 0x3039, 0x3139, 0x3239, 0x3339, 0x3439, 0x3539, 0x3639, 0x3739, 0x3839, 0x3939, 0x4139, 0x4239, 0x4339, 0x4439, 0x4539, 0x4639
-          .word 0x3041, 0x3141, 0x3241, 0x3341, 0x3441, 0x3541, 0x3641, 0x3741, 0x3841, 0x3941, 0x4141, 0x4241, 0x4341, 0x4441, 0x4541, 0x4641
-          .word 0x3042, 0x3142, 0x3242, 0x3342, 0x3442, 0x3542, 0x3642, 0x3742, 0x3842, 0x3942, 0x4142, 0x4242, 0x4342, 0x4442, 0x4542, 0x4642
-          .word 0x3043, 0x3143, 0x3243, 0x3343, 0x3443, 0x3543, 0x3643, 0x3743, 0x3843, 0x3943, 0x4143, 0x4243, 0x4343, 0x4443, 0x4543, 0x4643
-          .word 0x3044, 0x3144, 0x3244, 0x3344, 0x3444, 0x3544, 0x3644, 0x3744, 0x3844, 0x3944, 0x4144, 0x4244, 0x4344, 0x4444, 0x4544, 0x4644
-          .word 0x3045, 0x3145, 0x3245, 0x3345, 0x3445, 0x3545, 0x3645, 0x3745, 0x3845, 0x3945, 0x4145, 0x4245, 0x4345, 0x4445, 0x4545, 0x4645
-          .word 0x3046, 0x3146, 0x3246, 0x3346, 0x3446, 0x3546, 0x3646, 0x3746, 0x3846, 0x3946, 0x4146, 0x4246, 0x4346, 0x4446, 0x4546, 0x4646
-
-     hCNV:.byte 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-          .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
+          .section .rdata, "dr"
+          .p2align 4,,15
+    toffQ:.long 0x04, 0x1E, 0x1D, 0x1C, 0x1A, 0x19, 0x18, 0x16, 0x15, 0x14, 0x12, 0x11, 0x10, 0x0E, 0x0D, 0x0C
+          .long 0x0A, 0x09, 0x08, 0x06, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04
           /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+            J U M P
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+      jt0:.quad d2e       # 00
+          .quad d03       # 01
+          .quad d03       # 02
+          .quad d03       # 03
+          .quad d06       # 04
+          .quad d06       # 05
+          .quad d06       # 06
+          .quad d09       # 07
+          .quad d09       # 08
+          .quad d09       # 09
+          .quad d12       # 10
+          .quad d12       # 11
+          .quad d12       # 12
+          .quad d15       # 13
+          .quad d15       # 14
+          .quad d15       # 15
+          .quad d18       # 16
+          .quad d18       # 17
+          .quad d18       # 18
+          .quad d18       # 19
+          .quad d20       # 20
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
           */
           .text
           /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і                               H E X A D E C I M A L                                іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і B2hex  byte => hexadecimal string                                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   byte to convert (only the lowest byte is converted!)                       іЫ
-          і   RDX   EA target                                                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- RAX   0000 xxxx   converted byte                                                 іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                          H E X A D E C I M A L
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            B2hex    byte => hexadecimal string
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   byte to convert (only the lowest byte is converted!)
+               RDX   EA target
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   converted byte [00LH]
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            BUFFER   0               1               2
+                     0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+
+                     01zz
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            average latency ~ 6 clock cycles
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          .p2align 4,,15
-          .globl   _B2hex
-          .def     _B2hex; .scl 2; .type 32; .endef
-   _B2hex:subq     $0xB8,%rsp
-          leaq     tHEX(%rip),%rax              # EAX = EA LUT
-          nop
-          movq     %rcx,0xB0(%rsp)
-          andl     $0xFF,%ecx
-          movzwl   0x00(%rax, %rcx, 2),%eax
-          movl     %eax,0x00(%rdx)              # store
-          jmp      XIT1
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і W2hex   word => hexadecimal string                                                 іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   word to convert (only the lowest word is converted!)                       іЫ
-          і   RDX   EA target                                                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- RAX   0000 0000                                                                  іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _W2hex
-          .def     _W2hex; .scl 2; .type 32; .endef
-   _W2hex:subq     $0xB8,%rsp
-          leaq     tHEX(%rip),%rax              # EAX = EA LUT
-          nop
-          movq     %r8,0xA0(%esp)
-          movq     %rdx,0xA8(%esp)
-          movq     %rcx,0xB0(%esp)
-          movq     %rcx,%r8
-          shrq     $0x08,%rcx
-          andq     $0xFF,%rcx                   # RCX = 000000hh
-          andq     $0xFF,%r8                    # R08 = 000000ll
-          movzwl   0x00(%rax, %rcx, 2),%ecx     # RCX = 0000HHhh
-          movzwl   0x00(%rax, %r8, 2),%r8d      # R08 = 0000LLll
-          xorl     %eax,%eax
-          movl     %ecx,0x00(%rdx)              #       hhHH0000
-          movl     %r8d,0x02(%rdx)              # store llLL0000
-          jmp      XIT3
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і D2hex   dword => formatted hex string   xxxx xxxx                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   dword to convert (only the low dword is converted!)                        іЫ
-          і   RDX   EA target                                                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- RAX   0000 0000                                                                  іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _D2hex
-          .def     _D2hex; .scl 2; .type 32; .endef
-   _D2hex:subq     $0xB8,%rsp
-          leaq     tHEX(%rip),%rax              # EAX = EA LUT
-          nop
-          movq     %rbx,0x90(%esp)
-          movq     %r9, 0x98(%esp)
-          movq     %r8, 0xA0(%esp)
-          movq     %rdx,0xA8(%esp)
-          movq     %rcx,0xB0(%esp)
-          movl     %ecx,%r8d
-          movl     %ecx,%r9d
-          movl     %ecx,%ebx
-          shrl     $0x18,%r8d
-          shrl     $0x10,%r9d
-          shrl     $0x08,%ebx
-          andq     $0xFF,%r8                    # R08 = 00000044
-          andq     $0xFF,%r9                    # R09 = 00000033
-          andq     $0xFF,%rbx                   # RBX = 00000022
-          andq     $0xFF,%rcx                   # RCX = 00000011
-          movw     0x00(%rax, %r8, 2),%r8w      # convert
-          movw     0x00(%rax, %r9, 2),%r9w
-          movw     0x00(%rax, %rbx, 2),%bx
-          movw     0x00(%rax, %rcx, 2),%cx
-          xorq     %rax,%rax
-          movw     %r8w,0x00(%rdx)              # store result
-          movw     %r9w,0x02(%rdx)
-          movb     $0x20,0x04(%rdx)
-          movw     %bx,0x05(%rdx)
-          movw     %cx,0x07(%rdx)
-          movb     %al,0x09(%rdx)               # trailing zero
-          jmp      XIT5
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і d2str   dword => unformatted hex string   xxxxxxxx                                 іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   dword to convert (only the low dword is converted!)                        іЫ
-          і   RDX   EA target                                                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- RAX   0000 0000                                                                  іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _d2str
-          .def     _d2str; .scl 2; .type 32; .endef
-   _d2str:subq     $0xB8,%rsp
-          leaq     tHEX(%rip),%rax              # EAX = EA LUT
-          nop
-          movq     %rbx,0x90(%esp)
-          movq     %r9,0x98(%esp)
-          movq     %r8,0xA0(%esp)
-          movq     %rdx,0xA8(%esp)
-          movq     %rcx,0xB0(%esp)
-          movl     %ecx,%r8d
-          movl     %ecx,%r9d
-          movl     %ecx,%ebx
-          shrl     $0x18,%r8d
-          shrl     $0x10,%r9d
-          shrl     $0x08,%ebx
-          andq     $0xFF,%r8                    # R08 = 00000044
-          andq     $0xFF,%r9                    # R09 = 00000033
-          andq     $0xFF,%rbx                   # RBX = 00000022
-          andq     $0xFF,%rcx                   # RCX = 00000011
-          movw     0x00(%rax, %r8, 2),%r8w      # convert
-          movw     0x00(%rax, %r9, 2),%r9w
-          movw     0x00(%rax, %rbx, 2),%bx
-          movw     0x00(%rax, %rcx, 2),%cx
-          xorq     %rax,%rax
-          movw     %r8w,0x00(%rdx)              # store result
-          movw     %r9w,0x02(%rdx)
-          movw     %bx,0x04(%rdx)
-          movw     %cx,0x06(%rdx)
-          movb     %al,0x08(%rdx)               # trailing zero
-          jmp      XIT5
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і Q2hex   Convert qword to ASCII-string                                              іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   qword to convert                                                           іЫ
-          і   RDX   EA target                                                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- RAX   0000 0000                                                                  іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _Q2hex
-          .def     _Q2hex; .scl 2; .type 32; .endef
-   _Q2hex:subq     $0xB8,%rsp
-          leaq     tHEX(%rip),%rax              # EAX = EA LUT
-          nop
-          movq     %r10,0x70(%rsp)
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9, 0x98(%rsp)
-          movq     %r8, 0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          movq     %rcx,%r10                    # copy
-          movq     %rcx,%r9
-          movq     %rcx,%r8
-          movq     %rcx,%rbp
-          movq     %rcx,%rsi
-          movq     %rcx,%rdi
-          movq     %rcx,%rbx
-          shrq     $0x38,%r10                   # R10 = 56-63
-          shrq     $0x30,%r9
-          shrq     $0x28,%r8
-          shrq     $0x20,%rbp
-          shrq     $0x18,%rsi
-          shrq     $0x10,%rdi
-          shrq     $0x08,%rbx
-          andq     $0xFF,%r9                    # R09 = 48-55
-          andq     $0xFF,%r8                    # R08 = 40-47
-          andq     $0xFF,%rbp                   # RBP = 32-39
-          andq     $0xFF,%rsi                   # RSI = 24-31
-          andq     $0xFF,%rdi                   # RDI = 16-23
-          andq     $0xFF,%rbx                   # RBX = 08-15
-          andq     $0xFF,%rcx                   # RCX = 00-07
-          movw     0x00(%rax, %r10, 2),%r10w
-          movw     0x00(%rax, %r9,  2),%r9w
-          movw     0x00(%rax, %r8,  2),%r8w
-          movw     0x00(%rax, %rbp, 2),%bp
-          movw     0x00(%rax, %rsi, 2),%si
-          movw     0x00(%rax, %rdi, 2),%di
-          movw     0x00(%rax, %rbx, 2),%bx
-          movw     0x00(%rax, %rcx, 2),%cx
-          xorq     %rax,%rax
-          movw     %r10w,0x00(%edx)
-          movw     %r9w,0x02(%edx)
-          movb     $0x20,0x04(%edx)
-          movw     %r8w,0x05(%edx)
-          movw     %bp,0x07(%edx)
-          movb     $0x20,0x09(%edx)
-          movw     %si,0x0A(%edx)
-          movw     %di,0x0C(%edx)
-          movb     $0x20,0x0E(%edx)
-          movw     %bx,0x0F(%edx)
-          movw     %cx,0x11(%edx)
-          movb     %al,0x13(%edx)
-          jmp      XIT9
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і O2hex   Convert oword to ASCII-string                                              іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   EA source (location where the oword is stored)                             іЫ
-          і   RDX   EA target                                                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- RAX   0000 0000                                                                  іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _O2hex
-          .def     _O2hex; .scl 2; .type 32; .endef
-   _O2hex:subq     $0xB8,%rsp
-          leaq     tHEX(%rip),%rax              # EAX = EA LUT
-          nop
-          movq     %r11,0x68(%rsp)
-          movq     %r10,0x70(%rsp)
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9,0x98(%rsp)
-          movq     %r8,0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          movzb    0x00(%rcx),%r8               # R08 = 7F...78
-          movzb    0x01(%rcx),%r9               # R09 = 77...70
-          movzb    0x02(%rcx),%rbx              # RBX = 6F...68
-          movzb    0x03(%rcx),%rdi              # RDI = 67...60
-          movzb    0x04(%rcx),%rsi              # RSI = 5F...58
-          movzb    0x05(%rcx),%rbp              # RBP = 57...50
-          movzb    0x06(%rcx),%r10              # R10 = 4F...48
-          movzb    0x07(%rcx),%r11              # R11 = 47...40
-          movw     0x00(%rax, %r8,  2),%r8w     # convert
-          movw     0x00(%rax, %r9,  2),%r9w
-          movw     0x00(%rax, %rbx, 2),%bx
-          movw     0x00(%rax, %rdi, 2),%di
-          movw     0x00(%rax, %rsi, 2),%si
-          movw     0x00(%rax, %rbp, 2),%bp
-          movw     0x00(%rax, %r10, 2),%r10w
-          movw     0x00(%rax, %r11, 2),%r11w
-          movw     %r8w, 0x00(%edx)
-          movw     %r9w, 0x02(%edx)
-          movb     $0x20,0x04(%edx)
-          movw     %bx,  0x05(%edx)
-          movw     %di,  0x07(%edx)
-          movb     $0x20,0x09(%edx)
-          movw     %si,  0x0A(%edx)
-          movw     %bp,  0x0C(%edx)
-          movb     $0x20,0x0E(%edx)
-          movw     %r10w,0x0F(%edx)
-          movw     %r11w,0x11(%edx)
-          movb     $0x20,0x13(%edx)
-          movzb    0x08(%rcx),%r8               # R08 = 3F...38
-          movzb    0x09(%rcx),%r9               # R09 = 37...30
-          movzb    0x0A(%rcx),%rbx              # RBX = 2F...28
-          movzb    0x0B(%rcx),%rdi              # RDI = 27...20
-          movzb    0x0C(%rcx),%rsi              # RSI = 1F...18
-          movzb    0x0D(%rcx),%rbp              # RBP = 17...10
-          movzb    0x0E(%rcx),%r10              # R10 = 0F...08
-          movzb    0x0F(%rcx),%r11              # R11 = 07...00
-          movw     0x00(%rax, %r8, 2),%r8w      # convert
-          movw     0x00(%rax, %r9, 2),%r9w
-          movw     0x00(%rax, %rbx, 2),%bx
-          movw     0x00(%rax, %rdi, 2),%di
-          movw     0x00(%rax, %rsi, 2),%si
-          movw     0x00(%rax, %rbp, 2),%bp
-          movw     0x00(%rax, %r10, 2),%r10w
-          movw     0x00(%rax, %r11, 2),%r11w
-          xorq     %rax,%rax
-          movw     %r8w, 0x14(%edx)
-          movw     %r9w, 0x16(%edx)
-          movb     $0x20,0x18(%edx)
-          movw     %bx,  0x19(%edx)
-          movw     %di,  0x1B(%edx)
-          movb     $0x20,0x1D(%edx)
-          movw     %si,  0x1E(%edx)
-          movw     %bp,  0x20(%edx)
-          movb     $0x20,0x22(%edx)
-          movw     %r10w,0x23(%edx)
-          movw     %r11w,0x25(%edx)
-          movb     %al,  0x27(%edx)
-          jmp      XITA
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і hex2D   hexadecimal ASCII string -> DWORD                                          іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   EA source                                                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- RAX   dword (8 digits)                                                           іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і Signs and surplus digits are ignored. Conversion automatically stops after the 8th іЫ
-          і valid digit was processed. Surplus digits are ignored, missing digits set to zero. іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _hex2D
-          .def     _hex2D; .scl 2; .type 32; .endef
-   _hex2D:movl     $0x08,%eax                   # 8 digits
-          jmp      0f
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і hex2Q   hexadecimal ASCII string -> QWORD                                          іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   EA source                                                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- RAX   qword (16 digits)                                                          іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і Signs and surplus digits are ignored. Conversion automatically stops when the 16th іЫ
-          і valid digit was processed. Surplus digits are ignored, missing digits set to zero. іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _hex2Q
-          .def     _hex2Q; .scl 2; .type 32; .endef
-   _hex2Q:movl     $0x10,%eax                   # 16 digits
-        0:subq     $0xB8,%rsp
-          prefetch 0x00(%rcx)
-          nop
-          movq     %r12,0x60(%rsp)
-          movq     %r11,0x68(%rsp)
-          movq     %r10,0x70(%rsp)
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9, 0x98(%rsp)
-          movq     %r8, 0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          movl     %eax,%r9d                    # R09 = digit counter
-          leaq     hCNV(%rip),%r8               # R08 = EA LUT
-          xorl     %eax,%eax                    # RAX = result
-        1:movzb    0x00(%rcx),%ebx              # get 4 chars
-          movzb    0x01(%rcx),%edx
-          movzb    0x02(%rcx),%edi
-          movzb    0x03(%rcx),%esi
-          movzb    0x00(%r8, %rbx, 1),%ebp      # convert
-          movzb    0x00(%r8, %rdx, 1),%r10d
-          movzb    0x00(%r8, %rdi, 1),%r11d
-          movzb    0x00(%r8, %rsi, 1),%r12d
-          addq     $0x04,%rcx                   # next 4 chars
-          testl    %ebx, %ebx                   # end?
-          je       XITB
-          cmpl     $0x0F,%ebp                   # digit?
-          ja       2f
-          shlq     $0x04,%rax                   # next digit
-          addq     %rbp, %rax                   # add digit
-          decl     %r9d                         # digit_cnt--
-          je       XITB
-        2:testl    %edx,%edx                    # end?
-          je       XITB
-          cmpl     $0x0F,%r10d                  # digit?
-          ja       3f
-          shlq     $0x04,%rax                   # next digit
-          addq     %r10,%rax                    # add digit
-          decl     %r9d                         # digit_cnt--
-          je       XITB
-        3:testl    %edi,%edi                    # end?
-          je       XITB
-          cmpl     $0x0F,%r11d                  # digit?
-          ja       4f
-          shlq     $0x04,%rax                   # next digit
-          addq     %r11,%rax                    # add digit
-          decl     %r9d                         # digit_cnt--
-          je       XITB
-        4:testl    %esi,%esi                    # end?
-          je       XITB
-          cmpl     $0x0F,%r12d                  # digit?
-          ja       1b
-          shlq     $0x04,%rax                   # next digit
-          addq     %r12,%rax                    # add digit
-          decl     %r9d                         # digit_cnt--
-          je       XITB
-          jmp      1b
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і                                   D E C I M A L                                    іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і D2dec   Convert dword to decimal string                                            іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   DWORD to convert                                                           іЫ
-          і   RDX   EA target                                                                  іЫ
-          і   R08   --sd                                                                       іЫ
-          і           іАДДДДДД digits    (0x01...0x0A)                                         іЫ
-          і           АДДДДДДД 00 unsigned                                                     іЫ
-          і                    xx signed                                                       іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- EAX   always zero                                                                іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і MINIMUM BUFFER SIZE: 10 digits + 3 format + 2 sign + zero = 16 byte                іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _D2dec
-          .def     _D2dec; .scl 2; .type 32; .endef
-   _D2dec:subq     $0xB8,%rsp
-          prefetch 0x00(%rdx)
-          movl     $0x2020202F,%eax             # RAX = digit  9
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9, 0x98(%rsp)
-          movq     %r8, 0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          movl     $0x202F2F2F,%ebx             # RBX = digits 8-6
-          movl     $0x202F2F2F,%edi             # RDI = digits 5-3
-          movl     $0x00302F2F,%esi             # RSI = digits 2-0
-          testl    $0xFF00,%r8d                 # unsigned?
-          je       0f
-          testl    %ecx,%ecx
-          jns      0f
-          negl     %ecx                         # RCX = 2's complement
-          addl     $0x000D0000,%eax             # set sign
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДї
-          і convert              іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-        0:incl     %eax                         # digit 9++
-          subl     $0x3B9ACA00,%ecx             # RCX - 10e09
-          jae      0b
-          addl     $0x3B9ACA00,%ecx             # RCX + 10e09 (one sub too much!)
-          rorl     $0x10,%eax                   # sign first
-        1:incl     %ebx                         # digit 8++
-          subl     $0x05F5E100,%ecx             # RCX - 10e08
-          jae      1b
-          rorl     $0x08,%ebx                   # digit 7
-          addl     $0x05F5E100,%ecx             # RCX + 10e08 (one sub too much!)
-        2:incl     %ebx                         # digit 7++
-          subl     $0x00989680,%ecx             # RCX - 10e07
-          jae      2b
-          rorl     $0x08,%ebx                   # digit 6
-          addl     $0x00989680,%ecx             # RCX + 10e07 (one sub too much!)
-        3:incl     %ebx                         # digit 6++
-          subl     $0x000F4240,%ecx             # RCX - 10e06
-          jae      3b
-          rorl     $0x10,%ebx                   # end with blank
-          addl     $0x000F4240,%ecx             # RCX + 10e06 (one sub too much!)
-        4:incl     %edi                         # digit 5++
-          subl     $0x000186A0,%ecx             # RCX - 10e05
-          jae      4b
-          rorl     $0x08,%edi                   # digit 4
-          addl     $0x000186A0,%ecx             # RCX + 10e05 (one sub too much!)
-        5:incl     %edi                         # digit 4++
-          subl     $0x2710,%ecx                 # RCX - 10e04
-          jae      5b
-          rorl     $0x08,%edi                   # digit 3
-          addl     $0x2710,%ecx                 # RCX + 10e04 (one sub too much!)
-        6:incl     %edi                         # digit 3++
-          subl     $0x03E8,%ecx                 # RCX - 10e03
-          jae      6b
-          rorl     $0x10,%edi                   # end with blank
-          addl     $0x03E8,%ecx                 # RCX + 10e03 (one sub too much!)
-        7:incl     %esi                         # digit 2++
-          subl     $0x64,%ecx                   # RCX - 10e02
-          jae      7b
-          rorl     $0x08,%esi                   # digit 1
-          addl     $0x64,%ecx                   # RCX + 10e02 (one sub too much!)
-        8:incl     %esi                         # digit 1++
-          subl     $0x0A,%ecx                   # RCX - 10e01
-          jae      8b
-          rorl     $0x08,%esi                   # digit 0
-          addl     $0x0A,%ecx                   # RCX + 10e01 (one sub too much!)
-          addl     %ecx,%esi                    # digit 0
-          rorl     $0x10,%esi                   # trailing zero
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДї
-          і blank leading zeroes іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          testl    $0x000F0000,%eax
-          jne      9f
-          subl     $0x00100000,%eax
-          testl    $0x0F,%ebx
-          jne      9f
-          subl     $0x10,%ebx
-          testl    $0x0F00,%ebx
-          jne      9f
-          subl     $0x1000,%ebx
-          testl    $0x000F0000,%ebx
-          jne      9f
-          subl     $0x00100000,%ebx
-          testl    $0x0F,%edi
-          jne      9f
-          subl     $0x10,%edi
-          testl    $0x0F00,%edi
-          jne      9f
-          subl     $0x1000,%edi
-          testl    $0x000F0000,%edi
-          jne      9f
-          subl     $0x00100000,%edi
-          testl    $0x0F,%esi
-          jne      9f
-          subl     $0x10,%esi
-          testl    $0x0F00,%esi
-          jne      9f
-          subl     $0x1000,%esi
-        9:movl     %eax,0x00(%rdx)
-          movl     %ebx,0x04(%rdx)
-          movl     %edi,0x08(%rdx)
-          movl     %esi,0x0C(%rdx)
-          jmp      XIT7
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і Q2dec   Convert qword to decimal string                                            іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   QWORD to convert                                                           іЫ
-          і   RDX   EA target                                                                  іЫ
-          і   R08   --sd                                                                       іЫ
-          і           іАДДДДДД digits    (0x01...0x14)                                         іЫ
-          і           АДДДДДДД 00 unsigned                                                     іЫ
-          і                    xx signed                                                       іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- EAX   always zero                                                                іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і MINIMUM BUFFER SIZE: 20 digits + 6 format + 1 sign + zero = 28 byte                іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _Q2dec
-          .def     _Q2dec; .scl 2; .type 32; .endef
-   _Q2dec:subq     $0xB8,%rsp
-          prefetch 0x00(%rdx)
-          movl     $0x20202F30,%eax             # RAX = digit  19-18
-          movq     %r12,0x60(%rsp)
-          movq     %r11,0x68(%rsp)
-          movq     %r10,0x70(%rsp)
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9, 0x98(%rsp)
-          movq     %r8, 0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          movl     $0x20202F30,%eax             # RAX = digit  19-18
-          movl     $0x202F2F2F,%ebx             # RBX = digits 17-15
-          movl     $0x202F2F2F,%edi             # RDI = digits 14-12
-          movl     $0x202F2F2F,%esi             # RSI = digits 11-09
-          movl     $0x202F2F2F,%r10d            # R10 = digits 08-06
-          movl     $0x202F2F2F,%r11d            # R11 = digits 05-03
-          movl     $0x00302F2F,%r12d            # R12 = digits 02-00
-          movq     $0x8AC7230489E80000,%rbp     # RBP = 10e19
-          movq     $0x0DE0B6B3A7640000,%r9      # R09 = 10e18
-          testq    %rcx,%rcx
-          jns      1f
-          testl    $0xFF00,%r8d                 # unsigned?
-          je       0f
-          addl     $0x0D000000,%eax             # set sign
-          negq     %rcx                         # RCX = 2's complement
-          jmp      1f
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДї
-          і convert              іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-        0:cmpq     %rbp,%rcx
-          js       1f
-          incl     %eax                         # digit 19++
-          subq     %rbp,%rcx                    # RCX - 10e19
-        1:rorl     $0x08,%eax                   # digit 18
-        2:incl     %eax                         # digit 18++
-          subq     %r9,%rcx                     # RCX - 10e18
-          jae      2b
-          addq     %r9,%rcx                     # RCX + 10e18 (one sub too much!)
-          rorl     $0x10,%eax                   # sign first
-          movq     $0x016345785D8A0000,%rbp     # RBP = 10e17
-          movq     $0x002386F26FC10000,%r8      # R08 = 10e16
-          movq     $0x00038D7EA4C68000,%r9      # R09 = 10e15
-        3:incl     %ebx                         # digit 17++
-          subq     %rbp,%rcx                    # RCX - 10e17
-          jae      3b
-          rorl     $0x08,%ebx                   # digit 16
-          addq     %rbp,%rcx                    # RCX + 10e17 (one sub too much!)
-        4:incl     %ebx                         # digit 16++
-          subq     %r8,%rcx                     # RCX - 10e16
-          jae      4b
-          rorl     $0x08,%ebx                   # digit 15
-          addq     %r8,%rcx                     # RCX + 10e16 (one sub too much!)
-        5:incl     %ebx                         # digit 15++
-          subq     %r9,%rcx                     # RCX - 10e15
-          jae      5b
-          rorl     $0x10,%ebx                   # end with blank
-          addq     %r9,%rcx                     # RCX + 10e15 (one sub too much!)
-          movq     $0x00005AF3107A4000,%rbp     # RBP = 10e14
-          movq     $0x000009184E72A000,%r8      # R08 = 10e13
-          movq     $0x000000E8D4A51000,%r9      # R09 = 10e12
-        6:incl     %edi                         # digit 14++
-          subq     %rbp,%rcx                    # RCX - 10e14
-          jae      6b
-          rorl     $0x08,%edi                   # digit 13
-          addq     %rbp,%rcx                    # RCX + 10e14 (one sub too much!)
-        7:incl     %edi                         # digit 13++
-          subq     %r8,%rcx                     # RCX - 10e13
-          jae      7b
-          rorl     $0x08,%edi                   # digit 12
-          addq     %r8,%rcx                     # RCX + 10e13 (one sub too much!)
-        8:incl     %edi                         # digit 12++
-          subq     %r9,%rcx                     # RCX - 10e12
-          jae      8b
-          rorl     $0x10,%edi                   # end with blank
-          addq     %r9,%rcx                     # RCX + 10e12 (one sub too much!)
-          movq     $0x000000174876E800,%rbp     # RBP = 10e11
-          movq     $0x00000002540BE400,%r8      # R08 = 10e10
-        9:incl     %esi                         # digit 11++
-          subq     %rbp,%rcx                    # RCX - 10e11
-          jae      9b
-          rorl     $0x08,%esi                   # digit 10
-          addq     %rbp,%rcx                    # RCX + 10e11 (one sub too much!)
-        0:incl     %esi                         # digit 10++
-          subq     %r8,%rcx                     # RCX - 10e10
-          jae      0b
-          rorl     $0x08,%esi                   # digit 09
-          addq     %r8,%rcx                     # RCX + 10e10 (one sub too much!)
-        1:incl     %esi                         # digit 09++
-          subq     $0x3B9ACA00,%rcx             # RCX - 10e09 (RCX is DD now!)
-          jae      1b
-          rorl     $0x10,%esi                   # end with blank
-          addq     $0x3B9ACA00,%rcx             # RCX + 10e09 (one sub too much!)
-        2:incl     %r10d                        # digit 08++
-          subl     $0x05F5E100,%ecx             # RCX - 10e08
-          jae      2b
-          rorl     $0x08,%r10d                  # digit 07
-          addl     $0x05F5E100,%ecx             # RCX + 10e08 (one sub too much!)
-        3:incl     %r10d                        # digit 07++
-          subl     $0x00989680,%ecx             # RCX - 10e07
-          jae      3b
-          rorl     $0x08,%r10d                  # digit 06
-          addl     $0x00989680,%ecx             # RCX + 10e07 (one sub too much!)
-        4:incl     %r10d                        # digit 06++
-          subl     $0x000F4240,%ecx             # RCX - 10e06
-          jae      4b
-          rorl     $0x10,%r10d                  # end with blank
-          addl     $0x000F4240,%ecx             # RCX + 10e06 (one sub too much!)
-        5:incl     %r11d                        # digit 05++
-          subl     $0x000186A0,%ecx             # RCX - 10e05
-          jae      5b
-          rorl     $0x08,%r11d                  # digit 04
-          addl     $0x000186A0,%ecx             # RCX + 10e05 (one sub too much!)
-        6:incl     %r11d                        # digit 04++
-          subl     $0x2710,%ecx                 # RCX - 10e04
-          jae      6b
-          rorl     $0x08,%r11d                  # digit 03
-          addl     $0x2710,%ecx                 # RCX + 10e04 (one sub too much!)
-        7:incl     %r11d                        # digit 03++
-          subl     $0x03E8,%ecx                 # RCX - 10e03
-          jae      7b
-          rorl     $0x10,%r11d                  # end with blank
-          addl     $0x03E8,%ecx                 # RCX + 10e03 (one sub too much!)
-        8:incl     %r12d                        # digit 02++
-          subl     $0x64,%ecx                   # RCX - 10e02
-          jae      8b
-          rorl     $0x08,%r12d                  # digit 01
-          addl     $0x64,%ecx                   # RCX + 10e02 (one sub too much!)
-        9:incl     %r12d                        # digit 01++
-          subl     $0x0A,%ecx                   # RCX - 10e01
-          jae      9b
-          rorl     $0x08,%r12d                  # digit 00
-          addl     $0x0A,%ecx                   # RCX + 10e01 (one sub too much!)
-          addl     %ecx,%r12d                   # digit 00
-          rorl     $0x10,%r12d                  # trailing zero
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДї
-          і blank leading zeroes іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          testl    $0x0F00,%eax
-          jne      0f
-          subl     $0x1000,%eax
-          testl    $0x000F0000,%eax
-          jne      0f
-          subl     $0x00100000,%eax
-          testl    $0x0F,%ebx
-          jne      0f
-          subl     $0x10,%ebx
-          testl    $0x0F00,%ebx
-          jne      0f
-          subl     $0x1000,%ebx
-          testl    $0x000F0000,%ebx
-          jne      0f
-          subl     $0x00100000,%ebx
-          testl    $0x0F,%edi
-          jne      0f
-          subl     $0x10,%edi
-          testl    $0x0F00,%edi
-          jne      0f
-          subl     $0x1000,%edi
-          testl    $0x000F0000,%edi
-          jne      0f
-          subl     $0x00100000,%edi
-          testl    $0x0F,%esi
-          jne      0f
-          subl     $0x10,%esi
-          testl    $0x0F00,%esi
-          jne      0f
-          subl     $0x1000,%esi
-          testl    $0x000F0000,%esi
-          jne      0f
-          subl     $0x00100000,%esi
-          testl    $0x0F,%r10d
-          jne      0f
-          subl     $0x10,%r10d
-          testl    $0x0F00,%r10d
-          jne      0f
-          subl     $0x1000,%r10d
-          testl    $0x000F0000,%r10d
-          jne      0f
-          subl     $0x00100000,%r10d
-          testl    $0x0F,%r11d
-          jne      0f
-          subl     $0x10,%r11d
-          testl    $0x0F00,%r11d
-          jne      0f
-          subl     $0x1000,%r11d
-          testl    $0x000F0000,%r11d
-          jne      0f
-          subl     $0x00100000,%r11d
-          testl    $0x0F,%r12d
-          jne      0f
-          subl     $0x10,%r12d
-          testl    $0x0F00,%r12d
-          jne      0f
-          subl     $0x1000,%r12d
-        0:
-/*
-          movl     0xA0(%rsp),%r8d
-          leaq     0x1C(%rdx),%rbp
-          leaq     0x02(%rdx),%r9
-          movl     $0x1A,     %ecx
-          movl     $0x19,     %r9d
-          addl     $0x06,     %r8d
-*/
-          movl     %eax, 0x00(%rdx)
-          movl     %ebx, 0x04(%rdx)
-          movl     %edi, 0x08(%rdx)
-          movl     %esi, 0x0C(%rdx)
-          movl     %r10d,0x10(%rdx)
-          movl     %r11d,0x14(%rdx)
-          movq     %r12, 0x18(%rdx)
-/*
-          testl    $0xFF00,   %r8d
-          cmovne   %r9d,      %ecx
-          andl     $0xFF,     %r8d
-          cmove    %ecx,      %r8d
-          cmpl     %ecx,      %r8d
-          cmova    %ecx,      %r8d
-          je       XITB
-          movl     %r8,       %ecx
-          subq     %r8,       %rbp
-        1:subl     $0x03,     %ecx
-          jbe      2f
-          decl     %rbp
-          jmp      1b
-        2:movb     0x00(%rbp),%cl
-          movb     %cl,0x00(%r9)
-          decl     %r8d
-          jne      2b
-*/
-          jmp      XITB
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і dec2D   decimal ASCII string -> DWORD                                              іЫ
-          і dec2Q   decimal ASCII string -> QWORD                                              іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   EA source                                                                  іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- RAX   qword (signed if leading "-")                                              іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і dec2*() scans for the string end and works backwards. The last 10 or 20 digits are іЫ
-          і taken as parts of a 64 bit number. Surplus digits are ignored, one leading sign is іЫ
-          і recognised. If a sign was detected, the dword is negated before returning it.      іЫ
-          і                                                                                    іЫ
-          і CAUTION: Only unsigned numbers can have 20 digits, while signed numbers always are іЫ
-          і          19 or less digits wide. Putting a sign in front of a 20 digit number will іЫ
-          і          emit an erroneouos, twice negated result.                                 іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _dec2D
-          .def     _dec2D; .scl 2; .type 32; .endef
-          .globl   _dec2Q
-          .def     _dec2Q; .scl 2; .type 32; .endef
-   _dec2D:movl     $0x0A,%eax
-          jmp      0f
-          .p2align 4,,15
-   _dec2Q:movl     $0x14,%eax
-        0:subq     $0xB8,%rsp
-          prefetch 0x00(%rcx)
-          nop
-          movq     %r10,0x70(%rsp)
-          movq     %rbp,0x78(%rsp)
-          movq     %rsi,0x80(%rsp)
-          movq     %rdi,0x88(%rsp)
-          movq     %rbx,0x90(%rsp)
-          movq     %r9, 0x98(%rsp)
-          movq     %r8, 0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          movq     %rcx,%rdi                    # RDI = EA string
-          xorl     %ebx,%ebx                    # RBX = result
-          xorq     %r10,%r10                    # R10 = sign
-          negq     %rcx                         # RCX = -(EA string)
-          movl     $0xFF,%r9d
-        0:movq     0x00(%rdi),%r8               # search string end
-          movl     $0x08,%edx
-        1:testq    %r9,%r8                      # test LSB
-          je       2f
-          incq     %rdi                         # EA++
-          shrq     $0x08,%r8                    # next byte
-          decl     %edx
-          jne      1b
-          jmp      0b
-        2:addq     %rdi,%rcx                    # RCX = string size
-          movl     $0x01,%ebp                   # EBP = pow10
-          movl     %eax,%r8d                    # R08 = digit_cnt
-          decq     %rdi                         # RDI = last digit
-        3:decl     %ecx                         # size--
-          js       5f
-          movzb    0x00(%rdi),%eax              # get byte
-          decq     %rdi
-          cmpl     $0x2B,%eax                   # sign?
-          jne      4f
-          incq     %r10                         # set sign flag
-          jmp      3b
-        4:subl     $0x30,%eax                   # convert
-          js       3b
-          cmpl     $0x09,%eax
-          ja       3b
-          mulq     %rbp                         # digit * pow10
-          leaq     0x00(%rbp, %rbp, 4),%rbp     # EBP * 5
-          addq     %rax,%rbx                    # result + n*pow10
-          shlq     %rbp                         # EBP = next pow10
-          decq     %r8                          # digit_cnt--
-          jne      3b
-        5:movq     %rbx,%rax                    # EAX = result
-          testq    %r10,%r10                    # sign detected?
-          je       XIT9
-          negq     %rax                         # negate
-          jmp      XIT9
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і                            M I S C E L L A N E O U O S                             іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і prime   test if input is a prime number                                            іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і-> RCX   QWORD to check                                                             іЫ
-          ГДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДґЫ
-          і<- RAX   0000 0000 0000 0000   no prime                                             іЫ
-          і         0000 0000 0000 0001   is prime                                             іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-          .globl   _prime
-          .def     _prime; .scl 2; .type 32; .endef
-   _prime:subq     0xB8,%rsp
-          movq     %rcx,%rax                    # RAX = number
-          nop
-          movq     %r8, 0xA0(%rsp)
-          movq     %rdx,0xA8(%rsp)
-          movq     %rcx,0xB0(%rsp)
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДї
-          і filter 1, 2 and 3      іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          cmpq     $0x01,%rax
-          jbe      NoPrm                        # 1, no
-          cmpq     $0x04,%rax
-          jb       IsPrm                        # first prime numbers
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДї
-          і prepare                іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          movq     %rax,%r8                     # RBX = number (test)
-          movq     %rax,%rcx                    # RCX = number (storage)
-          xorq     %rdx,%rdx
-          shrq     %r8                          # start with half
-          ja       NoPrm                        # is even
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДї
-          і check, if prime        іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-        0:divq     %r8
-          testq    %rdx,%rdx                    # remainder = 0?
-          je       NoPrm
-          subq     $0x02,%r8                    # skip even numbers
-          movq     %rcx,%rax                    # restore number
-          xorq     %rdx,%rdx
-          cmpq     $0x03,%r8
-          jae      0b                           # one more try...
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДї
-          і set return value       іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-    IsPrm:movl     $0x01,%eax
-          jmp      XIT3
-    NoPrm:xorl     %eax,%eax
-          jmp      XIT3
-          /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          і                               C O M M O N   E X I T                                іЫ
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
-          */
-          .p2align 4,,15
-     XITB:movq     0x60(%rsp),%r12
-     XITA:movq     0x68(%rsp),%r11
-     XIT9:movq     0x70(%rsp),%r10
-          movq     0x78(%rsp),%rbp
-     XIT7:movq     0x80(%rsp),%rsi
-          movq     0x88(%rsp),%rdi
-     XIT5:movq     0x90(%rsp),%rbx
-     XIT4:movq     0x98(%rsp),%r9
-     XIT3:movq     0xA0(%rsp),%r8
-          movq     0xA8(%rsp),%rdx
-     XIT1:movq     0xB0(%rsp),%rcx
-          addq     $0xB8,%rsp
+          .p2align   4,,15
+          .globl     _B2hex
+          .def       _B2hex; .scl 2; .type 32; .endef
+   _B2hex:movzb      %cl,                 %eax
+          movq       %rbx,                0x08(%rsp)      # use Red Zone...
+          movq       %rcx,                0x10(%rsp)
+          movq       %rdi,                0x18(%rsp)
+          andl       $0x0F,               %ecx            # RCX = 000L
+          shrl       $0x04,               %eax            # RAX = 000H
+          addl       $0x30,               %ecx            # RAX = 003H
+          addl       $0x30,               %eax            # ECX = 003L
+          shll       $0x08,               %ecx            # RCX = 3L00
+          leal       0x07(%eax),          %ebx            # RBX = 004H
+          leal       0x0700(%ecx),        %edi            # RDX = 4L00
+          cmpl       $0x39,               %eax            # A...F?
+          cmova      %ebx,                %eax            # => use
+          cmpl       $0x3900,             %ecx            # A...F?
+          cmova      %edi,                %ecx            # => use
+          movq       0x08(%rsp),          %rbx
+          addl       %ecx,                %eax            # RAX = result
+          movq       0x18(%rsp),          %rdi
+          movl       %eax,                0x00(%rdx)      # store result
+          movq       0x10(%rsp),          %rcx
           ret
           /*
-          ЪДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДї
-          АДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДЩЫ
-            ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            W2hex    word => hexadecimal string
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   word to convert (only the lowest word is converted!)
+               RDX   EA target
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   0000 0000 0000 0000
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            BUFFER   0               1               2
+                     0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+
+                     0123zzzz
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            average latency = 9 clock cycles
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           */
-          .comm    _BNR, 8, 3
+          .p2align   4,,15
+          .globl     _W2hex
+          .def       _W2hex; .scl 2; .type 32; .endef
+   _W2hex:movq       _BNR(%rip),          %rax            # RAX = BNR
+          rolw       $0x08,               %cx             # RCX = [00LH]
+          subq       $0xF8,               %rsp
+          pxor       %xmm0,               %xmm0           # XM0 = 0
+          movdqa     %xmm4,               0xD0(%rsp)
+          movdqa     %xmm5,               0xE0(%rsp)
+          pinsrw     $0x00,         %ecx, %xmm0           # XM0 = word to convert
+          movdqa     CVT_30(%rax),        %xmm2           # XM2 = 303030...30
+          movdqa     CVT_09(%rax),        %xmm3           # XM3 = 090909...09
+          movdqa     %xmm0,               %xmm1           # XM1 = full nibbles
+          movdqa     CVT_0F(%rax),        %xmm4           # XM4 = 0F0F0F...0F
+          psrlq      $0x04,               %xmm1           # XM1 = high nibbles
+          movdqa     CVT_07(%rax),        %xmm5           # XM5 = 070707...07
+          punpcklbw  %xmm0,               %xmm1           # interleave LHLHLHLH
+          pand       %xmm4,               %xmm1           # reduce to nibbles
+          movdqa     %xmm1,               %xmm0           # copy for correction
+          pcmpgtb    %xmm3,               %xmm1           # mask A...Fs => FFs
+          paddb      %xmm2,               %xmm0           # convert
+          movdqa     0xD0(%rsp),          %xmm4
+          pand       %xmm5,               %xmm1           # reduce FFs to 07
+          movdqa     0xE0(%rsp),          %xmm5
+          paddb      %xmm1,               %xmm0           # A...F correction
+          xorl       %eax,                %eax            # RAX = 0
+          rolw       $0x08,               %cx             # RCX = [00HL]
+          movd       %xmm0,               0x00(%rdx)      # store
+          movl       $0x00,               0x04(%rdx)
+          addq       $0xF8,               %rsp
+          ret
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            D2hex    dword => formatted hex string   xxxx xxxx
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   dword to convert (only the low dword is converted!)
+               RDX   EA target
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   0000 0000 0000 0000
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            BUFFER   0               1               2
+                     0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+
+                     0123 4567zzzzzzzzzzzz
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            average latency = 11 clock cycles
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align   4,,15
+          .globl     _D2hex
+          .def       _D2hex; .scl 2; .type 32; .endef
+   _D2hex:subq       $0xF8,               %rsp
+          movq       _BNR(%rip),          %rax            # RAX = BNR
+          bswap      %ecx                                 # RCX = [3210]
+          movdqa     %xmm4,               0xD0(%rsp)
+          movdqa     %xmm5,               0xE0(%rsp)
+          movd       %ecx,                %xmm0           # XM0 = full nibbles
+          movdqa     CVT_30(%rax),        %xmm2           # XM2 = 303030...30
+          movdqa     CVT_09(%rax),        %xmm3           # XM3 = 090909...09
+          movdqa     %xmm0,               %xmm1           # XM1 = full nibbles
+          movdqa     CVT_0F(%rax),        %xmm4           # XM4 = 0F0F0F...0F
+          psrlq      $0x04,               %xmm1           # XM1 = high nibbles
+          movdqa     CVT_07(%rax),        %xmm5           # XM5 = 070707...07
+          punpcklbw  %xmm0,               %xmm1           # interleave LHLHLHLH
+          pand       %xmm4,               %xmm1           # reduce to nibbles
+          movdqa     %xmm1,               %xmm0           # copy for correction
+          pcmpgtb    %xmm3,               %xmm1           # mask A...Fs => FFs
+          paddb      %xmm2,               %xmm0           # convert
+          pand       %xmm5,               %xmm1           # reduce FFs to 07
+          paddb      %xmm1,               %xmm0           # A...F correction
+          movdqa     0xD0(%rsp),          %xmm4
+          movq       %xmm0,               %xmm1           # XM1 = zzzzzzzz76543210
+          movdqa     0xE0(%rsp),          %xmm5
+          psrldq     $0x04,               %xmm1           # XM1 = zzzzzzzzzzzz7654
+          movd       %xmm0,               0x00(%rdx)      # store 0123
+          movb       $0x20,               0x04(%rdx)      # store blank
+          movdqu     %xmm1,               0x05(%rdx)      # store 4567zzzzzzzzzzzz
+          bswap      %ecx                                 # RCX = [0123]
+          xorl       %eax,                %eax            # RAX = 0
+          addq       $0xF8,               %rsp
+          ret
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            d2str    dword => unformatted hex string   HHHHHHHHzzzzzzzz
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   qword to convert (only the low dword is converted!)
+               RDX   EA target
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   0000 0000
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            BUFFER   0               1               2
+                     0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+
+                     01234567zzzzzzzz
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            average latency ~ 8 clock cycles
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align   4,,15
+          .globl     _d2str
+          .def       _d2str; .scl 2; .type 32; .endef
+   _d2str:subq       $0xF8,               %rsp
+          movq       _BNR(%rip),          %rax            # RAX = BNR
+          bswap      %ecx                                 # RCX = [3210]
+          movdqa     %xmm4,               0xD0(%rsp)
+          movdqa     %xmm5,               0xE0(%rsp)
+          movd       %ecx,                %xmm0           # XM0 = full nibbles
+          movdqa     CVT_09(%rax),        %xmm3           # XM3 = 090909...09
+          movdqa     %xmm0,               %xmm1           # XM1 = full nibbles
+          movdqa     CVT_0F(%rax),        %xmm4           # XM4 = 0F0F0F...0F
+          psrlq      $0x04,               %xmm1           # XM1 = high nibbles
+          movdqa     CVT_07(%rax),        %xmm5           # XM5 = 070707...07
+          punpcklbw  %xmm0,               %xmm1           # interleave LHLHLHLH
+          movdqa     CVT_30(%rax),        %xmm2           # XM2 = 303030...30
+          leaq       CVTCUT(%rax),        %rax            # RAX = CVTCUT
+          pand       %xmm4,               %xmm1           # reduce to nibbles
+          movdqa     %xmm1,               %xmm0           # copy for correction
+          pcmpgtb    %xmm3,               %xmm1           # mask A...Fs => FFs
+          paddb      %xmm2,               %xmm0           # convert
+          pand       %xmm5,               %xmm1           # reduce FFs to 07
+          movdqa     0xD0(%rsp),          %xmm4
+          paddb      %xmm1,               %xmm0           # A...F correction
+          movdqa     0xE0(%rsp),          %xmm5
+          pand       0x80(%rax),          %xmm0           # clear upper half
+          bswap      %ecx                                 # RCX = [0123]
+          xorl       %eax,                %eax            # RAX = 0
+          movdqu     %xmm0,               0x00(%rdx)      # store DQ (upper half is 3030...30)
+          addq       $0xF8,               %rsp
+          ret
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Q2hex    Convert qword to ASCII-string
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   qword to convert
+               RDX   EA target
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   0000 0000 0000 0000
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            To simplify the formatting process, which took more clocks than the conversion it-
+            self, quadwords now are formatted in two groups of 8 digits, representng the upper
+            and lower doubleword of the converted quadword (01234567 89ABCDEF).
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            BUFFER   0               1               2
+                     0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+
+                     01234567 89ABCDEFzzzzzzzzzzzzzzz
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            average latency = 11 clock cycles
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align   4,,15
+          .globl     _Q2hex
+          .def       _Q2hex; .scl 2; .type 32; .endef
+   _Q2hex:subq       $0xF8,               %rsp
+          movq       _BNR(%rip),          %rax            # RAX = BNR
+          bswap      %rcx                                 # RCX = [76543210]
+          movdqa     %xmm4,               0xD0(%rsp)
+          movdqa     %xmm5,               0xE0(%rsp)
+          movq       %rcx,                %xmm0           # XM0 = full nibbles
+          movdqa     CVT_30(%rax),        %xmm2           # XM2 = 303030...30
+          movdqa     CVT_09(%rax),        %xmm3           # XM3 = 090909...09
+          movdqa     %xmm0,               %xmm1           # XM1 = full nibbles
+          movdqa     CVT_0F(%rax),        %xmm4           # XM4 = 0F0F0F...0F
+          psrlq      $0x04,               %xmm1           # XM1 = high nibbles
+          movdqa     CVT_07(%rax),        %xmm5           # XM5 = 070707...07
+          punpcklbw  %xmm0,               %xmm1           # interleave LHLHLHLH
+          pand       %xmm4,               %xmm1           # reduce to nibbles
+          movdqa     %xmm1,               %xmm0           # copy for correction
+          pcmpgtb    %xmm3,               %xmm1           # mask A...Fs => FFs
+          paddb      %xmm2,               %xmm0           # convert
+          pand       %xmm5,               %xmm1           # reduce FFs to 07
+          movdqa     0xD0(%rsp),          %xmm4
+          paddb      %xmm1,               %xmm0           # A...F correction
+          movdqa     0xE0(%rsp),          %xmm5
+          movq       %xmm0,               0x00(%rdx)      # store 01234567
+          psrldq     $0x08,               %xmm0
+          movb       $0x20,               0x08(%rdx)      #       formatting blank
+          movdqu     %xmm0,               0x09(%rdx)      #       89ABCDEF + 8 zeroes
+          movq       $0x00,               0x18(%rdx)      #       8 trailing zeroes
+          bswap      %rcx                                 # RCX = [01234567]
+          xorl       %eax,                %eax
+          addq       $0xF8,               %rsp
+          ret
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            O2hex    Convert oword to ASCII-string
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   EA source (location where the oword is stored)
+               RDX   EA target
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   0000 0000 0000 0000
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            BUFFER   0               1               2
+                     0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+
+                     01234567 89ABCDEF 01234567 89ABCDEFzzzzzzzz
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            average latency ~ 26 clock cycles
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align   4,,15
+          .globl     _O2hex
+          .def       _O2hex; .scl 2; .type 32; .endef
+   _O2hex:subq       $0xF8,               %rsp
+          movq       %r8,                 0xA0(%rsp)
+          movq       %r9,                 0xA8(%rsp)
+          movq       0x08(%rcx),          %r8             # R08 = 8899AABBCCDDEEFF
+          movq       0x00(%rcx),          %r9             # R09 = 0011223344556677
+          movq       _BNR(%rip),          %rax            # RAX = BNR
+          bswap      %r8
+          bswap      %r9
+          movdqa     %xmm4,               0xB0(%rsp)
+          movdqa     %xmm5,               0xC0(%rsp)
+          movdqa     %xmm6,               0xD0(%rsp)
+          movdqa     %xmm7,               0xE0(%rsp)
+          movq       %r8,                 %xmm0           # XM0 = 8899AABBCCDDEEFF
+          movq       %r9,                 %xmm2           # XM2 = 0011223344556677
+          movdqa     CVT_0F(%rax),        %xmm6           # XM6 = 0F0F0F...0F
+          movdqa     %xmm0,               %xmm1           # XM1 = 8899AABBCCDDEEFF
+          movdqa     %xmm2,               %xmm3           # XM3 = 0011223344556677
+          movdqa     CVT_09(%rax),        %xmm5           # XM5 = 090909...09
+          psrlq      $0x04,               %xmm1           # XM1 = 08899AABBCCDDEEF
+          psrlq      $0x04,               %xmm3           # XM3 = 0001122334455667
+          movdqa     CVT_30(%rax),        %xmm4           # XM4 = 303030...30
+          punpcklbw  %xmm0,               %xmm1           # h0l0h1l1h2l2h3l3h4l4h5l5h6l6h7l7
+          punpcklbw  %xmm2,               %xmm3           # h8l8h9l9hAlAhBlBhClChDlDhElEhFlF
+          movdqa     CVT_07(%rax),        %xmm7           # XM7 = 070707...07
+          pand       %xmm6,               %xmm1           # z0z0z1z1z2z2z3z3z4z4z5z5z6z6z7z7
+          pand       %xmm6,               %xmm3           # z8z8z9z9zAzAzBzBzCzCzDzDzEzEzFzF
+          movdqa     %xmm1,               %xmm0           # copy for correction
+          movdqa     %xmm3,               %xmm2
+          pcmpgtb    %xmm5,               %xmm1           # 00000000000000000000000000000000
+          pcmpgtb    %xmm5,               %xmm3           # 00000000FFFFFFFFFFFFFFFFFFFFFFFF
+          paddb      %xmm4,               %xmm0           # convert (+ 0x30)
+          paddb      %xmm4,               %xmm2
+          pand       %xmm7,               %xmm3           # 00000000070707070707070707070707
+          pand       %xmm7,               %xmm1           # 00000000000000000000000000000000
+          paddb      %xmm3,               %xmm2           # A...F correction
+          paddb      %xmm1,               %xmm0
+          movdqa     %xmm2,               %xmm3
+          movdqa     %xmm0,               %xmm1
+          psrldq     $0x08,               %xmm3
+          psrldq     $0x08,               %xmm1
+          movq       %xmm2,               0x00(%rdx)      # => [00112233]
+          movb       $0x20,               0x08(%rdx)      #    blank
+          movdqu     %xmm3,               0x09(%rdx)      #    [44556677]
+          movb       $0x20,               0x11(%rdx)      #    blank
+          movdqu     %xmm0,               0x12(%rdx)      #    [8899AABB]
+          movb       $0x20,               0x1A(%rdx)      #    blank
+          movdqu     %xmm1,               0x1B(%rdx)      #    [CCDDEEFF] + 8 trailing zeroes
+          movq       0xA0(%rsp),          %r8
+          movq       0xA8(%rsp),          %r9
+          movdqa     0xB0(%rsp),          %xmm4
+          movdqa     0xC0(%rsp),          %xmm5
+          movdqa     0xD0(%rsp),          %xmm6
+          movdqa     0xE0(%rsp),          %xmm7
+          xorl       %eax,                %eax
+          addq       $0xF8,               %rsp
+          ret
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            hex2D    hexadecimal ASCII string -> DWORD
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   EA source
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   dword (8 digits)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            BUFFER   0               
+                     0123456789ABCDEF
+
+                    "-16 byte string-"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            average latency ~ 115 clock cycles (1st call), 96 clock cycles (2nd an up)
+
+            Obviously, the processor logic applies some nifty tricks if the function is called
+            repeatedly. While the first call executes in 115 clocks, subsequent calls are exe-
+            cuted 19 clocks faster...
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align   4,,15
+          .globl     _hex2D
+          .def       _hex2D; .scl 2; .type 32; .endef
+   _hex2D:subq       $0xF8,               %rsp
+          movdqa     0x00(%rcx),          %xmm0
+          pxor       %xmm1,               %xmm1
+          movq       _BNR(%rip),          %rax            # RAX = BNR
+          pcmpeqb    %xmm0,               %xmm1
+          movq       %r8,                 0x68(%rsp)
+          movq       %r9,                 0x70(%rsp)
+          movq       %rdx,                0x78(%rsp)
+          pmovmskb   %xmm1,               %r8d
+          movq       %rbp,                0x80(%rsp)
+          movq       %rbx,                0x88(%rsp)
+          movdqa     %xmm9,               0x90(%rsp)
+          movdqa     %xmm8,               0xA0(%rsp)
+          movdqa     %xmm7,               0xB0(%rsp)
+          bsf        %r8d,                %r8d            # R14 = 1st zero P_0
+          movdqa     %xmm6,               0xC0(%rsp)
+          movdqa     %xmm5,               0xD0(%rsp)
+          movdqa     %xmm4,               0xE0(%rsp)
+          movq       %rcx,                0xF0(%rsp)
+          leaq       CVTCUT(%rax),        %rbx            # R13 = LUT cut
+          shlq       %r8                                  # RDI = index 0
+          movdqa     CVT_60(%rax),        %xmm9           # XM9 = 6060...60
+          pand       0x00(%rbx, %r8, 8),  %xmm0           # cut off trailing garbage
+          movdqa     CVT_20(%rax),        %xmm4           # XM4 = 2020...20
+          movdqa     %xmm0,               %xmm1           # XM1 = TMP_0
+          movdqa     CVT_30(%rax),        %xmm5           # XM5 = 3030...30
+          pcmpgtb    %xmm9,               %xmm1           # XM1 = mask 0
+          movdqa     CVT_39(%rax),        %xmm6           # XM6 = 3939...39
+          pand       %xmm4,               %xmm1           # XM1 = diff 0
+          movdqa     CVT_40(%rax),        %xmm7           # XM7 = 4040...40
+          psubb      %xmm1,               %xmm0           # XM0 = temp res 0
+          movdqa     CVT_46(%rax),        %xmm8           # XM8 = 4646...46
+          movdqa     %xmm0,               %xmm1           # XM1 = TMP_0
+          pcmpgtb    %xmm8,               %xmm1           # XM1 = mask 0
+          pand       %xmm0,               %xmm1           # XM1 = cut  0
+          psubb      %xmm1,               %xmm0           # XM0 = temp res 0
+          movdqa     %xmm0,               %xmm1           # XM1 = TMP_0.0
+          movdqa     %xmm0,               %xmm8           # XM8 = TMP_0.1
+          pcmpgtb    %xmm6,               %xmm1           # XM1 = mask 0.0
+          pcmpgtb    %xmm7,               %xmm8           # XM8 = mask 0.1
+          movdqa     CVT_07(%rax),        %xmm7           # XM7 = 0707...07
+          pxor       %xmm8,               %xmm1           # XM1 = mask 0
+          pand       %xmm0,               %xmm1           # XM1 = cut  0
+          psubb      %xmm1,               %xmm0           # XM0 = temp res 0
+          pand       %xmm7,               %xmm8           # XM1 = diff 0
+          psubb      %xmm8,               %xmm0           # XM0 = temp res 0
+          psubb      %xmm5,               %xmm0           # XM0 = res 0
+          movl       $0x08,               %ebp            # RBP = words
+          pextrw     $0x00,        %xmm0, %ebx            # RBX = LSW
+          xorl       %eax,                %eax            # RAX = result
+          psrldq     $0x02,               %xmm0           # XM0 = next word
+          .p2align   4,,15
+        0:movl       %eax,                %r9d            # R09 = speculative result
+          movl       %ebx,                %edx            # RDX = word
+          movl       %ebx,                %ecx            # RCX = word
+          shlq       $0x04,               %r9             # R09 = speculative next digit
+          andl       $0xFF,               %edx            # RDX = hi digit
+          shrl       $0x08,               %ecx            # RCX = lo digit
+          addl       %edx,                %r9d            # R09 = speculative result
+          testl      $0x00F0,             %ebx            # dig = valid?
+          cmove      %r9d,                %eax            # y =>  use
+          pextrw     $0x00,        %xmm0, %r8d            # R08 = next word
+          movl       %eax,                %r9d            # R09 = speculative result
+          shlq       $0x04,               %r9             # R09 = speculative next digit
+          psrldq     $0x02,               %xmm0           # XM0 = next word
+          addl       %ecx,                %r9d            # R09 = speculative result
+          testl      $0xF000,             %ebx            # dig = valid?
+          cmove      %r9d,                %eax            # y =>  use
+          movl       %r8d,                %ebx            # RBX = next word
+          decl       %ebp                                 # loop_cnt--
+          jne        0b
+          movq       0x68(%rsp),          %r8
+          movq       0x70(%rsp),          %r9
+          movq       0x78(%rsp),          %rdx
+          movq       0x80(%rsp),          %rbp
+          movq       0x88(%rsp),          %rbx
+          movdqa     0x90(%rsp),          %xmm9
+          movdqa     0xA0(%rsp),          %xmm8
+          movdqa     0xB0(%rsp),          %xmm7
+          movdqa     0xC0(%rsp),          %xmm6
+          movdqa     0xD0(%rsp),          %xmm5
+          movdqa     0xE0(%rsp),          %xmm4
+          movq       0xF0(%rsp),          %rcx
+          addq       $0xF8,               %rsp
+          ret
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            hex2Q    hexadecimal ASCII string -> QWORD
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   EA source
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   qword (16 digits)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            BUFFER   0               1               2
+                     0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+
+                    "32 byte entered as 'hex' string."
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            average latency ~ 188 clock cycles (1st call), 166 clock cycles (2nd an up)
+
+            Obviously, the processor logic applies some nifty tricks if the function is called
+            repeatedly. While the first call executes in 188 clocks, subsequent calls are exe-
+            cuted 22 clocks faster...
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align   4,,15
+          .globl     _hex2Q
+          .def       _hex2Q; .scl 2; .type 32; .endef
+   _hex2Q:subq       $0xF8,               %rsp
+          movdqa     0x00(%rcx),          %xmm0
+          movdqa     0x10(%rcx),          %xmm2
+          pxor       %xmm1,               %xmm1
+          pxor       %xmm3,               %xmm3
+          movq       _BNR(%rip),          %rax            # RAX = BNR
+          pcmpeqb    %xmm0,               %xmm1
+          pcmpeqb    %xmm2,               %xmm3
+          movq       %r9,                 0x68(%rsp)
+          movq       %r8,                 0x70(%rsp)
+          movq       %rdx,                0x78(%rsp)
+          pmovmskb   %xmm1,               %r8d
+          pmovmskb   %xmm3,               %r9d
+          movq       %rbp,                0x80(%rsp)
+          movq       %rbx,                0x88(%rsp)
+          movdqa     %xmm9,               0x90(%rsp)
+          movdqa     %xmm8,               0xA0(%rsp)
+          bsf        %r8d,                %r8d            # R14 = 1st zero P_0
+          bsf        %r9d,                %r9d            # R15 =          P_1
+          movdqa     %xmm7,               0xB0(%rsp)
+          movdqa     %xmm6,               0xC0(%rsp)
+          movdqa     %xmm5,               0xD0(%rsp)
+          movdqa     %xmm4,               0xE0(%rsp)
+          movq       %rcx,                0xF0(%rsp)
+          movl       $0x10,               %ecx
+          leaq       CVTCUT(%rax),        %rbx            # R13 = LUT cut
+          testq      %r8,                 %r8             # zero in  P_0?
+          cmovne     %ecx,                %r9d            # => clear P_1
+          shlq       %r8                                  # RDI = index 0
+          shlq       %r9                                  # RSI = index 1
+          movdqa     CVT_60(%rax),        %xmm9           # XM9 = 6060...60
+          movdqa     CVT_20(%rax),        %xmm4           # XM4 = 2020...20
+          pand       0x00(%rbx, %r8, 8),  %xmm0           # cut off trailing garbage
+          pand       0x00(%rbx, %r9, 8),  %xmm2
+          movdqa     CVT_30(%rax),        %xmm5           # XM5 = 3030...30
+          movdqa     CVT_39(%rax),        %xmm6           # XM6 = 3939...39
+          movdqa     %xmm0,               %xmm1           # XM1 = TMP_0
+          movdqa     %xmm2,               %xmm3           # XM2 = TMP_1
+          movdqa     CVT_40(%rax),        %xmm7           # XM7 = 4040...40
+          movdqa     CVT_46(%rax),        %xmm8           # XM8 = 4646...46
+          pcmpgtb    %xmm9,               %xmm1           # XM1 = mask 0
+          pcmpgtb    %xmm9,               %xmm3           # XM3 = mask 1
+          pand       %xmm4,               %xmm1           # XM1 = diff 0
+          pand       %xmm4,               %xmm3           # XM1 = diff 1
+          psubb      %xmm1,               %xmm0           # XM0 = temp res 0
+          psubb      %xmm3,               %xmm2           # XM2 = temp res 1
+          movdqa     %xmm0,               %xmm1           # XM1 = TMP_0
+          movdqa     %xmm2,               %xmm3           # XM2 = TMP_1
+          pcmpgtb    %xmm8,               %xmm1           # XM1 = mask 0
+          pcmpgtb    %xmm8,               %xmm3           # XM3 = mask 1
+          pand       %xmm0,               %xmm1           # XM1 = cut  0
+          pand       %xmm2,               %xmm3           # XM1 = cut  1
+          psubb      %xmm1,               %xmm0           # XM0 = temp res 0
+          psubb      %xmm3,               %xmm2           # XM2 = temp res 1
+          movdqa     %xmm0,               %xmm1           # XM1 = TMP_0.0
+          movdqa     %xmm2,               %xmm3           # XM2 = TMP_1.0
+          movdqa     %xmm0,               %xmm8           # XM8 = TMP_0.1
+          movdqa     %xmm2,               %xmm9           # XM9 = TMP_1.1
+          pcmpgtb    %xmm6,               %xmm1           # XM1 = mask 0.0
+          pcmpgtb    %xmm7,               %xmm8           # XM8 = mask 0.1
+          pcmpgtb    %xmm6,               %xmm3           # XM3 = mask 1.0
+          pcmpgtb    %xmm7,               %xmm9           # XM9 = mask 1.1
+          movdqa     CVT_07(%rax),        %xmm7           # XM7 = 0707...07
+          pxor       %xmm8,               %xmm1           # XM1 = mask 0
+          pxor       %xmm9,               %xmm3           # XM3 = mask 1
+          pand       %xmm0,               %xmm1           # XM1 = cut  0
+          pand       %xmm2,               %xmm3           # XM1 = cut  1
+          psubb      %xmm1,               %xmm0           # XM0 = temp res 0
+          psubb      %xmm3,               %xmm2           # XM2 = temp res 1
+          pand       %xmm7,               %xmm8           # XM1 = diff 0
+          pand       %xmm7,               %xmm9           # XM1 = diff 1
+          psubb      %xmm8,               %xmm0           # XM0 = temp res 0
+          psubb      %xmm9,               %xmm2           # XM2 = temp res 1
+          psubb      %xmm5,               %xmm0           # XM0 = res 0
+          psubb      %xmm5,               %xmm2           # XM2 = res 1
+          xorl       %eax,                %eax            # RAX = result
+          pextrw     $0x00,        %xmm2, %ebx
+          movl       $0x08,               %ebp            # RBP = words
+          psrldq     $0x02,               %xmm2
+          .p2align   4,,15
+        0:movq       %rax,                %r9
+          movl       %ebx,                %edx
+          movl       %ebx,                %ecx
+          shlq       $0x04,               %r9
+          andl       $0xFF,               %edx
+          shrl       $0x08,               %ecx
+          addq       %rdx,                %r9
+          testl      $0x00F0,             %ebx
+          cmove      %r9,                 %rax
+          pextrw     $0x00,        %xmm2, %r8d
+          movq       %rax,                %r9
+          shlq       $0x04,               %r9
+          psrldq     $0x02,               %xmm2
+          addq       %rcx,                %r9
+          testl      $0xF000,             %ebx
+          cmove      %r9,                 %rax
+          movl       %r8d,                %ebx
+          decl       %ebp
+          jne        0b
+          pextrw     $0x00,        %xmm0, %ebx
+          movl       $0x08,               %ebp            # RBP = words
+          psrldq     $0x02,               %xmm0
+          .p2align   4,,15
+        1:movq       %rax,                %r9
+          movl       %ebx,                %edx
+          movl       %ebx,                %ecx
+          shlq       $0x04,               %r9
+          andl       $0xFF,               %edx
+          shrl       $0x08,               %ecx
+          addq       %rdx,                %r9
+          testl      $0x00F0,             %ebx
+          cmove      %r9,                 %rax
+          pextrw     $0x00,        %xmm0, %r8d
+          movq       %rax,                %r9
+          shlq       $0x04,               %r9
+          psrldq     $0x02,               %xmm0
+          addq       %rcx,                %r9
+          testl      $0xF000,             %ebx
+          cmove      %r9,                 %rax
+          movl       %r8d,                %ebx
+          decl       %ebp
+          jne        1b
+          movq       0x68(%rsp),          %r9
+          movq       0x70(%rsp),          %r8
+          movq       0x78(%rsp),          %rdx
+          movq       0x80(%rsp),          %rbp
+          movq       0x88(%rsp),          %rbx
+          movdqa     0x90(%rsp),          %xmm9
+          movdqa     0xA0(%rsp),          %xmm8
+          movdqa     0xB0(%rsp),          %xmm7
+          movdqa     0xC0(%rsp),          %xmm6
+          movdqa     0xD0(%rsp),          %xmm5
+          movdqa     0xE0(%rsp),          %xmm4
+          movq       0xF0(%rsp),          %rcx
+          addq       $0xF8,               %rsp
+          ret
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                              D E C I M A L
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            D2dec    Convert dword to decimal string
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Q2dec    Convert qword to decimal string
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   DWORD to convert
+               RDX   EA target
+               R08   Sfsd
+                     |||+-----> 00        default = 20
+                     ||         01...14   digits
+                     ||+----> 00          unsigned
+                     ||       xx          signed
+                     |+---> 00            default = 0
+                     |      01...14       pseudo FP (3, 6, 9, 12, 15, 18, 20)
+                     +--> 00              separator blank   FP dot    (default)
+                          2C                        comma      dot    (XOR 02)
+                          2E                        dot        comma  (XOR 02)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- EAX   always zero
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            BUFFER   0               1
+                     0123456789ABCDEF0123456789ABCDEF
+
+                     s_X_XXX_XXX_XXXzzzzzzzzzzzzzzzzz
+                     s_xX_XXX_XXX_XXX_XXX_XXX_XXXzzzz
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            average latency: D2dec 152 clock cycles  0 FP
+                                   171               3 FP
+                                   171               6 FP
+                                   172               9 FP
+
+            average latency: Q2dec 301 clock cycles  0 FP
+                                   317               3 FP
+                                   317               6 FP
+                                   319               9 FP
+                                   327              12 FP
+                                   374              15 FP
+                                   330              18 FP
+                                   330              20 FP
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align   4,,15
+          .globl     _D2dec
+          .def       _D2dec; .scl 2; .type 32; .endef
+   _D2dec:subq       $0xF8,               %rsp
+          movq       $0x0A,               0x80(%rsp)
+          movslq     %ecx,                %rcx            # RCX = sign extended
+          movl       $0x0A,               %eax            # RAX = 10 digits
+          jmp        0f
+          .p2align   4,,15
+          .globl     _Q2dec
+          .def       _Q2dec; .scl 2; .type 32; .endef
+   _Q2dec:subq       $0xF8,               %rsp
+          movq       $0x14,               0x80(%rsp)
+          movl       $0x14,               %eax            # RAX = 20 digits
+        0:movq       %r15,                0x88(%rsp)
+          movq       %r14,                0x90(%rsp)
+          movq       %r13,                0x98(%rsp)
+          movq       %r12,                0xA0(%rsp)
+          movq       %r11,                0xA8(%rsp)
+          movq       %r10,                0xB0(%rsp)
+          movq       %rbp,                0xB8(%rsp)
+          movq       %rsi,                0xC0(%rsp)
+          movq       %rdi,                0xC8(%rsp)
+          movq       %rbx,                0xD0(%rsp)
+          movq       %r9,                 0xD8(%rsp)
+          movq       %r8,                 0xE0(%rsp)
+          movq       %rdx,                0xE8(%rsp)
+          movq       %rcx,                0xF0(%rsp)
+          movq       %r8,                 %r10            # R10 = flags
+          movl       %eax,                %r11d           # R11 = max digits
+          movq       %rcx,                %r15            # R15 = number
+          movq       %rdx,                %rdi            # RDI = EA_TARGET
+          movq       %r8,                 %r9             # R09 = flags
+          movq       $0x20,               %r13            # R13 = ' '
+          shrq       $0x10,               %r10            # R10 = 0000SeFP
+          negq       %r15                                 # RAX =2's complement
+          movl       $0x2020,             %ebx            # RBX = unsigned
+          movl       $0x202D,             %edx            # RDX =   signed
+          shrq       $0x18,               %r9             # R09 = separator
+          cmove      %r13,                %r9             #  =>   ' ' if zero
+          andq       $0xFF,               %r10            # R10 = digits FP
+          testq      $0x0000FF00,         %r8             # signed?
+          cmove      %rcx,                %r15            # R15 = RCX
+          cmove      %ebx,                %edx            # RDX = '__'
+          testq      %rcx,                %rcx            # input negative?
+          cmovs      %r15,                %rcx            # RCX = 2's complement
+          cmovs      %edx,                %ebx            # RBX = '-_'
+          andq       $0xFF,               %r8             # R08 = digits INT
+          cmove      %r11,                %r8             # use max
+          movl       %ecx,                %esi            # RSI = 32 bit
+          cmpq       %r11,                %r10            # digit count valid?
+          cmova      %r11,                %r10            # use max
+          movabsq    $0x8AC7230489E80000, %r12            # R12 = 10e19
+          cmpq       %r11,                %r8             # digit count valid?
+          cmova      %r11,                %r8             # use max
+          movl       %ebx,                0x00(%rdi)      # store sign (or blank)
+          movq       %rcx,                %rax            # RAX = number
+          movq       $0x30,               %r14            # R14 = '0'
+          movq       $0x20,               %r15            # R15 = ' '
+          xchg       %r13,                %r9             # R09 = ' ', R13 = separator
+          cmpl       $0x0A,               0x80(%rsp)      # D2dec()?
+          cmove      %rsi,                %rcx            # reduce to 32 bit
+          je         d2d
+          xorl       %ebx,                %ebx            # RBX = 0
+          xorl       %eax,                %eax            # RAX = 0
+          cmpq       %r12,                %rcx            # digit 1
+          setae      %bl
+          cmovae     %r14,                %r15
+          cmovae     %r12,                %rax
+          movabsq    $0x000049C97747490F, %rdx
+          addl       %r15d,               %ebx
+          subq       %rax,                %rcx
+          movb       $0x20,               0x24(%rsp)
+          movb       %bl,                 0x25(%rsp)
+          movq       %rcx,                %rax            # digit 2
+          shrq       $0x12,               %rax
+          mulq       %rdx
+          movabsq    $0x0DE0B6B3A7640000, %rax
+          shrq       $0x18,               %rdx
+          imulq      %rdx,                %rax
+          movl       %edx,                %ebx
+          subq       %rax,                %rcx
+          testl      %edx,                %edx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          movabsq    $0x00005C3BD5191B53, %rdx
+          addl       %r15d,               %ebx
+          movq       %rcx,                %rax            # digit 3
+          movb       %bl,                 0x26(%rsp)
+          movb       %r9b,                0x27(%rsp)
+          shrq       $0x11,               %rax
+          mulq       %rdx
+          movabsq    $0x016345785D8A0000, %rax
+          shrq       $0x16,               %rdx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imulq      %rdx,                %rax
+          movl       %edx,                %ebx
+          subq       %rax,                %rcx
+          movabsq    $0x39A5652FB1137857, %rdx
+          addl       %r15d,               %ebx
+          movq       %rcx,                %rax            # digit 4
+          movb       %bl,                 0x28(%rsp)
+          mulq       %rdx
+          movabsq    $0x002386F26FC10000, %rax
+          shrq       $0x33,               %rdx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imulq      %rdx,                %rax
+          movl       %edx,                %ebx
+          subq       %rax,                %rcx
+          movabsq    $0x00024075F3DCEAC3, %rdx
+          addl       %r15d,               %ebx
+          movq       %rcx,                %rax            # digit 5
+          movb       %bl,                 0x29(%rsp)
+          shrq       $0x0F,               %rax
+          mulq       %rdx
+          movabsq    $0x00038D7EA4C68000, %rax
+          shrq       $0x14,               %rdx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imulq      %rdx,                %rax
+          movl       %edx,                %ebx
+          subq       %rax,                %rcx
+          movabsq    $0x0B424DC35095CD81, %rdx
+          addl       %r15d,               %ebx
+          movq       %rcx,                %rax            # digit 6
+          movb       %bl,                 0x2A(%rsp)
+          movb       %r9b,                0x2B(%rsp)
+          mulq       %rdx
+          movabsq    $0x00005AF3107A4000, %rax
+          shrq       $0x2A,               %rdx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imulq      %rdx,                %rax
+          movl       %edx,                %ebx
+          subq       %rax,                %rcx
+          movabsq    $0x384B84D092ED0385, %rdx
+          addl       %r15d,               %ebx
+          movq       %rcx,                %rax            # digit 7
+          movb       %bl,                 0x2C(%rsp)
+          mulq       %rdx
+          movabsq    $0x000009184E72A000, %rax
+          shrq       $0x29,               %rdx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imulq      %rdx,                %rax
+          movl       %edx,                %ebx
+          subq       %rax,                %rcx
+          movabsq    $0x232F33025BD42233, %rdx
+          addl       %r15d,               %ebx
+          movq       %rcx,                %rax            # digit 8
+          movb       %bl,                 0x2D(%rsp)
+          mulq       %rdx
+          movabsq    $0x000000E8D4A51000, %rax
+          shrq       $0x25,               %rdx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imulq      %rdx,                %rax
+          movl       %edx,                %ebx
+          subq       %rax,                %rcx
+          movabsq    $0xAFEBFF0BCB24AAFF, %rdx
+          addl       %r15d,               %ebx
+          movq       %rcx,                %rax            # digit 9
+          movb       %bl,                 0x2E(%rsp)
+          movb       %r9b,                0x2F(%rsp)
+          mulq       %rdx
+          movabsq    $0x000000174876E800, %rax
+          shrq       $0x24,               %rdx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imulq      %rdx,                %rax
+          movl       %edx,                %ebx
+          subq       %rax,                %rcx
+          movabsq    $0xDBE6FECEBDEDD5BF, %rdx
+          addl       %r15d,               %ebx
+          movq       %rcx,                %rax            # digit 10
+          movb       %bl,                 0x30(%rsp)
+          mulq       %rdx
+          movabsq    $0x00000002540BE400, %rax
+          shrq       $0x21,               %rdx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imulq      %rdx,                %rax
+          movl       %edx,                %ebx
+          subq       %rax,                %rcx
+          addl       %r15d,               %ebx
+          movq       %rcx,                %rax            # digit 10
+          movb       %bl,                 0x31(%rsp)
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+            entry point D2dec()
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+      d2d:shrq       $0x09,               %rax            # digit (1)1
+          movl       $0x00044B83,         %edx
+          andq       $0xFF,               %r10            # R10 = FP
+          mull       %edx
+          shrl       $0x07,               %edx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imulq      $0x3B9ACA00,         %rdx, %rax
+          movl       %edx,                %ebx
+          subq       %rax,                %rcx
+          movl       $0x55E63B89,         %edx
+          addl       %r15d,               %ebx
+          movl       %ecx,                %eax            # digit (1)2
+          movb       %bl,                 0x32(%rsp)
+          movb       %r9b,                0x33(%rsp)
+          mull       %edx
+          shrl       $0x19,               %edx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imull      $0x05F5E100,         %edx, %eax
+          movl       %edx,                %ebx
+          subl       %eax,                %ecx
+          movl       $0x6B5FCA6B,         %edx
+          addl       %r15d,               %ebx
+          movl       %ecx,                %eax            # digit (1)3
+          movb       %bl,                 0x34(%rsp)
+          mull       %edx
+          shrl       $0x16,               %edx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imull      $0x00989680,         %edx, %eax
+          movl       %edx,                %ebx
+          subl       %eax,                %ecx
+          movl       $0x431BDE83,         %edx
+          addl       %r15d,               %ebx
+          movl       %ecx,                %eax            # digit (1)4
+          movb       %bl,                 0x35(%rsp)
+          mull       %edx
+          shrl       $0x12,               %edx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imull      $0x000F4240,         %edx, %eax
+          movl       %edx,                %ebx
+          subl       %eax,                %ecx
+          movl       $0x0A7C5AC5,         %edx
+          addl       %r15d,               %ebx
+          movl       %ecx,                %eax            # digit (1)5
+          movb       %bl,                 0x36(%rsp)
+          shrl       $0x05,               %eax
+          movb       %r9b,                0x37(%rsp)
+          mull       %edx
+          shrl       $0x07,               %edx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imull      $0x000186A0,         %edx, %eax
+          movl       %edx,                %ebx
+          subl       %eax,                %ecx
+          movl       $0xD1B71759,         %edx
+          addl       %r15d,               %ebx
+          movl       %ecx,                %eax            # digit (1)6
+          movb       %bl,                 0x38(%rsp)
+          mull       %edx
+          shrl       $0x0D,               %edx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imull      $0x00002710,         %edx, %eax
+          movl       %edx,                %ebx
+          subl       %eax,                %ecx
+          movl       $0x10624DD3,         %edx
+          addl       %r15d,               %ebx
+          movl       %ecx,                %eax            # digit (1)7
+          movb       %bl,                 0x39(%rsp)
+          mull       %edx
+          shrl       $0x06,               %edx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          imull      $0x03E8,             %edx, %eax
+          movl       %edx,                %ebx
+          subl       %eax,                %ecx
+          movl       $0x51EB851F,         %edx
+          addl       %r15d,               %ebx
+          movl       $0x64,               %esi            # digit (1)8
+          movl       %ecx,                %eax
+          movb       %bl,                 0x3A(%rsp)
+          movb       %r9b,                0x3B(%rsp)
+          mull       %edx
+          shrl       $0x05,               %edx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          movl       %edx,                %eax
+          movl       %edx,                %ebx
+          movl       $0xCCCCCCCD,         %edx
+          imull      %esi,                %eax
+          addl       %r15d,               %ebx
+          subl       %eax,                %ecx
+          movb       %bl,                 0x3C(%rsp)
+          movl       %ecx,                %eax            # RBX = digits (1)9 and 20/10
+          mull       %edx
+          shrl       $0x03,               %edx
+          cmovne     %r14,                %r15
+          cmovne     %r13,                %r9
+          movl       %edx,                %ebx
+          leal       (%rdx, %rdx, 4),     %edx
+          addl       %edx,                %edx
+          subl       %edx,                %ecx
+          addl       %r15d,               %ebx
+          addl       %r14d,               %ecx
+          pxor       %xmm0,               %xmm0
+          pxor       %xmm1,               %xmm1
+          movb       %bl,                 0x3D(%rsp)
+          movb       %cl,                 0x3E(%rsp)
+          movb       $0x00,               0x3F(%rsp)
+          movdqa     %xmm0,               0x40(%rsp)
+          movdqa     %xmm1,               0x50(%rsp)
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+            insert pseudo FP
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          movq       $0x2C,               %r9        # R09 = FP separator
+          leaq       toffQ(%rip),         %r14       # R14 = table Q2dec()
+          cmpq       $0x20,               %r13       # R13 = blank?
+          cmove      %r9,                 %r13       # =>    use default
+          movl       0x00(%r14, %r8, 4),  %r15d      # R15 = offset P_0
+          testq      %r10,                %r10       # FP  = 0?
+          je         d2e
+          xorq       $0x02,               %r13       # R13 = FP separator
+          movl       0x24(%rsp),          %eax       # RAX = ?12_
+          movl       0x28(%rsp),          %ebx       # RBX = 345_
+          movl       0x2C(%rsp),          %ecx       # RCX = 678_
+          movl       0x30(%rsp),          %edx       # RDX = 9AB_
+          movl       0x34(%rsp),          %esi       # RSI = CDE_
+          movl       0x38(%rsp),          %ebp       # RBP = FGH_
+          movl       0x3C(%rsp),          %r12d      # R12 = IJKz
+          jmp        *jt0(,%r10, 8)
+          /*
+            ~~~~~~~~~~~~~~~~
+             3 digits
+            ~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+      d03:andl       $0x00FFFFFF,         %ebp       # RBP = 00DDDDDD
+          shlq       $0x18,               %r13       # R13 = fs000000
+          movq       $0x1A,               %r10       # R10 = offset
+          orl        $0x00100000,         %ebp       # ' ' => '0'
+          orl        $0x00001010,         %r12d
+          addl       %r13d,               %ebp       # RBP = fsDDDDDD
+          cmpq       $0x1A,               %r15       # less than 4 digits?
+          cmova      %r10,                %r15       # =>   0.fff
+          movl       %ebp,                0x38(%rsp) # store proper content
+          movl       %r12d,               0x3C(%rsp)
+          jmp        d2e
+          /*
+            ~~~~~~~~~~~~~~~~
+             6 digits
+            ~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+      d06:andl       $0x00FFFFFF,         %esi       # RSI = 00DDDDDD
+          shlq       $0x18,               %r13       # R13 = fs000000
+          movq       $0x16,               %r10       # R10 = offset
+          orl        $0x00100000,         %esi       # ' ' => '0'
+          orl        $0x00101010,         %ebp
+          orl        $0x00001010,         %r12d
+          addl       %r13d,               %esi       # RSI = fsDDDDDD
+          cmpq       $0x16,               %r15       # below 7 digits?
+          cmova      %r10,                %r15       #  =>   0.ffffff
+          movl       %esi,                0x34(%rsp) # store proper content
+          movl       %ebp,                0x38(%rsp)
+          movl       %r12d,               0x3B(%rsp)
+          jmp        d2e
+          /*
+            ~~~~~~~~~~~~~~~~
+             9 digits
+            ~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+      d09:andl       $0x00FFFFFF,         %edx       # RDX = 00DDDDDD
+          shlq       $0x18,               %r13       # R13 = fs000000
+          movq       $0x12,               %r10       # R10 = offset
+          orl        $0x00100000,         %edx       # ' ' => '0'
+          orl        $0x00101010,         %esi
+          orl        $0x00101010,         %ebp
+          orl        $0x00001010,         %r12d
+          addl       %r13d,               %edx       # RDX = fsDDDDDD
+          cmpq       $0x12,               %r15       # below 10 digits?
+          cmova      %r10,                %r15       #  =>   0.fffffffff
+          movl       %edx,                0x30(%rsp) # store proper content
+          movl       %esi,                0x34(%rsp)
+          movl       %ebp,                0x37(%rsp)
+          movl       %r12d,               0x3A(%rsp)
+          movw       $0x00,               0x3E(%rsp)
+          jmp        d2e
+          /*
+            ~~~~~~~~~~~~~~~~
+            12 digits
+            ~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+      d12:andl       $0x00FFFFFF,         %ecx       # RCX = 00DDDDDD
+          shlq       $0x18,               %r13       # R13 = fs000000
+          movq       $0x0E,               %r10       # R10 = offset
+          orl        $0x00100000,         %ecx       # ' ' => '0'
+          orl        $0x00101010,         %edx
+          orl        $0x00101010,         %esi
+          orl        $0x00101010,         %ebp
+          orl        $0x00001010,         %r12d
+          addl       %r13d,               %ecx       # RCX = fsDDDDDD
+          cmpq       $0x0E,               %r15       # below 13 digits?
+          cmova      %r10,                %r15       #  =>   0.ffffffffffff
+          movl       %ecx,                0x2C(%rsp) # store proper content
+          movl       %edx,                0x30(%rsp)
+          movl       %esi,                0x33(%rsp)
+          movl       %ebp,                0x36(%rsp)
+          movl       %r12d,               0x39(%rsp)
+          movb       $0x00,               0x3D(%rsp)
+          movw       $0x00,               0x3E(%rsp)
+          jmp        d2e
+          /*
+            ~~~~~~~~~~~~~~~~
+            15 digits
+            ~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+      d15:andl       $0x00FFFFFF,         %ebx       # RBX = 00DDDDDD
+          shlq       $0x18,               %r13       # R13 = fs000000
+          movq       $0x0A,               %r10       # R10 = offset
+          orl        $0x00100000,         %ebx       # ' ' => '0'
+          orl        $0x00101010,         %ecx
+          orl        $0x00101010,         %edx
+          orl        $0x00101010,         %esi
+          orl        $0x00101010,         %ebp
+          orl        $0x00001010,         %r12d
+          addl       %r13d,               %ebx       # RBX = fsDDDDDD
+          cmpq       $0x0A,               %r15       # below 16 digits?
+          cmova      %r10,                %r15       #  =>   0.fffffffffffffff
+          movl       %ebx,                0x28(%rsp) # store proper content
+          movl       %ecx,                0x2C(%rsp)
+          movl       %edx,                0x2F(%rsp)
+          movl       %esi,                0x32(%rsp)
+          movl       %ebp,                0x35(%rsp)
+          movq       %r12,                0x38(%rsp)
+          jmp        d2e
+          /*
+            ~~~~~~~~~~~~~~~~
+            18 digits
+            ~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+      d18:andl       $0x00FFFFFF,         %eax       # RAX = 00DDDDDD
+          shlq       $0x18,               %r13       # R13 = 0000fs00
+          movq       $0x02,               %r10       # R10 = offset
+          orl        $0x00100000,         %eax       # ' ' => '0'
+          orl        $0x00101010,         %ebx
+          orl        $0x00101010,         %ecx
+          orl        $0x00101010,         %edx
+          orl        $0x00101010,         %esi
+          orl        $0x00101010,         %ebp
+          orl        $0x00001010,         %r12d
+          addl       %r13d,               %eax       # RAX = fsDDDDDD
+          cmpq       $0x06,               %r15       # below 19 digits?
+          cmova      %r10,                %r15       #  =>   0.fffffffffffffff
+          movl       %eax,                0x24(%rsp) # store proper content
+          movl       %ebx,                0x28(%rsp)
+          movl       %ecx,                0x2B(%rsp)
+          movl       %edx,                0x2E(%rsp)
+          movl       %esi,                0x31(%rsp)
+          movl       %ebp,                0x34(%rsp)
+          movq       %r12,                0x37(%rsp)
+          jmp        d2e
+          /*
+            ~~~~~~~~~~~~~~~~
+            20 digits
+            ~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+      d20:andl       $0x00FFFF00,         %eax       # RAX = ?DDi
+          shlq       $0x08,               %r13       # R13 = 0000fs00
+          movq       $0x04,               %r15       # R15 = offset
+          orl        $0x00101000,         %eax       # ' ' => '0'
+          orl        $0x00101010,         %ebx
+          orl        $0x00101010,         %ecx
+          orl        $0x00101010,         %edx
+          shll       $0x08,               %eax       # RAX = DD?0
+          addq       $0x30,               %r13       # R13 = zz0f
+          orl        $0x00101010,         %esi
+          orl        $0x00101010,         %ebp
+          orl        $0x00001010,         %r12d
+          addl       %r13d,               %eax       # RAX = 0fDD
+          movl       %eax,                0x24(%rsp) # store proper content
+          movl       %ebx,                0x28(%rsp)
+          movl       %ecx,                0x2B(%rsp)
+          movl       %edx,                0x2E(%rsp)
+          movl       %esi,                0x31(%rsp)
+          movl       %ebp,                0x34(%rsp)
+          movq       %r12,                0x37(%rsp)
+          jmp        d2e
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+            cut to requested digits
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+      d2e:movdqu     0x20(%rsp, %r15),    %xmm0
+          movdqu     0x30(%rsp, %r15),    %xmm1
+          xorl       %eax,                %eax
+          movdqu     %xmm0,               0x02(%rdi)
+          movdqu     %xmm1,               0x12(%rdi)
+          movq       0x88(%rsp),          %r15
+          movq       0x90(%rsp),          %r14
+          movq       0x98(%rsp),          %r13
+          movq       0xA0(%rsp),          %r12
+          movq       0xA8(%rsp),          %r11
+          movq       0xB0(%rsp),          %r10
+          movq       0xB8(%rsp),          %rbp
+          movq       0xC0(%rsp),          %rsi
+          movq       0xC8(%rsp),          %rdi
+          movq       0xD0(%rsp),          %rbx
+          movq       0xD8(%rsp),          %r9
+          movq       0xE0(%rsp),          %r8
+          movq       0xE8(%rsp),          %rdx
+          movq       0xF0(%rsp),          %rcx
+          addq       $0xF8,               %rsp
+          ret
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            dec2D    decimal ASCII string -> DWORD
+            dec2Q    decimal ASCII string -> QWORD
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   EA source
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   qword (signed if leading "-")
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            dec2*() scans for the string end and works backwards. The last 10 or 20 digits are
+            taken as parts of a 64 bit number. Surplus digits are ignored, one leading sign is
+            recognised. If a sign was detected, the dword is negated before returning it.
+
+            CAUTION: Only unsigned numbers can have 20 digits, while signed numbers always are
+                     19 or less digits wide. A sign in front of a 20 digit number -forces- the
+                     negation of a number with set sign bit and returns an invalid result.
+
+            CAUTION: dec2D() cuts off the most significant digits if a result exceeds 32 bit.
+                     The returned value is the portion of the number fitting into 32 bit. This
+                     applies to all 32 bit numbers exceeding 4,294,967,595.
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            average latency 150...350 clock cycles (depending on conditional jumps)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+          .globl     _dec2D
+          .def       _dec2D; .scl 2; .type 32; .endef
+   _dec2D:movl       $0x0A,               %eax            # RAX = 10 digits
+          jmp        0f
+          .p2align   4,,15
+          .globl     _dec2Q
+          .def       _dec2Q; .scl 2; .type 32; .endef
+          .p2align   4,,15
+   _dec2Q:movl       $0x14,               %eax            # RAX = 20 digits
+        0:subq       $0xF8,               %rsp
+          movdqu     0x00(%rcx),          %xmm2
+          movdqu     0x00(%rcx),          %xmm0
+          movdqu     0x10(%rcx),          %xmm1
+          movdqa     %xmm4,               0x60(%rsp)
+          movdqa     %xmm5,               0x70(%rsp)
+          movdqa     %xmm0,               %xmm3
+          movdqa     %xmm1,               %xmm4
+          pxor       %xmm5,               %xmm5
+          movq       %r15,                0x88(%rsp)
+          movq       %r14,                0x90(%rsp)
+          movq       %r13,                0x98(%rsp)
+          movq       %r12,                0xA0(%rsp)
+          movq       %r11,                0xA8(%rsp)
+          movq       %r10,                0xB0(%rsp)
+          movq       %rbp,                0xB8(%rsp)
+          movq       _BNR(%rip),          %r12
+          pcmpeqb    %xmm5,               %xmm3           # detect zeroes
+          pcmpeqb    %xmm5,               %xmm4
+          pcmpeqb    CVT_2D(%r12),        %xmm2           # detect sign
+          pmovmskb   %xmm3,               %r14d
+          pmovmskb   %xmm4,               %r15d
+          leaq       CVTCUT(%r12),        %r11
+          movl       $0x10,               %ebp
+          bsf        %r14d,               %r14d
+          bsf        %r15d,               %r15d
+          movq       %rsi,                0xC0(%rsp)
+          movq       %rdi,                0xC8(%rsp)
+          movq       %rbx,                0xD0(%rsp)
+          movq       %r9,                 0xD8(%rsp)
+          movq       %r8,                 0xE0(%rsp)
+          movq       %rdx,                0xE8(%rsp)
+          movq       %rcx,                0xF0(%rsp)
+          testq      %r14,                %r14            # any digits?
+          cmovne     %ebp,                %r15            # => clear XMM1
+          movl       %eax,                %esi            # RSI = digits
+          shlq       %r14                                 # R14 * 2
+          shlq       %r15                                 # R15 * 2
+          leaq       0x20(%rsp),          %rdi            # RDI = EA string
+          xorl       %ebx,                %ebx            # RBX = result
+          pand       0x00(%r11, %r14, 8), %xmm0           # cut off trailing garbage
+          pand       0x00(%r11, %r15, 8), %xmm1
+          movd       %xmm2,               %r10            # R10 = sign flag
+          shrq       %r14                                 # R14 / 2
+          shrq       %r15                                 # R15 / 2
+          xorq       %r13,                %r13            # R13 = 0
+          decq       %rdi                                 # RDI = last digit
+          testq      %r14,                %r14            # no zeroes?
+          cmove      %ebp,                %r14d           # => 16 byte!
+          decl       %r13d                                # R13 = FFFF FFFF
+          andq       $0x0F,               %r15            # remove bits 31...04
+          psubb      CVT_30(%r12),        %xmm0           # reduce to number
+          psubb      CVT_30(%r12),        %xmm1
+          movdqa     %xmm0,               0x20(%rsp)
+          movdqa     %xmm1,               0x30(%rsp)
+          addq       %r14,                %r15            # R15 = char count
+          movl       $0x01,               %ebp            # EBP = pow10
+          movl       %eax,                %r14d           # R13 = digits
+          xorq       %r8,                 %r8
+          addq       %r15,                %rdi            # RDI = EA string end
+          .p2align 4,,15
+        1:movzb      0x00(%rdi),          %eax            # RAX = digit
+          movzb      0x00(%rdi),          %ecx            # RAX = digit
+          decq       %r15                                 # size--
+          js         2f
+          decq       %rdi                                 # RDI = next digit
+          leaq       0x00(%rbp, %rbp, 4), %r12            # R12 = RBP * 5
+          cmpl       $0x09,               %eax            # valid?
+          ja         1b
+          mulq       %rbp                                 # digit * pow10
+          addq       %rax,                %rbx            # result + n*pow10
+          decq       %r14                                 # digit_cnt--
+          je         2f
+          leaq       0x00(%r12, %r12),    %rbp            # EBP = next pow10
+          jmp        1b
+          .p2align 4,,15
+        2:cmpl       $0x09,               %ecx            # RCX = digit?
+          cmova      %r8d,                %ecx            #  =>   zero
+          movq       %rbx,                %r14            # R14 = result
+          movq       %rbx,                %r15            # R15 = result
+          movq       %rbx,                %rax            # EAX = result
+          imulq      %rbp,                %rcx            # RCX = last pow10
+          negq       %r14                                 # R14 = 2's complement
+          testq      %r10,                %r10            #       sign detected?
+          cmovne     %r14,                %rax            #  =>   2's complement
+          cmpl       $0x0A,               %esi            #       below 11 digits?
+          cmova      %rax,                %r13            #  =>   no correction
+          subq       %rcx,                %r15            #       auto correction
+          cmpq       %r13,                %rax            #       > 32 bit?
+          cmova      %r15,                %rax            #  =>   reduce to 32 bit
+          movq       0x60(%rsp),          %xmm4
+          movq       0x70(%rsp),          %xmm5
+          movq       0x88(%rsp),          %r15
+          movq       0x90(%rsp),          %r14
+          movq       0x98(%rsp),          %r13
+          movq       0xA0(%rsp),          %r12
+          movq       0xA8(%rsp),          %r11
+          movq       0xB0(%rsp),          %r10
+          movq       0xB8(%rsp),          %rbp
+          movq       0xC0(%rsp),          %rsi
+          movq       0xC8(%rsp),          %rdi
+          movq       0xD0(%rsp),          %rbx
+          movq       0xD8(%rsp),          %r9
+          movq       0xE0(%rsp),          %r8
+          movq       0xE8(%rsp),          %rdx
+          movq       0xF0(%rsp),          %rcx
+          addq       $0xF8,               %rsp
+          ret
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       M I S C E L L A N E O U O S
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            prime    test if input is a prime number
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            -> RCX   QWORD to check
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            <- RAX   0000 0000 0000 0000   no prime 
+                     0000 0000 0000 0001   is prime 
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+          .globl     _prime
+          .def       _prime; .scl 2; .type 32; .endef
+   _prime:subq       $0xF8,               %rsp
+          movq       %rcx,                %rax            # RAX = number
+          movq       %r8,                 0xE0(%rsp)
+          movq       %rdx,                0xE8(%rsp)
+          movq       %rcx,                0xF0(%rsp)
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+            filter 1, 2 and 3
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          cmpq       $0x01,               %rax
+          jbe        NoPrm                                # 1, no
+          cmpq       $0x04,               %rax
+          jb         IsPrm                                # first prime numbers
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+            prepare
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          movq       %rax,                %r8             # RBX = number (test)
+          movq       %rax,                %rcx            # RCX = number (storage)
+          xorq       %rdx,                %rdx
+          shrq       %r8                                  # start with half
+          ja         NoPrm                                # is even
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+            check, if prime
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+        0:divq       %r8
+          testq      %rdx,                %rdx            # remainder = 0?
+          je         NoPrm
+          subq       $0x02,               %r8             # skip even numbers
+          movq       %rcx,                %rax            # restore number
+          xorq       %rdx,                %rdx
+          cmpq       $0x03,               %r8
+          ja         0b                                   # one more try...
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+            set return value
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .p2align 4,,15
+    IsPrm:movl       $0x01,               %eax
+          jmp        1f
+          .p2align 4,,15
+    NoPrm:xorl       %eax,                %eax
+        1:movq       0xE0(%rsp),          %r8
+          movq       0xE8(%rsp),          %rdx
+          movq       0xF0(%rsp),          %rcx
+          addq       $0xF8,               %rsp
+          ret
+          /*
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          */
+          .comm      _BNR,                8, 3

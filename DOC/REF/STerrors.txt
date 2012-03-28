@@ -1,7 +1,7 @@
 
 
      S Y S T E M   E R R O R S 
-     อออออออออออออออออออออออออ
+     ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
      Number      Definition                       Description
@@ -21,35 +21,35 @@
      0000 000A   ERR_PAR_BELOW                           too small
      0000 000B   ERR_PAR_ARGUMENT                        unknown argument
      0000 000C   ERR_PAR_COMMAND                                 command
-     0000 000D   ERR_2ND_INSTANCE                 no second instance allowed
-     0000 000E   ERR_0E
-     0000 000F   ERR_0F
+     0000 000D   ERR_2ND_INSTANCE                 CREATE no second instance allowed
+     0000 000E   ERR_UNALIGNED                    PARAM  passed EA not aligned
+     0000 000F   ERR_ADDRESS                             invalid address
 
      0000 0010   ERR_LDR_ERROR                    LOADER general
-     0000 0011   ERR_LDR_NO_MEM                          insufficient memory
+     0000 0011   ERR_LDR_NO_MEM         ???              insufficient memory
      0000 0012   ERR_LDR_RESIZE                          can't resize memory block
      0000 0013   ERR_LDR_MH                              invalid MemHandle
      0000 0014   ERR_LDR_OS2MH                                   MemEA
-     0000 0015   ERR_LDR_FIELD                           cannot load field
+     0000 0015   ERR_LDR_FIELD          ???              cannot load field
      0000 0016   ERR_LDR_FILE                                        file
      0000 0017   ERR_LDR_CORRUPT                         field corrupted
      0000 0018   ERR_LDR_NO_FIELD                        not a field
-     0000 0019   ERR_LDR_NO_SIZE                         file size is zero
+     0000 0019   ERR_LDR_INSTANCE                        instance limit reached
      0000 001A   ERR_LDR_OUT_OF_MH                       no free MemHandles
      0000 001B   ERR_LDR_ALLOC                           allocation failed
      0000 001C   ERR_LDR_FORBIDDEN                       access to system memory denied
-     0000 001D   ERR_1D                                  -
-     0000 001E   ERR_DBE_NO_READ                  DBE    field has no read
-     0000 001F   ERR_DBE_NO_WRITE                                     write
+     0000 001D   ERR_LDR_ZERO                            LD.FldNr is zero
+     0000 001E   ERR_LDR_1E                              
+     0000 001F   ERR_LDR_1F                              
 
      0000 0020   ERR_DBE_TYPE                            unknow data type
      0000 0021   ERR_DBE_MH                              invalid MemHandle
      0000 0022   ERR_DBE_SUBFIELD                                subfield number
      0000 0023   ERR_DBE_ENTRY                                   entry number
      0000 0024   ERR_DBE_WRITE                           write string failed
-     0000 0025   ERR_DBE_GARBCOL                         garbage collection failed
+     0000 0025   ERR_DBE_CORRUPT                         garbage collection failed
      0000 0026   ERR_DBE_SECSYS                          en-/decryption failed
-     0000 0027   ERR_DBE_27                              -
+     0000 0027   ERR_DBE_27                              
      0000 0028   ERR_FMG_28                       FILES  -
      0000 0029   ERR_SET_DIR                             can't change directory
      0000 002A   ERR_DIR_CREATE                          can't create directory
@@ -69,7 +69,7 @@
      0000 0037   ERR_FILE_CREATE                                 create
      0000 0038   ERR_API                          API    returned below error
      0000 0039   ERR_API_RC                              RC not expected
-     0000 003A   ERR_3A                           
+     0000 003A   ERR_NAME_OBJECT                         rename object failed
      0000 003B   ERR_PATH_INCOMPLETE                     path not qualified
      0000 003C   ERR_SS_ERROR                     SecSys general error
      0000 003D   ERR_SS_ACCESS                           general: access denied

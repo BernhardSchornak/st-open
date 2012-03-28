@@ -1,13 +1,23 @@
 
  Test
- ÍÍÍÍ
+ ====
 
- is designed for internal testing of ST-Open libraries. This program might be
- of no use for any other purposes...
+ is a tiny program to test functions and determine how many cycles they need.
+
+ It's probably of no practical use for anyone except me, some knowledge about
+ ST-Open's libraries is required. If you want to use it, anyway:
+
+ - Open ..\source\ttt.S with the text editor of your choice.
+
+ - Insert your code between the both comments marked with 'XXX' lines.
+
+ - Please do not use RDI, RSI, RBP, R10, R11 or R12. These registers are used
+   by the loop logic!
+
 
 
  Test
- ÍÍÍÍ
+ ====
 
  dient nur zur internen Prfung von Funktionen der ST-Open Bibliotheken! Dies
- Programm ist fr alle anderen Zwecke ungeeignet...
+ Programm ist für alle anderen Zwecke ungeeignet...

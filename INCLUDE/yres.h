@@ -1,81 +1,73 @@
   /*
-    Use font 'DOS 850' or 'IBM 850' on non-OS/2 machines to display the file properly!
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                              RESOURCE ID DEFINITIONS                               บÛ
-  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
-  บ                          *** (C) ST-Open 1979 - 2010 ***                           บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ       THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE        บÛ
-  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
-  บ You may copy and distribute this file as often as you want, but recipients are not บÛ
-  บ allowed to pay anything for any copy of this file or its content. It isn't allowed บÛ
-  บ to remove parts of this file or add third party content. It isn't allowed to abuse บÛ
-  บ the copyrighted content or introduced techniques for commercial purposes. Whatever บÛ
-  บ is derived from this file and its content must be freely available without charge. บÛ
-  บ You are free to modify the content of this file if you want to. However, derivates บÛ
-  บ of the content of this file or parts of it *still* are subject to the terms of the บÛ
-  บ FT4FP license. Recipients neither are allowed to pay anything for the original nor บÛ
-  บ for altered or derived replica.                                                    บÛ
-  บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤบÛ
-  บ       FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!        บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-   */
+    ==================================================================================
+                    RESOURCE ID DEFINITIONS    (C) ST-Open 1979 - 2012
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE!
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    You may copy and distribute this file as often as you want, but recipients are not
+    allowed to pay anything for any copy of this file or its content. It isn't allowed
+    to abuse its copyrighted content or introduced techniques for commercial purposes.
+    Whatever is derived from this file or its content must be freely available without
+    charge.
+
+    You are free to modify the content of this file if you want to. However, derivates
+    of the content of this file or parts of it *still* are subject to the terms of the
+    FT4FP license. Recipients neither are allowed to pay anything for the original nor
+    for altered or derived replica.
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               FREE THOUGHT FOR FREE PEOPLE: KEEP CASH AWAY FROM KNOWLEDGE!
+    ==================================================================================
+  */
 #ifndef __yres__
 #define __yres__
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                               O N L I N E - H E L P                                บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                  O N L I N E - H E L P
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-                                            /*  50   OLH window title                  */
-  #define ID_OLHOK         0x0800           /*  51   [Close]                           */
-  #define ID_OLTOP         0x0801           /*  52   [Topic]                           */
-  #define ID_OLHTT         0x0802           /*       help title                        */
-  #define ID_OLHTX         0x0803           /*            text                         */
-  #define ID_OLHGB         0x0804           /*       EFld topic                        */
-  #define ID_OLTOP         0x0805           /*       bitmap                            */
-  #define ID_OLTBT         0x0806           /*       -                                 */
-  #define ID_OLHCH         0x0807           /*       -                                 */
-  #define ID_TOPIC         0x0808           /*       -                                 */
-                                            /*  53   TOP window title                  */
-  #define ID_TOPML         0x0809           /*       topic text                        */
-  #define ID_TOPOK         0x080A           /*  54   [Close]                           */
-  #define ID_TOP0B         0x080B           /*       -                                 */
-  #define ID_TOP0C         0x080C           /*       -                                 */
-  #define ID_TOP0D         0x080D           /*       -                                 */
-  #define ID_TOP0E         0x080E           /*       -                                 */
-  #define ID_TOP0F         0x080F           /*       -                                 */
-  #define ID_OLH10         0x0810           /*       -                                 */
-                                            /*  55   title    OLH, TOPIC: 60           */
-  #define ID_OLH01         0x0811           /*  56   description          61           */
-  #define ID_OLH10         0x0812           /*  57   [Discard]            62           */
-  #define ID_OLH11         0x0813           /*  58   [Store]              63           */
-  #define ID_OLH20         0x0814           /*       EFld title/topic                  */
-  #define ID_OLHBMP        0x081F           /*       -                                 */
+                                            /*  50   OLH window title               */
+  #define ID_OLHOK         0x0800           /*  51   [Close]                        */
+  #define ID_OLTOP         0x0801           /*  52   [Topic]                        */
+  #define ID_OLHTT         0x0802           /*       help title                     */
+  #define ID_OLHTX         0x0803           /*            text                      */
+  #define ID_OLHGB         0x0804           /*       EFld topic                     */
+  #define ID_OLTOP         0x0805           /*       bitmap                         */
+  #define ID_OLTBT         0x0806           /*       -                              */
+  #define ID_OLHCH         0x0807           /*       -                              */
+  #define ID_TOPIC         0x0808           /*       -                              */
+                                            /*  53   TOP window title               */
+  #define ID_TOPML         0x0809           /*       topic text                     */
+  #define ID_TOPOK         0x080A           /*  54   [Close]                        */
+  #define ID_TOP0B         0x080B           /*       -                              */
+  #define ID_TOP0C         0x080C           /*       -                              */
+  #define ID_TOP0D         0x080D           /*       -                              */
+  #define ID_TOP0E         0x080E           /*       -                              */
+  #define ID_TOP0F         0x080F           /*       -                              */
+  #define ID_OLH10         0x0810           /*       -                              */
+                                            /*  55   title    OLH, TOPIC: 60        */
+  #define ID_OLH01         0x0811           /*  56   description          61        */
+  #define ID_OLH10         0x0812           /*  57   [Discard]            62        */
+  #define ID_OLH11         0x0813           /*  58   [Store]              63        */
+  #define ID_OLH20         0x0814           /*       EFld title/topic               */
+  #define ID_OLHBMP        0x081F           /*       -                              */
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                             F I L E   L I S T   D L G                              บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                F I L E   L I S T   D L G
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  #define ID_FLST          0x0880           /*   0   filelist dlg                      */
-  #define ID_FLS00         0x0888           /*       dummy to make CBox work properly  */
-  #define ID_FLS10         0x0881           /*   1   dismiss                           */
-  #define ID_FLS11         0x0882           /*   2   load                              */
-  #define ID_FLS12         0x0883           /*   3   remove from list                  */
-  #define ID_FLS13         0x0884           /*   4   help                              */
-  #define ID_FLS14         0x0885           /*   5   delete all                        */
-  #define ID_FLS20         0x0886           /*       CBox                              */
-  #define ID_FLS21         0x0887           /*   6   toggle FLSadd()                   */
+  #define ID_FLST          0x0880           /*   0   filelist dlg                   */
+  #define ID_FLS00         0x0888           /*       (makes CBox work properly...)  */
+  #define ID_FLS10         0x0881           /*   1   dismiss                        */
+  #define ID_FLS11         0x0882           /*   2   load                           */
+  #define ID_FLS12         0x0883           /*   3   remove from list               */
+  #define ID_FLS13         0x0884           /*   4   help                           */
+  #define ID_FLS14         0x0885           /*   5   delete all                     */
+  #define ID_FLS20         0x0886           /*       CBox                           */
+  #define ID_FLS21         0x0887           /*   6   toggle FLSadd()                */
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                      A P P L I C A T I O N   M E S S A G E S                       บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         A P P L I C A T I O N   M E S S A G E S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   #define ID_SMSML         0x08D0
   #define ID_SMSB0         0x08D1
@@ -95,10 +87,9 @@
   #define ID_SMSD3         0x08DF
   #define ID_SMSMS         0x08E0
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                           S Y S T E M   M E S S A G E S                            บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                              S Y S T E M   M E S S A G E S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   #define ID_SERR          0x08E0
   #define ID_SER00         0x08D1
@@ -110,10 +101,9 @@
   #define ID_SER12         0x08D7
   #define ID_SER20         0x08D8
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                          R E G I S T E R - M O N I T O R                           บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                             R E G I S T E R - M O N I T O R
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   #define ID_RGMON         0x0900
   #define ID_RGM00         0x0901
@@ -162,12 +152,11 @@
   #define ID_RGM3E         0x093E
   #define ID_RGM3F         0x093F
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                        M e m H a n d l e  -  M O N I T O R                         บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                           M e m H a n d l e  -  M O N I T O R
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
-  #define ID_MMMON         0x0940           /*  10   Loader Monitor                    */
+  #define ID_MMMON         0x0940           /*  10   Loader Monitor                 */
   #define ID_MMM00         0x0941
   #define ID_MMM01         0x0942
   #define ID_MMM02         0x0943
@@ -175,10 +164,10 @@
   #define ID_MMM04         0x0945
   #define ID_MMM05         0x0946
   #define ID_MMM06         0x0947
-  #define ID_MMM10         0x0950           /*  42   Close                             */
-  #define ID_MMM11         0x0951           /*  43   Help                              */
-  #define ID_MMM14         0x0952           /*  44   <                                 */
-  #define ID_MMM15         0x0953           /*  45   >                                 */
+  #define ID_MMM10         0x0950           /*  42   Close                          */
+  #define ID_MMM11         0x0951           /*  43   Help                           */
+  #define ID_MMM14         0x0952           /*  44   <                              */
+  #define ID_MMM15         0x0953           /*  45   >                              */
   #define ID_MMM16         0x0956
   #define ID_MMM20         0x0960
   #define ID_MMM21         0x0961
@@ -191,44 +180,43 @@
   #define ID_MMM28         0x0968
   #define ID_MMM29         0x0969
   #define ID_MMM2A         0x096A
-  #define ID_MMM2B         0x096B           /*  40   hex                               */
-  #define ID_MMM2C         0x096C           /*  41   dec                               */
+  #define ID_MMM2B         0x096B           /*  40   hex                            */
+  #define ID_MMM2C         0x096C           /*  41   dec                            */
   #define ID_MMM2D         0x096D
-  #define ID_MMM30         0x0970           /*  24   read                              */
-  #define ID_MMM31         0x0971           /*  25   write                             */
-  #define ID_MMM32         0x0972           /*  26   changed                           */
-  #define ID_MMM33         0x0973           /*  27   leave open                        */
-  #define ID_MMM34         0x0974           /*  28   no loading                        */
-  #define ID_MMM35         0x0975           /*  29   static                            */
-  #define ID_MMM36         0x0976           /*  30   LFL                               */
-  #define ID_MMM37         0x0977           /*  31   no field                          */
-  #define ID_MMM38         0x0978           /*  32   mixed                             */
-  #define ID_MMM39         0x0979           /*  33   system                            */
-  #define ID_MMM3A         0x097A           /*  34   -                                 */
-  #define ID_MMM3B         0x097B           /*  35   dirty                             */
-  #define ID_MMM3C         0x097C           /*  36   encrypted                         */
-  #define ID_MMM3D         0x097D           /*  37   SecSys                            */
-  #define ID_MMM3E         0x097E           /*  38   corrupted                         */
-  #define ID_MMM3F         0x097F           /*  39   system busy                       */
-  #define ID_MMM40         0x0980           /*  11   Block Address                     */
-  #define ID_MMM41         0x0981           /*  12   Block Size                        */
-  #define ID_MMM42         0x0982           /*  13   Timestamp                         */
-  #define ID_MMM43         0x0983           /*  14   Field Number                      */
-  #define ID_MMM44         0x0984           /*  15   Field Size                        */
-  #define ID_MMM45         0x0985           /*  16   Entries                           */
-  #define ID_MMM46         0x0986           /*  17   Datatype ID                       */
-  #define ID_MMM47         0x0987           /*  18   MEM Allocated                     */
-  #define ID_MMM48         0x0988           /*  19   MEM Used                          */
-  #define ID_MMM49         0x0989           /*  20   MEM Available                     */
-  #define ID_MMM4A         0x098A           /*  21   Time                              */
-  #define ID_MMM4B         0x098B           /*  22   Checker - Update running          */
+  #define ID_MMM30         0x0970           /*  24   read                           */
+  #define ID_MMM31         0x0971           /*  25   write                          */
+  #define ID_MMM32         0x0972           /*  26   changed                        */
+  #define ID_MMM33         0x0973           /*  27   leave open                     */
+  #define ID_MMM34         0x0974           /*  28   no loading                     */
+  #define ID_MMM35         0x0975           /*  29   static                         */
+  #define ID_MMM36         0x0976           /*  30   LFL                            */
+  #define ID_MMM37         0x0977           /*  31   no field                       */
+  #define ID_MMM38         0x0978           /*  32   mixed                          */
+  #define ID_MMM39         0x0979           /*  33   system                         */
+  #define ID_MMM3A         0x097A           /*  34   -                              */
+  #define ID_MMM3B         0x097B           /*  35   dirty                          */
+  #define ID_MMM3C         0x097C           /*  36   encrypted                      */
+  #define ID_MMM3D         0x097D           /*  37   SecSys                         */
+  #define ID_MMM3E         0x097E           /*  38   corrupted                      */
+  #define ID_MMM3F         0x097F           /*  39   system busy                    */
+  #define ID_MMM40         0x0980           /*  11   Block Address                  */
+  #define ID_MMM41         0x0981           /*  12   Block Size                     */
+  #define ID_MMM42         0x0982           /*  13   Timestamp                      */
+  #define ID_MMM43         0x0983           /*  14   Field Number                   */
+  #define ID_MMM44         0x0984           /*  15   Field Size                     */
+  #define ID_MMM45         0x0985           /*  16   Entries                        */
+  #define ID_MMM46         0x0986           /*  17   Datatype ID                    */
+  #define ID_MMM47         0x0987           /*  18   MEM Allocated                  */
+  #define ID_MMM48         0x0988           /*  19   MEM Used                       */
+  #define ID_MMM49         0x0989           /*  20   MEM Available                  */
+  #define ID_MMM4A         0x098A           /*  21   Time                           */
+  #define ID_MMM4B         0x098B           /*  22   Checker - Update running       */
   #define ID_MMM4C         0x098C
-  #define ID_MMM4D         0x098D           /*  23   Field Name                        */
+  #define ID_MMM4D         0x098D           /*  23   Field Name                     */
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  บ                                    S e c S y s                                     บÛ
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       S e c S y s
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
   #define ID_MPNEW         0x09A0
   #define ID_MPN00         0x09A1
@@ -241,7 +229,7 @@
   #define ID_MPN11         0x09A8
   #define ID_MPN20         0x09A9
   #define ID_MPN21         0x09AA
-  #define ID_MPN22         0x09AB     /* INSERTED FOR COMPILER ! ! ! */
+  #define ID_MPN22         0x09AB           /* INSERTED FOR COMPILER...             */
   #define ID_MPQUE         0x09B0
   #define ID_MPQ00         0x09B1
   #define ID_MPQ10         0x09B2
@@ -261,8 +249,6 @@
   #define ID_GTP20         0x09CB
   #define ID_GTP21         0x09CC
   /*
-  ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-  ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผÛ
-    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   */
 #endif

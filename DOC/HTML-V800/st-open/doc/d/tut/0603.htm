@@ -72,27 +72,22 @@ Die Systemnachrichten sind im Feld "err.dat" (im Unterordner SYST jedes Programm
  der Bibliotheken durch eine fehlerbereinigte Version.
 <div class="crlf2"></div>
 <h2>Eingabe</h2>
-<div class="box100"><img src="../../../st7/md5/d/pics/smsg.png" alt="Tool: Systemnachrichten" width="696" height="700" border="0" /></div>
+<div class="box100"><img src="../../pics/MSGedD.png" alt="Tool: Systemnachrichten" width="1024" height="556" border="0" /></div>
 <div class="crlf1"></div>
 Der Eingabedialog ist einfach zu bedienen. Geben Sie im MLE den Nachrichtentext und in den drei kleinen
  Eingabefeldern darunter die Texte f&uuml;r die Kn&ouml;pfe ein. Ist der Nachrichtentext eine leere
- Zeichenkette, dann wird die im Screenshot abgebildete Nachricht (Eintrag 0) angezeigt. Enth&auml;lt
- der Text f&uuml;r einen Knopf eine leere Zeichenkette, dann wird der Knopf ausgeblendet. Da der Dialog
- ohne Knopf nicht mehr geschlossen werden kann, setzt die Funktion ErrMgr() automatisch den mittleren
- Knopf auf den Text "O K", wenn die Texte aller drei Kn&ouml;pfe leere Zeichenketten sind.
-<div class="crlf1"></div>
-<b>Achtung:</b> Sollte f&uuml;r beide Eingabebl&ouml;cke dieselbe Sprache ausgew&auml;hlt sein, werden
- Eingaben in den unteren Eingabeblock stillschweigend ignoriert. Bei unterschiedlichen Sprachen werden
- &Auml;nderungen der Bedienelemente im unteren Eingabeblock selbstverst&auml;ndlich in das der zweiten
- Sprache zugeordnete Unterfeld geschrieben.
+ Zeichenkette, dann wird die im Screenshot abgebildete Nachricht (Eintrag 0) angezeigt. Die Funktion
+ ErrMgr() setzt automatisch den mittleren Knopf auf den Text "Beenden", bevor die Texte aller drei
+ Kn&ouml;pfe ausgegeben werden. Der linke und rechte Knopf werden automatisch ausgeblendet, wenn kein
+ Text existiert, der mittlere Knopf hingegen wird <i>niemals</i> ausgeblendet, um das Schliessen des
+ Dialogs zu erm&ouml;glichen. So k&ouml;nnen Sie den ErrMgr() sogar mit einer leeren Nachrichtendatei
+ aufrufen, ohne Angst haben zu m&uuml;ssen, dass Ihr Programm nur mittels Windows' <i>Task-Manager</i>
+ geschlossen werden kann.
 </div>
 <div class="crlf2"></div>
 &#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="0602.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
 &#160;&#160;&#160;<a href="0700.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
-<div class="crlf1"></div>
-&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0603.htm">
-<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
 <div class="crlf1"></div>
 </body>
 </html>

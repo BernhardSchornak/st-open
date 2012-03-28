@@ -41,30 +41,27 @@
 <div class="inner">Verschl&uuml;sselte Datei</div><div class="outer"><b>LDR_ENCRYPT</b></div><div class="crlf0"></div>
 <div class="inner">Schreibzugriff l&auml;uft, Daten momentan inkonsistent (M&uuml;llsortierung!)</div><div class="outer"><b>LDR_DIRTY</b></div><div class="crlf0"></div>
 <div class="inner">Reserviert</div><div class="outer"><b>LDR_RES0A</b></div><div class="crlf0"></div>
-<div class="inner">Reserviert</div><div class="outer"><b>LDR_RES09</b></div><div class="crlf0"></div>
-<div class="inner">Reserviert</div><div class="outer"><b>LDR_RES08</b></div><div class="crlf0"></div>
-<div class="inner">Datei ist kein Feld</div><div class="outer"><b>LDR_NO_FIELD</b></div><div class="crlf0"></div>
-<div class="inner">Zur Liste geladener Dateien hinzuf&uuml;gen</div><div class="outer"><b>LDR_LFLIST</b></div><div class="crlf0"></div>
-<div class="inner">Statisch (keine dynamische Speicherfreigabe)</div><div class="outer"><b>LDR_STATIC</b></div><div class="crlf0"></div>
-<div class="inner">Speicherblock (kein Feld, keine Datei)</div><div class="outer"><b>LDR_MEM</b></div><div class="crlf0"></div>
-<div class="inner">Datei nach dem Laden nicht schliessen</div><div class="outer"><b>LDR_LEAVE_OPEN</b></div><div class="crlf0"></div>
+<div class="inner">Systemdatei</div><div class="outer"><b>LDR_SYSTEM</b></div><div class="crlf0"></div>
+<div class="inner">Nur eine Instanz erlaubt</div><div class="outer"><b>LDR_INSTANCE</b></div><div class="crlf0"></div>
+<div class="inner">Lade Datei (kein Datenfeld)</div><div class="outer"><b>LDR_NO_FIELD</b></div><div class="crlf0"></div>
+<div class="inner">Externe Quelle</div><div class="outer"><b>LDR_EXTERNAL</b></div><div class="crlf0"></div>
+<div class="inner">Interne Quelle</div><div class="outer"><b>LDR_FIELD</b></div><div class="crlf0"></div>
+<div class="inner">Speicherblock (kein Datenfeld, keine Datei)</div><div class="outer"><b>LDR_MEM</b></div><div class="crlf0"></div>
+<div class="inner">Niemals Sichern</div><div class="outer"><b>LDR_DISCARD</b></div><div class="crlf0"></div>
 <div class="inner">Inhalt ge&auml;ndert</div><div class="outer"><b>LDR_CHANGED</b></div><div class="crlf0"></div>
 <div class="inner">Schreibzugriff erlaubt</div><div class="outer"><b>LDR_WRITE</b></div><div class="crlf0"></div>
 <div class="inner">Lesezugriff erlaubt</div><div class="outer"><b>LDR_READ</b></div><div class="crlf1"></div>
-<div class="inner">Datei laden (LDR_READ | LDR_WRITE | LDR_STATIC | LDR_NO_FIELD)</div><div class="outer"><b>LDR_FILE</b></div><div class="crlf0"></div>
-<div class="inner">Datei laden (LDR_READ | LDR_WRITE | LDR_STATIC | LDR_LFLIST | LDR_NO_FIELD)</div><div class="outer"><b>LDR_AUTOSAVE</b></div><div class="crlf0"></div>
 <div class="crlf1"></div>
-In den Speicherhenkeln sind die Bits 16 bis 31 f&uuml;r den Instanzenz&auml;hler reserviert. In den Feldk&ouml;pfen geben die Bits 16 bis 23 die Leserechte, die
- Bits 24 bis 31 die Schreibrechte an, die bei aktiviertem SecSys f&uuml;r den Zugriff auf den Inhalt der Datei erforderlich sind. Entspricht die Zugriffsberechtigung
- nicht dieser Anforderung, dann verweigert die Datenbankmaschine den Lese- oder Schreibzugriff (momentan existieren 8 Privilegstufen).
+In den Speicherhenkeln sind die Bits 31 bis 16 immer Null. In den Feldk&ouml;pfen geben die Bits
+ 23 bis 16 die Leserechte, die Bits 31 bis 24 die Schreibrechte an, die bei aktiviertem SecSys
+ f&uuml;r den Zugriff auf den Inhalt eines gesch&uuml;tzten Speicherblocks erforderlich sind.
+ Entspricht die Zugriffsberechtigung nicht dieser Anforderung, verweigert die Datenbankmaschine
+ den Lese- oder Schreibzugriff (momentan existieren 8 Privilegstufen).
 </div>
 <div class="crlf2"></div>
 &#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="0102.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
 &#160;&#160;&#160;<a href="0200.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
-<div class="crlf1"></div>
-&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0103.htm">
-<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
 <div class="crlf1"></div>
 </body>
 </html>

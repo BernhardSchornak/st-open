@@ -2,16 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
- <meta name="Page-topic" content="asc2s()" />
- <meta name="Description" content="ST-Open Bibliotheken: asc2s()" />
+ <meta name="Page-topic" content="Q2hex()" />
+ <meta name="Description" content="ST-Open Bibliotheken: Q2hex()" />
  <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="date" content="2012-02-25T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
  <style type="text/css"><!--@import "../../st.css";--></style>
  <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
- <title>asc2s()</title>
+ <title>Q2hex()</title>
 </head>
 <body id="top">
 <div class="pagehd">
@@ -24,7 +24,7 @@
  <li><a href="../fct.htm">nach Funktion</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
+<div class="update">[2012-02-25]</div>
 <div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
 </div>
 <div class="crlf1"></div>
@@ -35,49 +35,45 @@
 <div class="crlf1"></div>
 <div class="text100"><div class="inner">..\st7\lib\sources\core\cvt.S</div><div class="outer"><big>sys.lib</big></div></div>
 <div class="crlf1"></div>
-<div class="text100"><div class="inner"><b>asc2s</b></div><div class="outer">Funktion</div></div><div class="crlf0"></div>
-<div class="text100"><div class="inner">rc = asc2s(quelle, ziel, anzahl);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner"><b>Q2hex</b></div><div class="outer">Funktion</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = Q2hex(zahl, ziel);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
-<div class="inners">VOID *</div>
-<div class="inners">quelle</div>
-<div class="innerl">Adresse der Quellzeichenkette</div>
+<div class="inners">RCX</div>
+<div class="inners">zahl</div>
+<div class="innerl">umzuwandelndes Vierfachwort</div>
 <div class="crlf0"></div>
-<div class="inners">VOID *</div>
+<div class="inners">RDX</div>
 <div class="inners">ziel</div>
-<div class="innerl">Adresse der Zielzeichenkette</div>
-<div class="crlf0"></div>
-<div class="inners">DD</div>
-<div class="inners">anzahl</div>
-<div class="innerl">Anzahl umzuwandelnder Bytes</div>
+<div class="innerl">Adresse des Zielpuffers</div>
 </div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
-<div class="inners">DD</div>
+<div class="inners">RAX</div>
 <div class="inners">rc</div>
 <div class="innerl">immer Null</div>
 </div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
-asc2s() wandelt [anzahl] Bytes ab Adresse [quelle] in ASCII-Zeichen um, die ab der Adresse [ziel] abgelegt werden. Bytes mit einem Wert unter
- 0x20 werden als zwei Punkte ".." dargestellt.
+Q2hex() wandelt das &uuml;bergebene Vierfachwort in eine ASCII-Zeichenkette um,
+ die in zwei Gruppen zu je acht Ziffern formatiert ist.
 <div class="crlf1"></div>
-Diese Funktion ist zum Beispiel f&uuml;r die ASCII-Spalte von Hexeditoren n&uuml;tzlich.
+Der &uuml;bergebene Puffer muss eine Mindestgr&ouml;sse von 32 Byte haben! (Die
+ zur&uuml;ckgelieferte Zeichenkette hat 15 abschliessende Nullen.)
 </div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
 <pre>
 {
- DD a = 0x12345678;
- DB s[16];
- asc2s(&a, s, 4);
+ DB s[32];
+ Q2hex(0123456789ABCDEF, s);
 }
 </pre>
-Die Zeichenkette s enth&auml;lt nun ".4Vx".
+Die Zeichenkette s enth&auml;lt nun "01234567 89ABCDEF".
 </div><div class="outer">Beispiel</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+12 Taktzyklen
+</div><div class="outer">Latenz</div></div><div class="crlf0"></div>
 <div class="crlf2"></div>
 &#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="cvt03.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
 &#160;&#160;&#160;<a href="cvt05.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
-<div class="crlf1"></div>
-&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fsys%2Fcvt04.htm">
-<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
 <div class="crlf1"></div>
 </body>
 </html>

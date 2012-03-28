@@ -2,16 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
- <meta name="Page-topic" content="qintl()" />
- <meta name="Description" content="ST-Open Bibliotheken: qintl()" />
+ <meta name="Page-topic" content="D2hex()" />
+ <meta name="Description" content="ST-Open Bibliotheken: D2hex()" />
  <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="date" content="2012-02-25T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
  <style type="text/css"><!--@import "../../st.css";--></style>
  <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
- <title>qintl()</title>
+ <title>D2hex()</title>
 </head>
 <body id="top">
 <div class="pagehd">
@@ -24,7 +24,7 @@
  <li><a href="../fct.htm">nach Funktion</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
+<div class="update">[2012-02-25]</div>
 <div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
 </div>
 <div class="crlf1"></div>
@@ -34,47 +34,48 @@
 &#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
 <div class="crlf1"></div>
 <div class="text100"><div class="inner">..\st7\lib\sources\core\cvt.S</div><div class="outer"><big>sys.lib</big></div></div>
-<div class="text100">
 <div class="crlf1"></div>
-<h3>qintl()</h3>
-Diese als obsolet gekennzeichnete Funktion wurde aus der Bibliothek entfernt:
-<div class="box100q"><pre>
-       /*
-          ---------------------------------
-          rc = qintl(*DD, *DD);
-          ---------------------------------
-       */
-       .align 2,0x90
-.globl _qintl
-_qintl:subl $0x0C,%esp
-       nop
-       nop
-       movl %esi,0x00(%esp)
-       movl %edi,0x04(%esp)
-       movl %ebx,0x08(%esp)
-       movl 0x10(%esp),%esi              # ESI = source
-       movl 0x14(%esp),%edi              # EDI = target
-       movl 0x00(%esi),%ebx              # EBX = 0123
-       movl 0x04(%esi),%eax              # EAX = 4567
-       bswap %ebx                        # unLETNi (3210)
-       bswap %eax                        # unLETNi (7654)
-       movl %eax,0x00(%edi)              # write 7654
-       movl %ebx,0x04(%edi)              # write 3210
-       movl 0x00(%esp),%esi
-       movl 0x04(%esp),%edi
-       movl 0x08(%esp),%ebx
-       addl $0x0C,%esp
-       xorl %eax,%eax
-       ret
-</pre></div>
-</div>
+<div class="text100"><div class="inner"><b>D2hex</b></div><div class="outer">Funktion</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = D2hex(zahl, ziel);</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RCX</div>
+<div class="inners">zahl</div>
+<div class="innerl">Umzusetzendes Doppelwort</div>
+<div class="crlf0"></div>
+<div class="inners">RDX</div>
+<div class="inners">ziel</div>
+<div class="innerl">Adresse des Zielpuffers</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<div class="inners">RAX</div>
+<div class="inners">rc</div>
+<div class="innerl">immer Null</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+D2hex() wandelt das &uuml;bergebene Doppelwort in eine hexadezimale
+ ASCII-Zeichenkette um, die in zwei Gruppen zu je 4 Digit formatiert ist.
+<div class="crlf1"></div>
+Der &uuml;bergebene Puffer muss eine Mindestgr&ouml;sse von 20 Byte haben!
+ (Die zur&uuml;ckgelieferte Zeichenkette hat 12 abschliessende Nullen. Das
+ Zurechtschneiden der Zeichenkette w&uuml;rde die Latenz um mindestens vier
+ Taktzyklen erh&ouml;hen.)
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ DB s[32];
+ D2hex(0x12345678, s);
+}
+</pre>
+Die Zeichenkette s enth&auml;lt nun "1234 5678".
+</div><div class="outer">Beispiel</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+12 Taktzyklen
+</div><div class="outer">Latenz</div></div><div class="crlf0"></div>
 <div class="crlf2"></div>
 &#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="cvt01.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
 &#160;&#160;&#160;<a href="cvt03.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
-<div class="crlf1"></div>
-&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Fsys%2Fcvt02.htm">
-<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
 <div class="crlf1"></div>
 </body>
 </html>

@@ -1,28 +1,30 @@
 
           F I E L D   D E F I N I T I O N S
-          อออออออออออออออออออออออออออออออออ
+          =================================
 
           Field number  0000 0000  is defined to be no field. This number is used by all
           LD functions to mark free entries (no field) in the Loader table !!!
 
           Field numbers FFFF FF00 ... FFFF FFFF are reserved for the ST-Open system:
 
-          FFFF FFFF     _BMM   memory    LOADER TABLE
-          FFFF FFFE     _BNR   NUM.DAT   SYSTEM NUMERICS
-          FFFF FFFD            CVT.DAT   CONVERSION TABLES
-          FFFF FFFC     _BST   STR.DAT   SYSTEM STRINGS
-          FFFF FFFB            HLP.DAT   OLH
-          FFFF FFFA            TOP.DAT   OLH-TOPICS
-          FFFF FFF9            ERR.DAT   ErrMgr() system errors
-          FFFF FFF8            SY8.DAT
-          FFFF FFF7            FLS.DAT   FILE LIST
-          FFFF FFF6     _LFL   LFL.DAT   LIST OF LOADED FILES
-          FFFF FFF5            NSM.DAT   ErrMgr() user messages
-          FFFF FFF4            SY4.DAT
-          FFFF FFF3            SY3.DAT
-          FFFF FFF2            SY2.DAT
-          FFFF FFF1            SY1.DAT
-          FFFF FFF0            SY0.DAT
+          field       EA     MH       status   content                         loaded
+
+          FFFF FFFF   _BMM            system   65.5 KB LOADER TABLE            permanent
+          FFFF FFFE   _BNR            system   65.5 KB SYSTEM NUMERICS         permanent
+          FFFF FFFD   _BBF            system   65.5 KB FDacc() buffer          permanent
+          FFFF FFFC   _BST   _MHSTR   system   SYSTEM STRINGS                  permanent
+          FFFF FFFB                   option   OLH                             on demand
+          FFFF FFFA                   option   OLH-TOPICS                      on demand
+          FFFF FFF9                   system   ErrMgr() system errors          on demand
+          FFFF FFF8                   system   256 language names              on demand
+          FFFF FFF7                   option   FileList                        on demand
+          FFFF FFF6                   system   loaded files list               permanent
+          FFFF FFF5                   option   ErrMgr() user messages          on demand
+          FFFF FFF4                   ?        reserved                        ?
+          FFFF FFF3                   ?        reserved                        ?
+          FFFF FFF2                   ?        reserved                        ?
+          FFFF FFF1   _OBF            system   65.5 KB general purpose         permanent
+          FFFF FFF0   _TST            system   65.5 KB debugging tools         permanent
 
           FFFF FFEF     .
           FFFF FFEE     .
@@ -71,9 +73,9 @@
           FFFF FFC5     .
           FFFF FFC4     .
           FFFF FFC3     .
-          FFFF FFC2     _OBF   65,536 byte shared    buffer for general purposes
-          FFFF FFC1     _BBF   65,536 byte exclusive buffer for DBE
-          FFFF FFC0     _TST   65,536 byte optional  buffer for register dumps
+          FFFF FFC2     .
+          FFFF FFC1     .
+          FFFF FFC0     .
 
           FFFF FFBF     .
           FFFF FFBE     .
@@ -245,12 +247,12 @@
           FFFF FF21     .
           FFFF FF20     .
 
-          FFFF FF1F     .
-          FFFF FF1E     .
+          FFFF FF1F     DatTools         alias for EXTERNAL fields
+          FFFF FF1E     DatTools         -
           FFFF FF1D     DatTools         temporary memory block
           FFFF FF1C     DatTools         new field (creation in progress)
-          FFFF FF1B     DatTools         field we are currently working with
-          FFFF FF1A     DatTools         system filenames
+          FFFF FF1B     DatTools         -
+          FFFF FF1A     DatTools         buffer (262,144 byte)
           FFFF FF19     DatTools         source directories
           FFFF FF18     DatTools         field names & numbers
           FFFF FF17     .
@@ -275,6 +277,6 @@
           FFFF FF05     .
           FFFF FF04     .
           FFFF FF03     .
-          FFFF FF02     .
-          FFFF FF01     user SPINBUTTONS
-          FFFF FF00          NOTEBOOK #1
+          FFFF FF02     user ENTRYFIELDS
+          FFFF FF01          SPINBUTTONS
+          FFFF FF00          NOTEBOOK #1   (use numbers [FFFFFF00]-- for additional notebooks)

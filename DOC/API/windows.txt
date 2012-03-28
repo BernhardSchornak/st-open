@@ -1,6 +1,6 @@
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    WM_* messages
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    WM_NULL                     0x00000000
    WM_CREATE                   0x00000001
    WM_DESTROY                  0x00000002
@@ -203,11 +203,12 @@
    WM_AFXLAST                  0x0000037F
    WM_PENWINFIRST              0x00000380
    WM_PENWINLAST               0x0000038F
-   WM_USER                     0x00000400
-   WM_APP                      0x00008000
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   WM_USER                     0x00000400   range 0400...7FFF
+   WM_APP                      0x00008000         8000...BFFF
+                                                  C000...FFFF   string messages
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    window styles
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    WS_POPUPWINDOW              0x80880000
    WS_POPUP                    0x80000000
    WS_CHILD                    0x40000000
@@ -235,9 +236,9 @@
    WS_TABSTOP                  0x00010000
    WS_TILED                    0x00000000
    WS_OVERLAPPED               0x00000000
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    predefined window IDs
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    HWND_DESKTOP                0x00000000
    HWND_TOP                    0x00000000
    HWND_BOTTOM                 0x00000001
@@ -245,19 +246,27 @@
    HWND_NOTOPMOST              0xFFFFFFFE
    HWND_BROADCAST              0x0000FFFF
    HWND_TOPMOST                0xFFFFFFFF
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    window relationships
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    GW_HWNDFIRST                0x00000000
    GW_HWNDLAST                 0x00000001
    GW_HWNDNEXT                 0x00000002
    GW_HWNDPREV                 0x00000003
    GW_OWNER                    0x00000004
    GW_CHILD                    0x00000005
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   SIZE
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   SIZE_RESTORED               0x00000000
+   SIZE_MINIMIZED              0x00000001
+   SIZE_MAXIMIZED              0x00000002
+   SIZE_MAXSHOW                0x00000003
+   SIZE_MAXHIDE                0x00000004
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    WPF_SETMINPOSITION          0x00000001
    WPF_RESTORETOMAXIMIZED      0x00000002
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SW_HIDE                     0x00000000
    SW_NORMAL                   0x00000001
    SW_SHOWNORMAL               0x00000001
@@ -273,9 +282,9 @@
    SW_SHOWDEFAULT              0x00000010
    SW_FORCEMINIMIZE            0x00000011
    SW_MAX                      0x00000011
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SWP
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SWP_NOSIZE                  0x00000001
    SWP_NOMOVE                  0x00000002
    SWP_NOZORDER                0x00000004
@@ -291,9 +300,9 @@
    SWP_NOSENDCHANGING          0x00000400
    SWP_DEFERERASE              0x00002000
    SWP_ASYNCWINDOWPOS          0x00004000
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    structures
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WNDCLASSA
    {
     UINT            style;
@@ -308,7 +317,7 @@
     LPCSTR          lpszClassName;
    }
    WNDCLASSA,*LPWNDCLASSA,*PWNDCLASSA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WNDCLASSW
    {
     UINT            style;
@@ -323,7 +332,7 @@
     LPCWSTR         lpszClassName;
    }
    WNDCLASSW,*LPWNDCLASSW,*PWNDCLASSW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WNDCLASSEXA
    {
     UINT            cbSize;
@@ -340,7 +349,7 @@
     HICON           hIconSm;
    }
    WNDCLASSEXA,*LPWNDCLASSEXA,*PWNDCLASSEXA;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WNDCLASSEXW
    {
     UINT            cbSize;
@@ -357,14 +366,14 @@
     HICON           hIconSm;
    }
    WNDCLASSEXW,*LPWNDCLASSEXW,*PWNDCLASSEXW;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CLIENTCREATESTRUCT
    {
     HANDLE          hWindowMenu;
     UINT            idFirstChild;
    }
    CLIENTCREATESTRUCT,*LPCLIENTCREATESTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    COPYDATASTRUCT
    {
     DWORD           dwData;
@@ -372,7 +381,7 @@
     PVOID           lpData;
    }
    COPYDATASTRUCT,*PCOPYDATASTRUCT;
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CREATESTRUCTA
    {
     LPVOID          lpCreateParams;
@@ -389,7 +398,7 @@
     DWORD           dwExStyle;
    }
    CREATESTRUCTA,*LPCREATESTRUCTA;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CREATESTRUCTW
    {
     LPVOID          lpCreateParams;
@@ -406,7 +415,7 @@
     DWORD           dwExStyle;
    }
    CREATESTRUCTW,*LPCREATESTRUCTW;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MDICREATESTRUCTA
    {
     LPCSTR          szClass;
@@ -420,7 +429,7 @@
     LPARAM          lParam;
    }
    MDICREATESTRUCTA,*LPMDICREATESTRUCTA;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MDICREATESTRUCTW
    {
     LPCWSTR         szClass;
@@ -434,7 +443,7 @@
     LPARAM          lParam;
    }
    MDICREATESTRUCTW,*LPMDICREATESTRUCTW;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    MINMAXINFO
    {
     POINT           ptReserved;
@@ -444,21 +453,21 @@
     POINT           ptMaxTrackSize;
    }
    MINMAXINFO,*PMINMAXINFO,*LPMINMAXINFO;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    NCCALCSIZE_PARAMS
    {
     RECT            rgrc[3];
     PWINDOWPOS      lppos;
    }
    NCCALCSIZE_PARAMS, *LPNCCALCSIZE_PARAMS;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    STYLESTRUCT
    { 
     DWORD           styleOld;
     DWORD           styleNew;
    }
    STYLESTRUCT,*LPSTYLESTRUCT;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WINDOWPLACEMENT
    {
     00   DD      length;             0x2C
@@ -474,7 +483,7 @@
     28           SD bottom
    }
    WINDOWPLACEMENT,*LPWINDOWPLACEMENT,*PWINDOWPLACEMENT;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    _WINDOWPOS
    {
     HWND            hwnd;
@@ -486,14 +495,14 @@
     UINT            flags;
    }
    WINDOWPOS,*PWINDOWPOS,*LPWINDOWPOS;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    POINT
    {
     SD x;
     SD y;
    }
    POINT; 
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    RECT
    {
     SD left;
@@ -502,18 +511,18 @@
     SD bottom;
    }
    RECT;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CBT_CREATEWNDA
    {
     LPCREATESTRUCTA lpcs;
     HWND            hwndInsertAfter;
    }
    CBT_CREATEWNDA, *LPCBT_CREATEWNDA;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    CBT_CREATEWNDW
    {
     LPCREATESTRUCTW lpcs;
     HWND            hwndInsertAfter;
    }
    CBT_CREATEWNDW, *LPCBT_CREATEWNDW;
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -63,7 +63,7 @@ F&uuml;r die Funktionen zum &Auml;ndern der Men&uuml;- und Fenstertexte ben&ouml
  n&auml;chten Schritt fortzufahren.
 <div class="crlf1"></div>
 <h2>Texteingabe</h2>
-<div class="box100"><img src="../../../st7/md5/d/pics/mwt.png" alt="Tool: Men&uuml;- und Fenstertexte" width="612" height="732" border="0" /></div>
+<div class="box100"><img src="../../pics/mnudlgD.png" alt="Tool: Men&uuml;- und Fenstertexte" width="436" height="632" border="0" /></div>
 <div class="crlf1"></div>
 Das Werkzeug selbst ist recht simpel zu bedienen. Geben Sie zuerst die Resource-ID (die Nummer,
  die sie einem Men&uuml;eintrag oder Dialogelement in einer Kopfdatei mit Resourcedefinitionen
@@ -80,33 +80,88 @@ Das Werkzeug selbst ist recht simpel zu bedienen. Geben Sie zuerst die Resource-
  Quelltext des Programms.
 <div class="crlf1"></div>
 <h2>Men&uuml;s</h2>
-Um bei sp&auml;teren &Auml;nderungen nicht die gesamten Quelltexte durchsuchen zu m&uuml;ssen,
- empfiehlt es sich, die Nummern des Anfangs- und Endeintrags in einer Kopfdatei zu definieren:
-<pre>
-# define MENU_ANFANG   0x0000     /* erster  Eintrag */
-# define MENU_ENDE     0x0022     /* letzter Eintrag */
-</pre>
+<div class="box100"><img src="../../pics/menuD.png" alt="Tool: Men&uuml;- und Fenstertexte" width="428" height="144" border="0" /></div>
+<div class="crlf1"></div>
+Im Gegensatz zu OS/2 Men&uuml;s sind Windows-Men&uuml;s nicht nur wesentlich umst&auml;ndlicher
+ zu programmieren. Sie sind auch wesentlich unflexibler zu handhaben, da Untermen&uuml;s nicht
+ &uuml;ber eine ID angesprochen werden k&ouml;nnen.
+<div class="crlf1"></div>
+Im oben angezeigten Men&uuml; der DatTools haben die (immer sichtbaren) Hauptpunkte Programm,
+ Auswahl, MakeDat, &Uuml;bersetzung, Standardfelder und Hilfe die Indizes Null bis F&uuml;nf.
+ Im aufgeklappten Untermen&uuml; <i>Programm</i> hat das Unter-Untermen&uuml; <i>Sprache</i>
+ den Index Null, der obere Trennbalken den Index Eins, <i></i> Sicherheitssystem den Index
+ Zwei, der untere Balken den Index Drei und <i>Beenden</i> den Index Vier. Da Untermen&uuml;s
+ prinzipiell keine ID haben, kann eine automatisierte Funktion das dem Index Null zugeordnete
+ Unter-Unter-Untermen&uuml; nur mit etlichen Verrenkungen ansprechen. Letztendlich habe ich
+ die unter OS/2 zuverl&auml;ssig arbeitende Men&uuml;funktion zwei Jahre auf Eis gelegt, bevor
+ ich mich durch die unausgegorene Dokumentation und etliche Webseiten las. Nach tagelangem
+ Herumprobieren entstand eine auf den ersten Blick etwas kompliziert erscheinende Funktion,
+ die mit Men&uuml;s zurecht kommt, die maximal 16 Unter-Unter-Unter-...Untermen&uuml;s f&uuml;r
+ jedes Untermen&uuml; im Hauptmen&uuml; enthalten d&uuml;rfen. Mehr gibt der momentan benutzte
+ Speicher f&uuml;r die Daten der dar&uuml;ber liegenden Elternmen&uuml;s einfach nicht her...
+<div class="crlf1"></div>
+Die neue MNUtxt()-Funktion ben&ouml;tigt im Gegensatz zum Vorg&auml;ngermodell keine Parameter
+ mehr. Alle ben&ouml;tigten Arbeitsdaten sind in den SystemNumerics vorhanden. Daf&uuml;r ist
+ die Erstellung eines Men&uuml;s etwas komplexer und jede K&uuml;rzung oder Erweiterung des
+ Men&uuml;s macht das Verschieben der &uuml;ber dem zu entfernenden oder einzuf&uuml;genden
+ Element liegenden Eintr&auml;ge erforderlich. Da die Funktion bei jedem Untermen&uuml; der
+ Marke <i>Popup</i> vom aktuellen Index des Untermen&uuml;s auf Index Null des Kindmen&uuml;s
+ umschalten muss, um am Ende des Kindmen&uuml;s auf den Index des n&auml;chsten Geschwisters
+ im Eltermen&uuml; zur&uuml;ck zu schalten, verwendet MNUtxt() statt der Men&uuml;-IDs (soweit
+ sie denn vorhanden sind) die vier folgenden Markierungen:
+<div class="crlf1"></div>00 = normales Men&uuml;element
+<div class="crlf0"></div>01 = Men&uuml;element der Marke <i>Popup</i>
+<div class="crlf0"></div>0F = Nicht-Text-Elemente (Trenner und Sonstiges)
+<div class="crlf0"></div>FF = Ende eines Men&uuml;elements der Marke <i>Popup</i>
+<div class="crlf1"></div>
+Bitte geben Sie in das ID-Eingabefeld keine anderen Werte f&uuml;r das Programm-Men&uuml; ein
+ - die Programmlogik verwendet einige Tricks, um die Dummheiten der <small>microsoft</small>
+-Systemdesigner zumindest ansatzweise auszub&uuml;geln.
+<div class="crlf1"></div>
+Das Men&uuml; <b>muss</b> bei Eintrag Null beginnen und darf keine L&uuml;cken zwischen den
+ einzelnen Men&uuml;elementen enthalten. In den Eingabefeldern der Men&uuml;ende-Markierung
+ <i>FF</i> darf kein Text stehen, der einem Men&uuml;element zugeordnet ist - der Inhalt ginge
+ verloren, da MNUtxt() in diesem Fall keinen Text, sondern die zwischengespeicherten Daten des
+ Eltermen&uuml;s l&auml;dt. Da nur am Ende des Men&uuml;s zwei aufeinander folgende <i>FF</i>
+-Markierungen stehen k&ouml;nnen (wenn nicht, dann haben Sie etwas falsch gemacht - egal, in
+ welcher Verschachtelungsebene Sie Sich befinden, folgt einem <i>FF</i> bis auf das letzte
+ Men&uuml;element immer <i>00</i>, <i>01</i> oder <i>0F</i>), beendet MNUtxt() sich selbst,
+ sobald es auf zwei direkt aufeinander folgende <i>FF</i> st&ouml;sst.
+<div class="crlf1"></div>
+Als kleines Beispiel hier die ersten Werte f&uuml;r das oben abgebildete DatTools-Men&uuml;:
+<div class="crlf1"></div>01 <i>Popup Programm</i> (keine ID)
+<div class="crlf0"></div>01 <i>Popup Sprache</i> (keine ID)
+<div class="crlf0"></div>00 English
+<div class="crlf0"></div>00 Deutsch
+<div class="crlf0"></div>FF <i>Ende Popup Sprache</i>
+<div class="crlf0"></div>0F Trennbalken
+<div class="crlf0"></div>00 Sicherheitssystem
+<div class="crlf0"></div>0F Trennbalken
+<div class="crlf0"></div>00 Beenden
+<div class="crlf0"></div>FF <i>Ende Popup Programm</i>
+<div class="crlf0"></div>01 <i>Popup Auswahl</i> (keine ID)
+<div class="crlf0"></div>.. ...
+<div class="crlf0"></div>.. ...
+<div class="crlf0"></div>00 &Uuml;ber...
+<div class="crlf0"></div>FF <i>Ende Popup Hilfe</i>
+<div class="crlf0"></div>FF <i>Ende Men&uuml;</i>
+<div class="crlf1"></div>
+Das Ganze schaut am Anfang unbandig kompliziert aus, entbehrt aber nicht einer gewissen Logik,
+ die man mit etwas Herumprobieren schnell erlernt hat. Es gibt wesentlich schlimmmere Dinge -
+ zum Beispiel die Windows-API...
+<div class="crlf1"></div>
 Zum Setzen der Men&uuml;texte rufen Sie
 <pre>
-MNUtxt(hwnd, MENU_ANFANG, MENU_ENDE);
+MNUtxt();
 </pre>
 auf. Optional kann dem Aufruf der Wechsel auf eine andere Sprache vorausgehen:
 <pre>
 *STV_USR_LANGUAGE = 0;
-MNUtxt(hwnd, MENU_ANFANG, MENU_ENDE);
+MNUtxt();
 </pre>
-Der Fensterhenkel <i>hwnd</i> ist der Henkel des <b>Ausgabefensters</b> - bitte &uuml;bergeben
- Sie hier weder den Henkel des Rahmens noch einen anderen Fensterhenkel!
-<div class="crlf1"></div>
-Die Eintr&auml;ge MENU_ANFANG bis einschliesslich MENU_ENDE werden aus dem Unterfeld mit der in
- <b>STV_USR_LANGUAGE</b> festgelegten Nummer gelesen und in jene Men&uuml;elemente geschrieben,
- die die jeweils aus Unterfeld 17 gelesene Resource-ID haben. Wollen Sie einige Eintr&auml;ge
- reservieren, muss man nur die Resource-IDs der entsprechenden Eintr&auml;ge auf Null setzen
- (IDs mit dem Wert Null werden im ST-System als ung&uuml;ltig behandelt). Definieren Sie bitte
- nur IDs ab 0x1000, da der Bereich darunter zum Teil von Systemdialogen verwendet wird!
 <div class="crlf1"></div>
 <h2>Fenster und Dialoge</h2>
-Die Einbindung der Sprachunterst&uuml;tzung f&uuml;r Fenster erfolgt &uuml;ber den Aufruf
+Die Einbindung der Sprachunterst&uuml;tzung f&uuml;r Dialoge erfolgt &uuml;ber den Aufruf
 <pre>
 DLGtxt(hwnd, titel, titel, titel);
 </pre>
@@ -124,7 +179,7 @@ wobei <i>hwnd</i> der Henkel des Fensters oder Dialogs und <i>title</i> die Numm
  aber so viel zus&auml;tzlichen Code, dass die Verwendung von DLGtxt() sicher einfacher ist.
 <div class="crlf1"></div>
 <h2>Dialogelemente</h2>
-Um alle Texte in einem Dialog (einschliesslich des Fenstertitels) zu setzen rufen Sie
+Um alle Texte in einem Dialog (einschliesslich des Fenstertitels) zu setzen, rufen Sie
 <pre>
 DLGtxt(hwnd, titel, anfang, ende);
 </pre>
@@ -142,9 +197,6 @@ Dieses Feld enth&auml;lt die Texte aller Systemdialoge. Der Eingabe- und &Uuml;b
 &#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="0601.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
 &#160;&#160;&#160;<a href="0603.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
-<div class="crlf1"></div>
-&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0602.htm">
-<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
 <div class="crlf1"></div>
 </body>
 </html>

@@ -5,7 +5,7 @@
  <meta name="Page-topic" content="FDvpt()" />
  <meta name="Description" content="ST-Open Bibliotheken: FDvpt()" />
  <meta name="Keywords" content="ST-Open, Weichwaren, Open, offen, Quelle, ST-Open, Bibliothek, frei, Assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="date" content="2012-02-08T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
@@ -24,7 +24,7 @@
  <li><a href="../fct.htm">nach Funktion</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
+<div class="update">[2012-02-08]</div>
 <div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
 </div>
 <div class="crlf1"></div>
@@ -62,11 +62,11 @@
 <div class="innerl">Adresse des angegebenen Eintrags</div>
 </div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
-FDvpt() ist FDacc(). W&auml;hrend das von FDacc() zur&uuml;ckgelieferte Vierfachwort
- auf den Namen "Doppelwort" h&ouml;rt, wird das von FDvpt() zur&uuml;ckgelieferte
- Vierfachwort jedoch "Zeiger auf Leer" genannt. Das erspart die Kopfschmerzen beim
- Kompilieren und endlose Zauberorgien. Bei Fehlern wird die Adresse eines Doppelwortes
- in den Systemvariablen mit dem Inhalt Null (leere Zeichenkette) zur&uuml;ckgegeben.
+FDvpt() ist FDacc(). W&auml;hrend die von FDacc() zur&uuml;ckgelieferten 64 Bit auf den
+ Namen "Vierfachwort" h&ouml;ren, werden die von FDvpt() zur&uuml;ckgelieferten 64 Bit
+ jedoch "Zeiger auf Leer" genannt. Das erspart die Kopfschmerzen beim Kompilieren und
+ endlose Zauberorgien. Bei Fehlern wird die Adresse eines 32 Byte grossen Speicherblocks
+ am Feldanfang (enth&auml;lt 32 Nullen, also eine leere Zeichenkette) zur&uuml;ckgegeben.
 <div class="crlf1"></div>
 <b>ACHTUNG:</b> Schreiben Sie keine Zeichenketten an die zur&uuml;ckgelieferte Adresse.
  Das direkte Schreiben von Zeichenketten in Datenfelder korrumpiert den Feldinhalt und
@@ -86,6 +86,11 @@ FDvpt() ist FDacc(). W&auml;hrend das von FDacc() zur&uuml;ckgelieferte Vierfach
 </pre>
 Der Zugriff ermittelt die Adresse des Eintrags STR_MESSAGE der SystemStrings und speichert sie in der Variablen p.
 </div><div class="outer">Beispiel</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+FDvpt() ist eine <i>Kr&uuml;cke</i> f&uuml;r Hochsprachenprogrammierer. Echte Programmierer rufen FDacc() mit
+ <b>movq $0x07, %r9</b> auf, und ersparen sich zudem das Schreiben der zwei Stapelparameter, die von der Funktion
+ sowieso ignoriert werden (nur Hochsprachenkompilierer bestehen auf die &Uuml;bergabe nicht benötigter Parameter).
+</div><div class="outer">Intelligent Design</div></div>
 <div class="crlf2"></div>
 &#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="acf000.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>

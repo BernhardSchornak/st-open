@@ -1,6 +1,6 @@
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    control messages      (sent or posted)
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    UDM_SETRANGE                    0x0465
    UDM_GETRANGE                    0x0466
    UDM_SETPOS                      0x0467
@@ -17,22 +17,22 @@
    UDM_GETPOS32                    0x0472
    UDM_SETUNICODEFORMAT            0x2005
    UDM_GETUNICODEFORMAT            0x2006
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    notification messages (received)
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    UDN_FIRST                   0xFFFFFD2F
    UDN_LAST                    0xFFFFFD27
    UDN_DELTAPOS                0xFFFFFD2E
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    definitions
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    UD_MAXVAL                       0x7FFF
    UD_MINVAL                       0x8000
    UD_MAXVAL32                 0x7FFFFFFF
    UD_MINVAL32                 0x80000000
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    downdown styles
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    UDS_WRAP                        0x0001
    UDS_SETBUDDYINT                 0x0002
    UDS_ALIGNRIGHT                  0x0004
@@ -42,19 +42,26 @@
    UDS_HORZ                        0x0040
    UDS_NOTHOUSANDS                 0x0080
    UDS_HOTTRACK                    0x0100
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    downdown structures
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    UDACCEL  : 00   DD   nSec              delay in seconds to trigger addition of nInc
               04   DD   nInc              value to add when timer nSec elapsed
    size     : 08
    -----------------------------------------------------------------------------------
    NMHDR    : 00   DQ   hwndFrom          control HWND
               08   DQ   idFrom                    ID
-              10   DQ   code              0xFFFFFD2E (UDN_DELTAPOS)
+              10   DQ   code              0xFFFFFD2E (-722) UDN_DELTAPOS
               18   SD   iPos              position current
               1C   SD   iDelta                     new
    size     : 20
 
    The address of this structure is passed as LPARAM of the WM_NOTIFY message.
-   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+   NOTE: Downdown controls -never- send other messages than FFFFFD2E. It's a waste of
+         time to check this parameter. UDN_FIRST (-721) and UDN_LAST (-729) determine
+         the range for UDN_* messages. They neither are sent nor posted.
+
+         D1[code]: Either 00000000 or 0000E006. I found no information what these two
+         values mean - there is no definition for E006 in any relevant header file...
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

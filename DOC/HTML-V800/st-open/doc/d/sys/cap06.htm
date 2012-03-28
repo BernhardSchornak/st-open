@@ -5,7 +5,7 @@
  <meta name="Page-topic" content="WnCreatX()" />
  <meta name="Description" content="ST-Open Bibliotheken: WnCreatX()" />
  <meta name="Keywords" content="ST-Open, Weichwaren, Open, offen, Quelle, ST-Open, Bibliothek, frei, Assembler, C" />
- <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="date" content="2012-02-08T00:00:00+00:00" />
  <meta name="robots" content="index,follow" />
  <meta name="revisit-after" content="14 days" />
  <meta name="generator" content="Bernhard Schornak, handwritten" />
@@ -24,7 +24,7 @@
  <li><a href="../fct.htm">nach Funktion</a></li>
 </ul>
 </div>
-<div class="update">[2009-05-08]</div>
+<div class="update">[2012-02-08]</div>
 <div class="headpc"><img src="../../pics/ste.png" alt="QuelleDoc Logo" width="75" height="75" border="0" /></div>
 </div>
 <div class="crlf1"></div>
@@ -96,31 +96,35 @@
 </div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
 WnCreate() ruft CreateWindowA() auf, und stellt anschliessend die von der API
- &uuml;berschriebenen Register ECX, EDX, R08, R09, R10 und R11 wieder her.
+ &uuml;berschriebenen Register ECX, EDX, R08, R09, R10, R11, XMM4 und XMM5
+ wieder her.
 <div class="crlf1"></div>
-Verwenden Sie Sandk&auml;sten nicht in C-Code. Mit schlampigen Konventionen
- arbeitende Compiler &uuml;berschreiben die m&uuml;hsam wiederhergestellten
- Register sofort wieder mit gerade anfallendem M&uuml;ll.
+Verwenden Sie Sandk&auml;sten nicht in <i>Hochsprachen</i>. Mit schlampigen
+ Konventionen arbeitende Kompilierer und API-Funktionen &uuml;berschreiben
+ die m&uuml;hsam wiederhergestellten Register sofort wieder mit ihrem gerade
+ anfallenden temporären Datenm&uuml;ll. Nur <b>saubere</b> Programmierung
+ profitiert von Registern, deren Inhalt auch &uuml;ber Funktionsaufrufe
+ hinweg unver&auml;ndert bleibt.
 </div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
 <div class="text100"><div class="inner">
 <pre>
  ...
- movl  $0x80000000, %edi        # RDI = CW_USEDEFAULT
- xorl  %ecx, %ecx               # RCX = kein erweiterter Stil
- leaq  LC01(%rip), %rdx         # RDX = EA Klassenname
- leaq  LC02(%rip), %r8          # R08 = EA titel
- movl  $0x00CF0000, %r9d        # R09 = stil
- movq  %rdi, 0x20(%rsp)         # x
- movq  %rdi, 0x28(%rsp)         # y
- movq  %rdi, 0x30(%rsp)         # b
- movq  %rdi, 0x38(%rsp)         # h
- movq  %rcx, 0x40(%rsp)         # HWND elter
- movq  %rcx, 0x48(%rsp)         # Hmenue
- movq  %rsi, 0x50(%rsp)         # Hinstanz
- movq  %rcx, 0x50(%rsp)         # kein Kreationsvierfachwort
- call  _WnCreate(%rip)
- movq  %rax, _Hmain(%rip)       # Henkel speichern
- testq %rax, %rax               # Fehler?
+ movl  $0x80000000, %edi           # RDI = CW_USEDEFAULT
+ xorl  %ecx,        %ecx           # RCX = kein erweiterter Stil
+ leaq  LC01(%rip),  %rdx           # RDX = EA Klassenname
+ leaq  LC02(%rip),  %r8            # R08 = EA titel
+ movq  $0x00CF0000, %r9            # R09 = stil
+ movq  %rdi,        0x20(%rsp)     # x
+ movq  %rdi,        0x28(%rsp)     # y
+ movq  %rdi,        0x30(%rsp)     # b
+ movq  %rdi,        0x38(%rsp)     # h
+ movq  %rcx,        0x40(%rsp)     # HWND elter
+ movq  %rcx,        0x48(%rsp)     # Hmenue
+ movq  %rsi,        0x50(%rsp)     # Hinstanz
+ movq  %rcx,        0x58(%rsp)     # kein Kreationsvierfachwort
+ call               _WnCreate(%rip)
+ movq  %rax,        _Hmain(%rip)   # Henkel speichern
+ testq %rax,        %rax           # Fehler?
  je    L00
  ...
 </pre>

@@ -1,6 +1,6 @@
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    control messages      (sent or posted)
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SBM_SETPOS                    0x000000E0
    SBM_GETPOS                    0x000000E1
    SBM_SETRANGE                  0x000000E2
@@ -9,9 +9,9 @@
    SBM_SETRANGEREDRAW            0x000000E6
    SBM_SETSCROLLINFO             0x000000E9
    SBM_GETSCROLLINFO             0x000000EA
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    notification messages (received)
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SB_HORZ                       0x00000000
    SB_LINELEFT                   0x00000000
    SB_LINEUP                     0x00000000
@@ -31,18 +31,18 @@
    SB_RIGHT                      0x00000007
    SB_BOTTOM                     0x00000007
    SB_ENDSCROLL                  0x00000008
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    retrieve dimensions
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SM_CXVSCROLL                  0x00000002
    SM_CYHSCROLL                  0x00000003
    SM_CYVTHUMB                   0x00000009
    SM_CXHTHUMB                   0x0000000A
    SM_CYVSCROLL                  0x00000014
    SM_CXHSCROLL                  0x00000015
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    listbox styles
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SBS_HORZ                      0x00000000
    SBS_VERT                      0x00000001
    SBS_LEFTALIGN                 0x00000002
@@ -53,9 +53,9 @@
    SBS_SIZEBOXBOTTOMRIGHTALIGN   0x00000004
    SBS_SIZEBOX                   0x00000008
    SBS_SIZEGRIP                  0x00000010
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SCROLLINFO STRUCTURE
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    SCROLLINFO
    {
     0x00   DD   cbSize;          /* 0x1C */
@@ -67,4 +67,4 @@
     0x18   SD   nTrackPos;
    }
    SCROLLINFO,*LPSCROLLINFO;
-   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

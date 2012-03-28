@@ -36,10 +36,10 @@
 <div class="text100">
 <h1>Globale Variablen</h1>
 Wie im letzten Tutorial bereits angesprochen, gibt es zwei Speicherbereiche in BNR, in denen
- globale Variablen gespeichert werden k&ouml;nnen. Der Bereich 0x0000 bis 0x0FFF stellt 896
+ globale Variablen gespeichert werden k&ouml;nnen. Der Bereich 0x0000 bis 0x1FFF stellt 1.920
  statische Variablen zur Verf&uuml;gung. Diese werden beim Beenden des Programms in der Datei
- <i>num.dat</i> im SYST-Ordner des Programms gespeichert. Der zweite Bereich stellt weitere
- 1.024 Laufzeitvariablen zur Verf&uuml;gung, die beim Beenden des Programms jedoch verloren
+ <i>FFFFFFFE</i> im Ordner DATA des Programms gespeichert. Der zweite Bereich stellt weitere
+ 8.192 Laufzeitvariablen zur Verf&uuml;gung, die beim Beenden des Programms jedoch verloren
  gehen.
 <div class="crlf1"></div>
  Da nicht jede globale Variable permanent verf&uuml;gbar sein muss, sind die fl&uuml;chtigen
@@ -49,51 +49,69 @@ Wie im letzten Tutorial bereits angesprochen, gibt es zwei Speicherbereiche in B
  Variablen signalisiert wird.
 <div class="crlf1"></div>
 <h2>Definition globaler Variablen</h2>
-Die Definition globaler Variablen gab bisher den Abstand eines Variablenspeicherplatzes von
- <b>BNR</b> an, der Zugriff erfolgte mittels eigens daf&uuml;r programmierter Funktionen. Da
- die Version 7.0.0. mit dem Ziel maximaler Geschwindigkeitsoptimierung &uuml;berarbeitet und
- weiterentwickelt wurde, gibt es diese <i>Umgehungskr&uuml;cken</i> ab sofort nicht mehr. Die
- neu eingef&uuml;hrte Methode benutzt statt der Variablen <b>BNR</b> die Variable <b>GVAR</b>
- f&uuml;r Zugriffe auf den Variablenspeicher. Der Inhalt beider Variablen ist identisch, der
- einzige Unterschied besteht in ihrer C-Definition. <b>BNR</b> ist als ein Zeiger auf Leer,
- <b>GVAR</b> hingegen als ein Zeiger auf Lang definiert. Diese Definition &uuml;berredet den
- C-+*.net-Compiler, aus <b>BNR</b> Doppelworte zu lesen. Da der C-+*.net-Compiler <b>GVAR</b>
- jedoch wie ein <i>Doppelwortarray</i> behandelt, und (sinnigerweise) alle Abst&auml;nde mit
- Vier multipliziert, brauchen wir unsere Abst&auml;nde in der Kopfdatei also nur noch durch
- Vier teilen, bevor wir endlich auf eine von uns adressierte Variable zugreifen k&ouml;nnen:
+Die Definition globaler Variablen erfolgt normalerweise &uuml;ber den Abstand einer Variablen
+ zur Basis <b>_BNR</b>. Hochsprachenkompilierer hingegen verstehen Abst&auml;nde zu einer
+ gegebenen Basisadresse nur mit allerlei Zaubertricks (casting), die diesen einfachen Zugriff
+ auf eine gegebene Variable durch mannigfaltige Kopieraktionen hoffnungslos verlangsamen und
+ k&uuml;nstlich aufblasen.  Die mit Version 7.0.0. eingef&uuml;hrte Methode benutzte statt der
+ Variablen <b>BNR</b> daher die Variable <b>GVAR</b> f&uuml;r Zugriffe auf Variablen. Der mit
+ Version 8.0.0. erfolgte Umstieg auf 64 Bit macht eine Erweiterung dieser Behelfskr&uuml;cke
+ auf zwei Variablen - <b>DVAR</b> und <b>QVAR</b> - n&ouml;tig. Die erste wird f&uuml;r den
+ Zugriff auf Doppelworte, die zweite f&uuml;r den Zugriff auf Vierfachworte ben&ouml;tigt.
+ Der Inhalt der beiden Kopfdateien ist identisch mit dem Inhalt der Assemblerkopfdatei, alle
+ drei unterscheiden sich nur in der Komplexit&auml;t der Definition. <b>BNR</b> ist ein
+ Vierfachwort, das eine Adresse (Zeiger auf Leer) enth&auml;lt, <b>DVAR</b> wurde als Zeiger
+ auf <i>Lang</i> und <b>QVAR</b> als Zeiger auf <i>Langlang</i> definiert. Diese Definitionen
+ bef&auml;higen den Hochsprachenkompilierer dann, aus <b>BNR</b> Doppel- oder Vierfachworte
+ zu lesen. Da ein Hochsprachenkompilierer <b>DVAR</b> jedoch als <i>Doppelwortarray</i> und
+ <b>QVAR</b> als <i>Vierfachwortarray</i> behandelt, und (sinnigerweise) alle Abst&auml;nde
+ mit Vier oder Acht multipliziert, brauchen wir die Abst&auml;nde in den beiden Kopfdateien
+ also nur noch durch Vier oder Acht teilen, um endlich auf eine der von uns adressierten
+ Variablen zugreifen zu k&ouml;nnen:
 <div class="crlf1"></div>
+Als DVAR:
 <div class="box100q"><pre>
-  #define STV_HFRAME     ((GVAR) + (0x0000 &gt;&gt; 2))   /* Rahmenhenkel     */
-  #define STV_HCLIENT    ((GVAR) + (0x0004 &gt;&gt; 2))   /* Klientenhenkel   */
-  #define STV_SCREEN_W   ((GVAR) + (0x0008 &gt;&gt; 2))   /* Bildschirmbreite */
-  #define STV_SCREEN_H   ((GVAR) + (0x000C &gt;&gt; 2))   /* Bildschirmhoehe  */
+  #define STV_HFRAME     ((DVAR) + (0x0000 &gt;&gt; 2))   /* Rahmenhenkel     */
+  #define STV_HCLIENT    ((DVAR) + (0x0008 &gt;&gt; 2))   /* Klientenhenkel   */
+  #define STV_SCREEN_W   ((DVAR) + (0x0010 &gt;&gt; 2))   /* Bildschirmbreite */
+  #define STV_SCREEN_H   ((DVAR) + (0x0018 &gt;&gt; 2))   /* Bildschirmhoehe  */
+  ...
+</pre></div>
+Als QVAR:
+<div class="box100q"><pre>
+  #define STV_HFRAME     ((QVAR) + (0x0000 &gt;&gt; 3))   /* Rahmenhenkel     */
+  #define STV_HCLIENT    ((QVAR) + (0x0008 &gt;&gt; 3))   /* Klientenhenkel   */
+  #define STV_SCREEN_W   ((QVAR) + (0x0010 &gt;&gt; 3))   /* Bildschirmbreite */
+  #define STV_SCREEN_H   ((QVAR) + (0x0018 &gt;&gt; 3))   /* Bildschirmhoehe  */
   ...
 </pre></div>
 <div class="crlf1"></div>
-Wenn Sie Ihre Variablen jemals in <i>num.dat</i> zu finden oder mir Programme zur Fehlersuche
- zu schicken gedenken, ist diese Form der Definition angeraten. Ich weigere mich schlicht und
- ergreifend, Arrayindizes in von Menschen lesbare Abst&auml;nde umzurechnen - das sollten Sie
- Sich ebenso wert sein!
+Wenn Sie Ihre Variablen jemals in <i>FFFFFFFE</i> finden wollen, oder mir ein Programm zur
+ Fehlersuche zu schicken gedenken, ist diese Form der Definition angeraten. Ich weigere mich
+ schlicht und ergreifend, Arrayindizes in von Menschen lesbare Abst&auml;nde umzurechnen -
+ das sollten Sie Sich ebenso wert sein!
 <div class="crlf1"></div>
- Die Abst&auml;nde 0x0000 bis 0x01FF sowie 0x1800 bis 0x1FFF sind f&uuml;r die Funktionen der
+ Die Abst&auml;nde 0x0000 bis 0x01FF sowie 0x2000 bis 0x7FFF sind f&uuml;r die Funktionen der
  Bibliotheken reserviert. F&uuml;r Anwendungen verbleiben somit die Abst&auml;nde 0x0200 bis
- 0x0FFF und 0x2000 bis 0x2FFF. 1920 Variablen sollten im allgemeinen f&uuml;r jedes Programm
- ausreichen. Wenn Sie mehr Variablen ben&ouml;tigen, dann sollten Sie diese in Ihren eigenen
- Feldern und nicht in den <i>Systemvariablen</i> speichern...
+ 0x1FFF und 0x8000 bis 0xFFFF. Diese 10.112 Anwender-Variablen sollten eigentlich f&uuml;r
+ jedes Programm ausreichen. Ben&ouml;tigen Sie noch mehr globale Variablen, w&auml;re es wohl
+ sinnvoll, selbige in Ihren eigenen Feldern statt in den <i>Systemvariablen</i> zu speichern.
 <div class="crlf1"></div>
 Die in den Funktionen der Bibliotheken systemweit definierten Variablen sind in der Kopfdatei
- <b>..\ST7\include\yvar.h</b> zu finden. Globale Variablen f&uuml;r Ihr Programm sollten Sie
+ <b>..\ST8\include\yvar.h</b> zu finden. Globale Variablen f&uuml;r Ihr Programm sollten Sie
  in einer programmeigenen Kopfdatei (in ST-Open's Applikationen <b>hvar.h</b>) definieren, um
  den &Uuml;berblick zu behalten.
 <div class="crlf1"></div>
 <h2>Zugriff auf globale Variablen</h2>
 <h3>1. Die langwierige Methode</h3>
-Da die Variablen von 0x0000 bis 0x0FFF zum Feld num.dat geh&ouml;ren, <i>kann</i> man mittels
- der Funktion FDacc() (ST-Open's Datenbankmaschine) darauf zugreifen. Das sollte man jedoch
- tunlichst sein lassen, da der direkte Zugriff wesentlich schneller und zudem einfacher ist.
- In der Zeit, in der die sechs Parameter f&uuml;r FDacc() auf dem Stapel abgelegt werden, ist
- bereits ein Direktzugriff ausgef&uuml;hrt und der zweite in Arbeit. Bis FDacc() abgearbeitet
- wurde, k&ouml;nnten sie schon zehn oder mehr Direktzugriffe ausgef&uuml;hrt haben.
+Da die Variablen von 0x0000 bis 0x1FFF zum Datenfeld FFFFFFFE geh&ouml;ren, <i>kann</i> man
+ mittels der Funktion FDacc() (ST-Open's Datenbankmaschine) darauf zugreifen. Das sollte man
+ jedoch tunlichst bleiben lassen, da der direkte Zugriff wesentlich schneller und zudem auch
+ einfacher ist. In der Zeit, in der die sechs Parameter f&uuml;r FDacc() auf dem Stapel
+ abgelegt werden (Hochsprachenkompilierer verstehen kein <i>Intelligent Design</i>, in dem
+ nicht ben&ouml;tigte Parameter auch nicht &uuml;bergeben werden m&uuml;ssen), ist bereits
+ ein Direktzugriff ausgef&uuml;hrt und der zweite in Arbeit. Bis FDacc() abgearbeitet wurde,
+ k&ouml;nnen sie schon zehn oder mehr Direktzugriffe ausgef&uuml;hrt haben.
 <h3>2. Die einfache Methode</h3>
 Dank der Verrenkungen bei der Definition gestaltet sich der Direktzugriff letztendlich doch
  relativ simpel:
@@ -129,9 +147,6 @@ MEINE_VARIABLE hat nach wie vor den Inhalt 10. Wenn man die Verrenkungen mit den
 &#160;&#160;&#160;<a href="index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
 &#160;&#160;&#160;<a href="0200.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
 &#160;&#160;&#160;<a href="0400.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
-<div class="crlf1"></div>
-&#160;&#160;&#160;<a href="http://validator.w3.org/check?uri=http%3A%2F%2Fst-open.com%2Fst-open%2Fdoc%2Fd%2Ftut%2F0300.htm">
-<img src="../../../../pics/xhtml.png" alt="validHTML" width="100" height="35" border="0" title="XHTML pr&uuml;fen" /></a>
 <div class="crlf1"></div>
 </body>
 </html>
