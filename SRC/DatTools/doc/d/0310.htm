@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Seite-topic" content="DatTools-Manual: Feld anlegen" />
+<meta name="Description" content="DatTools-Manual: Feld anlegen" />
+<meta name="Keywords" content="dat, tools, MakeDat, mehrsprachig" />
+<meta name="date" content="2012-02-12T00:00:00+00:00" />
+<meta name="robots" content="index,follow" />
+<meta name="revisit-after" content="14 days" />
+<meta name="generator" content="Bernhard Schornak, handwritten" />
+<style type="text/css"><!--@import "../st.css";--></style>
+<link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+<title>Feld anlegen</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Inhalt</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Auswahl</a></li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">&Uuml;bersetzung</a></li>
+ <li><a href="0500.htm">Standardfelder</a></li>
+ <li><a href="../manual.htm">Heim</a></li>
+</ul>
+</div>
+<div class="update">[2012-02-12]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0320.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="text100">
+<h1>Feld anlegen</h1>
+<b>Bitte beachten Sie:</b>
+<div class="crlf1"></div>
+1. DatTools gehen davon aus, dass alle Zahlen in hexadezimaler Notation eingegeben werden. Aktivieren
+ oder deaktivieren Sie das links unten angezeigte Auswahlk&auml;stchen <i>dezimal</i>, um die Ausgabe
+ aller Zahlen zwischen dezimaler und hexadezimaler Notation umzuschalten.
+<div class="crlf1"></div>
+2. Der Inhalt eines Eingabefeldes wird ausgewertet, sobald das Eingabefeld den Eingabefokus verliert.
+ Nach erfolgter Eingabe klicken Sie auf ein anderes Kontrollelement, um den ge&auml;nderten Inhalt
+ zu &uuml;bernehmen. Das ist notwendig, da die Ausgabefunktion den eingelesenen Inhalt formatiert
+ in das Eingabefeld zur&uuml;ckschreibt, wobei der Zeiger (Caret) auf dem zuletzt geschriebenen
+ Zeichen stehen bleibt. W&uuml;rde auf alle &Auml;nderungen im Eingabefeld reagiert, m&uuml;ssten
+ Sie den Zeiger nach der Eingabe jeder Ziffer manuell auf die n&auml;chste Ziffer setzen, da dieser
+ immer wieder auf die letzte Ziffer spr&auml;nge.
+<div class="crlf2"></div>
+W&auml;hlen Sie <i>MakeDat</i> im Hauptmen&uuml;, dort <i>Feld anlegen</i>. Der Dialog zur Erstellung
+ eines neuen Feldes wird ge&ouml;ffnet:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk00.png" alt="Feld erstellen" width="588" height="640" border="0"></div>
+<div class="crlf1"></div>
+Die meisten Kn&ouml;pfe sind momentan noch gesperrt. Sie werden erst dann frei gegeben, wenn alle zum
+ Anlegen des Feldes ben&ouml;tigten Daten in die entsprechenden Eingabefelder eingegeben werden. Geben
+ Sie zuerst die gew&uuml;nschte Feldnummer ein, oder lassen Sie DatTools nach der n&auml;chsten freien
+ Feldnummer suchen:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk01.png" alt="nach Feldnummer suchen" width="588" height="640" border="0"></div>
+<div class="crlf1"></div>
+Jedem Feld kann ein Name mit maximal 31 Zeichen zugewiesen werden. Das sollten Sie auf jeden Fall tun,
+ um sp&auml;ter die &Uuml;bersicht bei der Feldauswahl zu behalten. Ein Name wie "Drehknopffeld" in
+ der Auswahlliste sagt nun einmal mehr aus als die Feldnummer "FFFFFF01".
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk02.png" alt="Feldname zuweisen" width="588" height="640" border="0"></div>
+<div class="crlf1"></div>
+Der n&auml;chste Schritt ist die Eingabe der ben&ouml;tigten Eintr&auml;ge im Feld. Dieses Eingabefeld
+ erwartet eine Zahl in hexadezimaler Schreibweise. Alle nicht mit einer Null endenden Eingaben werden
+ automatisch auf das n&auml;chsth&ouml;here Vielfache von 16 aufgerundet.
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk03.png" alt="Anzahl Eintr&auml;ge festlegen" width="588" height="640" border="0"></div>
+<div class="crlf1"></div>
+Die Kn&ouml;pfe der numerischen Datentypen sind nun freigegeben. Sofern Ihr Feld nur die freigegebenen
+ Datentypen enthalten soll, wird die maximale Eintragl&auml;nge nicht ben&ouml;tigt, da diese bereits
+ explizit durch den Datentyp festgelegt ist. In diesem Fall k&ouml;nnen Sie den folgenden Schritt ohne
+ Bedenken &uuml;berspringen und direkt mit der Eingabe der Datentypen beginnen.
+<div class="crlf1"></div>
+Soll das Feld statische Datenbl&ouml;cke mit einer Gr&ouml;sse von mehr als 16 Byte oder dynamische
+ Zeichenketten enthalten, ist die L&auml;ngenangabe zwingend erforderlich:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk04.png" alt="Eintr&auml;gsl&auml;nge festlegen" width="588" height="640" border="0"></div>
+<div class="crlf1"></div>
+Da Unterfelder, Datenbl&ouml;cke mit fester L&auml;nge und Zeichenketten auf einer ohne Rest durch
+ sechzehn teilbaren Adresse beginnen m&uuml;ssen, korrigieren DatTools alle "krummen" Werte auf das
+ n&auml;chsth&ouml;here Vielfache von 16.
+<div class="crlf1"></div>
+Je nach Bedarf f&uuml;gen Sie nun die f&uuml;r Ihr Feld ben&ouml;tigten Datentypen hinzu:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk05.png" alt="Typen hinzuf&uuml;gen" width="588" height="640" border="0"></div>
+<div class="crlf1"></div>
+<i>Gr&ouml;sse min.</i> gibt die Gr&ouml;sse des neuen Feldes nach Erstellung, <i>Gr&ouml;sse max.</i>
+ die maximale Gr&ouml;sse bei Verwendung von dynamischen Zeichenketten an. Enth&auml;lt das Feld nur
+ numerische Daten, m&uuml;ssen <i>Gr&ouml;sse min.</i> und <i>Gr&ouml;sse max.</i> den gleichen Wert
+ enthalten.
+<div class="crlf1"></div>
+Verf&uuml;gen DatTools &uuml;ber alle ben&ouml;tigten Informationen, wird der Knopf <i>Anlegen</i>
+ freigegeben. Sobald Sie alle Datentypen eingegeben haben, dr&uuml;cken Sie diesen Knopf, um das
+ neue Feld zu erzeugen:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk06.png" alt="Typen hinzuf&uuml;gen" width="588" height="640" border="0"></div>
+<div class="crlf1"></div>
+<i>Schliessen</i> beendet den Dialog ohne weitere Aktivit&auml;ten, <i>Bearbeiten</i> schliesst den
+ Dialog und startet den <a href="0320.htm">Feldbetrachter</a>. Das Feld ist ab sofort verf&uuml;gbar:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/selfld.png" alt="Feld ist verf&uuml;gbar" width="544" height="472" border="0"></div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0320.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

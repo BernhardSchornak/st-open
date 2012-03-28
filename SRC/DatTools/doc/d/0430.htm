@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Seite-topic" content="DatTools-Manual: Nachrichten" />
+<meta name="Description" content="DatTools-Manual: Nachrichten" />
+<meta name="Keywords" content="dat, tools, MakeDat, mehrsprachig" />
+<meta name="date" content="2012-02-12T00:00:00+00:00" />
+<meta name="robots" content="index,follow" />
+<meta name="revisit-after" content="14 days" />
+<meta name="generator" content="Bernhard Schornak, handwritten" />
+<style type="text/css"><!--@import "../st.css";--></style>
+<link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+<title>Nachrichten</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Inhalt</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Auswahl</a></li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">&Uuml;bersetzung</a></li>
+ <li><a href="0500.htm">Standardfelder</a></li>
+ <li><a href="../manual.htm">Heim</a></li>
+</ul>
+</div>
+<div class="update">[2012-02-12]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0420.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0500.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="text100">
+<h1>Nachrichten</h1>
+Die Nachrichten dienen in erster Linie dazu, den Benutzer &uuml;ber aufgetretene Fehler zu informieren.
+ Das zweite Einsatzgebiet ist das Anbieten einer Auswahl m&ouml;glicher Aktionen, wenn die Funktion zum
+ Beispiel nicht eindeutig entscheiden kann, wie weiter verfahren werden soll. Um den Eingabedialog zu
+ &ouml;ffnen, w&auml;hlen Sie <i>Tools</i> im Hauptmen&uuml;, dort dann <i>Programmnachrichten</i> oder
+ <i>Systemfehler</i>:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/smsg.png" alt="Dialog: Nachrichten" width="1024" height="556" border="0"></div>
+<div class="crlf1"></div>
+Die Anzahl an Eintr&auml;gen richtet sich nur nach dem tats&auml;chlichen Bedarf. Beachten Sie bitte,
+ dass der Eintrag mit der Nummer Null der Fehlernummer <b>ERR_INVALID</b> (0xFFFFFFFF) zugeordnet ist.
+ Er wird immer dann angezeigt, wenn der angeforderte Nachrichtentext eine leere Zeichenkette ist, oder
+ die angeforderte Nachrichtennummer jenseits der Feldgrenze liegt. Die Eintragsnummer Eins ist Fehler
+ Nummer Null, <b>ERR_NO_ERROR</b> (0x00000000). Da der Benutzer nicht mit Meldungen wie "Es ist kein
+ Fehler aufgetreten!" genervt werden sollte, wird diese Fehlernummer vom Fehlerverwalter ignoriert und
+ prinzipiell nicht angezeigt. Sie k&ouml;nnen Konstrukte wie <b>ErrMgr(LDreq(&amp;ld))</b> verwenden,
+ um alle auftretenden Fehler anzeigen zu lassen, die Meldung "Kein Fehler!" jedoch zu unterbinden.
+<div class="crlf1"></div>
+<b>Anmerkung:</b> Bitte definieren Sie Systemfehler nicht um und lassen Sie freie Systemfehler offen.
+ Da das System st&auml;ndig verbessert und erweitert wird, kann es vorkommen, dass momentan noch nicht
+ definierte Systemfehler eine Definition erhalten. Halten Sie die Fehlerbehandlung des Programms daher
+ in den Programmnachrichten und lassen Sie das Systemfeld unangetastet.
+<div class="crlf1"></div>
+Unter dem MLE f&uuml;r den Nachrichtentext befinden sich drei Eingabefelder f&uuml;r die Texte der
+ anzuzeigenden Kn&ouml;pfe. Wird kein Text eingegeben (leere Zeichenkette), dann wird der Knopf nicht
+ angezeigt. Wenn f&uuml;r eine angeforderte Nachricht kein einziger Knopftext existiert, f&uuml;gt der
+ Nachrichtendialog automatisch einen "OK"-Knopf hinzu - sonst kann der Benutzer den Nachrichtendialog
+ nicht mehr schliessen.
+<div class="crlf1"></div>
+Mit dem Drehknopf k&ouml;nnen Sie durch die Nachrichten bl&auml;ttern. Geben Sie alle Nachrichten- und
+ Knopftexte ein, die f&uuml;r das Programm ben&ouml;tigt werden. Zur &Uuml;bersetzung w&auml;hlen Sie
+ im unteren k&auml;stchen die Zielsprache und geben dort die &Uuml;bersetzungen der Nachrichten- und
+ Knopftexte ein. Dr&uuml;cken Sie abschliessend auf <i>Sichern</i>, um &Auml;nderungen zu speichern
+ und den Dialog zu schliessen. <i>Verwerfen</i> setzt vor dem Schliessen des &Uuml;bersetzungsdialogs
+ das <i>ge&auml;ndert</i>-F&auml;hnchen zur&uuml;ck - alle vorgenommenen &Auml;nderungen gehen dabei
+ unwiderruflich verloren!
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0420.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0500.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

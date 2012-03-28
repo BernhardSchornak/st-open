@@ -1,0 +1,83 @@
+
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                   D a t T o o l s   E R R O R S    (C)  ST-Open 2012
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE:
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   You may copy and distribute this file as often as you want, but recipients are not
+   allowed to pay anything for any copy of this file or its content. It isn't allowed
+   to abuse its copyrighted content or introduced techniques for commercial purposes.
+   Whatever is derived from this file or its content must be freely available without
+   charge.
+
+   You are free to modify the content of this file if you want to. However, derivates
+   of the content of this file or parts of it *still* are subject to the terms of the
+   FT4FP license. Recipients neither are allowed to pay anything for the original nor
+   for altered or derived replica.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          FREE THOUGHT FOR FREE PEOPLE (FT4FP). KEEP CASH AWAY FROM KNOWLEDGE!
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  00   ERR_NO_ERROR
+  01   ERR_NO_ST8               no ST8 folders found
+  02   ERR_CANNOT_LOAD          field load failed
+  03   ERR_CANNOT_SAVE          field save failed
+  04   ERR_INTERNAL             MakeDat internal error
+  05   ERR_TOO_LARGE            (entries * length) > 4 GB
+  06   ERR_CREATE               create field failed
+  07   ERR_EXT_SELECT           external selection aborted or no DATA found
+  08   ERR_08                   -
+  09   ERR_09                   -
+  0A   ERR_0A                   -
+  0B   ERR_0B                   -
+  0C   ERR_0C                   -
+  0D   ERR_0D                   -
+  0E   ERR_0E                   -
+  0F   ERR_0F                   -
+  10   ERR_10                   -
+  11   ERR_11                   -
+  12   ERR_12                   -
+  13   ERR_13                   -
+  14   ERR_14                   -
+  15   ERR_15                   -
+  16   ERR_16                   -
+  17   ERR_17                   -
+  18   ERR_18                   -
+  19   ERR_19                   -
+  1A   ERR_1A                   -
+  1B   ERR_1B                   -
+  1C   ERR_1C                   -
+  1D   ERR_1D                   -
+  1E   ERR_1E                   -
+  1F   ERR_1F                   -
+  20   ERR_NO_SOURCE            no source selected
+  21   ERR_NO_FIELDS            no fields in source fldr
+  22   ERR_FLD_CREATE           creation failed
+  23   ERR_SECSYS               SecSys field
+  24   ERR_24                   -
+  25   ERR_LOAD_SOURCE          load source field failed
+  26   ERR_LOAD_TARGET          load target field failed
+  27   ERR_NOT_A_FLD            file is not a field
+  28   ERR_28                   -
+  29   ERR_29                   -
+  2A   ERR_2A                   -
+  2B   ERR_2B                   -
+  2C   ERR_2C                   -
+  2D   ERR_2D                   -
+  2E   ERR_2E                   -
+  2F   ERR_FLD_EXISTS           field number exists
+  30   ERR_CREATE_DLG           creation failed - menu+dlg
+  31   ERR_CREATE_MSG                           - messages
+  32   ERR_CREATE_OLH                           - olh
+  33   ERR_CREATE_TOP                           - topics
+  34   ERR_CREATE_SPN                           - spinbuttons
+  35   ERR_CREATE_EFD                           - entryfields
+  36   ERR_36                   -
+  37   ERR_37                   -
+  38   ERR_38                   -
+  39   ERR_39                   -
+  3A   ERR_3A                   -
+  3B   ERR_3B                   -
+  3C   ERR_3C                   -
+  3D   ERR_3D                   -
+  3E   ERR_3E                   -

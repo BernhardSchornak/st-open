@@ -1,0 +1,157 @@
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                     S T b e n c h   D I A L O G S    (C)  ST-Open 2012
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     You may copy and distribute this file as often as you want, but recipients are not
+     allowed to pay anything for any copy of this file or its content. It isn't allowed
+     to abuse its copyrighted content or introduced techniques for commercial purposes.
+     Whatever is derived from this file or its content must be freely available without
+     charge.
+
+     You are free to modify the content of this file if you want to. However, derivates
+     of the content of this file or parts of it *still* are subject to the terms of the
+     FT4FP license. Recipients neither are allowed to pay anything for the original nor
+     for altered or derived replica.
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  #include <windows.h>
+  #include <commctrl.h>
+  #include "..\\..\\..\\DLG\\olh.dlg"
+  #include "..\\..\\..\\DLG\\msg.dlg"
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                     R E S O U R C E S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  0x1005 ICON   "..\\auxi\\stb.ico"
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                     M A I N   M E N U
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  STmenu MENU
+  BEGIN
+   POPUP "-"
+    BEGIN
+     POPUP    "-"
+      BEGIN
+       MENUITEM "-",         0x1018
+       MENUITEM "-",         0x1019
+       MENUITEM "",          0x101A
+       MENUITEM "",          0x101B
+       MENUITEM "",          0x101C
+       MENUITEM "",          0x101D
+       MENUITEM "",          0x101E
+       MENUITEM "",          0x101F
+       MENUITEM "",          0x1020
+       MENUITEM "",          0x1021
+       MENUITEM "",          0x1022
+       MENUITEM "",          0x1023
+       MENUITEM "",          0x1024
+       MENUITEM "",          0x1025
+       MENUITEM "",          0x1026
+       MENUITEM "",          0x1027
+      END
+     MENUITEM SEPARATOR
+     MENUITEM "-",           0x1010
+    END
+   POPUP "-"
+    BEGIN
+     MENUITEM "-",           0x1011
+     MENUITEM "-",           0x1012
+     MENUITEM "-",           0x1013
+    END
+   POPUP "-"
+    BEGIN
+     MENUITEM "-",           0x1014
+     MENUITEM "-",           0x1015
+     MENUITEM "-",           0x1016
+    END
+  END
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                     A B O U T   B O X
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  STabox  DIALOG PRELOAD DISCARDABLE   0,   0, 200, 100
+  STYLE   WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT    10, "Consolas"
+  BEGIN
+   ICON            0x1005,   0xFFFF,  90,  10,  32,  32
+   CTEXT           "",       0x1202,   5,  48, 190,  10
+   CTEXT           "",       0x1203,   5,  60, 190,  10
+   PUSHBUTTON      "",       0x1210,  70,  82,  60,  14
+  END
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                      S E T T I N G S
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  STsetg  DIALOG PRELOAD DISCARDABLE   0,   0, 255, 158
+  STYLE   WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT    10, "Consolas"
+  BEGIN
+   PUSHBUTTON      "",       0x1115,   5, 136,  60,  14
+   PUSHBUTTON      "",       0x1116,  75, 136,  60,  14
+   PUSHBUTTON      "",       0x1117, 190, 136,  60,  14
+   GROUPBOX        "",       0x1100,   5,   5, 245,  28
+   CTEXT           "",       0x1101,  10,  16, 235,  10
+   GROUPBOX        "",       0x1102,   5,  39, 245,  55
+   AUTOCHECKBOX    "",       0x1110,  10,  52, 235,  10
+   AUTOCHECKBOX    "",       0x1111,  10,  64, 235,  10
+   AUTOCHECKBOX    "",       0x1112,  10,  76, 235,  10
+   GROUPBOX        "",       0x1103,   5,  99, 245,  28
+   AUTORADIOBUTTON "",       0x1113,  10, 111,  40,  10, WS_GROUP | WS_TABSTOP
+   AUTORADIOBUTTON "",       0x1114,  60, 111,  40,  10
+  END
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                    C O M P A R I S O N
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  0x1140  DIALOG PRELOAD DISCARDABLE                                    0,   0, 440, 210
+  STYLE   WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT    10, "Consolas"
+  BEGIN
+   LTEXT           "",       0x1141,  10,   6,  80,  10
+   COMBOBOX                  0x1152,  10,  19, 200,  62, CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+   LTEXT           "",       0x1142,  10,  39,  80,  10
+   EDITTEXT                  0x1154,  95,  36, 115,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "",       0x1143,  10,  56,  80,  10
+   EDITTEXT                  0x1155, 180,  54,  30,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "",       0x1144, 230,   6,  80,  10
+   COMBOBOX                  0x1153, 230,  19, 200,  56, CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+   LTEXT           "",       0x1145, 230,  38,  80,  10
+   EDITTEXT                  0x115A, 315,  37, 115,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "",       0x1146, 230,  55,  80,  10
+   EDITTEXT                  0x115B, 400,  54,  30,  12, ES_AUTOHSCROLL | ES_RIGHT
+   GROUPBOX        "",       0x1147,  10,  80, 420,  89
+   LTEXT           "",       0x1148,  20,  94,  80,  10
+   EDITTEXT                  0x1156, 105,  93, 105,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                  0x115C, 230,  93, 105,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "",       0x1149, 340,  94,  80,  10
+   LTEXT           "",       0x114A,  20, 112,  80,  10
+   EDITTEXT                  0x1157, 105, 111, 105,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                  0x115D, 230, 111, 105,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "",       0x114B, 340, 112,  80,  10
+   LTEXT           "",       0x114C,  20, 130,  80,  10
+   EDITTEXT                  0x1158, 105, 129, 105,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                  0x115E, 230, 129, 105,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "",       0x114D, 340, 130,  80,  10
+   LTEXT           "",       0x114E,  20, 148,  80,  10
+   EDITTEXT                  0x1159, 105, 147, 105,  12, ES_AUTOHSCROLL | ES_RIGHT
+   EDITTEXT                  0x115F, 230, 147, 105,  12, ES_AUTOHSCROLL | ES_RIGHT
+   LTEXT           "",       0x114F, 340, 148,  80,  10
+   PUSHBUTTON      "",       0x1150,  10, 187,  80,  14
+   PUSHBUTTON      "",       0x1151, 350, 187,  80,  14
+  END
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */

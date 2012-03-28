@@ -1,0 +1,58 @@
+
+            CPUID
+
+            0000_0000   EAX  max x for 0000_x
+                        EBX  Auth   Genu
+                        ECX  cAMD   ntel
+                        EDX  enti   ineI
+
+            0000_0001   EAX  ->      andl $0x0FFF0FFF,%eax
+                             14-1B   X extended family
+                             10-13   Y          model
+                             0C-0D   type              (LETNi only)
+                             08-0B   x base     family (if x = 0x0F: family = x + X)
+                             04-07   y          model  (if x = 0x0F: model  = y + Y_shl_4)
+                             00-03   stepping
+
+                        EBX  10-17   logical processor count if EDX bit 28 is set
+
+                        EDX  ->      andl $0x10000000,%edx (HTT)
+                                     if set, EBX [10-17] determines logical processor count
+
+
+            AMD
+
+            8000_0005   ECX  18-1F   L1 size in KB
+                             08-17   ignore
+                             00-07   L1 cache line size
+
+            8000_0006   ECX  10-1F   L2 size in KB
+                             08-0F   ignore
+                             00-07   L2 cache line size
+
+                        EDX  12-1F   L3 size in (KB * 512) [shr 0x12, shl 0x09]
+                             08-11   ignore
+                             00-07   L3 cache line size
+
+            8000_0008   ECX  00-07   number of cores - 1  (inc %ecx -> core count)
+
+
+            LETNi
+
+            0000_0004   ECX <= 0, 1, 2, ...
+
+                        EAX  05-07   cache level
+                             00-04   00   no more caches...
+                                     01   data cache
+                                     02   instruction cache
+                                     03   unified cache
+
+                        EBX  00-0B   A    ways of associativity
+                             0C-15   B    physical line partitions
+                             16-31   C    system coherency line size
+
+                        ECX  00-31   D    number of sets
+
+                        calculate as (A+1)*(B+1)*(C+1)*(D+1)
+                        (sort out type 02 caches)
+                        (repeat until EAX[00-04] = 0)

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="GetRes()" />
+ <meta name="Description" content="ST-Open Bibliotheken: GetRes()" />
+ <meta name="Keywords" content="ST-Open Weichwaren, Open Quelle, ST-Open, Weichwaren, Bibliothek, Bibliotheken, freie Weichwaren, Assembler, C" />
+ <meta name="date" content="2012-02-22T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="../../../../pics/favicon.ico" />
+ <title>GetRes()</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="../../../index.htm">Weichwaren</a></li>
+ <li><a href="../tut/index.htm">Tutorials</a></li>
+ <li><a href="../index.htm">Dokumentation</a></li>
+ <li><a href="../alp.htm">alphabetisch</a></li>
+ <li><a href="../fct.htm">nach Funktion</a></li>
+</ul>
+</div>
+<div class="update">[2012-02-22]</div>
+<div class="headpc"><img src="../../pics/ste.png" alt="QuellDoku Logo" width="75" height="75" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="cap35.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="cap37.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="../tut/FFFF.htm">Glossar</a>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner">..\st8\lib\sources\core\cap.S
+</div><div class="outer"><big>sys.lib</big></div></div>
+<div class="crlf1"></div>
+<div class="text100"><div class="inner"><b>GetRes</b></div><div class="outer">Sandkasten</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">rc = GetRes();</div><div class="outer">Aufruf</div></div><div class="crlf0"></div>
+<div class="text100">
+<div class="inner">
+<div class="inners">-</div>
+<div class="inners">-</div>
+<div class="innerl">Nichts</div>
+</div><div class="outer">Eingabe</div></div><div class="crlf0"></div>
+<div class="text100">
+<div class="inner">
+<div class="inners">RAX</div>
+<div class="inners">rc</div>
+<div class="innerl">Immer Null</div>
+</div><div class="outer">Ausgabe</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+GetRes() ruft SystemParametersInfoA() auf, und stellt anschliessend die von
+ der API &uuml;berschriebenen Register ECX, EDX, R08, R09, R10, R11, XMM4
+ und XMM5 wieder her.
+<div class="crlf1"></div>
+Verwenden Sie Sandk&auml;sten nicht in <i>Hochsprachen</i>. Mit schlampigen
+ Konventionen arbeitende Kompilierer und API-Funktionen &uuml;berschreiben
+ die m&uuml;hsam wiederhergestellten Register sofort wieder mit ihrem gerade
+ anfallenden temporären Datenm&uuml;ll. Nur <b>saubere</b> Programmierung
+ profitiert von Registern, deren Inhalt auch &uuml;ber Funktionsaufrufe
+ hinweg unver&auml;ndert bleibt.
+</div><div class="outer">Beschreibung</div></div><div class="crlf0"></div>
+<div class="text100"><div class="inner">
+<pre>
+{
+ ...
+ GetRes();
+ ...
+}
+</pre>
+Fragt die Bildschirmaufl&ouml;sung von Windows ab und speichert die Breite
+ und H&ouml;he in den Systemvariablen STV_SCREEN_W und STV_SCREEN_H. Diese
+ Funktion wird bei der Initialisierung des ST-Systems vom Lader aufgerufen.
+ Es macht wenig Sinn, sie nach der Initialisierung erneut aufzurufen, da
+ die Bildschirmaufl&ouml;sung sich in der Regel nicht &auml;ndert, solange
+ noch Anwendungen ge&ouml;ffnet sind.
+</div><div class="outer">Beispiel</div></div><div class="crlf0"></div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../index.htm"><img src="../../../../pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="cap35.htm"><img src="../../../../pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="cap37.htm"><img src="../../../../pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

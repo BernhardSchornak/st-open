@@ -1,0 +1,10 @@
+
+   USER MENU + DIALOGS
+   ~~~~~~~~~~~~~~~~~~~
+
+   title  first  last     content
+
+   0000   ....   00       Menu
+   0060   0061 - 0063     About...
+   0070   0071 - 0078     TTIAC
+   0080   0081 - 0084     game selection

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Seite-topic" content="DatTools-Manual: Auswahl" />
+<meta name="Description" content="DatTools-Manual: Auswahl" />
+<meta name="Keywords" content="dat, tools, MakeDat, mehrsprachig" />
+<meta name="date" content="2012-02-12T00:00:00+00:00" />
+<meta name="robots" content="index,follow" />
+<meta name="revisit-after" content="14 days" />
+<meta name="generator" content="Bernhard Schornak, handwritten" />
+<style type="text/css"><!--@import "../st.css";--></style>
+<link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+<title>Auswahl</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Inhalt</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li>Auswahl</li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">&Uuml;bersetzung</a></li>
+ <li><a href="0500.htm">Standardfelder</a></li>
+ <li><a href="../manual.htm">Heim</a></li>
+</ul>
+</div>
+<div class="update">[2012-02-12]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0101.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="text100">
+<h1>Auswahl</h1>
+<div class="sitemap">
+<ul>
+ <li><a href="#1">Laufwerke</a></li>
+ <li><a href="#2">Quellordner<a></li>
+ <li><a href="#3">Felder</a></li>
+</ul>
+</div>
+<div class="crlf1"></div>
+<h2 id="1">Laufwerke</h2>
+Um mit den DatTools zu arbeiten, ben&ouml;tigen diese einen Quellordner, aus dem Felder gelesen und in
+ dem Felder abgelegt oder gespeichert werden k&ouml;nnen. Beim ersten Start der DatTools sollten Sie
+ die Laufwerke festlegen, die nach Quellordnern durchsucht werden. Hierzu w&auml;hlen Sie <i>Auswahl</i>
+ im Hauptmen&uuml;, dann <i>Laufwerke</i>:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mnu01.png" alt="Laufwerk-Auswahl" width="540" height="240" border="0"></div>
+<div class="crlf1"></div>
+Der Dialog zur Laufwerk-Auswahl wird angezeigt:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/seldrv.png" alt="Laufwerk-Auswahl" width="368" height="304" border="0"></div>
+<div class="crlf1"></div>
+W&auml;hlen Sie aus den freigegebenen Laufwerken diejenigen aus, auf denen sich V800-Ordner befindet (im
+ allgemeinen ist das nur ein Laufwerk...). Durch die Einschr&auml;nkung auf aktivierte Laufwerke wird
+ die Suche nach Quellordnern erheblich beschleunigt. Achten Sie darauf, dass CD-ROM- und DVD-Laufwerke
+ nicht durchsucht werden - die Suche auf Wechselmedien ist nicht gerade flott, verursacht sehr nervige
+ Abfragen und Meldungen, wenn sich kein Medium im Laufwerk befindet und l&auml;sst das Schreiben auf
+ den Datentr&auml;ger nicht zu.
+<div class="crlf1"></div>
+<h2 id="2">Programm</h2>
+Wenn Sie den Men&uuml;punkt <i>Programm</i> w&auml;hlen, durchsucht das Programm die zuvor aktivierten
+ Laufwerke nach Ordnern mit dem Namen "ST8". &Auml;ltere Distributionen (ST4, ST5, ST6, ST7) werden
+ ignoriert. Die gefundenen Quellordner werden nun im Auswahldialog angezeigt:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/selsrc.png" alt="Quellordner-Auswahl" width="544" height="472" border="0"></div>
+<div class="crlf1"></div>
+Markieren Sie den gew&uuml;nschten Quellordner. Ein Doppelklick auf den Namen oder das Markieren und ein
+ Klick auf <i>Ausw&auml;hlen</i> legen den markierten Ordner als Arbeitsordner fest. Die zu bearbeitenden
+ Felder werden aus diesem Ordner gelesen, ge&auml;nderte Felder werden hierhin zur&uuml;ckgeschrieben und
+ neu angelegte Felder werden hier in den Unterordnern DATA oder SYST abgelegt.
+<div class="crlf1"></div>
+Der Knopf <i>Extern</i> erlaubt die Auswahl <b>eines</b> Quellordners, der nicht im Standardpfad "ST8"
+ liegt. Der Dialog <i>Datei &Ouml;ffnen</i> wird angezeigt. W&auml;hlen Sie den betreffenden Quellordner
+ im Verzeichnisbaum des betreffenden Laufwerks. Da die Auswahl nur Dateien akzeptiert, <b>muss</b> in
+ diesem Ordner mindestens eine ausw&auml;hlbare Datei existieren. Diese Datei dient ausschliesslich zur
+ Auswahl des Quellordners. Ihr Inhalt ist bedeutungslos, es darf auch eine leere Datei sein. &Uuml;ber
+ <i>Extern</i> ausgew&auml;hlte Ordner m&uuml;ssen Datenfelder der Version 8.0.0. enthalten. Datenfelder
+ fr&uuml;herer Versionen werden von den aktuellen DatTools zur&uuml;ckgewiesen. Verwenden Sie in diesem
+ Fall bitte die Vorg&auml;ngerversion der DatTools, mit der die Datenfelder erstellt wurden!
+<div class="crlf1"></div>
+<b>Hinweis:</b> Ein mit dem <i>Extern</i>-Knopf ausgew&auml;hlter Quellordner wird beim n&auml;chsten
+ Aufruf der Quellordnerauswahl automatisch verworfen, da DatTools Quellordner generell nur im Verzeichnis
+ "ST8" suchen. Die Auswahl anderer Quellordner erfolgt explizit &uuml;ber den Knopf <i>Extern</i>!
+<div class="crlf1"></div>
+<h2 id="3">Felder</h2>
+W&auml;hlen Sie den Men&uuml;punkt <i>Datenfeld</i>, dann wird eine Liste mit allen im Quellordner
+ gefundenen Datenfeldern angezeigt:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/selfld.png" alt="Feld-Auswahl" width="544" height="472" border="0"></div>
+<div class="crlf1"></div>
+Ein Doppelklick auf das gew&uuml;nschte Feld oder Markieren und <i>Ausw&auml;hlen</i> legen das Feld als
+ aktives Feld fest. Die Auswahl wird sowohl zum Anzeigen des Feldinhalts als auch zum Verschieben von
+ Eintr&auml;gen ben&ouml;tigt.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0101.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

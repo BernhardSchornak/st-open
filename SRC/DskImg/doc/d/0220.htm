@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Seite-topic" content="Disk Image-Manual: Auswahl" />
+<meta name="Description" content="Disk Image-Manual: Auswahl" />
+<meta name="Keywords" content="dat, tools, MakeDat, mehrsprachig" />
+<meta name="date" content="2012-03-18T00:00:00+00:00" />
+<meta name="robots" content="index,follow" />
+<meta name="revisit-after" content="14 days" />
+<meta name="generator" content="Bernhard Schornak, handwritten" />
+<style type="text/css"><!--@import "../st.css";--></style>
+<link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+<title>Auswahl</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Inhalt</a></li>
+ <li><a href="0100.htm">Disk Image</a></li>
+ <li><a href="0200.htm">Abbild</a></li>
+ <li><a href="0300.htm">Betrachter</a></li>
+ <li><a href="../manual.htm">Heim</a></li>
+</ul>
+</div>
+<div class="update">[2012-03-18]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="Disk Image Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0210.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0230.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="text100">
+<h1>Ziel-Auswahl</h1>
+Der zweite Schritt ist die Auswahl eines Ziel-Laufwerks. W&auml;hlen
+ Sie <i>Ziel w&auml;hlen</i> im Untermen&uuml; <i>Abbild</i>,
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/tgtmnu.png" alt="Zielauswahl Men&uuml;" width="600" height="200" border="0"></div>
+<div class="crlf1"></div>
+um den Auswahldialog zu &ouml;ffnen:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/tgtsel.png" alt="Zielauswahl Dialog" width="820" height="422" border="0"></div>
+<div class="crlf1"></div>
+Es erscheint eine Liste mit bis zu zehn an Ihren PC angeschlossenen
+ physikalischen Laufwerken. <b>DskImg</b> fragt diese Daten beim Start
+ automatisch ab (in <i>data\00000001</i> abgelegt). Die Spalten zeigen
+ Namen, Medientyp, Zylinder (Floppies: Spuren), K&ouml;pfe, Sektoren,
+ Sektorengr&ouml;sse und Kapazit&auml;t jedes Laufwerks an. Medientyp
+ ist einer der folgenden:
+<ul>
+ <li>5.25/1.2M diverse Floppy Formate</li>
+ <li>[x] nicht entfernbare Laufwerke</li></li>
+ <li>|-> entfernbare Laufwerke</li>
+ <li>??? unbekanntes Medium</li>
+</ul>
+<div class="crlf1"></div>
+Wenn der Dialog erscheint, ist der oberste Radioknopf ausgew&auml;hlt.
+ Das 'ausgew&auml;hlte Laufwerk' ist jedoch ung&uuml;ltig, bis Sie
+ wirklich ein Laufwerk w&auml;hlen (einfach einen der Radiokn&ouml;pfe
+ dr&uuml;cken). Schliessen Sie den Dialog per <i>Abbrechen</i>, wird
+ das 'ausgew&auml;hlte Laufwerk' auf ung&uuml;ltig und das <i>Ziel
+ gew&auml;hlt</i>-Kontrollf&auml;hnchen zur&uuml;ckgesetzt. Dr&uuml;cken
+ Sie <i>Ausw&auml;hlen</i>, um das ausgew&auml;hlte Laufwerk zu
+ &uuml;bernehmen und das  <i>Ziel gew&auml;hlt</i>-Kontrollf&auml;hnchen
+ zu setzen.
+<div class="crlf1"></div>
+<b>Anmerkung:</b> Ohne Auswahl eines Ziels kann kein Abbild geschrieben werden.
+<div class="crlf1"></div>
+<h3>Ratschlag</h3>
+Tun Sie Sich selbst einen Gefallen und lassen Sie die Finger von den nicht
+ entfernbaren Festplatten. Es ist keine gute Idee, eine Festplatte als Ziel
+ zu w&auml;hlen. Hat die Festplatte mehr als eine Partition, kann es sein,
+ dass <b>DskImg</b> nicht auf das Laufwerk schreiben kann, da es nur den
+ physikalischen Datentr&auml;ger demontiert und sperrt, w&auml;hrend alle
+ auf dem Datentr&auml;ger angelegten logischen Laufwerke weder demontiert
+ noch gesperrt sind. Zudem riskieren Sie damit, s&auml;tliche auf dem
+ Datentr&auml;ger gespeicherten Daten zu verlieren, sollte <b>DskImg</b>
+ (wider Erwarten) mit dem Schreiben Erfolg haben. Entschliessen Sie Sich
+ lieber dazu, einen alten Speicherstick zu 'opfern', auf dem keine wichtigen
+ Daten abgelegt sind...
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0210.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0230.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

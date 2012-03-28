@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="DatTools Manual: Field Viewer" />
+ <meta name="Description" content="DatTools Manual: Field Viewer" />
+ <meta name="Keywords" content="dat, tool, MakeDat, multi, lingual" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+ <title>Field Viewer</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Table of Content</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Selection</a></li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">Translation</a></li>
+ <li><a href="0500.htm">Standard Fields</a></li>
+ <li><a href="../manual.htm">Home</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0310.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="text100">
+<h1>Field Content</h1>
+Select <i>MakeDat</i>, then <i>Field Content</i> to open the field viewer.
+<div class="crlf1"></div>
+At the top of the dialog there are two spinbuttons: The left one selects the current entry,
+ the right one the current subfield. Both spinbuttons remember their content, even if you
+ close the dialog and open it again. If a stored value exceeds the limits of the currently
+ selected field, it is reset to zero automatically.
+<div class="crlf1"></div>
+Numeric data types with a width of 8, 16, 32 or 64 bit are shown in the first entryfield
+ (the box in the middle):
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/view00.png" alt="DB, DW, DD, DQ" width="1012" height="788" border="0"></div>
+<div class="crlf1"></div>
+Push <i>zero</i> to reset all bits in the current entry or <i>max</i> to set all bits. The
+ latter one sets bytes to FF, words to FFFF, double words to FFFFFFFF and quadruple words
+ to FFFFFFFFFFFFFFFF. To enter a specific value, overwrite the content of the entryfield,
+ then click on any other control to evaluate the changed content. Numbers generally are
+ evaluated right to left. Surplus digits beyond the valid range of the current data type
+ are ignored silently.
+<div class="crlf1"></div>
+Data types DO, FIX and $32 are shown in the MLE at the bottom. Strings (type $32) are
+ displayed as plain text:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/view01.png" alt="strings" width="1012" height="788" border="0"></div>
+<div class="crlf1"></div>
+All other types are displayed as hexdump:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/view02.png" alt="hexdump" width="1012" height="788" border="0"></div>
+<div class="crlf1"></div>
+Of course, the MLE's content is editable. It is strongly recommended to keep the format of
+ the hexdump as is - the evaluation function assumes data are at the same places where the
+ output function stored them.
+<div class="crlf1"></div>
+<i>Save</i> writes the changed content back to the field before the dialog is dismissed.
+ <i>Discard</i> resets the <i>changed</i> flag before the field is freed - all changes are
+ lost if you push this button!
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0310.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

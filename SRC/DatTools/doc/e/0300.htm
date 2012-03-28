@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="DatTools Manual: MakeDat" />
+ <meta name="Description" content="DatTools Manual: MakeDat" />
+ <meta name="Keywords" content="dat, tool, MakeDat, multi, lingual" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+ <title>MakeDat</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Table of Content</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Selection</a></li>
+ <li>MakeDat 5</li>
+ <li><a href="0400.htm">Translation</a></li>
+ <li><a href="0500.htm">Standard Fields</a></li>
+ <li><a href="../manual.htm">Home</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0200.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0310.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="text100">
+<h1>MakeDat</h1>
+<i>MakeDat</i> in the main menu provides tools to create and manage data fields:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mnu02.png" alt="MakeDat" width="572" height="192" border="0"></div>
+<div class="crlf1"></div>
+<div class="sitemap">
+<ul>
+ <li><a href="#4">Create File</a></li>
+ <li><a href="0310.htm">Create Field</a></li>
+ <li><a href="0320.htm">Field Content</a></li>
+ <li><a href="#5">Move Entries</a></li>
+ <li><a href="#6">Copy Field Content</a></li>
+</ul>
+</div>
+<div class="crlf1"></div>
+<h2 id="4">Create File</h2>
+Select <i>Create File</i>. The file creation dialog is opened:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/file.png" alt="file creation" width="456" height="312" border="0"></div>
+<div class="crlf1"></div>
+This tool creates a file filled with zeroes:
+<div class="crlf1"></div>
+1. Enter the path where the new file shall be stored.
+<div class="crlf1"></div>
+2. Enter a name for the new file.
+<div class="crlf1"></div>
+3. Enter the wanted size of the new file. The entered size is rounded up to the next
+ multiple of 512 (sector size). The tool denies to create empty files (size zero).
+<div class="crlf1"></div>
+4. Push <i>Create</i> to create a file with the specified properties.
+<div class="crlf1"></div>
+5. If no error report pops up, the new file is available for access.
+<div class="crlf1"></div>
+You can load this file with the Loader, then use the returned MemHandle to fill the
+ file with content, resize it or free the allocated memory block. Because the Loader
+ only supports saving of data fields at the moment, your program has to write the
+ content of the allocated memory back before the memory block is freed. Please do
+ not call database engine functions with the MemHandle of any memory block. Memory
+ blocks have no valid DBE header and are rejected by FDacc(), FDvpt(), SftUp() and
+ SftDn().
+<div class="crlf1"></div>
+<h2>Create Field</h2>
+Is described in detail on the <a href="0310.htm">next page</a>.
+<div class="crlf1"></div>
+<h2>Field Content</h2>
+Is described in detail on the <a href="0320.htm">page following the next page</a>.
+<div class="crlf1"></div>
+<h2 id="5">Move Entries</h2>
+<div class="box100"><img src="./pics/fld-mv.png" alt="Move Entries" width="412" height="284" border="0"></div>
+<div class="crlf1"></div>
+Moves entries in the currently selected working field up or down. Choose the first
+ entry to move (source) with the first and its destination (target) with the second
+ spinbutton. If source is larger than target, entries are moved downwards. If source
+ is smaller than target, entries are moved upwards. If both are equal, you trigger
+ an error message. Choose the amount of entries to move. It must fit into the field,
+ otherwise you trigger another error message. Push <i>Move</i> to move entries or
+ <i>Abort</i> to close the dialog without moving anything.
+<div class="crlf1"></div>
+<b>Caution:</b> Entries in <i>all</i> subfields of the working field are moved!
+<div class="crlf1"></div>
+<h2 id="6">Copy Field Content</h2>
+<div class="box100"><img src="./pics/fld-cp.png" alt="Copy Field Content" width="572" height="296" border="0"></div>
+<div class="crlf1"></div>
+Copies the content of the selected source to the selected target. Select source and
+ target by pushing the corresponding <i>Select</i> button. Push <i>Copy</i> to start
+ copying or <i>Abort</i> to close the dialog. Entries are not copied if the defined
+ data type for a subfield in source differs from the data type defined for the same
+ subfield in target. If source holds more entries than target, only those entries
+ fitting into target are copied.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0200.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0310.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

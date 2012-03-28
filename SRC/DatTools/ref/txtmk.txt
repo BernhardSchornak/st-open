@@ -1,0 +1,109 @@
+
+   TEXT BASED FIELD CREATION
+   ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+   TOKENS
+   ~~~~~~
+
+   [NAME]      The name stored in bytes 04-1F in your data fields's header.
+               Names are optional. If no [NAME] token is found and there is
+               nothing than blanks and line feed / carriage return pairs up
+               to the next token, the field number is used as field name.
+
+
+   [NUMBER]    A unique number for the data field. Numbers 00000001 through
+               FFFFFEFF are free, numbers FFFFFF00 through FFFFFFFF are re-
+               served for ST-Open's system functions. Number 00000000 means
+               'I am not a data field!'. ST-Open's Loader -rejects- to load
+               anything if member LD.FldNr of the passed LD structure reads
+               zero. If there is no [NUMBER] token, or no number follows up
+               to the next carriage return, MakeDat terminates itself.
+
+
+   [ENTRIES]   Entries in this datafield. Followed by the number of entries
+               the datafield shall store. Any given number is rounded up to
+               the next multiple of 16 (x + 0x0F AND 0xFFFFFFF0). If either
+               the token or the amount is missing, MakeDat uses the default
+               amount of 64 entries.
+
+
+   [SIZE]      The maximum size of a single entry. This is not required for
+               numeric types DB, DW, DD, DQ and DO. For type FIX, it is the
+               size of each block. For dynamic strings, it is a size limit:
+               Strings are truncated if they exceed this size. Whenever the
+               size token is found, the number *following* it is rounded up
+               to the next multiple of 16 (x + 0x0F AND 0xFFFFFFF0). If the
+               size is required (FIX and $32), but the [SIZE] token or size
+               is missing, MakeDat uses a default size of 64 byte.
+
+
+   [TYPES]     Datatypes in this datafield. A subfield is reserved for each
+               of them. The following datatypes are allowed:
+
+               #    ID     size      name
+
+               01   DB       8 bit   byte
+               02   DW      16 bit   word
+               03   DD      32 bit   doubleword
+               04   DQ      64 bit   quadword
+               05   DO     128 bit   octaword
+               06   FIX      n bit   block with fixed size
+               07   $32      n bit   dynamic string
+
+               There must be at least one type in any data field. There may
+               be up to 32 types in each data field - all superfluous types
+               (33 and following) are ignored. A data field can't have more
+               than 32 types. If either the [TYPES] token is missing, or no
+               type(s) follow(s) a [TYPES] token until the carriage return,
+               MakeDat terminates itself.
+
+
+   [DATA]      Marks the begin of the data area. Data must be enclosed by 
+               markers. Data are stored in the order they are read from the
+               file. If less data than defined in [ENTRIES] were found, all
+               remaining entries are set to zero. Data *beyond* the maximum
+               amount of entries are ignored. If either the [DATA] token is
+               missing, or no data follow, the field is filled with zeroes.
+
+
+   data, data  Numbers in hexadecimal notation. Numbers are terminated by a
+   data, data  comma or a line break.  If an invalid digit is detected, the
+               remaining characters in the current line are treated as user
+               comment. Comments are skipped by default.
+
+
+   {D}         Data in decimal (base 10) notation. All decimal numbers must
+               be preceeded by one {D}.
+
+
+   CAUTION     If you have problems with hexadecimal numbers, you -have- to
+               use the {D} prefix, otherwise your input is treated as hexa-
+               decimal number, where surplus digits are ignored!
+
+
+   [SUB]       This is the separator between subfields. It should be placed
+               between data for each datatype defined in [TYPES]. It is not
+               required for datafields with only one datatype.
+
+
+   NOTE        [SUB] works as separator. If no [SUB]s are found, the entire
+               content following [DATA] is used to fill the field, starting
+               with all entries in subfield 0. When the entry count reaches
+               the maximum, subfield 1 is filled, and so on. If you want to
+               fill only a part of a subfield, use [SUB] to force switching
+               to the next subfield. If data are missing, remaining entries
+               are filled with zeroes or empty strings. Surplus entries are
+               ignored.
+
+
+   COMMENTS
+   ~~~~~~~~
+
+   Except inside of tokens and data, comments may be placed anywhere in the
+   file. Keywords and data have their markers, so DatTools are able to find
+   them. However, comments should not include any token before those tokens
+   were used to define required data. Once the data provided by a token was
+   written to the header, that token is ignored. You may repeat it as often
+   as you want without negative impacts. Keep in mind that superfluous text
+   increases the size of your file as well as the translation time.

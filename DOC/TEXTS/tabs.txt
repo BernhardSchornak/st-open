@@ -1,0 +1,224 @@
+The example in this section creates a dialog box that uses tabs to provide multiple pages of controls. The main dialog box is a modal dialog box. Each page of controls is defined by a dialog box template that specifies the WS_CHILD style. When a tab is selected, the example creates a modeless dialog box for the incoming page and destroys the dialog box for the outgoing page.
+
+ 
+
+Note  In many cases, you can implement multiple-page dialog boxes more easily by using property sheets. For more information about property sheets, see Property Sheets. 
+
+ 
+
+The template for the main dialog box simply defines two button controls. When processing the WM_INITDIALOG message, the dialog box procedure creates a tab control and loads the dialog template resources for each of the child dialog boxes.
+The information is saved in an application-defined structure called DLGHDR. A pointer to this structure is associated with the dialog box window by using the SetWindowLong function. The structure is defined in the application's header file, as follows.
+
+#define C_PAGES 3
+ 
+typedef struct tag_dlghdr {
+                           HWND        hwndTab;                                     // tab control
+                           HWND        hwndDisplay;                                 // current child dialog box
+                           RECT        rcDisplay;                                   // display rectangle for the tab control
+                           DLGTEMPLATE *apRes[C_PAGES];
+                          } DLGHDR;
+ 
+
+The following function processes the WM_INITDIALOG message for the main dialog box. The function allocates the DLGHDR structure, loads the dialog template resources for the child dialog boxes, and creates the tab control.
+
+The size of each child dialog box is specified by the DLGTEMPLATE structure. The function examines the size of each dialog box and uses the macro for the TCM_ADJUSTRECT message to calculate an appropriate size for the tab control. Then it sizes the dialog box and positions the two buttons accordingly. This example sends TCM_ADJUSTRECT by using the TabCtrl_AdjustRect macro.
+
+VOID WINAPI OnTabbedDialogInit(HWND hwndDlg)
+   {
+    DLGHDR *pHdr      = (DLGHDR *) LocalAlloc(LPTR, sizeof(DLGHDR));
+    DWORD   dwDlgBase = GetDialogBaseUnits();
+    int     cxMargin  = LOWORD(dwDlgBase) / 4;
+    int     cyMargin  = HIWORD(dwDlgBase) / 8;
+    TC_ITEM tie; 
+    RECT    rcTab; 
+    HWND    hwndButton; 
+    RECT    rcButton; 
+    int     i; 
+
+    SetWindowLong(hwndDlg, GWL_USERDATA, (LONG) pHdr);                              // Save a pointer to the DLGHDR structure. 
+    InitCommonControls(); 
+    pHdr->hwndTab = CreateWindow(                                                   // Create the tab control. 
+                                 WC_TABCONTROL,
+                                 "",
+                                 WS_CHILD | WS_CLIPSIBLINGS | WS_VISIBLE,
+                                 0,
+                                 0,
+                                 100,
+                                 100,
+                                 hwndDlg,
+                                 NULL,
+                                 g_hinst,
+                                 NULL
+                                );
+    if (pHdr->hwndTab == NULL) {                                                    // handle error
+                               }
+ 
+    tie.mask    = TCIF_TEXT | TCIF_IMAGE;                                           // Add a tab for each of the three child dialog boxes.
+    tie.iImage  = -1;
+    tie.pszText = "First";
+              TabCtrl_InsertItem(
+                                 pHdr->hwndTab,
+                                 0,
+                                 &tie
+                                );
+    tie.pszText = "Second";
+              TabCtrl_InsertItem(
+                                 pHdr->hwndTab,
+                                 1,
+                                 &tie
+                                );
+    tie.pszText = "Third";
+              TabCtrl_InsertItem(
+                                 pHdr->hwndTab,
+                                 2,
+                                 &tie
+                                );
+ 
+    pHdr->apRes[0] = DoLockDlgRes(MAKEINTRESOURCE(DLG_FIRST));                      // Lock the resources for the three child dialog boxes.
+    pHdr->apRes[1] = DoLockDlgRes(MAKEINTRESOURCE(DLG_SECOND)); 
+    pHdr->apRes[2] = DoLockDlgRes(MAKEINTRESOURCE(DLG_THIRD)); 
+ 
+    SetRectEmpty(&rcTab);                                                           // Determine bounding rectangle for child dialog boxes.
+    for(i = 0; i < C_PAGES; i++)
+    { 
+     if(pHdr->apRes[i]->cx > rcTab.right)
+     {
+      rcTab.right  = pHdr->apRes[i]->cx;
+     }
+     if(pHdr->apRes[i]->cy > rcTab.bottom)
+     {
+      rcTab.bottom = pHdr->apRes[i]->cy;
+     }
+    }
+
+    rcTab.right  = rcTab.right  * LOWORD(dwDlgBase) / 4;
+    rcTab.bottom = rcTab.bottom * HIWORD(dwDlgBase) / 8;
+
+              TabCtrl_AdjustRect(                                                   // Calculate how large to make the tab control, so
+                                 pHdr->hwndTab,                                     // the display area can accomodate all the child
+                                 TRUE,                                              // dialog boxes.
+                                 &rcTab
+                                );
+                      OffsetRect(
+                                 &rcTab,
+                                 cxMargin - rcTab.left,
+                                 cyMargin - rcTab.top
+                                );
+
+                        CopyRect(                                                   // Calculate the display rectangle.
+                                 &pHdr->rcDisplay,
+                                 &rcTab
+                                );
+              TabCtrl_AdjustRect(
+                                 pHdr->hwndTab,
+                                 FALSE,
+                                 &pHdr->rcDisplay
+                                );
+
+                    SetWindowPos(                                                   // Set the size and position of the tab control, buttons,
+                                 pHdr->hwndTab,                                     // and dialog box.
+                                 NULL,
+                                 rcTab.left,
+                                 rcTab.top,
+                                 rcTab.right - rcTab.left,
+                                 rcTab.bottom - rcTab.top,
+                                 SWP_NOZORDER
+                                );
+
+         hwndButton = GetDlgItem(                                                   // Move the first button below the tab control.
+                                 hwndDlg,
+                                 BTN_CLOSE
+                                );
+                    SetWindowPos(
+                                 hwndButton,
+                                 NULL,
+                                 rcTab.left,
+                                 rcTab.bottom + cyMargin,
+                                 0,
+                                 0,
+                                 SWP_NOSIZE | SWP_NOZORDER
+                                );
+ 
+                   GetWindowRect(                                                   // Determine the size of the button.
+                                 hwndButton,
+                                 &rcButton
+                                );
+    rcButton.right  -= rcButton.left;
+    rcButton.bottom -= rcButton.top;
+ 
+         hwndButton = GetDlgItem(                                                   // Move the second button to the right of the first.
+                                 hwndDlg,
+                                 BTN_TEST
+                                );
+                    SetWindowPos(hwndButton,
+                                 NULL,
+                                 rcTab.left + rcButton.right + cxMargin,
+                                 rcTab.bottom + cyMargin,
+                                 0,
+                                 0,
+                                 SWP_NOSIZE | SWP_NOZORDER
+                                );
+ 
+                    SetWindowPos(                                                   // Size the dialog box.
+                                 hwndDlg,
+                                 NULL,
+                                 0,
+                                 0,
+                                 rcTab.right + cyMargin +
+                                    2 * GetSystemMetrics(SM_CXDLGFRAME),
+                                 rcTab.bottom + rcButton.bottom + 2 * cyMargin +
+                                    2 * GetSystemMetrics(SM_CYDLGFRAME) + GetSystemMetrics(SM_CYCAPTION),
+                                 SWP_NOMOVE | SWP_NOZORDER
+                                );
+
+                    OnSelChanged(hwndDlg);                                          // Simulate selection of the first item.
+   }
+
+   DLGTEMPLATE * WINAPI DoLockDlgRes(LPCSTR lpszResName)                            // DoLockDlgRes - loads and locks a dialog template
+   {                                                                                // resource. Returns a pointer to the locked resource.
+    HRSRC   hrsrc = FindResource(NULL, lpszResName, RT_DIALOG);                     // lpszResName - name of the resource
+    HGLOBAL hglb  = LoadResource(g_hinst, hrsrc);
+    return (DLGTEMPLATE *) LockResource(hglb);
+   } 
+
+The following function processes the TCN_SELCHANGE notification message for the main dialog box. The function destroys the dialog box for the outgoing page, if any. Then it uses the CreateDialogIndirect function to create a modeless dialog box for the incoming page.
+
+   VOID WINAPI OnSelChanged(HWND hwndDlg)                                           // OnSelChanged - processes the TCN_SELCHANGE
+   {                                                                                // notification. hwndDlg - handle of parent dialog box
+    DLGHDR *pHdr = (DLGHDR *) GetWindowLong(
+                                            hwndDlg,
+                                            GWL_USERDATA
+                                           );
+    int    iSel  =        TabCtrl_GetCurSel(
+                                            pHdr->hwndTab
+                                           );
+
+    if(pHdr->hwndDisplay != NULL)                                                   // Destroy the current child dialog box, if any.
+    {
+     DestroyWindow(pHdr->hwndDisplay);
+    }
+
+    pHdr->hwndDisplay = CreateDialogIndirect(                                       // Create the new child dialog box.
+                                             g_hinst,
+                                             pHdr->apRes[iSel],
+                                             hwndDlg,
+                                             ChildDialogProc
+                                            );
+   }
+
+The following function processes the WM_INITDIALOG message for each of the child dialog boxes. You cannot specify the position of a dialog box created using the CreateDialogIndirect function. This function uses the SetWindowPos function to position the child dialog within the tab control's display area.
+
+   VOID WINAPI OnChildDialogInit(HWND hwndDlg)                                      // OnChildDialogInit - Positions the child dialog box
+   {                                                                                // to fall within the display area of the tab control.
+    HWND   hwndParent = GetParent(hwndDlg);
+    DLGHDR *pHdr = (DLGHDR *) GetWindowLong(hwndParent, GWL_USERDATA);
+                    SetWindowPos(
+                                 hwndDlg,
+                                 HWND_TOP,
+                                 pHdr->rcDisplay.left,
+                                 pHdr->rcDisplay.top,
+                                 0,
+                                 0,
+                                 SWP_NOSIZE
+                                );
+   }

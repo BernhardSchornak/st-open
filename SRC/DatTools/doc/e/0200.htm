@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="DatTools Manual: Selection" />
+ <meta name="Description" content="DatTools Manual: Selection" />
+ <meta name="Keywords" content="dat, tool, MakeDat, multi, lingual" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+ <title>Selection</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Table of Content</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li>Selection</li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">Translation</a></li>
+ <li><a href="0500.htm">Standard Fields</a></li>
+ <li><a href="../manual.htm">Home</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0101.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="text100">
+<h1>Select</h1>
+<div class="sitemap">
+<ul>
+ <li><a href="#1">Drives</a></li>
+ <li><a href="#2">Source Folder<a></li>
+ <li><a href="#3">Field</a></li>
+</ul>
+</div>
+<div class="crlf1"></div>
+<h2 id="1">Drives</h2>
+To work with DatTools, you need a source folder where fields are read from, written to or put in.
+ The first time you start DatTools, you should select the drives DatTools scans for valid source
+ folders. To activate these drives, choose <i>Select</i> in the main menu, then <i>Drives</i>:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mnu01.png" alt="Selection" width="572" height="192" border="0"></div>
+<div class="crlf1"></div>
+The drive selection dialog is opened:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/seldrv.png" alt="Drive Selection" width="452" height="296" border="0"></div>
+<div class="crlf1"></div>
+Activate the drive where your V700 distribution is stored. In general, this is just one drive.
+ Activating specific drives speeds up scanning for valid source folders markably. Please do not
+ activate CD-ROM or DVD drives - it takes a lot of time to scan them and produces a lot of very
+ annoying messages if no media is present.
+<div class="crlf1"></div>
+<h2 id="2">Source Folder</h2>
+If you choose <i>Source Folder</i> from the menu, DatTools scans all activated drives for "ST7"
+ folders. Old distributions (ST4, ST5, ST6) are ignored because data fields of versions prior
+ to version 7.0.0. are incompatible with the new field header definition. Found source folders
+ are shown in the selection dialog:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/selsrc.png" alt="Source Selection" width="492" height="384" border="0"></div>
+<div class="crlf1"></div>
+Select a source folder of your choice - either double-click on the name or select the listbox
+ item and push <i>Select</i>. This selected folder is the new working directory. Fields are
+ loaded from here, altered fields are written back to and new fields are put into the DATA or
+ SYST subfolders residing in this folder.
+<div class="crlf1"></div>
+<h2 id="3">Fields</h2>
+Choose the menu item <i>Field</i> to display a list with all fields found in the source folder:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/selfld.png" alt="Field Selection" width="492" height="384" border="0"></div>
+<div class="crlf1"></div>
+Double-click on any name or select one, then push <i>Select</i> to make the selected field the
+ working field. This selection is required if you want to view and edit a field's content, move
+ or copy entries or open the spinbutton, bitmap or notebook field editor.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0101.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

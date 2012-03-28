@@ -1,0 +1,26 @@
+
+        Automated Entryfields
+        =====================
+
+        ST-Open's Base Library provides automated, datafield controlled entryfields, now.
+        At the moment, 16 data types are available:
+
+        00  32 bit   decimal            (signed or unsigned, optional with pseudo FP)
+        01  64 bit   decimal            (signed or unsigned, optional with pseudo FP)
+        02   8 bit   hexadeximal
+        03  16 bit   hexadeximal
+        04  32 bit   hexadeximal
+        05  64 bit   hexadeximal
+        06 128 bit   hexadeximal
+        07  32 bit   date ISO
+        08  32 bit   date european
+        09  32 bit   time SS.hh
+        0A  32 bit   time MM:SS.hh
+        0B  32 bit   time HH:MM:SS.hh
+        0C  32 bit   time HH:MM:SS
+        0D  32 bit   time HH:MM
+        0E  64 byte  plain strings
+        0F  64 byte  strings stored in datafields
+
+        Numeric types (including date, time) are compared against user-defined boundaries
+        and are automatically corrected if they are outside the given minimum and maximum.

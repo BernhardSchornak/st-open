@@ -1,0 +1,701 @@
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       H e x    E d i t o r   (C) ST-Open 1979 - 2012
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     You may copy and distribute this file as often as you want, but recipients are not
+     allowed to pay anything for any copy of this file or its content. It isn't allowed
+     to abuse its copyrighted content or introduced techniques for commercial purposes.
+     Whatever is derived from this file or its content must be freely available without
+     charge.
+
+     You are free to modify the content of this file if you want to. However, derivates
+     of the content of this file or parts of it *still* are subject to the terms of the
+     FT4FP license. Recipients neither are allowed to pay anything for the original nor
+     for altered or derived replica.
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           FREE THOUGHT FOR FREE PEOPLE (FT4FP) - KEEP CASH AWAY FROM KNOWLEDGE!
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Hex Editor                    $$ 0080 - 0099
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */
+  0x0BC0 DIALOG PRELOAD DISCARDABLE       0,   0, 595, 406
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
+  BEGIN
+   GROUPBOX        "",          0x0BF0,   5,   6, 170,  80
+   PUSHBUTTON      "",          0x0BC4,  10,  50,  75,  12
+   PUSHBUTTON      "",          0x0BC5,  95,  50,  75,  12
+   LTEXT           "",          0x0BF1,  10,  18,  80,   8
+   EDITTEXT                     0x0BC6,  95,  16,  75,  12, ES_CENTER
+   LTEXT           "",          0x0BF2,  10,  33,  80,   8
+   EDITTEXT                     0x0BC7,  95,  31,  75,  12, ES_CENTER
+   PUSHBUTTON      "",          0x0BC8,  10,  68,  75,  12
+   PUSHBUTTON      "",          0x0BC9,  95,  68,  75,  12
+
+   PUSHBUTTON      "- 0001",    0x0BCA,   5,  99,  80,  14
+   PUSHBUTTON      "+ 0001",    0x0BCB,  90,  99,  80,  14
+   PUSHBUTTON      "- 0010",    0x0BCC,   5, 116,  80,  14
+   PUSHBUTTON      "+ 0010",    0x0BCD,  90, 116,  80,  14
+   PUSHBUTTON      "- 0100",    0x0BCE,   5, 133,  80,  14
+   PUSHBUTTON      "+ 0100",    0x0BCF,  90, 133,  80,  14
+   PUSHBUTTON      "- 0200",    0x0BD0,   5, 150,  80,  14
+   PUSHBUTTON      "+ 0200",    0x0BD1,  90, 150,  80,  14
+   PUSHBUTTON      "- 1000",    0x0BD2,   5, 167,  80,  14
+   PUSHBUTTON      "+ 1000",    0x0BD3,  90, 167,  80,  14
+   PUSHBUTTON      "- 4000",    0x0BD4,   5, 184,  80,  14
+   PUSHBUTTON      "+ 4000",    0x0BD5,  90, 184,  80,  14
+   PUSHBUTTON      "- 8000",    0x0BD6,   5, 201,  80,  14
+   PUSHBUTTON      "+ 8000",    0x0BD7,  90, 201,  80,  14
+   PUSHBUTTON      "",          0x0BD8,   5, 222,  80,  14
+   PUSHBUTTON      "",          0x0BD9,  90, 222,  80,  14
+   PUSHBUTTON      "",          0x0BDA,   5, 239,  80,  14
+   PUSHBUTTON      "",          0x0BDB,  90, 239,  80,  14
+   PUSHBUTTON      "",          0x0BDC,   5, 256,  80,  14
+   PUSHBUTTON      "",          0x0BDD,  90, 256,  80,  14
+   PUSHBUTTON      "",          0x0BDE,   5, 273,  80,  14
+   PUSHBUTTON      "",          0x0BDF,  90, 273,  80,  14
+   PUSHBUTTON      "",          0x0BE0,   5, 290,  80,  14
+   PUSHBUTTON      "",          0x0BE1,  90, 290,  80,  14
+   PUSHBUTTON      "",          0x0BE2,   5, 307,  80,  14
+   PUSHBUTTON      "",          0x0BE3,  90, 307,  80,  14
+   PUSHBUTTON      "",          0x0BE4,   5, 324,  80,  14
+   PUSHBUTTON      "",          0x0BE5,  90, 324,  80,  14
+   PUSHBUTTON      "",          0x0BE6,   5, 347,  80,  14
+   PUSHBUTTON      "",          0x0BE7,  90, 347,  80,  14
+
+   PUSHBUTTON      "",          0x0BC2,   5, 383,  80,  18
+   PUSHBUTTON      "",          0x0BC3,  90, 383,  80,  18
+
+   CTEXT           "",          0x0E20, 235,   5,  15,   8
+   CTEXT           "",          0x0E21, 252,   5,  15,   8
+   CTEXT           "",          0x0E22, 269,   5,  15,   8
+   CTEXT           "",          0x0E23, 286,   5,  15,   8
+   CTEXT           "",          0x0E24, 303,   5,  15,   8
+   CTEXT           "",          0x0E25, 320,   5,  15,   8
+   CTEXT           "",          0x0E26, 337,   5,  15,   8
+   CTEXT           "",          0x0E27, 354,   5,  15,   8
+   CTEXT           "",          0x0E28, 371,   5,  15,   8
+   CTEXT           "",          0x0E29, 388,   5,  15,   8
+   CTEXT           "",          0x0E2A, 405,   5,  15,   8
+   CTEXT           "",          0x0E2B, 422,   5,  15,   8
+   CTEXT           "",          0x0E2C, 439,   5,  15,   8
+   CTEXT           "",          0x0E2D, 456,   5,  15,   8
+   CTEXT           "",          0x0E2E, 473,   5,  15,   8
+   CTEXT           "",          0x0E2F, 490,   5,  15,   8
+
+   CTEXT           "",          0x0E00, 180,  16,  50,   8
+   CTEXT           "",          0x0E01, 180,  28,  50,   8
+   CTEXT           "",          0x0E02, 180,  40,  50,   8
+   CTEXT           "",          0x0E03, 180,  52,  50,   8
+   CTEXT           "",          0x0E04, 180,  64,  50,   8
+   CTEXT           "",          0x0E05, 180,  76,  50,   8
+   CTEXT           "",          0x0E06, 180,  88,  50,   8
+   CTEXT           "",          0x0E07, 180, 100,  50,   8
+   CTEXT           "",          0x0E08, 180, 112,  50,   8
+   CTEXT           "",          0x0E09, 180, 124,  50,   8
+   CTEXT           "",          0x0E0A, 180, 136,  50,   8
+   CTEXT           "",          0x0E0B, 180, 148,  50,   8
+   CTEXT           "",          0x0E0C, 180, 160,  50,   8
+   CTEXT           "",          0x0E0D, 180, 172,  50,   8
+   CTEXT           "",          0x0E0E, 180, 184,  50,   8
+   CTEXT           "",          0x0E0F, 180, 196,  50,   8
+   CTEXT           "",          0x0E10, 180, 208,  50,   8
+   CTEXT           "",          0x0E11, 180, 220,  50,   8
+   CTEXT           "",          0x0E12, 180, 232,  50,   8
+   CTEXT           "",          0x0E13, 180, 244,  50,   8
+   CTEXT           "",          0x0E14, 180, 256,  50,   8
+   CTEXT           "",          0x0E15, 180, 268,  50,   8
+   CTEXT           "",          0x0E16, 180, 280,  50,   8
+   CTEXT           "",          0x0E17, 180, 292,  50,   8
+   CTEXT           "",          0x0E18, 180, 304,  50,   8
+   CTEXT           "",          0x0E19, 180, 316,  50,   8
+   CTEXT           "",          0x0E1A, 180, 328,  50,   8
+   CTEXT           "",          0x0E1B, 180, 340,  50,   8
+   CTEXT           "",          0x0E1C, 180, 352,  50,   8
+   CTEXT           "",          0x0E1D, 180, 364,  50,   8
+   CTEXT           "",          0x0E1E, 180, 376,  50,   8
+   CTEXT           "",          0x0E1F, 180, 388,  50,   8
+
+   EDITTEXT                     0x0E40, 510,  15,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E41, 510,  27,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E42, 510,  39,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E43, 510,  51,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E44, 510,  63,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E45, 510,  75,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E46, 510,  87,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E47, 510,  99,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E48, 510, 111,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E49, 510, 123,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E4A, 510, 135,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E4B, 510, 147,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E4C, 510, 159,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E4D, 510, 171,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E4E, 510, 183,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E4F, 510, 195,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E50, 510, 207,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E51, 510, 219,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E52, 510, 231,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E53, 510, 243,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E54, 510, 255,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E55, 510, 267,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E56, 510, 279,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E57, 510, 291,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E58, 510, 303,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E59, 510, 315,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E5A, 510, 327,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E5B, 510, 339,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E5C, 510, 351,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E5D, 510, 363,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E5E, 510, 375,  80,  10, ES_CENTER
+   EDITTEXT                     0x0E5F, 510, 387,  80,  10, ES_CENTER
+
+   EDITTEXT                     0x0C00, 235,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C01, 252,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C02, 269,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C03, 286,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C04, 303,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C05, 320,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C06, 337,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C07, 354,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C08, 371,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C09, 388,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C0A, 405,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C0B, 422,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C0C, 439,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C0D, 456,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C0E, 473,  15,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C0F, 490,  15,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0C10, 235,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C11, 252,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C12, 269,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C13, 286,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C14, 303,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C15, 320,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C16, 337,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C17, 354,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C18, 371,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C19, 388,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C1A, 405,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C1B, 422,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C1C, 439,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C1D, 456,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C1E, 473,  27,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C1F, 490,  27,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0C20, 235,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C21, 252,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C22, 269,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C23, 286,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C24, 303,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C25, 320,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C26, 337,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C27, 354,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C28, 371,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C29, 388,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C2A, 405,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C2B, 422,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C2C, 439,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C2D, 456,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C2E, 473,  39,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C2F, 490,  39,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0C30, 235,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C31, 252,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C32, 269,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C33, 286,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C34, 303,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C35, 320,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C36, 337,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C37, 354,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C38, 371,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C39, 388,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C3A, 405,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C3B, 422,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C3C, 439,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C3D, 456,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C3E, 473,  51,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C3F, 490,  51,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0C40, 235,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C41, 252,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C42, 269,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C43, 286,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C44, 303,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C45, 320,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C46, 337,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C47, 354,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C48, 371,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C49, 388,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C4A, 405,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C4B, 422,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C4C, 439,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C4D, 456,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C4E, 473,  63,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C4F, 490,  63,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0C50, 235,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C51, 252,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C52, 269,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C53, 286,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C54, 303,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C55, 320,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C56, 337,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C57, 354,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C58, 371,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C59, 388,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C5A, 405,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C5B, 422,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C5C, 439,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C5D, 456,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C5E, 473,  75,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C5F, 490,  75,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0C60, 235,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C61, 252,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C62, 269,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C63, 286,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C64, 303,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C65, 320,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C66, 337,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C67, 354,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C68, 371,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C69, 388,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C6A, 405,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C6B, 422,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C6C, 439,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C6D, 456,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C6E, 473,  87,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C6F, 490,  87,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0C70, 235,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C71, 252,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C72, 269,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C73, 286,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C74, 303,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C75, 320,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C76, 337,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C77, 354,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C78, 371,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C79, 388,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C7A, 405,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C7B, 422,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C7C, 439,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C7D, 456,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C7E, 473,  99,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C7F, 490,  99,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0C80, 235, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C81, 252, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C82, 269, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C83, 286, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C84, 303, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C85, 320, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C86, 337, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C87, 354, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C88, 371, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C89, 388, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C8A, 405, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C8B, 422, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C8C, 439, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C8D, 456, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C8E, 473, 111,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C8F, 490, 111,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0C90, 235, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C91, 252, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C92, 269, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C93, 286, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C94, 303, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C95, 320, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C96, 337, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C97, 354, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C98, 371, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C99, 388, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C9A, 405, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C9B, 422, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C9C, 439, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C9D, 456, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C9E, 473, 123,  15,  10, ES_CENTER
+   EDITTEXT                     0x0C9F, 490, 123,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0CA0, 235, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CA1, 252, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CA2, 269, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CA3, 286, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CA4, 303, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CA5, 320, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CA6, 337, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CA7, 354, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CA8, 371, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CA9, 388, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CAA, 405, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CAB, 422, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CAC, 439, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CAD, 456, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CAE, 473, 135,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CAF, 490, 135,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0CB0, 235, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CB1, 252, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CB2, 269, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CB3, 286, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CB4, 303, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CB5, 320, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CB6, 337, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CB7, 354, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CB8, 371, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CB9, 388, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CBA, 405, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CBB, 422, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CBC, 439, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CBD, 456, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CBE, 473, 147,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CBF, 490, 147,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0CC0, 235, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CC1, 252, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CC2, 269, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CC3, 286, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CC4, 303, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CC5, 320, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CC6, 337, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CC7, 354, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CC8, 371, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CC9, 388, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CCA, 405, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CCB, 422, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CCC, 439, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CCD, 456, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CCE, 473, 159,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CCF, 490, 159,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0CD0, 235, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CD1, 252, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CD2, 269, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CD3, 286, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CD4, 303, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CD5, 320, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CD6, 337, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CD7, 354, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CD8, 371, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CD9, 388, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CDA, 405, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CDB, 422, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CDC, 439, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CDD, 456, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CDE, 473, 171,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CDF, 490, 171,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0CE0, 235, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CE1, 252, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CE2, 269, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CE3, 286, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CE4, 303, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CE5, 320, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CE6, 337, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CE7, 354, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CE8, 371, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CE9, 388, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CEA, 405, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CEB, 422, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CEC, 439, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CED, 456, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CEE, 473, 183,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CEF, 490, 183,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0CF0, 235, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CF1, 252, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CF2, 269, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CF3, 286, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CF4, 303, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CF5, 320, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CF6, 337, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CF7, 354, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CF8, 371, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CF9, 388, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CFA, 405, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CFB, 422, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CFC, 439, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CFD, 456, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CFE, 473, 195,  15,  10, ES_CENTER
+   EDITTEXT                     0x0CFF, 490, 195,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0D00, 235, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D01, 252, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D02, 269, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D03, 286, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D04, 303, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D05, 320, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D06, 337, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D07, 354, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D08, 371, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D09, 388, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D0A, 405, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D0B, 422, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D0C, 439, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D0D, 456, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D0E, 473, 207,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D0F, 490, 207,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0D10, 235, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D11, 252, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D12, 269, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D13, 286, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D14, 303, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D15, 320, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D16, 337, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D17, 354, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D18, 371, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D19, 388, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D1A, 405, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D1B, 422, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D1C, 439, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D1D, 456, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D1E, 473, 219,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D1F, 490, 219,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0D20, 235, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D21, 252, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D22, 269, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D23, 286, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D24, 303, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D25, 320, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D26, 337, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D27, 354, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D28, 371, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D29, 388, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D2A, 405, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D2B, 422, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D2C, 439, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D2D, 456, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D2E, 473, 231,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D2F, 490, 231,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0D30, 235, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D31, 252, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D32, 269, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D33, 286, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D34, 303, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D35, 320, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D36, 337, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D37, 354, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D38, 371, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D39, 388, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D3A, 405, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D3B, 422, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D3C, 439, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D3D, 456, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D3E, 473, 243,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D3F, 490, 243,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0D40, 235, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D41, 252, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D42, 269, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D43, 286, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D44, 303, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D45, 320, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D46, 337, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D47, 354, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D48, 371, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D49, 388, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D4A, 405, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D4B, 422, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D4C, 439, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D4D, 456, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D4E, 473, 255,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D4F, 490, 255,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0D50, 235, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D51, 252, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D52, 269, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D53, 286, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D54, 303, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D55, 320, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D56, 337, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D57, 354, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D58, 371, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D59, 388, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D5A, 405, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D5B, 422, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D5C, 439, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D5D, 456, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D5E, 473, 267,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D5F, 490, 267,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0D60, 235, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D61, 252, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D62, 269, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D63, 286, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D64, 303, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D65, 320, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D66, 337, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D67, 354, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D68, 371, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D69, 388, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D6A, 405, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D6B, 422, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D6C, 439, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D6D, 456, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D6E, 473, 279,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D6F, 490, 279,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0D70, 235, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D71, 252, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D72, 269, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D73, 286, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D74, 303, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D75, 320, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D76, 337, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D77, 354, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D78, 371, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D79, 388, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D7A, 405, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D7B, 422, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D7C, 439, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D7D, 456, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D7E, 473, 291,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D7F, 490, 291,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0D80, 235, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D81, 252, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D82, 269, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D83, 286, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D84, 303, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D85, 320, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D86, 337, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D87, 354, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D88, 371, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D89, 388, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D8A, 405, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D8B, 422, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D8C, 439, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D8D, 456, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D8E, 473, 303,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D8F, 490, 303,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0D90, 235, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D91, 252, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D92, 269, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D93, 286, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D94, 303, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D95, 320, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D96, 337, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D97, 354, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D98, 371, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D99, 388, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D9A, 405, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D9B, 422, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D9C, 439, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D9D, 456, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D9E, 473, 315,  15,  10, ES_CENTER
+   EDITTEXT                     0x0D9F, 490, 315,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0DA0, 235, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DA1, 252, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DA2, 269, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DA3, 286, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DA4, 303, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DA5, 320, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DA6, 337, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DA7, 354, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DA8, 371, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DA9, 388, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DAA, 405, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DAB, 422, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DAC, 439, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DAD, 456, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DAE, 473, 327,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DAF, 490, 327,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0DB0, 235, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DB1, 252, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DB2, 269, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DB3, 286, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DB4, 303, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DB5, 320, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DB6, 337, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DB7, 354, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DB8, 371, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DB9, 388, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DBA, 405, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DBB, 422, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DBC, 439, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DBD, 456, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DBE, 473, 339,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DBF, 490, 339,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0DC0, 235, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DC1, 252, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DC2, 269, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DC3, 286, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DC4, 303, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DC5, 320, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DC6, 337, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DC7, 354, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DC8, 371, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DC9, 388, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DCA, 405, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DCB, 422, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DCC, 439, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DCD, 456, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DCE, 473, 351,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DCF, 490, 351,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0DD0, 235, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DD1, 252, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DD2, 269, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DD3, 286, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DD4, 303, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DD5, 320, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DD6, 337, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DD7, 354, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DD8, 371, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DD9, 388, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DDA, 405, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DDB, 422, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DDC, 439, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DDD, 456, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DDE, 473, 363,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DDF, 490, 363,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0DE0, 235, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DE1, 252, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DE2, 269, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DE3, 286, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DE4, 303, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DE5, 320, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DE6, 337, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DE7, 354, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DE8, 371, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DE9, 388, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DEA, 405, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DEB, 422, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DEC, 439, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DED, 456, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DEE, 473, 375,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DEF, 490, 375,  15,  10, ES_CENTER
+
+   EDITTEXT                     0x0DF0, 235, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DF1, 252, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DF2, 269, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DF3, 286, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DF4, 303, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DF5, 320, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DF6, 337, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DF7, 354, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DF8, 371, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DF9, 388, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DFA, 405, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DFB, 422, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DFC, 439, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DFD, 456, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DFE, 473, 387,  15,  10, ES_CENTER
+   EDITTEXT                     0x0DFF, 490, 387,  15,  10, ES_CENTER
+  END
+  /*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  */

@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="DatTools Manual: Messages" />
+ <meta name="Description" content="DatTools Manual: Messages" />
+ <meta name="Keywords" content="dat, tool, MakeDat, multi, lingual" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+ <title>Messages</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Table of Content</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Selection</a></li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">Translation</a></li>
+ <li><a href="0500.htm">Standard Fields</a></li>
+ <li><a href="../manual.htm">Home</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0420.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0500.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="text100">
+<h1>Messages</h1>
+Messages primarily were designed to inform the user about occured errors. Their second
+ purpose is to offer the user multiple choices if the program logic cannot determine,
+ which action should be performed next. To open the dialog select <i>Translation</i>,
+ then <i>Program Messages</i> or <i>System Errors</i>:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/smsg.png" alt="messages" width="696" height="700" border="0"></div>
+<div class="crlf1"></div>
+Below the MLE with the message text you find three entryfields where the texts for up to
+ three buttons can be stored. If the button text is an empty string, the button is hidden
+ from the user's eyes. If none of the three buttons contains a text (three empty strings),
+ the message dialog adds an OK button automatically - otherwise, the user had no chance to
+ close the dialog.
+<div class="crlf1"></div>
+To scroll through the messages, spin the spinbutton up or down. Enter all messages and
+ button texts needed for your application. If you want to translate messages, just select
+ a language in the second set of controls and type your translations into those controls.
+ If all messages are entered, push <i>Save</i> to store the changed content of the field
+ and close the dialog. <i>Discard</i> closes the dialog without saving any changed text.
+<div class="crlf1"></div>
+The amount of messages depends on the requirements of your application. There are some
+ important things you should bear in mind:
+<div class="crlf1"></div>
+<b>1.</b> Entry number zero is defined as <b>ERR_INVALID</b> (0xFFFFFFFF). This message
+ is displayed if the text of the requested message is an empty string or the passed
+ message number exceeds the valid range.
+<div class="crlf1"></div>
+<b>2.</b> Entry number one is defined as <b>ERR_NO_ERROR</b> (0x00000000). Because it
+ is quite annoying if an application tells us: "There was no error!", ErrMgr() ignores
+ message number one and refuses to display it. This allows you to use constructs like
+<div class="crlf1"></div>
+ <b>ErrMgr(LDreq(&amp;ld));</b>
+<div class="crlf1"></div>
+to show all allocation errors, but suppress the message if no error occured.
+<div class="crlf1"></div>
+<b>3.</b> System errors are defined for the entire system. Neither define them anew nor
+ fill missing definitions on your own. ST-Open's libraries are developed and upgraded
+ permanently, so currently free errors might be defined in the next release. Therefore,
+ it is a good idea to keep your application's error management where it belongs to: The
+ user messages.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0420.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0500.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

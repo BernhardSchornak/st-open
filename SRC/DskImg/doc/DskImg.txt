@@ -1,0 +1,91 @@
+
+        D s k I m g
+        ===========
+
+        ...is a 64 bit program:
+
+        - You need a 64 bit processor to run it.
+        - You need a 64 bit version of Windows to run it.
+        - DskImg denies to work on 64 bit processors without SSE2 support.
+
+
+
+        Installation
+        ~~~~~~~~~~~~
+
+        When you read this file, you already unzipped DskImg.zip. That's all -
+        no further installation steps required.
+
+        Move your DskImg folder to a drive/folder of your choice. Windows tends
+        to store files at obscure locations, where no sane person -ever- stored
+        executables...
+
+        Read the HTML documentation to get in touch with DskImg.
+
+
+
+        Usage
+        ~~~~~
+
+        Open the BIN subfolder, then double-click on the program icon to launch
+        DskImg.
+
+        - If you have no 64 bit processor, the program crashes with an "unknown
+          opcode" message.
+
+        - If your processor does not know SSE2 instructions, a message box will
+          pop up. Click OK to terminate DskImg (and upgrade your machine to run
+          this program).
+
+        Choose a language via [Program][Languages]. Currently, only English and
+        German translations are available.
+
+        Read the HTML documentation if you do not understand what those options
+        are good for.
+
+
+
+        About DskImg
+        ~~~~~~~~~~~~~
+
+        DskImg is written in 100 percent PUSH and POP free AT&T style assembler
+        (Intelligent Design), using ST-Open's Libraries (e.g.: database engine,
+        memory management, WINAPI wrappers, et cetera). If you can do something
+        faster or more reliable: Suggestions always are welcome!
+
+
+
+        Fakes (aka FAQs)
+        ~~~~~~~~~~~~~~~~
+
+        Q   ?
+
+        A   No.
+
+
+
+        Q   Why is there no 32 bit version available?
+
+        A   For the same reason as there is no punch card or mechanical version
+            - they are outdated.
+
+
+
+        Q   Can I delete those folders except BIN?
+
+        A   Partially. All files residing in 'DATA' are required. If you do not
+            want to recompile the sources, you can delete 'SOURCE' and 'TEMP' -
+            a working copy of DskImg always can be found in BIN.
+
+
+
+        Q   DskImg denies to work!
+
+        A   Go to the top of this file and read it. If all requirements are met
+            - send me an e-mail with a detailed report.
+
+            If you (accidentally/intentionally) deleted a data field in 'DATA':
+            Unzip DskImg, again. If you know what you're doing, you can extract
+            the missing data field to 'DATA'. Depending on the data field, some
+            of your settings and selections might get lost.
+

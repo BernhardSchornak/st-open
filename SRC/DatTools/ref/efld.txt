@@ -1,0 +1,84 @@
+
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                   D a t T o o l s   Entryfields    (C)  ST-Open 2012
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE:
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   You may copy and distribute this file as often as you want, but recipients are not
+   allowed to pay anything for any copy of this file or its content. It isn't allowed
+   to abuse its copyrighted content or introduced techniques for commercial purposes.
+   Whatever is derived from this file or its content must be freely available without
+   charge.
+
+   You are free to modify the content of this file if you want to. However, derivates
+   of the content of this file or parts of it *still* are subject to the terms of the
+   FT4FP license. Recipients neither are allowed to pay anything for the original nor
+   for altered or derived replica.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          FREE THOUGHT FOR FREE PEOPLE (FT4FP). KEEP CASH AWAY FROM KNOWLEDGE!
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  00   entryfields   ID
+  01                 min
+  02                 max
+  03                 digits
+  04                 fp dig
+  05                 max chars
+  06                 entry
+  07                 subfield
+  08   spinbuttons   ID EFld
+  09                 ID SpnB
+  0A                 min
+  0B                 max
+  0C                 digits
+  0D                 fp dig
+  0E                 subfield
+  0F   messages      lang 1
+  10                 lang 2
+  11                 L1 button 1
+  12                           2
+  13                           3
+  14                 L2 button 1
+  15                           2
+  16                           3
+  17   
+  18   
+  19   
+  1A   
+  1B   
+  1C   
+  1D   
+  1E   
+  1F   
+  20   
+  21   
+  22   
+  23   
+  24   
+  25   
+  26   
+  27   
+  28   
+  29   
+  2A   
+  2B   
+  2C   
+  2D   
+  2E   
+  2F   
+  30   
+  31   
+  32   
+  33   
+  34   
+  35   
+  36   
+  37   
+  38   
+  39   
+  3A   
+  3B   
+  3C   
+  3D   
+  3E   
+  3F   

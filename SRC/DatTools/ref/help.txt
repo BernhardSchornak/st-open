@@ -1,0 +1,52 @@
+
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                     D a t T o o l s   H E L P    (C)  ST-Open 2012
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         THE CONTENT OF THIS FILE IS SUBJECT TO THE TERMS OF THE FT4FP-LICENSE:
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   You may copy and distribute this file as often as you want, but recipients are not
+   allowed to pay anything for any copy of this file or its content. It isn't allowed
+   to abuse its copyrighted content or introduced techniques for commercial purposes.
+   Whatever is derived from this file or its content must be freely available without
+   charge.
+
+   You are free to modify the content of this file if you want to. However, derivates
+   of the content of this file or parts of it *still* are subject to the terms of the
+   FT4FP license. Recipients neither are allowed to pay anything for the original nor
+   for altered or derived replica.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          FREE THOUGHT FOR FREE PEOPLE (FT4FP). KEEP CASH AWAY FROM KNOWLEDGE!
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  00   OLH
+  01   DatTools
+  02   
+  03   
+  04   
+  05   
+  06   select source
+  07   select field
+  08   create field
+  09   field viewer
+  0A   create file
+  0B   drive mask
+  0C   menu + dialog texts
+  0D   messages
+  0E   move entries
+  0F   copy field
+  10   create standard fields
+  11   spinbutton editor
+  12   
+  13   
+  14   languages
+  15   
+  16   
+  17   
+  18   
+  19   
+  1A   
+  1B   
+  1C   
+  1D   
+  1E   
+  1F   

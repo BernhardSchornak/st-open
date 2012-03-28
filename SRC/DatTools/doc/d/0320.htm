@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Seite-topic" content="DatTools-Manual: Feld editieren" />
+<meta name="Description" content="DatTools-Manual: Feld editieren" />
+<meta name="Keywords" content="dat, tools, MakeDat, mehrsprachig" />
+<meta name="date" content="2012-02-12T00:00:00+00:00" />
+<meta name="robots" content="index,follow" />
+<meta name="revisit-after" content="14 days" />
+<meta name="generator" content="Bernhard Schornak, handwritten" />
+<style type="text/css"><!--@import "../st.css";--></style>
+<link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+<title>Feld editieren</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Inhalt</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Auswahl</a></li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">&Uuml;bersetzung</a></li>
+ <li><a href="0500.htm">Standardfelder</a></li>
+ <li><a href="../manual.htm">Heim</a></li>
+</ul>
+</div>
+<div class="update">[2012-02-12]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0310.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="text100">
+<h1>Feldinhalt</h1>
+&Uuml;ber <i>Feldinhalt</i> im Men&uuml; <i>MakeDat</i> &ouml;ffnen Sie den Dialog zur Anzeige und Bearbeitung des Feldinhalts.
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/viewer.png" alt="Dialog: Feldinhalt" width="596" height="816" border="0"></div>
+<div class="crlf1"></div>
+Mit den Drehkn&ouml;pfen ganz oben im Dialog k&ouml;nnen Sie durch die Eintr&auml;ge und Unterfelder des Feldes bl&auml;ttern.
+ Der Dialog wird immer mit der zuletzt gew&auml;hlten Eintrag- und Unterfeldnummer ge&ouml;ffnet. Existiert die Eintragnummer
+ oder das Unterfeld nicht im aktuellen Feld, wird der entsprechende Wert auf Null gesetzt.
+<div class="crlf1"></div>
+Numerische Werte (Datentypen bis 64 Bit) werden im ersten Anzeigefeld (mittleres K&auml;stchen) angezeigt:
+<div class="crlf1"></div>
+<div class="box100">DB<div class="crlf1"></div><img src="./pics/view00.png" alt="Dialog: Feldinhalt" width="596" height="72" border="0"></div>
+<div class="box100">DW<div class="crlf1"></div><img src="./pics/view01.png" alt="Dialog: Feldinhalt" width="596" height="72" border="0"></div>
+<div class="box100">DD<div class="crlf1"></div><img src="./pics/view02.png" alt="Dialog: Feldinhalt" width="596" height="72" border="0"></div>
+<div class="box100">DQ<div class="crlf1"></div><img src="./pics/view03.png" alt="Dialog: Feldinhalt" width="596" height="72" border="0"></div>
+<div class="crlf1"></div>
+<i>Null</i> setzt den Eintrag auf Null, <i>max</i> auf FF (8 Bit), FFFF (16 Bit), FFFFFFFF (32 Bit) oder FFFFFFFFFFFFFFFF
+ (64 Bit). &Uuml;berschreiben des angezeigten Wertes schreibt den eingegebenen Wert in den aktuellen Eintrag, sobald das
+ Eingabefeld den Eingabefokus verliert. Die Einlesefunktion arbeitet von rechts nach links. Es werden prinzipiell nur die
+ <i>letzten</i> g&uuml;ltigen Ziffern &uuml;bernommen, wenn ihre Eingabe den Wertebereich des ausgew&auml;hlten Datentyps
+ &uuml;berschreitet.
+<div class="crlf1"></div>
+Alle Datentypen mit einer Gr&ouml;sse von mehr als 64 Bit werden im unteren Mehrzeilen-Eingabefeld (MLE) angezeigt:
+<div class="crlf1"></div>
+<div class="box100">DO<div class="crlf1"></div><img src="./pics/view04.png" alt="Dialog: Feldinhalt" width="596" height="172" border="0"></div>
+<div class="box100">FIX<div class="crlf1"></div><img src="./pics/view05.png" alt="Dialog: Feldinhalt" width="596" height="172" border="0"></div>
+<div class="box100">$32<div class="crlf1"></div><img src="./pics/view06.png" alt="Dialog: Feldinhalt" width="596" height="172" border="0"></div>
+<div class="crlf1"></div>
+Da der Typ <i>DO</i> (Achtfachwort, 128 Bit) in der Regel in XMM-Register geladen wird, entspricht die Formatierung der
+ f&uuml;r XMM-Register &uuml;blichen Notation. Zur Darstellung der Festl&auml;ngenbl&ouml;cke wird der von den ST-Open
+-Bibliotheken bereit gestellte Hex-Editor verwendet.
+<div class="crlf1"></div>
+Die im MLE angezeigten Daten sind nat&uuml;rlich editierbar. Die Formatierung des Hexdumps sollte nicht ge&auml;ndert werden,
+ da die Einlesefunktion davon ausgeht, dass Daten in diesem Format eingegeben wurden. <i>L&ouml;schen</i> setzt den gesamten
+ Inhalt der beiden numerischen Datentypen auf Null oder l&ouml;scht die Zeichenkette im Unterfeld.
+<div class="crlf1"></div>
+<i>Sichern</i> schreibt den (ge&auml;nderten) Feldinhalt in das Feld zur&uuml;ck und schliesst den Dialog. <i>Verwerfen</i>
+ setzt das <i>ge&auml;ndert</i>-F&auml;hnchen vor dem Schliessen des Dialogs zur&uuml;ck - alle am Feldinhalt vorgenommenen
+ &Auml;nderungen gehen dabei verloren!
+<div class="crlf1"></div>
+<h4>Hinweis</h4>
+Der Feldeditor arbeitet standardm&auml;ssig mit Zahlen in hexadezimaler Notation. Durch aktivieren/deaktivieren des rechts
+ oben neben dem Unterfeld-Drehknopf befindlichen <i>dezimal</i>-K&auml;stchens k&ouml;nnen Sie die Anzeige des Eintrags,
+ des Unterfelds und der numerischen Werte bis 64 Bit beliebig zwischen dezimaler und hexadezimaler Notation umschalten.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0310.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0400.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

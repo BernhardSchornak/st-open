@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Seite-topic" content="DatTools-Manual: Standardfelder" />
+<meta name="Description" content="DatTools-Manual: Standardfelder" />
+<meta name="Keywords" content="dat, tools, MakeDat, mehrsprachig" />
+<meta name="date" content="2012-02-12T00:00:00+00:00" />
+<meta name="robots" content="index,follow" />
+<meta name="revisit-after" content="14 days" />
+<meta name="generator" content="Bernhard Schornak, handwritten" />
+<style type="text/css"><!--@import "../st.css";--></style>
+<link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+<title>Standardfelder</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Inhalt</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Auswahl</a></li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">&Uuml;bersetzung</a></li>
+ <li>Standardfelder</li>
+ <li><a href="../manual.htm">Heim</a></li>
+</ul>
+</div>
+<div class="update">[2012-02-12]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0430.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0510.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="text100">
+<h1>Standardfelder</h1>
+Dieses Men&uuml; erm&ouml;glicht das Anlegen aller Standardfelder f&uuml;r ein neues Programm
+ in einem Rutsch. Drei weitere Men&uuml;punkte &ouml;ffnen Dialoge zur komfortablen Eingabe
+ der Daten in <a href="0510.htm">Drehknopf</a>-, <a href="0540.htm">Eingabefelder</a>-,
+ <a href="0520.htm">Bitmap</a>- und <a href="0530.htm">Notizbuch</a>-Kontrollfeldern.
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mnu04.png" alt="Standardfelder" width="540" height="240" border="0"></div>
+<div class="crlf1"></div>
+<h2>Alle Erzeugen</h2>
+Die Auswahl des ersten Men&uuml;punktes &ouml;ffnet folgenden Dialog:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/std00.png" alt="Anlegen" width="580" height="548" border="0"></div>
+<div class="crlf1"></div>
+Dieser Dialog wird immer mit den zuletzt eingegebenen Werten ge&ouml;ffnet, um die Tipparbeit
+ auf das absolut notwendige Minimum zu reduzieren. Haken Sie die ben&ouml;tigten Felder in der
+ Liste ab und bestimmen Sie die ben&ouml;tigten Eintr&auml;ge der einzelnen Felder. Die Nummer
+ des Notizbuchfeldes wird standardgem&auml;ss auf <b>FFFFFF00</b> gesetzt. Sollte Ihr Programm
+ mehrere Notizb&uuml;cher enthalten, ist die Nummer des anzulegenden Notizbuchs im Eingabefeld
+ entsprechend abzu&auml;ndern.
+<div class="crlf1"></div>
+<h3>FFFFFF12</h3>
+Enth&auml;lt die Texte f&uuml;r Men&uuml;s und Dialoge. Kleinere Applikationen k&ouml;nnen mit
+ 256 Eintr&auml;gen auskommen, f&uuml;r mittlere Applikationen (zum Beispiel DatTools) sollten
+ mindestens 512 Eintr&auml;ge gew&auml;hlt werden.
+<div class="crlf1"></div>
+<h3>FFFFFF13</h3>
+Das Feld wird direkt aus dem DatTools-Ordner kopiert, da die dort gespeicherte Version immer
+ dem aktuellsten Stand entspricht.
+<div class="crlf1"></div>
+<h3>nsm.dat</h3>
+Enth&auml;lt die Nachrichten der Anwendung. Die Eintr&auml;ge 0x00 (ERR_INVALID) und 0x01
+ (ERR_NO_ERROR) werden automatisch auf die vorgegebenen Standardtexte gesetzt.
+<div class="crlf1"></div>
+<h3>err.dat</h3>
+Das Feld wird direkt aus dem DatTools-Ordner kopiert, da die dort gespeicherte Version immer
+ dem aktuellsten Stand entspricht.
+<div class="crlf1"></div>
+<h3>olh.dat</h3>
+Enth&auml;lt die Texte der Onlinehilfe. Die Hilfetexte der Bibliotheksfunktionen werden dabei
+ automatisch in das neue Feld kopiert. Die Anzahl der Eintr&auml;ge sollte so grossz&uuml;gig
+ bemessen werden, dass f&uuml;r sp&auml;tere Erweiterungen Ihrer Anwendung noch ausreichend
+ Platz zur Verf&uuml;gung steht.
+<div class="crlf1"></div>
+<h3>top.dat</h3>
+Enth&auml;lt die Texte der Topics. Die in Hilfetexten der Bibliotheksfunktionen verwendeten
+ Topics werden automatisch in das neue Feld kopiert. Die Anzahl der Eintr&auml;ge richtet
+ sich ausschliesslich nach Ihrem pers&ouml;nlichen Bedarf.
+<div class="crlf1"></div>
+<h3>FFFFFF01</h3>
+Dieses Feld wird nur dann ben&ouml;tigt, wenn Sie ST-Open's erweiterte Drehkn&ouml;pfe in
+ Ihrem Programm verwenden. W&auml;hlen Sie die ben&ouml;tigte Anzahl an Drehkn&ouml;pfen. Es
+ ist ratsam, eine Reserve f&uuml;r sp&auml;tere Erweiterungen einzuplanen.
+<div class="crlf1"></div>
+<h3>FFFFFF10</h3>
+Dieses Feld wird nur dann ben&ouml;tigt, wenn Sie ST-Open's Bitmapfunktionen verwenden.
+ W&auml;hlen Sie die ben&ouml;tigte Anzahl an Bitmaps. Es ist ratsam, eine Reserve f&uuml;r
+ sp&auml;tere Erweiterungen einzuplanen.
+<div class="crlf1"></div>
+<h3>FFFFFF00</h3>
+Dieses Feld wird nur dann ben&ouml;tigt, wenn Sie ST-Open's Notizbuchfunktionen verwenden.
+ W&auml;hlen Sie die f&uuml;r Ihr Notizbuch ben&ouml;tigte Anzahl von Seiten.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0430.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0510.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

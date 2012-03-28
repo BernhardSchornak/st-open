@@ -1,0 +1,87 @@
+
+   Field 01
+   ~~~~~~~~
+
+   Field size is 20,971,520 byte. Provides 4,096 blocks á 5,120 byte. The address
+   where the results for test number X are stored is calculated as follows:
+
+   block base = EA_RES + (X * 0x1400) + 0x0100
+
+   Block content:
+
+   0000   8 * DD run 01 GPR r
+   0020   8 * DD            w
+   0040   8 * DD            r/w
+   0060   8 * DD            r/m/w
+   0080  32 * DD        SSE
+   0100  32 * DD        AVX
+   0180  96 * DD run 02
+   0300  96 * DD     03
+   0480  96 * DD     04
+   0600  96 * DD     05
+   0780  96 * DD     06
+   0900  96 * DD     07
+   0A80  96 * DD     08
+   0C00  96 * DD best results
+   0D80  96 * DD byte per cycle
+   0F00       DD average GPR
+   0F04       DD         SSE
+   0F08       DD         AVX
+   0F0C       DD         total
+   0F10       DD multi-c best    (sum)
+   0F14       DD         average (sum)
+   1000       DD core    00      (best result)
+   1004       DD         01
+   1008       DD         02
+   100C       DD         03
+   1010       DD         04
+   1014       DD         05
+   1018       DD         06
+   101C       DD         07
+   1020       DD         08
+   1024       DD         09
+   1028       DD         0A
+   102C       DD         0B
+   1030       DD         0C
+   1034       DD         0D
+   1038       DD         0E
+   103C       DD         0F
+   1040       DD core    00      (sum of all / 8)
+   1044       DD         01
+   1048       DD         02
+   104C       DD         03
+   1050       DD         04
+   1054       DD         05
+   1058       DD         06
+   105C       DD         07
+   1060       DD         08
+   1064       DD         09
+   1068       DD         0A
+   106C       DD         0B
+   1070       DD         0C
+   1074       DD         0D
+   1078       DD         0E
+   107C       DD         0F
+   1080
+   ...        reserved
+   11FF
+   1200   processor $            (0x30 byte, padded with blanks)
+   1230   test number in hex     (0x04 byte,             zeroes)
+   1240   vendor $               (0x0C byte,             zeroes)
+   1250   family                 (0x02 byte,             zeroes)
+   1254   model                  (0x02 byte,             zeroes)
+   1258   stepping               (0x02 byte,             zeroes)
+   125C   core count             (0x02 byte,             zeroes)
+   1260   processor speed        (0x0F byte,             zero  )
+   1270   L1 cache size (data)   (0x08 byte,             zeroes)
+   1278      line size           (0x08 byte,             zeroes)
+   1280   L2 cache size (data)   (0x08 byte,             zeroes)
+   1288      line size           (0x08 byte,             zeroes)
+   1290   L3 cache size (data)   (0x08 byte,             zeroes)
+   1298      line size           (0x08 byte,             zeroes)
+   12A0   test count             (0x04 byte,             zeroes)
+   12A4   thread count           (0x04 byte,             zeroes)
+   12A8   AVX flag               (dword                        )
+   12AC
+    ...   reserved
+   13FF

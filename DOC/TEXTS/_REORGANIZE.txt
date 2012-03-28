@@ -1,0 +1,110 @@
+
+     STATUS
+     ======
+
+     OnLine Help            DONE
+     All fields in DATA     DONE
+     Extended Numerics      DONE
+     Language Sets          PARTIALLY DONE    (switch between languages pending)
+     Unicode                V 9.0.0.
+
+
+
+     REDESIGN OF ST-OPEN LIBRARIES
+     =============================
+
+     - OnLine Help uses one subfield for each language. Entries are interleaved:
+       Title-Text-Title-Text...
+
+     - Support for 16 languages per language field FFFFFF12, FFFFFF13, FFFFFFF5,
+       FFFFFFF9, FFFFFFFA, FFFFFFFB.
+
+     - A new language field FFFFFFF8 was added. It replaces the language entries
+       currently kept in SystemStrings. This enables DatTools to access language
+       names without contortions and keeps SystemStrings as small as possible.
+       Actually, 64 entries are sufficient if an application does not use System
+       Strings as storage for application data.
+
+     - System data fields are moved from SYST to DATA. It simplifies the Loader,
+       because it does not have to distinguish between system and default fields
+       while allocating or freeing fields. d2hex() is faster than copying parts
+       of the name and assembling them.
+
+     - NUM.DAT is extended, and CVT.DAT is added to NUM.DAT's permanent storage.
+       The permanent storage area is extended to 30,720 byte, while the new run-
+       time area occupies the remaining size of the new 65,536 byte block. This
+       reduces the need for system functions to allocate additional memory. All
+       data currently stored in a program's .RDATA section can be outsourced to
+       the new system area and can be accessed from everywhere without the need
+       to declare .RDATA regions as global variables.
+
+       All language fields now are stored in LANG. This new subfolder holds six-
+       teen subfolders 00 - 0F. Each holds language fields for the corresponding
+       language set. If more than 16 translations are available, the menu should
+       be expanded with a 'more' entry as the last item of the language submenu.
+       Selecting this 'more' item pops up a listbox with all languages stored in
+       field FFFFFFF8. When a language is chosen, the language manager loads the
+       corresponding language set - the chosen language's fields just are copied
+       over the existing language fields. Selecting the proper folder is as easy
+       as shifting the selected language number right by four - the upper nibble
+       is the number of a subfolder within LANG, the lower nibble determines the
+       language within the chosen language set.
+
+     - To simplify evaluation and output of strings, the libraries are re-coded
+       to use UTF-16 instead of ASCII. Even if all strings grow twice as large,
+       UTF-16 speeds up conversions and string functions markably. Word-aligned
+       data are faster accessible than their byte-aligned counterparts.
+
+
+
+     NUM.DAT
+     =======
+
+     permanent
+     ---------
+
+     0000 - 01FF   system  data   (remains)
+     0200 - 1FFF   program data   (expanded)
+     2000 - 3FFF   conversion tables (2E00 - 2FFF user table)
+     4000 - 77FF   lookup tables and structures currently stored in RDATA
+
+     runtime
+     -------
+
+     7800 - 7FFF   system  data
+     8000 - FFFF   program data
+
+
+
+     Languages
+     =========
+
+     Up to 240 languages can be stored in up to 16 language sets. English is the
+     most common language worldwide, so each set has English as default language
+     number zero. This enables a user to switch the menu from an unreadable pre-
+     selected language to English, then to select her/his native (or best known)
+     language from the language selection submenu.
+
+     Language fields are stored in the LANG subfolder of a program's main folder.
+     Depending on the amount of tranlations, subfolders 00...0F residing in LANG
+     hold all data fields with translations belonging to the corresponding set.
+
+     Whenever a user switches to a language belonging to another set, the fields
+     of the current set are copied back to their folder, then the new fields are
+     copied to DATA. The new set now is the working set, supporting up to 16 new
+     languages.
+
+     Languages are managed by DatTools - whenever a new language is added to the
+     pool, DatTools automatically create a new set if the last set was filled up
+     by the previous language. {TRANSLATION}{LANGUAGES} is the only dialog where
+     all available languages are shown together. All other dialogs work with the
+     currrently loaded set. To translate from/to a language in another set, it's
+     required to switch to the set with the desired language. If the set already
+     is filled up, it is possible to copy (clone) its content to a free subfield
+     of another language set to translate it there.
+
+     To avoid inconsistent 'language salad', new languages have to be registered
+     before they can be assigned. If a program does not provide translations for
+     some registered languages, all -not- translated languages in field FFFFFFF8
+     must be deleted. A deleted language name must be restored before the trans-
+     lation for that language is added.

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="Disk Image Manual: Field Viewer" />
+ <meta name="Description" content="Disk Image Manual: Field Viewer" />
+ <meta name="Keywords" content="dat, tool, MakeDat, multi, lingual" />
+ <meta name="date" content="2012-03-18T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+ <title>Field Viewer</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Table of Content</a></li>
+ <li><a href="0100.htm">Disk Image</a></li>
+ <li><a href="0200.htm">Image</a></li>
+ <li><a href="0300.htm">Sector Viewer</a></li>
+ <li><a href="../manual.htm">Home</a></li>
+</ul>
+</div>
+<div class="update">[2012-03-18]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="Disk Image Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0210.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0230.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="text100">
+<h1>Select Target</h1>
+The second step is the selection of a target drive. Pick <i>Target
+ Selection</i> from the <i>Image</i> submenu
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/tgtmnu.png" alt="Target Selection Menu" width="600" height="200" border="0"></div>
+<div class="crlf1"></div>
+to open the <i>Target Selection</i> dialog:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/tgtsel.png" alt="Target Selection Dialog" width="820" height="422" border="0"></div>
+<div class="crlf1"></div>
+You can see a list with up to ten physical drives currently attached
+ to your PC. <b>DskImg</b> automatically retrieves these data when
+ it is started (stored in <i>data\00000001</i>). The columns show the
+ name, media type, cylinders (tracks for floppies), heads, sectors,
+ sector size and capacity of each drive. Media type can be one of
+ these:
+<ul>
+ <li>5.25/1.2M various floppy disk formats</li>
+ <li>[x] fixed drives</li></li>
+ <li>|-> removable drives</li>
+ <li>??? unknown media</li>
+</ul>
+<div class="crlf1"></div>
+When the dialog pops up, the topmost radio button is selected per
+ default, but the 'selected' drive is set to invalid until you really
+ select a drive (just push one of those radio buttons). If you push
+ <i>Abort</i>, the selected drive is set to invalid and the <i>target
+ present</i> flag is reset. Push <i>Select</i> to choose the selected
+ target drive and set the <i>target present</i> flag.
+<div class="crlf1"></div>
+<b>Note:</b> You cannot write an image if no target is selected.
+<div class="crlf1"></div>
+<h3>Advice</h3>
+Do yourself a favour and leave your hands off of fixed disks. It is no
+ good idea to select a non-removable harddisk as target. If the HD has
+ more than one partition, it is very likely that <b>DskImg</b> cannot
+ write to the drive, because it only unmounts and locks the physical
+ drive, while logical volumes residing on that drive still are mounted
+ and unlocked. Moreover, you risk to lose all data stored on the drive
+ if <b>DskImg</b> succeeds and writes the image. Consider to 'sacrifice'
+ a thumb drive with no important data on it...
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0210.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0230.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

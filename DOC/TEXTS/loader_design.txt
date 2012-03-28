@@ -1,0 +1,95 @@
+
+        New LOADER Design
+        =================
+
+
+        - All system fields formerly stored in SYST are moved to DATA. One
+          common folder for all data fields accellerates filename creation
+          and simplifies the system markably.
+
+        - Expanded to 2,048 MemHandles.
+
+        - These memory blocks -always- are allocated by LDinit():
+
+          - BMM (LOADER table)          65,536 byte
+          - BBF (FDacc)                 65,536 byte
+          - OBF (OLH)                   65,536 byte
+          - TST (dumps)                 65,536 byte
+          - BNR (System Variables)      65,536 byte
+            ---------------------------------------
+            total                      327,680 byte
+
+          The grown memory consumption of the basic system should not be a
+          problem - recent machines are equipped with sufficient memory...
+
+        - These data fields -always- are loaded by LDinit():
+
+          - BST (System Strings)
+          - LDF (Loaded Files List)
+
+          The size of BST depends on the (user defined) amount of entries.
+          To prevent frequent LDchg() calls, 65,536 byte are allocated for
+          LDF on initialisation. This (initial) size is sufficient to load
+          some hundred data fields before FDacc() has to expand the buffer
+          for new field or file requests.
+
+        - To speed up and simplify handling a variety of 'load and treat'-
+          options, the following 'features' were removed:
+
+          - Dynamic Unloading
+          - All LFL options
+          - LDR_LEAVE_OPEN
+
+        - In Version 8.1.0., the names of all loaded data fields and files
+          are stored in LFL. The new solution simplifies LDfre() markably.
+          All names simply are accessed by adding an entry's offset to the
+          field's base address. This address is passed to Fopen() whenever
+          changed content has to be stored.
+
+
+
+        LOADER TABLE
+        ~~~~~~~~~~~~
+
+        The Loader Table (BMM) looks like this when LDinit() returns:
+
+        MH     size       name   content
+        ------------------------------------------------  SYSTEM AREA
+        0000   00010000   _BMM   Loader Table
+        0001   00010000   _BBF   buffer FDacc()
+        0002   00010000   _OBF          OLH
+        0003   00010000   _TST          Debugging Tools
+        0004   00010000   _BNR   System Numerics
+        0005   00010000          Loaded Files List
+        0006   ????????   _BST   System Strings
+        0007   00000000          reserved
+        ------------------------------------------------  USER   AREA
+        0008   ????????          1st application request
+        0009   ????????          2nd
+        ...
+
+
+
+        EXTERNAL FIELDS
+        ~~~~~~~~~~~~~~~
+
+        Some preparations are required:
+
+        - Copy a qualified name "X:\path_to_source\data\x" to PATH_X[BNR].
+
+        - Retrieve the offset of "x" relative to BNR.
+
+        - Store this offset at PX__IP[BNR].
+
+        This has to be done before a field from the corresponding external
+        source can be loaded via LDreq().
+
+        Because an internal field with an identical number might be loaded
+        while you want to load an external field with the same number, ex-
+        ternal sources must use a unique dummy number (alias) for each re-
+        quested external field. As there is no way to store two numbers in
+        LD.FldNr, the true number of an external field has to be passed in
+        LD.MemSz, while LD.FldNr must hold the dummy number (alias), which
+        is written to the assigned MemHandle. This is the only way to keep
+        internal and external fields separated (and to provide transparent
+        handling of fields from multiple sources...).

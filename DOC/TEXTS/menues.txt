@@ -1,0 +1,98 @@
+
+            LANGUAGE SUPPORT - MENUES
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+            Handling of menues and their descendants is an easy task in well designed operating systems. It
+            just requires a handle to the main menu - called title bar in Windows - and the resource IDs of
+            its menu items. For the OS/2 platform, one single loop is sufficient to set all menu item texts
+            of the main menu's descendants, including all submenues and sub-submenues. Unfortunately, there
+            are many less sophisticated operating systems, as well ... and they rule the market.
+
+            Bad designs force programmers to append a lot of bloat to perform the same task. While OS/2 had
+            resource identfiers for all menu items, including the main menu itself, Windoze does not accept
+            resource IDs for submenues and sub-submenues. Looking at it from another point of view: We have
+            containers (menues, submenues, sub-submenues, ...) or items belonging to one of the containers.
+            Each item (the child) belongs to exactly one container (its parent), and is addressed via index
+            into its parent's list of childeren - the first child has index zero, the second index one, and
+            so on. With this concept in mind, we are able to address any child of the main menu (title bar)
+            and its descendants, but: It takes a lot of unnecessary work to do so.
+
+            Creating an automated process, capable to change a random set of menu item texts with not known
+            hierarchical structures, requires a strict logical concept to get the job done. Let us assume a
+            menu looking like this ([x] is an item's index within its parent's hierarchy):
+
+
+            [0] PROGRAM                       [1] EDIT       [2] HELP           <==  title bar
+
+            [0] LANGUAGE => [0] ENGLISH       [0] APPEND     [0] GENERAL        <==  submenues
+            [1] --------    [1] DEUTSCH       [1] COPY       [1] MY_APP
+            [2] EXIT        [2] FRANCAISE     [2] CUT        [2] -------
+                            [3] ITALIANO      [3] DELETE     [3] ABOUT
+                                              [4] INSERT
+                                              [5] PASTE
+
+
+            This is a quite small menu with just three top level submenues and one sub-submenu belonging to
+            submenu 0. To get access to the language items, you had to climb down the hierarchical tree and
+            retrieve the menu handle of the title bar's submenu 0, then retrieve the menu handle of submenu
+            0's item 0 (the language sub-submenu). Each time we change from a submenu to a sub-submenu, the
+            current index and parent menu handle (used to address the items belonging to the current menu's
+            parent) must be saved, before the working index is set to zero and the next child's menu handle
+            is retrieved. Saving two parameters takes resources. Hence, the nesting level of submenues must
+            be restricted to a reasonable number of sub-submenues in their hierarchical trees.
+
+            MNUtxt() is designed to handle random menu resources with a nesting level of up to sixteen sub-
+            submenues. It is as simple and comfortable as possible, but some thoughts have to be applied to
+            achieve this goal.
+
+            To keep menu handling simple and user friendly, four markers are defined:
+
+            marker     type             action
+
+            00000000   menu item        set text
+            00000001   submenu          has children (new parent)
+            0000000F   ignore           skip handling
+            000000FF   no more items    return to previous parent
+
+            Using these markers for our example above, field FFFFFF12 should hold the following entries:
+
+            entry   translations   ID         t_bar  sub0   sub1
+
+             0000   FILE           00000001   u+s  > get
+             0001   LANGUAGE       00000001   -      u+s  > get
+             0002   ENGLISH        00000000   -      -      use
+             0003   DEUTSCH        00000000   -      -      use
+             0004   FRANCAISE      00000000   -      -      use
+             0005   ITALIANO       00000000   -      -      use
+             0006   -              000000FF   -      read < exit
+             0007   separator      0000000F   -      skip
+             0008   EXIT           00000000          use
+             0009   -              000000FF   read < exit
+             000A   EDIT           00000001   u+s  > get
+             000B   APPEND         00000000   -      use
+             000C   COPY           00000000   -      use
+             000D   CUT            00000000   -      use
+             000E   DELETE         00000000   -      use
+             000F   INSERT         00000000   -      use
+             0010   PASTE          00000000   -      use
+             0011   -              000000FF   read < exit
+             0012   HELP           00000001   u+s  > get
+             0013   GENERAL        00000000   -      use
+             0014   MY_APP         00000000   -      use
+             0015   separator      0000000F   -      skip
+             0016   ABOUT          00000000   -      use
+             0017   -              000000FF   read < exit
+             0018   -              000000FF   exit
+
+            exit   stop current loop, load previous handle and index
+            get    retrieve and use menu handle (set text)
+            read   restore handle and index
+            skip   do not touch
+            use    use menu handle (set text)
+            u+s    use menu handle (set text), save current handle and index
+
+            It is crucial to keep the proper hierarchical order, starting with entry 0 in your
+            language field. Everything is handled automatically, you don't even have to pass a
+            starting or ending location - if two consecutive xxxxxxFF's are detected, MNUtxt()
+            automatically stops and returns. All required API calls are included in this code,
+            no extra work like retrieving menu handles and so on is required.

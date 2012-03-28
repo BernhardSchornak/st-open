@@ -1,0 +1,30 @@
+
+     English
+     ~~~~~~~
+
+     When you read this text, you have installed STbench. Switch to BIN and doubleclick
+     on the program icon to start the benchmark program.
+
+     Please leave the structure of the STbench folder intact. If you are not interested
+     in the source code, you can delete the SOURCE folder. The SYST and DATA foders are
+     required to run STbench. 
+
+     Please do not remove or alter '..\AUXI\edit.txt'! This text is required to display
+     your results in the main window. If it is altered or missing, you just can see raw
+     numbers or a garbled mixture of numbers and text on your screen.
+
+
+
+     Deutsch
+     ~~~~~~~
+
+     Wenn Sie diesen Text lesen, haben Sie STbench bereits installiert. Wechseln Sie in
+     den Ordner BIN. Doppelklicken Sie auf das Programmsymbol, um STbench zu starten.
+
+     Bitte lassen Sie die Struktur des STbench-Ordners intakt. Haben Sie kein Interesse
+     am Quelltext, können Sie den Ordner SOURCE komplett löschen. Die Ordner DATA sowie
+     SYST sind zwingend erforderlich, um das Programm betreiben zu können.
+
+     Bitte löschen und ändern Sie "..\AUXI\edit.txt" nicht! Dieser Text ist zur Ausgabe
+     der Ergebnisse erforderlich. Wenn er fehlt oder verändert wurde, sehen Sie nur ein
+     paar einsame Nummern oder Buchstabensalat auf Ihrem Bildschirm.

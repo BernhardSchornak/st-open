@@ -1,0 +1,136 @@
+  0x1100 DIALOG PRELOAD DISCARDABLE 0,   0, 460, 210
+  STYLE DS_3DLOOK | WS_CAPTION | WS_POPUP | WS_VISIBLE
+  CAPTION ""
+  FONT 10, "Consolas"
+  BEGIN
+   CTEXT           "Drv", 0x11  ,   5,   5,  40,   8
+   CTEXT           "Typ", 0x11  ,  50,   5,  60,   8
+   CTEXT           "Cyl", 0x11  , 115,   5,  80,   8
+   CTEXT           "Hds", 0x11  , 200,   5,  35,   8
+   CTEXT           "Sec", 0x11  , 240,   5,  35,   8
+   CTEXT           "B/S", 0x11  , 280,   5,  50,   8
+   CTEXT           "Cap", 0x11  , 335,   5, 120,   8
+   AUTORADIOBUTTON "",    0x1104,   5,  19,  40,  10
+   EDITTEXT               0x1110,  50,  18,  60,  12, ES_LEFT
+   EDITTEXT               0x1111, 115,  18,  80,  12, ES_RIGHT
+   EDITTEXT               0x1112, 200,  18,  35,  12, ES_RIGHT
+   EDITTEXT               0x1113, 240,  18,  35,  12, ES_RIGHT
+   EDITTEXT               0x1114, 280,  18,  50,  12, ES_RIGHT
+   EDITTEXT               0x1115, 335,  18, 120,  12, ES_RIGHT
+   AUTORADIOBUTTON "",    0x1105,   5,  35,  40,  10
+   EDITTEXT               0x1118,  50,  34,  60,  12, ES_LEFT
+   EDITTEXT               0x1119, 115,  34,  80,  12, ES_RIGHT
+   EDITTEXT               0x111A, 200,  34,  35,  12, ES_RIGHT
+   EDITTEXT               0x111B, 240,  34,  35,  12, ES_RIGHT
+   EDITTEXT               0x111C, 280,  34,  50,  12, ES_RIGHT
+   EDITTEXT               0x111D, 335,  34, 120,  12, ES_RIGHT
+   AUTORADIOBUTTON "",    0x1106,   5,  50,  40,  10
+   EDITTEXT               0x1120,  50,  49,  60,  12, ES_LEFT
+   EDITTEXT               0x1121, 115,  49,  80,  12, ES_RIGHT
+   EDITTEXT               0x1122, 200,  49,  35,  12, ES_RIGHT
+   EDITTEXT               0x1123, 240,  49,  35,  12, ES_RIGHT
+   EDITTEXT               0x1124, 280,  49,  50,  12, ES_RIGHT
+   EDITTEXT               0x1125, 335,  49, 120,  12, ES_RIGHT
+   AUTORADIOBUTTON "",    0x1107,   5,  66,  40,  10
+   EDITTEXT               0x1128,  50,  65,  60,  12, ES_LEFT
+   EDITTEXT               0x1129, 115,  65,  80,  12, ES_RIGHT
+   EDITTEXT               0x112A, 200,  65,  35,  12, ES_RIGHT
+   EDITTEXT               0x112B, 240,  65,  35,  12, ES_RIGHT
+   EDITTEXT               0x112C, 280,  65,  50,  12, ES_RIGHT
+   EDITTEXT               0x112D, 335,  65, 120,  12, ES_RIGHT
+   AUTORADIOBUTTON "",    0x1108,   5,  82,  40,  10
+   EDITTEXT               0x1130,  50,  81,  60,  12, ES_LEFT
+   EDITTEXT               0x1131, 115,  81,  80,  12, ES_RIGHT
+   EDITTEXT               0x1132, 200,  81,  35,  12, ES_RIGHT
+   EDITTEXT               0x1133, 240,  81,  35,  12, ES_RIGHT
+   EDITTEXT               0x1134, 280,  81,  50,  12, ES_RIGHT
+   EDITTEXT               0x1135, 335,  81, 120,  12, ES_RIGHT
+   AUTORADIOBUTTON "",    0x1109,   5,  98,  40,  10
+   EDITTEXT               0x1138,  50,  97,  60,  12, ES_LEFT
+   EDITTEXT               0x1139, 115,  97,  80,  12, ES_RIGHT
+   EDITTEXT               0x113A, 200,  97,  35,  12, ES_RIGHT
+   EDITTEXT               0x113B, 240,  97,  35,  12, ES_RIGHT
+   EDITTEXT               0x113C, 280,  97,  50,  12, ES_RIGHT
+   EDITTEXT               0x113D, 335,  97, 120,  12, ES_RIGHT
+   AUTORADIOBUTTON "",    0x110A,   5, 114,  40,  10
+   EDITTEXT               0x1140,  50, 113,  60,  12, ES_LEFT
+   EDITTEXT               0x1141, 115, 113,  80,  12, ES_RIGHT
+   EDITTEXT               0x1142, 200, 113,  35,  12, ES_RIGHT
+   EDITTEXT               0x1143, 240, 113,  35,  12, ES_RIGHT
+   EDITTEXT               0x1144, 280, 113,  50,  12, ES_RIGHT
+   EDITTEXT               0x1145, 335, 113, 120,  12, ES_RIGHT
+   AUTORADIOBUTTON "",    0x110B,   5, 130,  40,  10
+   EDITTEXT               0x1148,  50, 129,  60,  12, ES_LEFT
+   EDITTEXT               0x1149, 115, 129,  80,  12, ES_RIGHT
+   EDITTEXT               0x114A, 200, 129,  35,  12, ES_RIGHT
+   EDITTEXT               0x114B, 240, 129,  35,  12, ES_RIGHT
+   EDITTEXT               0x114C, 280, 129,  50,  12, ES_RIGHT
+   EDITTEXT               0x114D, 335, 129, 120,  12, ES_RIGHT
+   AUTORADIOBUTTON "",    0x110C,   5, 146,  40,  10
+   EDITTEXT               0x1150,  50, 145,  60,  12, ES_LEFT
+   EDITTEXT               0x1151, 115, 145,  80,  12, ES_RIGHT
+   EDITTEXT               0x1152, 200, 145,  35,  12, ES_RIGHT
+   EDITTEXT               0x1153, 240, 145,  35,  12, ES_RIGHT
+   EDITTEXT               0x1154, 280, 145,  50,  12, ES_RIGHT
+   EDITTEXT               0x1155, 335, 145, 120,  12, ES_RIGHT
+   AUTORADIOBUTTON "",    0x110D,   5, 162,  40,  10
+   EDITTEXT               0x1158,  50, 161,  60,  12, ES_LEFT
+   EDITTEXT               0x1159, 115, 161,  80,  12, ES_RIGHT
+   EDITTEXT               0x115A, 200, 161,  35,  12, ES_RIGHT
+   EDITTEXT               0x115B, 240, 161,  35,  12, ES_RIGHT
+   EDITTEXT               0x115C, 280, 161,  50,  12, ES_RIGHT
+   EDITTEXT               0x115D, 335, 161, 120,  12, ES_RIGHT
+   PUSHBUTTON      "Abt", 0x1101,  50, 184,  90,  18
+   PUSHBUTTON      "Sel", 0x1102, 150, 184,  90,  18
+   PUSHBUTTON      "Hlp", 0x1103, 365, 184,  90,  18
+  END
+
+  1200 DIALOG                       0,   0, 330, 225
+  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+  CAPTION ""
+  FONT 8, "MS Shell Dlg"
+  BEGIN
+   EDITTEXT               0x1204,   0,   0, 330, 155
+   LTEXT           "Wri", 0x1205,   5, 160,  50,   8
+   LTEXT           "sz",  0x1206,  60, 160, 140,   8
+   LTEXT           "Tot", 0x1207,   5, 172,  50,   8
+   LTEXT           "sz",  0x1208,  60, 172, 140,   8
+   PUSHBUTTON      "no",  0x1201,   5, 200,  90,  18
+   PUSHBUTTON      "go",  0x1202, 120, 200,  90,  18
+   PUSHBUTTON      "Hlp", 0x1203, 235, 200,  90,  18
+  END
+
+  100 DIALOG 6, 18, 260, 176
+  LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+  STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+  CAPTION "Dialog Title"
+  FONT 8, "MS Shell Dlg"
+  BEGIN
+   PUSHBUTTON      "Push",  106,   5, 152,  80,  18
+   PUSHBUTTON      "Push",  107, 175, 152,  80,  18
+   PUSHBUTTON      "Push",  108,  90, 152,  80,  18
+   LTEXT           "ISz",   102,  10,   6, 110,   8
+   EDITTEXT                 103, 125,   4, 130,  12, ES_READONLY
+   LTEXT           "ldI",   101,  10,  26, 110,   8
+   LTEXT           "ok",    104, 125,  26,  60,   8
+   LTEXT           "fai",   110, 190,  26,  65,   8
+   LTEXT           "opT",   105,  10,  39, 110,   8
+   LTEXT           "ok",    109, 125,  39,  60,   8
+   LTEXT           "fai",   111, 190,  39,  65,   8
+   LTEXT           "rdT",   112,  10,  52, 110,   8
+   LTEXT           "ok",    113, 125,  52,  60,   8
+   LTEXT           "fai",   114, 190,  52,  65,   8
+   LTEXT           "opB",   115,  10,  66, 110,   8
+   LTEXT           "ok",    116, 125,  66,  60,   8
+   LTEXT           "fai",   117, 190,  66,  65,   8
+   LTEXT           "wrB",   118,  10,  80, 110,   8
+   LTEXT           "ok",    119, 125,  80,  60,   8
+   LTEXT           "fai",   120, 190,  80,  65,   8
+   LTEXT           "luT",   121,  10,  94, 110,   8
+   LTEXT           "ok",    122, 125,  94,  60,   8
+   LTEXT           "fai",   123, 190,  94,  65,   8
+   LTEXT           "wrT",   124,  10, 108, 110,   8
+   LTEXT           "ok",    125, 125, 108,  60,   8
+   LTEXT           "fai",   126, 190, 108,  65,   8
+   CTEXT           "suc",   127,  10, 130, 245,   8
+  END

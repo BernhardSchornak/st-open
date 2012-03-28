@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="DatTools Manual: Installation" />
+ <meta name="Description" content="DatTools Manual: Installation" />
+ <meta name="Keywords" content="dat, tool, MakeDat, multi, lingual" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+ <title>Installation</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Table of Content</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Selection</a></li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">Translation</a></li>
+ <li><a href="0500.htm">Standard Fields</a></li>
+ <li><a href="../manual.htm">Home</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0100.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0200.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="text100">
+<h1>Installation</h1>
+<div class="crlf1"></div>
+<h2>Installation Procedure</h2>
+To install DatTools, drop "md5.zip" in a folder of your choice and UNZIP it. The DatTools folder is
+ created:
+</div>
+<div class="crlf1"></div>
+<div class="box100">
+<img src="./pics/inst-dir.png" alt="installation - SRE directory" width="483" height="119" border="0">
+</div>
+<div class="crlf1"></div>
+<div class="text100">
+You cannot start DatTools without GCC/2's C runtime library (something similar to "emx.dll"). Please
+ move or copy "dllc101.dll" to a folder like BOOTDRIVE:\OS2\DLL or any other folder in the LIBPATH
+ statement found in your CONFIG.SYS:
+</div>
+<div class="crlf1"></div>
+<div class="box100">
+<img src="./pics/inst-dl0.png" alt="installation - pick up DLLC101" width="483" height="124" border="0">
+<br />
+<img src="./pics/inst-dl1.png" alt="installation - drop DLLC101" width="608" height="378" border="0">
+</div>
+<div class="crlf1"></div>
+<div class="text100">
+<div class="crlf1"></div>
+If you are using other ST-Open programs, this DLL should be at the right place - there is no need to
+ copy it more than once.
+<div class="crlf1"></div>
+<b>Sidenote:</b> DLLC101.DLL only is required to compile the program properly. The only function ever
+ called from this DLL is <i>__main</i>. DatTools themselves <b>only</b> call <i>Intelligent Design</i>
+ funktions provided by ST-Open's libraries. These functions are integral part of the program's code to
+ guarantee the full utilisation of your processor's capabilities and performance.
+<div class="crlf1"></div>
+<h3>Starting DatTools</h3>
+Just doubleclick on the program object, wherever it may roam. The default place is the BIN or SOURCE
+ folder, but any other folder - except DATA and SYS - within the folder DatTools is perfectly okay.
+ DatTools silently ignore attempts to drag &amp; drop things on them. Passing command line options to
+ DatTools is like pouring some water on a stone to watch it grow.
+<div class="crlf1"></div>
+<h3>About Desktop Objects...</h3>
+It is the philosophy of ST-Open to leave the user's system untouched. This includes <i>not</i> to
+ create objects on the user's desktop, to add <i>no</i> bloat to the user's INI files nor to do
+ <i>anything</i> the user is not aware of. If <b>you</b> love a desktop filled with objects, you are
+ free to drop a reference to DatTools or the program object onto your desktop. <b>I</b> prefer to
+ have a clean desktop without any objects hanging around and I hate to remove those objects when I
+ install something for a short test. Hence, I avoid these - IMHO - bad manners in my own programs.
+<div class="crlf1"></div>
+<h3>Things You Should Not Do</h3>
+ST-Open programs are based on ST-Open libraries. The most utilised function is ST-Open's database
+ engine. Program flags, parameters, strings and other data are stored in files called data fields.
+ These fields are stored in the DATA and SYST folder. Neither move any field out of its folder nor
+ delete or modify any field. It is very likely the program will not run or deny to work if data
+ required to perform a specific task are missing.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0100.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0200.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

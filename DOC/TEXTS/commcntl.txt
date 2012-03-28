@@ -1,0 +1,63 @@
+
+typedef struct tagINITCOMMONCONTROLSEX {
+                                        DWORD dwSize;      # 0x04
+                                        DWORD dwICC;
+                                       }INITCOMMONCONTROLSEX,*LPINITCOMMONCONTROLSEX;
+
+dwICC is one or more of these or'ed together:
+
+#define ICC_LISTVIEW_CLASSES    0x0001
+#define ICC_TREEVIEW_CLASSES    0x0002
+#define ICC_BAR_CLASSES         0x0004
+#define ICC_TAB_CLASSES         0x0008
+#define ICC_UPDOWN_CLASS        0x0010
+#define ICC_PROGRESS_CLASS      0x0020
+#define ICC_HOTKEY_CLASS        0x0040
+#define ICC_ANIMATE_CLASS       0x0080
+#define ICC_WIN95_CLASSES       0x00FF
+#define ICC_DATE_CLASSES        0x0100
+#define ICC_USEREX_CLASSES      0x0200
+#define ICC_COOL_CLASSES        0x0400
+#define ICC_INTERNET_CLASSES    0x0800
+#define ICC_PAGESCROLLER_CLASS  0x1000
+#define ICC_NATIVEFNTCTL_CLASS  0x2000
+#define ICC_STANDARD_CLASSES    0x4000
+#define ICC_LINK_CLASS          0x8000
+
+
+initial call at program initialisation:
+
+WINCOMMCTRLAPI WINBOOL WINAPI InitCommonControlsEx(const INITCOMMONCONTROLSEX *);
+
+
+
+in "app.RC":
+
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "app.exe.manifest"
+
+
+
+in BIN and SOURCE as "app.exe.manifest":
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+<assemblyIdentity
+    version="1.0.0.0"
+    processorArchitecture="*"
+    name="ST-Open.freeware.app"
+    type="win32"
+/>
+<description>Your application description here.</description>
+<dependency>
+    <dependentAssembly>
+        <assemblyIdentity
+            type="win32"
+            name="Microsoft.Windows.Common-Controls"
+            version="6.0.0.0"
+            processorArchitecture="*"
+            publicKeyToken="6595b64144ccf1df"
+            language="*"
+        />
+    </dependentAssembly>
+</dependency>
+</assembly>

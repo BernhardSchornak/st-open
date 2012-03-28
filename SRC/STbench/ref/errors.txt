@@ -1,0 +1,68 @@
+
+   STbench Errors
+   ~~~~~~~~~~~~~~
+
+
+   00   ERR_NO_ERROR
+   01   ERR_CPUID_FAILED         CPUID not supported
+   02   ERR_NO_CACHE_DATA        no cache data available (assume: 64 KB L1, 64 byte cache lines)
+   03   ERR_LOAD_SOURCE          cannot load source
+   04   ERR_LOAD_TARGET                      target
+   05   ERR_LOAD_RESULTS                     bench results
+   06   ERR_08                   -
+   07   ERR_07                   -
+   08   ERR_08                   -
+   09   ERR_09                   -
+   0A   ERR_0A                   -
+   0B   ERR_0B                   -
+   0C   ERR_0C                   -
+   0D   ERR_0D                   -
+   0E   ERR_0E                   -
+   0F   ERR_0F                   -
+   10   ERR_10                   -
+   11   ERR_11                   -
+   12   ERR_12                   -
+   13   ERR_13                   -
+   14   ERR_14                   -
+   15   ERR_15                   -
+   16   ERR_16                   -
+   17   ERR_17                   -
+   18   ERR_18                   -
+   19   ERR_19                   -
+   1A   ERR_1A                   -
+   1B   ERR_1B                   -
+   1C   ERR_1C                   -
+   1D   ERR_1D                   -
+   1E   ERR_1E                   -
+   1F   ERR_1F                   -
+   20   ERR_20                   -
+   21   ERR_21                   -
+   22   ERR_22                   -
+   23   ERR_23                   -
+   24   ERR_24                   -
+   25   ERR_25                   -
+   26   ERR_26                   -
+   27   ERR_27                   -
+   28   ERR_28                   -
+   29   ERR_29                   -
+   2A   ERR_2A                   -
+   2B   ERR_2B                   -
+   2C   ERR_2C                   -
+   2D   ERR_2D                   -
+   2E   ERR_2E                   -
+   2F   ERR_2F                   -
+   30   ERR_30                   -
+   31   ERR_31                   -
+   32   ERR_32                   -
+   33   ERR_33                   -
+   34   ERR_34                   -
+   35   ERR_35                   -
+   36   ERR_36                   -
+   37   ERR_37                   -
+   38   ERR_38                   -
+   39   ERR_39                   -
+   3A   ERR_3A                   -
+   3B   ERR_3B                   -
+   3C   ERR_3C                   -
+   3D   ERR_3D                   -
+   3E   ERR_3E                   -

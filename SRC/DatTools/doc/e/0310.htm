@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="DatTools Manual: Field Creation" />
+ <meta name="Description" content="DatTools Manual: Field Creation" />
+ <meta name="Keywords" content="dat, tool, MakeDat, multi, lingual" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+ <title>Field Creation</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Table of Content</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Selection</a></li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">Translation</a></li>
+ <li><a href="0500.htm">Standard Fields</a></li>
+ <li><a href="../manual.htm">Home</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0320.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="text100">
+<h1>Create Field</h1>
+<b>Please notice:</b>
+<div class="crlf1"></div>
+1. DatTools assume that all numbers are entered in hexadecimal notation.
+<div class="crlf1"></div>
+2. The content of each entryfield is evaluated whenever it loses the input focus. After you
+ have entered a parameter, click on another control to signal DatTools to evaluate it. This
+ is done because the output function formats the content of the entryfield. Moreover, the
+ cursor position is set to the rightmost character because it is written as last character.
+ If all changes were evaluated, your input were reformatted with every change and you had
+ to set the cursor back to the digit you want to enter.
+<div class="crlf2"></div>
+Select <i>MakeDat</i> in the main menu, then <i>Create Field</i>. The field creation dialog
+ pops up:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk00.png" alt="create field" width="644" height="608" border="0"></div>
+<div class="crlf1"></div>
+Most buttons are disabled for now. They are enabled step by step when you enter required
+ parameters. First enter a field number of your choice. Push <i>Search</i> to tell DatTools
+ to search for the next free field number and set the entryfield to it:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk01.png" alt="field number" width="644" height="608" border="0"></div>
+<div class="crlf1"></div>
+As shown in the screenshot, DatTools automatically assign a string with the field number in
+ hexadecimal notation as the field's name. You should change this to a unique name with up
+ to 27 characters. It is easier to find a field called "spinbuttons" in the field selection
+ dialog than to remember its field number "FFFFFF01":
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk02.png" alt="field name" width="644" height="608" border="0"></div>
+<div class="crlf1"></div>
+Now it is time to enter the required amount of entries in your field. This parameter is
+ required for all data types - you cannot create fields without this information!
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk03.png" alt="amount entries" width="644" height="608" border="0"></div>
+<div class="crlf1"></div>
+Whatever you enter as amount is rounded up to the next multiple of 16, so it's a good idea
+ to set the amount to a number ending with a zero. Numeric data types with a size of up to
+ 16 byte (DB, DW, DD, DQ and DO) have predefined sizes, so their corresponding buttons are
+ enabled after the amount of entries is known. If your field does not contain fixed length
+ data blocks or dynamic strings, you can skip the next step and enter required data types.
+<div class="crlf1"></div>
+If your fiels contains fixed length data blocks and/or dynamic strings, DatTools need to
+ know their maximum size:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk04.png" alt="enter entry length" width="644" height="608" border="0"></div>
+<div class="crlf1"></div>
+Please notice: The entered size is valid for <i>all</i> subfields in this field. If you
+ need blocks with different sizes, you have to create one data field for each size. It is
+ impossible to have more than one size in any data field. The size for dynamic strings is
+ the maximum size for any string. if a string passed to FDacc() exceeds this size, the
+ string is truncated before it is written to the field's end. Like the amount of entries,
+ the entered size is rounded up to the next multiple of 16 to allow fast copying via XMM
+ registers.
+<div class="crlf1"></div>
+Finally, you should add the data types required for your new field:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk05.png" alt="add data types" width="644" height="608" border="0"></div>
+<div class="crlf1"></div>
+The entryfield <i>min.</i> shows the initial field size after creation, <i>max.</i> the
+ maximum field size if the field is filled with dynamic strings of maximum size. If your
+ field does not contain dynamic strings, <i>min.</i> and <i>max.</i> must be equal.
+<div class="crlf1"></div>
+When DatTools got all required information, the <i>Create</i> button is enabled. After
+ adding all data types, push this button to create the new field:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mk06.png" alt="add more types" width="644" height="608" border="0"></div>
+<div class="crlf1"></div>
+When the field was created successfully, the <i>View</i> button is enabled. Push it to
+ view the <a href="0320.htm">Field Content</a> or <i>Close</i> to dismiss the dialog.
+ The field is available now:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/selfld.png" alt="field is available" width="492" height="384" border="0"></div>
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0300.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0320.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

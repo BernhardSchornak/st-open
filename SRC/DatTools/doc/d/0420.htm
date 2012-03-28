@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Seite-topic" content="DatTools-Manual: Menues + Dialoge" />
+<meta name="Description" content="DatTools-Manual: Menues + Dialoge" />
+<meta name="Keywords" content="dat, tools, MakeDat, mehrsprachig" />
+<meta name="date" content="2012-02-12T00:00:00+00:00" />
+<meta name="robots" content="index,follow" />
+<meta name="revisit-after" content="14 days" />
+<meta name="generator" content="Bernhard Schornak, handwritten" />
+<style type="text/css"><!--@import "../st.css";--></style>
+<link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+<title>Men&uuml;s + Dialoge</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Inhalt</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Auswahl</a></li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">&Uuml;bersetzung</a></li>
+ <li><a href="0500.htm">Standardfelder</a></li>
+ <li><a href="../manual.htm">Heim</a></li>
+</ul>
+</div>
+<div class="update">[2012-02-12]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0410.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0430.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="text100">
+<h1>Men&uuml;- &amp; Dialogtexte</h1><br />
+&Uuml;ber den Men&uuml;punkt <i>Men&uuml;s &amp; Texte</i> oder <i>System-Dialoge</i> im Men&uuml;
+ <i>Tools</i> &ouml;ffnen Sie den entsprechenden Dialog:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mwt.png" alt="Dialog: Men&uuml;s und Dialoge" width="436" height="632" border="0"></div>
+<div class="crlf1"></div>
+<h2>Arbeit des &Uuml;bersetzers</h2>
+<div class="crlf1"></div>
+F&uuml;gen Sie Ihre <a href="0400.htm#7">Sprache</a> hinzu, wenn diese noch nicht aufgelistet ist.
+ &Ouml;ffnen Sie <i>Men&uuml;s &amp; Dialoge</i> und tragen Sie Ihre &Uuml;bersetzungen in das
+ entsprechende Eingabefeld ein. Alle Eintr&auml;ge m&uuml;ssen &uuml;bersetzt werden, sonst weisen
+ die Men&uuml;s oder Dialoge L&uuml;cken auf. <i>Schliessen</i> Sie den Dialog, sobald Sie alle
+ Eintr&auml;ge &uuml;besetzt haben. Starten Sie "Ihre" Applikation und schalten Sie auf die neue
+ Sprache um. &Uuml;berpr&uuml;fen Sie Ihre &Uuml;bersetzung auf Fehler und korrigieren Sie diese
+ gegebenenfalls.
+<div class="crlf1"></div>
+<h2>Arbeit des Programmierers</h2>
+<h3>Resource IDs</h3>
+F&uuml;r die Festlegung von Men&uuml;- und Dialogtexten ist die Resource-ID des jeweiligen Elements
+ erforderlich. Tragen Sie die Resource-ID in das obere Eingabefeld neben dem Drehknopf ein. Dieses
+ Eingabefeld akzeptiert ausschliesslich vierstellige Hexadezimalzahlen. Die ID 0x0000 wird von den
+ weiter unten beschriebenen Funktionen als ung&uuml;ltig behandelt, das entsprechende Element wird
+ nicht dargestellt. Die IDs 0x0800 bis 0x0FFF sind f&uuml;r die Dialoge des ST-Systems reserviert.
+ Definieren Sie Ihre Resource-IDs daher zwischen 0x1000 und 0xFFFF, um durch mehrfach definierte
+ IDs verursachte Konflikte von vorne herein auszuschliessen.
+<div class="crlf1"></div>
+<b>Anmerkung:</b> Bitte lassen Sie die IDs der Systemdialoge unver&auml;ndert! Die Resource-IDs des
+ Systems sind zum Teil direkt im Quelltext eingebunden, so dass eine Neuzuweisung unweigerlich zu
+ Fehlfunktionen der Systemdialoge f&uuml;hrt.
+<div class="crlf1"></div>
+Die Texte f&uuml;r das Hauptmen&uuml; sollten ganz unten im Feld abgelegt werden. Lassen Sie daran
+ anschliessend einige Eintr&auml;ge f&uuml;r sp&auml;tere Erweiterungen des Men&uuml;s frei. Nach
+ den Men&uuml;texten geben Sie die Texte aller Dialogtitel und -elemente ein, deren Inhalt in der
+ aktuell ausgew&auml;hlten Sprache angezeigt werden sollen. W&auml;hlen Sie glatte Nummern f&uuml;r
+ die Dialogtitel und fassen Sie zusammengeh&ouml;rende Dialogelemente in Gruppen zusammen. Lassen
+ Sie etwas Platz zwischen den einzelnen Gruppen, das erpart bei &Auml;nderungen eine m&uuml;hsame
+ Reorganisation des gesamten Feldes.
+<div class="crlf1"></div>
+<h3>Sprache festlegen</h3>
+Die aktuelle Sprache wird &uuml;ber das Setzen der globalen Systemvariablen <b>STV_USR_LANGUAGE</b>
+ ausgew&auml;hlt. F&uuml;r x ist ein Wert zwischen 0x00 und 0x0F zu w&auml;hlen. Momentan sind
+ folgende Sprachen festgelegt:
+<div class="sitemap">
+<ul><li>0 = Englisch</li><li>1 = Deutsch</li></ul></div>
+<div class="crlf1"></div>
+<h3>Men&uuml;s umschalten</h3>
+Um Men&uuml;s auf eine andere Sprache umzuschalten, rufen Sie die Funktion <b>MNUtxt(hwnd, anfang,
+ ende);</b> auf. <i>hwnd</i> ist der Henkel des aktuellen Fensters, <i>anfang</i> die Nummer des
+ ersten, <i>ende</i> die des letzten Eintrags in dem Ihre Men&uuml;texte gespeichert sind. Diese
+ Funktion kann f&uuml;r alle Men&uuml;s Ihrer Applikation verwendet werden. Als <i>hwnd</i>
+ &uuml;bergeben Sie immer den Fensterhenkel des entsprechenden Ausgabefensters, <i>anfang</i> und
+ <i>ende</i> verweisen auf die Eintragsnummern, unter denen die Texte gespeichert sind.
+<div class="crlf1"></div>
+<b>Achtung:</b> Wird eine Resource-ID gefunden, der eine leere Zeichenkette zugeordnet ist, dann
+ wird das entsprechende Men&uuml;element aus dem Men&uuml; entfernt. Das entfernte Men&uuml;element
+ wird erst nach dem Neustart des Programms wieder angezeigt - auch dann, wenn Sie nachtr&auml;glich
+ den fehlenden Text eingeben.
+<div class="crlf1"></div>
+<h3>Dialoge</h3>
+Die Texte eines Dialogs werden erst beim Aufruf in das Dialogfenster geschrieben. F&uuml;gen sie in
+ der Dialogprozedur unter <b>WM_INITDLG</b> als erste Zeile nach den Definitionen der Variablen den
+ Aufruf
+<div class="crlf1"></div>
+<b>DLGtxt(hwnd, titel, anfang, ende);</b>
+<div class="crlf1"></div>
+ein. <i>hwnd</i> ist der Fensterhenkel des Dialogs, <i>titel</i> die Eintragnummer, in der der
+ Fenstertitel gespeichert ist. F&uuml;r den Titel wid keine Resource-ID ben&ouml;tigt, da er direkt
+ &uuml;ber den Fensterhenkel angesprochen wird. <i>anfang</i> und <i>ende</i> geben die erste und
+ letzte Eintragnummer an, in denen die Texte f&uuml;r die Dialogelemente dieses Dialogs gespeichert
+ sind.
+<div class="crlf1"></div>
+Sind alle Eingaben und Aufrufe korrekt, verf&uuml;gen Sie nun &uuml;ber ein mehrsprachiges Programm.
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="aufw&auml;rts" width="20" height="20" border="0" title="aufw&auml;rts" /></a>
+&#160;&#160;&#160;<a href="0410.htm"><img src="./pics/nav_bk.png" alt="zur&uuml;ck" width="20" height="20" border="0" title="zur&uuml;ck" /></a>
+&#160;&#160;&#160;<a href="0430.htm"><img src="./pics/nav_fw.png" alt="vorw&auml;rts" width="20" height="20" border="0" title="vorw&auml;rts" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

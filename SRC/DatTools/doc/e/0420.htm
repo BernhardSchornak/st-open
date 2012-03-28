@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <meta name="Page-topic" content="DatTools Manual: Menus + Dialogs" />
+ <meta name="Description" content="DatTools Manual: Menus + Dialogs" />
+ <meta name="Keywords" content="dat, tool, MakeDat, multi, lingual" />
+ <meta name="date" content="2009-05-08T00:00:00+00:00" />
+ <meta name="robots" content="index,follow" />
+ <meta name="revisit-after" content="14 days" />
+ <meta name="generator" content="Bernhard Schornak, handwritten" />
+ <style type="text/css"><!--@import "../st.css";--></style>
+ <link rel="SHORTCUT ICON" href="./pics/favicon.ico" />
+ <title>Menus + Dialogs</title>
+</head>
+<body id="top">
+<div class="pagehd">
+<div id="menu">
+<ul>
+ <li><a href="0000.htm">Table of Content</a></li>
+ <li><a href="0100.htm">DatTools</a></li>
+ <li><a href="0200.htm">Selection</a></li>
+ <li><a href="0300.htm">MakeDat 5</a></li>
+ <li><a href="0400.htm">Translation</a></li>
+ <li><a href="0500.htm">Standard Fields</a></li>
+ <li><a href="../manual.htm">Home</a></li>
+</ul>
+</div>
+<div class="update">[2009-05-08]</div>
+<div class="headpc"><img src="./pics/md5.png" alt="DatTools Logo" width="200" height="100" border="0" /></div>
+</div>
+<div class="crlf1"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0410.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0430.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="text100">
+<h1>Menu &amp; Dialog Texts</h1>
+This dialog comes in two flavours - one version for your application, the other version
+ for the ST-Open team. Please leave the latter one alone. Except you want to translate
+ all system menu and dialog texts into another language, there's no reason to alter any
+ of these strings. If you alter existing entries, it were nice if you inform ST-Open
+ what you changed and why you think it is necessary to change it.
+<div class="crlf1"></div>
+To open the dialog, select <i>Translation</i>, then <i>Menus &amp; Dialogs</i> or (if
+ you cannot stay away) <i>System Dialogs</i>:
+<div class="crlf1"></div>
+<div class="box100"><img src="./pics/mwt.png" alt="Menus und Dialogs" width="612" height="732" border="0"></div>
+<div class="crlf1"></div>
+<h2>Translations</h2>
+<div class="crlf1"></div>
+Add the new language in the <a href="0400.htm#7">Languages</a> dialog if isn't listed yet.
+ Open <i>Menus &amp; Dialogs</i> or <i>System Dialogs</i> and add your translations in the
+ corresponding entryfield. All entries must be present, otherwise the one or other menu
+ item or dialog text is missing in your application. <i>Close</i> the translation dialog
+ whenever you added your translations. Open the application and check if everything is
+ okay. Correct errors if necessary. Have fun.
+<div class="crlf1"></div>
+<h2>Programmer's Tasks</h2>
+<h3>Resource IDs</h3>
+To add a menu or dialog text, the resource ID of the corresponding dialog element is
+ required. Enter that resource ID in the top entryfield (right of the spinbutton). This
+ entryfield only accepts hexadecimal numbers with four digit (DW). Whatever you enter
+ into the entryfield is limited to four digits and will be treated as hexadecimal number.
+ ID 0x0000 is defined as invalid - elements with an ID of zero are not displayed, menu
+ items with this ID are removed from the menu. The IDs 0x0800 through 0x0FFF are reserved
+ for dialogs provided by the ST-Open's libraries. Please define your resource IDs in the
+ range 0x1000 through 0xFFFF to avoid conflicts caused by multiple definitions of one and
+ the same resource ID.
+<div class="crlf1"></div>
+<b>Note:</b> It is strongly recommended to leave the IDs of system dialogs alone. You save
+ a lot of trouble if you maintain more than one program based on ST-Open's libraries.
+<div class="crlf1"></div>
+The texts for the main menu should be assigned to the first entries in the field. To allow
+ future extensions reserve a sufficient amount of free entries behind the last menu text.
+ After assigning all menu texts, you should continue with the dialogs. It is recommended
+ to store the dialog/window title at an even entry number followed by the dialog's texts.
+ Leave some free entries to avoid the time consuming re-organisation of your field if a
+ dialog must be expanded.
+<div class="crlf1"></div>
+<h3>Current Language</h3>
+The line
+<div class="crlf1"></div>
+<b>*STV_USR_LANGUAGE = x;</b>
+<div class="crlf1"></div>
+is all you need to set the current language. Valid values for x are in the range 0x00
+ through 0x0F. At the moment, two languages are defined:
+<div class="sitemap">
+<ul><li>0 = English</li><li>1 = German</li></ul></div>
+<div class="crlf1"></div>
+<h3>Menu</h3>
+Switching the menu to another language is as easy as calling the function <b>MNUtxt(hwnd,
+ first, last);</b>. <i>hwnd</i> is the window handle of the main message loop, <i>first</i>
+ the entry number of the first, <i>last</i> the entry number of the last entry assigned to
+ the main menu. You may use the function for other menus as well with the <i>hwnd</i> of
+ the client window.
+<div class="crlf1"></div>
+<b>Caution:</b> If a resource ID is assigned to an empty string, the corresponding menu
+ item is removed from the menu. To restore the removed item you have to terminate the
+ application and start it again - even if the missing text is added on the fly.
+<div class="crlf1"></div>
+<h3>Dialogs</h3>
+Dialog texts are set whenever the dialog is opened. Add the following line as the first
+ call in the <b>WM_INITDLG</b> procedure of each dialog:
+<div class="crlf1"></div>
+<b>DLGtxt(hwnd, title, first, last);</b>
+<div class="crlf1"></div>
+<i>hwnd</i> is the window handle of the dialog procedure, <i>title</i> the entry number
+ containing the window title, <i>first</i> and <i>last</i> specify the range of entries
+ belonging to the dialog. The window title doesn't need a resource ID, it is accessed via
+ the passed window handle. All other entries must provide a resource ID, otherwise they
+ are not displayed.
+<div class="crlf1"></div>
+If your entries and calls were entered properly, you are the creator of a multi-lingual
+ application now... :)
+</div>
+<div class="crlf2"></div>
+&#160;&#160;&#160;<a href="../manual.htm"><img src="./pics/nav_up.png" alt="up" width="20" height="20" border="0" title="up" /></a>
+&#160;&#160;&#160;<a href="0410.htm"><img src="./pics/nav_bk.png" alt="previous" width="20" height="20" border="0" title="previous" /></a>
+&#160;&#160;&#160;<a href="0430.htm"><img src="./pics/nav_fw.png" alt="forwards" width="20" height="20" border="0" title="forwards" /></a>
+<div class="crlf1"></div>
+</body>
+</html>

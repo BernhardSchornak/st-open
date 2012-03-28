@@ -1,0 +1,53 @@
+
+100 DIALOG 6, 18, 260, 176
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog Title"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Image Size", 102, 10, 6, 110, 8
+    PUSHBUTTON      "Push", 106, 5, 152, 80, 18
+    PUSHBUTTON      "Push", 107, 175, 152, 80, 18
+    PUSHBUTTON      "Push", 108, 90, 152, 80, 18
+    EDITTEXT        103, 125, 4, 130, 12, ES_AUTOHSCROLL
+    LTEXT           "Load Image", 101, 10, 26, 110, 8
+    LTEXT           "done", 104, 125, 26, 60, 8
+    LTEXT           "Open target drive", 105, 10, 39, 110, 8
+    LTEXT           "done", 109, 125, 39, 60, 8
+    LTEXT           "failed", 110, 190, 26, 65, 8
+    LTEXT           "failed", 111, 190, 39, 65, 8
+    LTEXT           "Get Content", 112, 10, 52, 110, 8
+    LTEXT           "done", 113, 125, 52, 60, 8
+    LTEXT           "failed", 114, 190, 52, 65, 8
+    LTEXT           "Open Backup", 115, 10, 66, 110, 8
+    LTEXT           "done", 116, 125, 66, 60, 8
+    LTEXT           "failed", 117, 190, 66, 65, 8
+    LTEXT           "Store Backup", 118, 10, 80, 110, 8
+    LTEXT           "done", 119, 125, 80, 60, 8
+    LTEXT           "failed", 120, 190, 80, 65, 8
+    LTEXT           "Lock / Unmount", 121, 10, 94, 110, 8
+    LTEXT           "done", 122, 125, 94, 60, 8
+    LTEXT           "failed", 123, 190, 94, 65, 8
+    LTEXT           "Write Image", 124, 10, 108, 110, 8
+    LTEXT           "done", 125, 125, 108, 60, 8
+    LTEXT           "failed", 126, 190, 108, 65, 8
+    CTEXT           "Image Written!", 127, 10, 130, 245, 8
+END
+
+200 DIALOG 6, 18, 350, 305
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Dialog Title"
+FONT 10, "Consolas"
+BEGIN
+    LTEXT           "Known Files", 201, 5, 8, 145, 8
+    LISTBOX         202, 5, 24, 340, 225, LBS_SORT | LBS_MULTIPLESEL | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Select All", 203, 5, 254, 110, 14
+    PUSHBUTTON      "Deselect All", 204, 120, 254, 110, 14
+    PUSHBUTTON      "Last Selection", 205, 235, 254, 110, 14
+    PUSHBUTTON      "Dismiss", 206, 5, 281, 110, 18
+    PUSHBUTTON      "Glue", 207, 120, 281, 110, 18
+    PUSHBUTTON      "Help", 208, 235, 281, 110, 18
+    PUSHBUTTON      "Add files", 209, 160, 5, 185, 14
+END

@@ -1,0 +1,48 @@
+
+100 DIALOG 6, 18, 390, 190
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog Title"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    EDITTEXT        109, 180, 168, 30, 12, ES_READONLY
+    EDITTEXT        111, 80, 76, 125, 12
+    LTEXT           "Address MH", 102, 5, 27, 70, 8
+    LTEXT           "Block Address", 103, 5, 10, 70, 8
+    EDITTEXT        104, 80, 8, 125, 12
+    LTEXT           "Block Size", 105, 5, 44, 70, 8
+    EDITTEXT        112, 80, 42, 125, 12
+    LTEXT           "Allocated Size", 113, 5, 95, 70, 8
+    EDITTEXT        114, 80, 110, 125, 12
+    LTEXT           "Instance Count", 115, 5, 78, 70, 8
+    EDITTEXT        116, 80, 93, 125, 12
+    LTEXT           "Field Number", 117, 5, 61, 70, 8
+    EDITTEXT        118, 80, 59, 125, 12
+    LTEXT           "Entries", 120, 5, 112, 70, 8
+    LTEXT           "file", 107, 305, 30, 70, 8
+    LTEXT           "Loader busy", 110, 220, 30, 70, 8
+    LTEXT           "LF list", 121, 305, 40, 70, 8
+    LTEXT           "corrupted", 122, 220, 40, 70, 8
+    LTEXT           "static", 123, 305, 50, 70, 8
+    LTEXT           "SecSys", 124, 220, 50, 70, 8
+    LTEXT           "mem only", 125, 305, 60, 70, 8
+    LTEXT           "encrypted", 126, 220, 60, 70, 8
+    LTEXT           "leave open", 127, 305, 70, 70, 8
+    LTEXT           "dirty", 128, 220, 70, 70, 8
+    LTEXT           "changed", 129, 305, 80, 70, 8
+    LTEXT           "reserved", 130, 220, 80, 70, 8
+    LTEXT           "write", 131, 305, 90, 70, 8
+    LTEXT           "system field", 132, 220, 90, 70, 8
+    LTEXT           "single instance", 134, 220, 100, 70, 8
+    PUSHBUTTON      "Dismiss", 135, 5, 165, 80, 18
+    PUSHBUTTON      "Previous", 136, 95, 167, 80, 14
+    PUSHBUTTON      "Next", 137, 215, 167, 80, 14
+    PUSHBUTTON      "Help", 138, 305, 165, 80, 18
+    EDITTEXT        140, 80, 25, 125, 12
+    GROUPBOX        " Flags ", 108, 210, 5, 175, 117
+    LTEXT           "read", 106, 305, 101, 70, 8
+    GROUPBOX        " Byte 01 ", 101, 215, 17, 80, 99
+    GROUPBOX        " Byte 00 ", 119, 300, 17, 80, 99
+    EDITTEXT        133, 5, 143, 380, 12, ES_AUTOHSCROLL
+    AUTOCHECKBOX    "decimal", 139, 80, 127, 70, 10
+END

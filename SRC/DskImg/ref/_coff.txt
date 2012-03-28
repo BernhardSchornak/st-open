@@ -1,0 +1,121 @@
+
+
+         COFF FILE FORMAT
+         ================
+
+         File Header
+         -----------
+
+         DW 0000   'magic number' (6486 for TDM minGW-64)
+         DW 0002   section count
+         DD 0004   time&date stamp
+         DD 0008   offset symbol table
+         DD 000C   symbol count
+         DW 0010   size of optional header (non-zero only in PE files)
+         DW 0012   flags:   0001   no relocation info included
+                            0002   all symbols are resolved
+                            0004   no line number information
+                            0008   no local symbols included
+         size 14            0100   32 bit little endian
+
+         Section Header
+         --------------
+
+         DQ 0014   section name (if > 8 chars, this is an offset to a string table entry)
+         DD 001C   physical address (set by .org and the likes)
+         DD 0020   virtual  address (used for virtual memory, generally equal to DD[001C])
+         DD 0024   section  size    (byte)
+         DD 0028   offset   section data (.text)
+         DD 002C   offset   relocation table
+         DD 0030   offset   line number table
+         DW 0034   relocation table entry count
+         DW 0036   line number entry count
+         DD 0038   flags:   0020 .text
+                            0040 .data / .rdata
+         size 28            0080 .bss (no data given, but count of byte to pad with zeroes)
+
+
+
+         Relocation Structure
+         --------------------
+
+         DD   00   reference address
+         DD   04   symbol index
+         DW   08   relocation type:   ???
+
+
+
+         Symbol Table
+         ------------
+
+         DQ   00   name if     <= 8 chars
+                        else   0000 0000   zero
+                               xxxx xxxx   offset in string table
+         DD   08   symbol value (relocation offset in file)
+         DW   0C   section number:   0000   undefined (external - must be found in another file!)
+                                     FFFF   symbol value is an absolute value (might be 0001, either)
+                                     FFFE   debugging symbol                  (might be 0002, either)
+
+         DW   0E   symbol type:      0000   no symbol
+                                     0001   void argument
+                                     0002   SB
+                                     0003   SW (SHORT)
+                                     0004   SW (INT)
+                                     0005   DW
+                                     0006   DF
+                                     0007   QF
+                                     0008   struct
+                                     0009   union
+                                     000A   enum
+                                     000B   enum member
+                                     000C   DB
+                                     000D   DW (USHORT)
+                                     000E   DW (UINT)
+                                     000F   DD
+                                     0010   DQ
+                                     xx0x   no derived type
+                                     xx1x   pointer to (xxx0...xxxF)
+                                     xx2x   returns    (xxx0...xxxF)
+                                     xx3x   array of   (xxx0...xxxF)
+
+         DB   10   storage class       00   no entry
+                                       01   automatic variable
+                                       02   external (public) symbol
+                                       03   static (private) symbol
+                                       04   register variable
+                                       05   external definition
+                                       06   label
+                                       07   undefine label
+                                       08   struct member
+                                       09   function argument
+                                       0A   struct tag
+                                       0B   union member
+                                       0C   union tag
+                                       0D   type definition
+                                       0E   undefined static
+                                       0F   enum tag
+                                       10   enum member
+                                       11   register parameter
+                                       12   bit field
+                                       13   auto argument
+                                       14   dummy entry (end of block)
+                                       64   .bb or .eb  (begin block / end block)
+                                       65   .bf or .ef  (begin fnctn / end fnctn)
+                                       66   end of struct
+                                       67   file name
+                                       68   line number (as symbol)
+                                       69   duplicate tag
+                                       6A   ext symbol in ??? lib
+                                       FF   physical end of function   
+
+         DB   11   Auxiliary count   count of associated Symbol Table entries following this one
+                                     zero if none
+
+
+         String Table
+         ------------
+
+         Follows directly after the last entry in the Symbol table. The 1st DD determines
+         the String Table's size. All string references are offsets into the String Table
+         - any offset to the address where the size is stored means an empty string shall
+         be used.
