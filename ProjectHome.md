@@ -1,0 +1,2 @@
+ST-Open offers 64 bit libraries and tools to handle some of their advanced features like the built-in database engine. All libraries are written in 100% hand optimised, PUSH and
+POP free assembler (Intelligent Design).
