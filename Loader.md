@@ -21,11 +21,17 @@ The Loader itself occupies 65,536 byte. Data for each allocated memory block is 
 MemHandle:
 
 00___DQ___Block Address
+
 08___DD___Flags
+
 0C___DD___Instance Count
+
 10___DD___Allocated Size
+
 14___DD___File Size
+
 18___DD___Field Number
+
 1C___DD___Field Entries
 
 The system occupies the first eight memory handles for itself, system variables and lookup tables, system strings, two 65,536 byte buffers for FDacc() and register dumps plus one 65,536 byte general purpose buffer. The eighth memory handle is reserved for future expansions, so 2,040 handles are left for system functions and applications.
