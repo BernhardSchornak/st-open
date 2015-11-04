@@ -22,14 +22,14 @@ the maximum amount of memory you can allocate (depends on hardware and OS).
 
 ## Data Types ##
 
-  * 00   no type   VOID      marker for not defined subfields
-  * 01   DB        Byte        8 bit data
-  * 02   DW        Word       16 bit data
-  * 03   DD        DWord      32 bit data
-  * 04   DQ        QWord      64 bit data
-  * 05   DO        OWord     128 bit data
-  * 06   FIX       Block     128 * n bit data blocks
-  * 07   $32       String    dynamic strings with 32 bit offset table
+  * 00	no type	VOID	marker for not defined subfields
+  * 0	D	Byt	  8 bit data
+  * 0	D	Wor	 16 bit data
+  * 0	D	DWor	 32 bit data
+  * 0	D	QWor	 64 bit data
+  * 0	D	OWor	128 bit data
+  * 0	FI	Bloc	128 * n bit data blocks
+  * 0	$32	String	dynamic strings with 32 bit offset table
 
 These types are sufficient to handle **any** kind of data you might want to read from or write to permanent storage.
 
