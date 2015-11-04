@@ -31,8 +31,9 @@ the maximum amount of memory you can allocate (depends on hardware and OS).
   * 06_____FIX_________Block________128 * n bit data blocks
   * 07_____$32_________String_______dynamic strings with 32 bit offset table
 
-These types are sufficient to handle **any** kind of data you might want to read from or write to permanent storage. Sorry for the forced formatting, but the editor "eats" more than one blanks in a row and replaces tabs (regardless of their quantity) with exactly one space. Hence, real formatting must be forced with some
-non-space, non-tab characters...
+SORRY FOR THE INFERIOR FORMATTING CAPABILITIES OF THE EDITOR / DOCUMENT VIEWER...
+
+These types are sufficient to handle **any** kind of data you might want to read from or write to permanent storage.
 
 By the way: All bits of these types are treated as the bits they are. There neither are master bits nor slave bits. All of them have just two states - either they are (bit set, electric charge present), or they are not (reset, no charge there). Funny master race bits called _sign bits_ only exist in some people's heads and belong to unfulfilled dreams about a [4th Reich'n'Roll](http://www.youtube.com/watch?v=AGr97SCvxp4).
 In other words - the DBE does not care if someone gives each single bit a unique name before it is sent to the execution pipe(s)...
