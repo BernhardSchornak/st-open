@@ -22,16 +22,17 @@ the maximum amount of memory you can allocate (depends on hardware and OS).
 
 ## Data Types ##
 
-  * 00	no type	VOID	marker for not defined subfields
-  * 0	D	Byt	  8 bit data
-  * 0	D	Wor	 16 bit data
-  * 0	D	DWor	 32 bit data
-  * 0	D	QWor	 64 bit data
-  * 0	D	OWor	128 bit data
-  * 0	FI	Bloc	128 * n bit data blocks
-  * 0	$32	String	dynamic strings with 32 bit offset table
+  * 00_____VOID________no type______marker for not defined subfields
+  * 01_____DB__________Byte___________8 bit data
+  * 02_____DW__________Word__________16 bit data
+  * 03_____DD__________DWord_________32 bit data
+  * 04_____DQ__________QWord_________64 bit data
+  * 05_____DQ__________OWord________128 bit data
+  * 06_____FIX_________Block________128 * n bit data blocks
+  * 07_____$32_________String_______dynamic strings with 32 bit offset table
 
-These types are sufficient to handle **any** kind of data you might want to read from or write to permanent storage.
+These types are sufficient to handle **any** kind of data you might want to read from or write to permanent storage. Sorry for the forced formatting, but the editor "eats" more than one blanks in a row and replaces tabs (regardless of their quantity) with exactly one space. Hence, real formatting must be forced with some
+non-space, non-tab characters...
 
 By the way: All bits of these types are treated as the bits they are. There neither are master bits nor slave bits. All of them have just two states - either they are (bit set, electric charge present), or they are not (reset, no charge there). Funny master race bits called _sign bits_ only exist in some people's heads and belong to unfulfilled dreams about a [4th Reich'n'Roll](http://www.youtube.com/watch?v=AGr97SCvxp4).
 In other words - the DBE does not care if someone gives each single bit a unique name before it is sent to the execution pipe(s)...
